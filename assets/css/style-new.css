@@ -1,0 +1,86 @@
+body {
+	background: #ffffff;
+}
+.green-color {
+	background: none;
+}
+
+/**
+ * Top header
+ **************************/
+.top-header {
+	width: 100%; height: 44px; border-bottom: 2px solid #cccccc;
+}
+.top-header-left {
+	float: left; height: 44px;
+}
+.top-header-left-01 {
+	padding: 8px 0; float: left; margin-right: 10px;
+}
+.top-header-left-01 img{
+	vertical-align: middle;
+}
+.top-header-left-01 span{
+	font-size: 15px; font-weight: 600; vertical-align: middle; padding: 5px 0;
+}
+.top-header-left-01 span:first-child {
+	color: #252525; margin-left: 5px;
+}
+.top-span {
+	margin-left: 5px;
+}
+.top-header-left-01 span:last-child {
+	color: #f85f32; margin-left: 8px;
+}
+
+.top-header-left-02 {
+	padding: 10px 0;
+}
+
+.top-header-right {
+	height: 44px; float: right;
+}
+.top-header-right ul li {
+	float: left; font-size: 14px; padding: 15px 10px;  border-right: 1px dotted #cccccc;
+}
+.top-header-right ul li:last-child {
+	border-right: none;
+}
+.top-header-right ul li a {
+	color: #000000;
+}
+.top-header-right ul li a:hover {
+	color: #4089b7;
+}
+
+.logo {
+	width: 400px; height: 110px; margin-left: 0px;
+}
+
+/**
+ * Menu
+ *************************/
+.headter-top, .dropdown-navigative-menu {
+	height: 40px;
+}
+.headter-top #page-navigative-menu{
+	height: 40px; background: none; background-color: #00619f;
+}
+#page-navigative-menu ul {
+	margin: 0;
+}
+#page-navigative-menu ul li {
+	margin: 0px; height: 40px; padding: 0 13px;
+}
+#page-navigative-menu ul li a.haslin {
+	text-transform: uppercase; line-height: 40px;
+}
+#page-navigative-menu a:hover {
+	color: #ffed21;
+}
+#page-navigative-menu li li {
+	height: 35px;
+}
+#page-navigative-menu li li a{
+	padding: 2px 0;
+}

@@ -1,0 +1,466 @@
+/* CSS Document */
+
+* { margin: 0px auto; padding: 0;}
+/* reset css */
+
+ul li,ol {
+	list-style:none;
+}
+* {
+	margin:0;
+	padding:0;
+	outline:none;
+}
+img {
+	border:none;
+}
+
+sreenwrap {font: 13px Arial, Helvetica, sans-serif; color:#000; background:#e8eced  url(image/background.png)  no-repeat; background-size: 100%;}
+	.green-color {background: #e8eced url(image/background.png) no-repeat fixed;background-size: 100%;}
+body{
+	margin:0px auto;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin-left: 0px;
+	margin-right: 0px;
+	background-color:#dddddd;
+	z-index: 3;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+	
+}	
+/* menu*/
+.headter-top{
+
+font-size:12px;
+font-family:Geneva, Arial, Helvetica, sans-serif;
+ font-weight:bold;
+    width: 975px;
+    height: 35px;
+	 float:left;
+	 }
+  
+   
+
+
+#left-page-nav
+{
+    background-image: url('/Images/MenuIcon/left.gif');
+    clear: both;
+    background-repeat: no-repeat;
+    float: left;
+    height: 35px;
+    width: 6px;
+}
+
+#page-navigative-menu
+{
+    width: 975px;
+    color: Black;
+    background:url(image/menu.png);
+	height:36px;
+   
+    float: left;
+    padding-left: 5px;
+}
+#page-navigative-menu a
+{
+    text-decoration: none;
+}
+#page-navigative-menu ul/* menubd*/
+{ 
+ margin-top:-5px;
+    padding: 0px;
+    list-style: none;
+    z-index: 1000;
+}
+.dropdown-navigative-menu
+{height: 35px;
+ float:left;
+    margin-bottom: 5px;
+}
+.dropdown-navigative-menu li  /* menudrop*/
+{ margin-top:5px;
+  
+   
+    float: left;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropdown-navigative-menu li:last-child
+{
+    border-right: none;
+}
+.dropdown-navigative-menu a:hover, .dropdown-navigative-menu a.active, ul.dropdown-navigative-menu a:active
+{
+    color: #ffffff;
+	 
+	  font:Geneva, Arial, Helvetica, sans-serif;
+}
+.dropdown-navigative-menu li a
+{
+    display: block;
+    color: #ffffff;
+    line-height: 29px;
+   
+}
+.dropdown-navigative-menu li.hover, .dropdown-navigative-menu li:hover, .dropdown-navigative-menu .li_selected, .dropdown-navigative-menu li.active, .dropdown-navigative-menu .nav_selected
+{
+    background-color: #00619f;
+    position: relative;
+}
+.dropdown-navigative-menu ul
+ { border-bottom:3px #00446f solid; 
+   
+    min-width: 155px;
+    display: none;
+    position: absolute;
+	
+    
+}
+.dropdown-navigative-menu ul li   /* menu drop hien mau xanh trang*/
+
+{ border-top:none;
+
+    background-color:#FFFFFF;
+   border:1px #CCCCCC solid;
+   
+    height:30px;
+    float: none;
+    padding-left: 10px;
+    padding-right: 10px; 
+    line-height: 15px;
+    text-align: left;
+	margin-top:3px;
+	 }
+.dropdown-navigative-menu ul li:last-child /* kcach 2 menu drop*/
+{ border-left:1px #CCCCCC solid;
+border-right:1px #CCCCCC solid; border-top:1px #CCCCCC solid; margin-top:-1px;
+	
+}
+.dropdown-navigative-menu ul li a/* font menu trang*/
+{ font-size:13px;
+margin-top:1px;
+    border-right: none;
+    display: inline-block;
+    width: 138px;/* CDAI MENUDROP*/
+	color:#666666;
+    text-align: left;
+}
+.dropdown-navigative-menu ul li.hover, ul.dropdown-navigative-menu ul li:hover, ul.dropdown-navigative-menu ul .li_selected, ul.dropdown-navigative-menu ul li.active
+{
+  border-top:1px #00619f solid;
+   background-color:#00619f; /* menu drop hien mau xanh la*/
+    color:#333333;
+	border-bottom:1px #00619f solid;
+	border-left:1px #00619f solid;
+	border-right:1px #00619f solid;
+	
+	
+}
+.dropdown-navigative-menu ul li img
+{
+    padding-top: 9px;
+    float: right;
+}
+.dropdown-navigative-menu ul ul
+{
+    top: 0;
+}
+.dropdown-navigative-menu li:hover > ul
+{
+    display: block;
+    left: 0;
+    top: 100%;
+}
+
+.dropdown-navigative-menu li > ul > li:hover > ul
+{
+    display: block !important;
+    left: 100%;
+    top: 0;
+}
+
+.dropdown-navigative-menu a.indent
+{
+    background-image: url(/Images/MenuIcon/blue_arrow.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+.allboxsp1{float:left; border:1px #d1d1d1 solid; border-top:none;  padding-top:15px; margin-bottom:10px;}
+.sreensp1{width:620px; margin-left:30px;  float:left; margin-bottom:15px;}
+.logo{width:380px; height:70px; float:left;  margin-left:20px;}
+.menutop{ background:url(image/top.png); width:315px; height:36px; float:right; margin-right:30px;}
+.gioithieu a {font-size:13px; color:#a2a2a2; float:left;}
+.gioithieu a:hover {font-size:13px; color:#00baff; float:left;}
+.menu{background:url(image/menu.png); height:36px; float:left; width:980px; }
+.home a {color:#d7d7d7; font-size:12px; float:left; font-weight:bold; margin-left:35px; margin-top:9px;}
+.home a:hover {color:#FFFFFF; font-size:12px; float:left;font-weight:bold; margin-left:35px;margin-top:9px;}
+.home2 a {color:#d7d7d7; font-size:12px; float:left; font-weight:bold; margin-left:34px; margin-top:9px;}
+.home2 a:hover {color:#FFFFFF; font-size:12px; float:left;font-weight:bold; margin-left:34px; margin-top:9px;}
+.arow1 a{background:url(image/arow3.png); width:26px; height:46px; float:left;margin-top:135px; margin-left:10px;}
+.arow1 a:hover{background:url(image/arow3.png); width:26px; height:46px; float:left;margin-top:135px;margin-left:10px;}
+.arow2 a{background:url(image/arow4.png); width:26px; height:46px; float:left; margin-top:135px;}
+.arow2 a:hover{background:url(image/arow4.png); width:26px; height:46px; float:left;margin-top:135px;}
+.shadow{ background:url(image/shadow3.png); width:906px; height:20px; float:left; margin-left:30px;}
+.arow3 a {background:url(image/arow1.png); width:16px; height:24px; margin-top:80px; margin-left:18px; float:left;}
+.arow3 a:hover {background:url(image/arow1.png); width:16px; height:24px; margin-top:80px; margin-left:18px; float:left;}
+.arow4 a {background:url(image/arow2.png); width:16px; height:24px;margin-right:18px; margin-top:80px; float:right;}
+.arow4 a:hover {background:url(image/arow2.png); margin-right:18px; width:16px; height:24px; margin-top:80px;float:right;}
+.left{width:651px; float:left;}
+.spbanchay{  width:650px; margin-bottom:5px; padding-bottom:1px; float:left;}
+.dmucdienthoai{  width:650px; margin-bottom:5px;padding-bottom:1px; float:left;}
+.ttincongghe{  width:648px;  margin-bottom:1px;  float:left;}
+.ttinsanpham{  width:648px;  margin-bottom:10px; float:left;}
+.spmoi{  width:650px; margin-bottom:5px; float:left;}
+.sp3 {width:115px; height:166px; float:left; }
+.sp3 img{width:120px; height:159px; margin-left:15px; float:left;}
+.sp{ width:40px; height:130px; float:left;  }
+.sp img{ width:40x; height:130px;float:left; }
+.titlesp a { color:#525252; font-size:13px; width:163px; float:left; margin-top:25px; height:16px;margin-bottom:4px;}
+.titlesp a:hover { color:#008aff; font-size:13px; width:163px;float:left; margin-top:25px;height:16px;margin-bottom:4px;}
+.titledownload{background-color:#b2b2b2; width:224px; margin-left:7px; height:5px; float:left;}
+.titlesp3 a { color:#525252; font-size:13px; width:140px; height:25px; float:left;   margin-bottom:3px;}
+.titlesp3 a:hover { color:#008aff; font-size:13px; width:140px; height:25px;  float:left;  margin-bottom:3px;}
+.pricespold{ color:#000000; font-size:13px; width:163px; font-weight:bold ;float:left; margin-top:-5px; text-decoration:line-through;}
+.pricespnew{color:#FF0000; font-size:13px;font-weight:bold ; width:163px;float:left;}
+.pricesphot{color:#000000; font-size:13px; width:140px;  font-weight:bold ;float:left; margin-top:7px;}
+.boxsp{width:163px; float:left;}
+.boxsp2{width:140px; height:170px; margin-left:42px; float:left; margin-top:20px; }
+.sp2{ width:85px; height:113px; margin-bottom:8px;}
+.sp2 img{ width:85px; height:113px;}
+
+
+
+.detail a { color:#525252; font-size:12px; float:left; margin-top:2px;}
+.detail a:hover { color:#a61111; font-size:12px; float:left; margin-top:2px;}
+/*.butonchitiet a { background-color:#CC0000; margin-left:42px; float:left; width:52px; font-size:14px; padding-top:5px;padding-left:8px; height:20px; color:#CCCCCC;}*/
+.butonchitiet a { background-color:#CC0000; margin-left:42px; float:left; width:40%; font-size:14px; padding-top:5px;height:20px; color:#CCCCCC;}
+/*.butonchitiet a:hover { background-color:#FF0000;margin-left:42px;  float:left; width:52px; height:20px;padding-top:5px; padding-left:8px;  font-size:14px; color:#FFFFFF;}*/
+.butonchitiet a:hover { background-color:#FF0000;margin-left:42px;  float:left; width:40%; height:20px;padding-top:5px;font-size:14px; color:#FFFFFF;}
+
+/*.boxspmucgia{width:117px; margin-left:50px; margin-top:10px;  float:left;}*/
+.boxspmucgia{margin-top:10px;  float:left;}
+.contentdt a { color:#333333; font-size:12px; float:left;}
+.contentdt a:hover { color:#00619f; font-size:12px; float:left;}
+.contentnew a { color:#333333; width:290px;font-weight:bold; font-size:14px; float:left;}
+.contentnew a:hover { color:#000000; width:290px;font-weight:bold; font-size:14px; float:left;}
+.line{background-color:#dfdfdf; width:1px; height:162px; margin-left:25px;  margin-right:25px; float:left;}
+.line2{background-color:#e5e5e5; margin-top:5px; width:410px; height:1px; float:left; margin-left:20px;}
+.line3{background-color:#dddddd; margin-top:5px; margin-bottom:10px; width:648px; float:left; height:1px;}
+.line4{background-color:#949494; margin-top:15px; margin-bottom:3px; width:648px; float:left; height:1px;}
+.line5{ background-color:#666666; margin-top:5px; margin-left:25px; width:605px; height:1px; float:left;}
+.line6{background-color:#949494; margin-top:2px; margin-bottom:3px; width:648px; float:left; height:1px;}
+.line7{background-color:#949494; margin-top:2px; margin-top:5px; margin-bottom:3px; width:650px; float:left; height:1px;}
+.line8{background-color:#949494; margin-top:2px; margin-top:5px; margin-bottom:3px; width:649px; float:left; height:1px;}
+.linesp1{ background-color:#00619f; width:652px; height:3px; margin-bottom:0px; margin-top:1px; float:left;}
+.linesp2{ background-color:#00619f; width:650px; height:3px; margin-bottom:0px; margin-top:1px; float:left;}
+/*.linedot{background:url(image/line.png); margin-top:8px; margin-bottom:2px; margin-left:23px;height:1px; width:175px; float:left;}*/
+.linedot{background:url(image/line.png); margin-top:8px; margin-bottom:8px;height:1px; width:160px; float:left;}
+.sphot{ background:url(image/boxhot.png); width:650px; height:240px;float:left;}
+.icon{ background:url(image/icon1.png); margin-right:6px; width:4px; height:8px; margin-top:10px; margin-left:12px; float:left;}
+.icon2{ background:url(image/icon1.png);  width:4px; height:8px; margin-top:10px;  float:left;}
+.qc  { width:237px; float:left;}
+.qc img  { width:237px; float:left;}
+.hinhnew { width:95px; height:90px; float:left; margin-left:20px; margin-top:5px;}
+.hinhnew img { width:93px; height:90px; float:left;}
+.chitiet a {color:#333333; float:left; font-size:12px;}
+.chitiet a:hover {color:#990000; float:left; font-size:12px;}
+.doitac{width:905px; margin-top:5px; border:1px #cfcfcf solid; background-color:#FFFFFF; height:106px; float:left;}
+.titledoitac{ background:url(image/dt.png); margin-top:-8px; margin-left:15px; width:118px; height:27px; float:left;}
+.foter{ width:980px; background-color:#ececec; margin-top:20px; height:120px; float:left; border-top:1px #999999 solid;}
+.doitac1 {height:49px; float:left;  margin-left:6px;}
+.doitac1 img {height:49px; float:left;}
+.doitac2 {width:103px; height:66px; float:left; margin-top:-10px;   margin-left:15px;}
+.doitac2 img {width:103px; height:66px; float:left;}
+.doitac3 {width:113px; height:46px; float:left;  margin-left:15px;}
+.doitac3 img {width:113px; height:46px; float:left;}
+.doitac4 {width:138px; height:25px; margin-top:10px; float:left;  margin-left:20px;}
+.doitac4 img {width:138px; height:25px; float:left;}
+.hinhcongnghe{ width:90px; height:100px; background-color:#f8f8f8; margin-left:20px;float:left;}
+.hinhcongnghe img { width:90px; height:100px; float:left;}
+
+.titlecongnghe a { color:#333333; width:520px; margin-bottom:3px; font-size:14px; margin-left:10px; font-weight:bold; float:left;}
+.titlecongnghe a:hover { color:#33698c; width:520px; margin-bottom:3px; font-size:14px; margin-left:10px;font-weight:bold; float:left;}
+
+.back a { color:#666666; float:left; }
+.back a:hover { color:#0078cc; float:left;}
+.tuvan{background:url(image/support.png); width:240px; height:45px; float:left; margin-bottom:20px;}
+.boxkhoangia{background-color:#FFFFFF; padding-bottom:10px; border:1px #dddddd solid; margin-left:7px; float:left; width:222px;}
+/*.boxmucgia{background-color:#FFFFFF; padding-bottom:10px; margin-left:7px; float:left; width:222px;}*/
+.boxmucgia{padding-left: 48px; padding-bottom:10px; float:left;}
+.boxdownload{background-color:#FFFFFF; float:left; width:237px;}
+.boxhinhlonsp {width:300px; height:300px; float:left; margin-left:0px; text-align: center;}
+.boxhinhlonsp img {max-height: 300px; width: auto;}
+.sreenhinhanhsanpham{width:275px; float:left; margin-bottom:5px; margin-left:25px; margin-top:10px;}
+.sanpham {width:42px; height:52px;  margin-top:5px; margin-right:10px; float:left;}
+.sanpham  img {width:42px; height:52px; margin-top:5px; float:left;}
+.click{ width:275px; margin-left:25px; float:left; height:20px;}
+.leftthongtin{width:300px; margin-top:10px; float:left;}
+.rightthongtin{width:340px; margin-left:5px;margin-top:10px;  float:left;}
+.thongso a {font-size:15px; font-weight:bold;  color:#626262; margin-left:25px; float:left;}
+.thongso a:hover {font-size:15px; font-weight:bold;  color:#00609e; margin-left:25px; float:left;}
+.gioithieusp a {font-size:15px; font-weight:bold;  color:#626262;  float:left;}
+.gioithieusp a:hover {font-size:15px; font-weight:bold; color:#00609e; float:left;}
+.cactinkhac2{  width:610px; float:left; margin-bottom:10px; margin-left:20px;}
+.icon3{ background:url(image/icon1.png); margin-left:5px; margin-right:5px; float:left; width:4px; height:8px;}
+.tinkhacchitiet a { color:#333333;width:450px; height:20px; float:left;}
+.tinkhacchitiet a:hover { color:#0066FF;width:450px; height:20px; float:left;}
+.xemtatca a {font-size:12px; width:100px; height:25px; color:#333333; float:left; font-weight:bold;}
+.xemtatca a:hover {font-size:12px;width:100px; height:25px;color:#660000; float:left;font-weight:bold;}
+.s1 a { font-size:14px;  float:left; color:#333333;}
+.s1 a:hover { font-size:14px;  float:left; color:#0066CC;}
+.s2 a { font-size:15px; font-weight:bold;  float:left; color:#333333;}
+.s2 a:hover { font-size:15px; font-weight:bold;  float:left; color:#0066CC;}
+.toponline{background:url(image/toponline.png); width:237px; height:71px; float:left;}
+.midonline{background:url(image/midonline.png); width:237px; float:left;}
+.botonline{ background:url(image/botonline.png); height:8px; width:237px; float:left;}
+.new1 {width:430px; float:left;}
+.new2 {width:430px; float:left; margin-left:30px;}
+.sreentieude{ width:610px; margin-left:20px; }
+.sreenttin{width:648px; height:105px; float:left; }
+.formnoidungdownload-congnghe{margin-left:10px; float:left; width:520px; height:100px;}
+.noidungnew{margin-left:10px; float:left; width:490px;}
+.scrollable {
+  /* required settings */
+  position:relative;
+  overflow:hidden;
+  width: 660px;
+  height:90px;
+}
+ 
+/*
+root element for scrollable items. Must be absolutely positioned
+and it should have a extremely large width to accommodate scrollable
+items.  it's enough that you set width and height for the root element
+and not for this element.
+*/
+.scrollable .items {
+  /* this cannot be too large */
+  width:20000em;
+  position:absolute;
+}
+ 
+/*
+a single item. must be floated in horizontal scrolling.  typically,
+this element is the one that *you* will style the most.
+*/
+.items div {
+  float:left;
+}
+
+.bx-prev {
+    background: url("image/arow1.png") no-repeat;
+    height: 31px;
+    left: 14px;
+    position: absolute;
+    text-indent: -999999px;
+    top: 62px;
+    width: 31px;
+}
+
+.bx-next {
+    background: url("image/arow2.png") no-repeat;
+    height: 31px;
+    position: absolute;
+    right: 0px;
+    text-indent: -999999px;
+    top: 62px;
+    width: 31px;
+}
+
+.bx-window {
+	left: 25px;
+}
+/***
+* view list product
+**/
+
+.pricesp {
+	 width:100%/*117px*/;
+	  font-weight:bold; color:#a61111;	
+}
+.titlesp {
+	
+}
+.boxsp .sp {
+	width:100%; height:120px; float:left;	
+}
+.boxsp .butonchitiet {
+	width: 100%;
+}
+.boxspmucgia .sp{
+	
+}
+.boxspmucgia .butonchitiet{
+	width: 100%;
+	
+}
+.boxspmucgia .sp img{
+	height:119px; width:90px;  float:left;
+}
+.titledownload{
+	background-color:#b2b2b2; width: 100%; height:5px; float:left;
+}
+.giasanphamred {
+    color: #990000;
+}
+
+.chitietsanphamblue {
+    /*color: #0066FF;*/
+    color: #000000;
+}
+
+.banner-left {
+	height: 300px;
+	position: fixed;
+	width: 150px;
+	float: right;
+	margin-right: 490px;
+	right: 50%;
+}
+.banner-right {
+	float: left;
+	left: 50%;
+	margin-left: 490px;
+	height: 300px;
+	position: fixed;
+	width: 150px;
+}
+.gift{  width:44px; height:22px; background:url(image/icongift.png); margin-bottom:9px;}
+.gift1{  width:38px; height:30px; background:url(image/iconcoming.png); margin-bottom:9px;}
+.gift2{  width:43px; height:24px; background:url(image/iconnew.png); margin-bottom:9px;}
+.gift3{  width:44px; height:29px; background:url(image/iconprice.png); margin-bottom:9px;}
+/* END HOME, CAC TRANG CON */
+
+.backlink a { color:#ECECEC;}
+.backlink a:hover { color:#ECECEC;}
+
+.dropdown-navigative-menu h2{font-size: 12px;}
+.foter h6{display: inline-block; font-size: 12px; font-weight: normal;}
