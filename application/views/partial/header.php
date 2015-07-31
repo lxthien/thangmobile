@@ -107,17 +107,13 @@ body {
                 <div class="logo">
                     <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url().'assets/images/logo-02.png'; ?>" alt=""/></a>
                 </div>
-                <!--
-                <div class="menutop">
-                    <div class="gioithieu"><a href="<?php echo base_url('gioi-thieu.html'); ?>">
-                            <p style="margin-top:5px; margin-left:20px;">Gi&#7899;i thi&#7879;u </p>
-                        </a></div>
-                    <div class="gioithieu">
-                        <a href="<?php echo base_url('site-map.html'); ?>">
-                            <p style="margin-top:5px; margin-left:12px;">Sitemap </p>
-                        </a>
-                    </div>
+                <div class="head-search">
+                    <form action="#" method="get">
+                        <div class="input-search">
+                            <input name="value" type="text" placeholder="Bạn đang tìm sản phẩm gì ?" />
+                        </div>
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
                 </div>
-                -->
             </div>
             <!--end head-->

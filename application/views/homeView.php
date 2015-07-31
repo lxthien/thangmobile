@@ -7,10 +7,12 @@ if (isset($site_meta_data)) {
 } else {
     $this->load->view('partial/header');
 }
-$this->load->view('partial/menu');
-//echo '<div class="baner"></div>';
+	$this->load->view('partial/menu');
+	//echo '<div class="baner"></div>';
 
-$this->load->view('home/block_banner'); 
+	$this->load->view('home/block_banner');
+
+	$this->load->view('home/block_service');
 ?>
 
 	<!--main-->	

@@ -4,6 +4,9 @@ body {
 .green-color {
 	background: none;
 }
+.relative {
+	position: relative;
+}
 
 /**
  * Top header
@@ -57,6 +60,20 @@ body {
 	width: 400px; height: 110px; margin-left: 0px;
 }
 
+.head-search {
+	position: relative; float: right; margin-top: 40px;
+}
+.head-search .input-search{
+	position: absolute; right: 75px; border: 1px solid #cccccc; height: 23px; width: 360px; padding: 5px 0 5px 40px;
+	background: url("../images/icon-search.png") no-repeat 5px 10px;
+}
+.head-search .input-search input {
+	height: 25px; line-height: 25px; border: none; width: 100%;
+}
+.head-search button {
+	position: absolute; right: 0px; width: 70px; height: 35px; background-color: #656565; border: none; color: #ffffff; line-height: 35px; font-size: 14px; cursor: pointer;
+}
+
 /**
  * Menu
  *************************/
@@ -83,4 +100,45 @@ body {
 }
 #page-navigative-menu li li a{
 	padding: 2px 0;
+}
+
+/**
+ * Slider
+ **************************/
+.main-slider {
+ 	width: 625px; float: left;
+}
+.banner {
+ 	width: 345px; float: right;
+}
+.banner .banner-6of12 {
+ 	width: 166px; float: left; border: 1px solid #cccccc; height: 85px; margin-bottom: 8px; margin-right: 8px;
+}
+.banner .banner-6of12:nth-child(2n) {
+	margin-right: 0px; float: right;
+}
+.banner .banner-12of12 {
+ 	width: 343px; border: 1px solid #cccccc; float: left; height: 85px;
+}
+
+/**
+ * Home page
+ ******************************/
+.home-service {
+	width: 100%; height: 90px; clear: both;
+}
+.title-service {
+	padding: 10px 0;
+}
+.title-service hr{
+	border: 0; border-top: 2px solid #cccccc;
+}
+.title-service h2 {
+	position: absolute; text-align: center; padding: 5px 10px; background-color: #ffffff; top: -5px; left: 40%; text-transform: uppercase; color: #000000; font-weight: 400;
+}
+.home-service ul {
+	margin-top: 5px;
+}
+.home-service ul li {
+	display: inline-block;
 }
