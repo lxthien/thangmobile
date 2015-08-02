@@ -28,7 +28,15 @@ $link = base_url('panel');
         </td>
     </tr>
     <tr><td><img src='<?php echo RES_PATH; ?>images/panel/admin-blue_13.gif' width='194' height='1'></td></tr>
-    <!--end site map-->        
+    <!--end site map-->
+
+    <tr>
+        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+            <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
+            <a href='<?php echo $link . '/admin_category/index/'; ?>'>Quản lí danh mục</a>
+        </td>
+    </tr>
+    <tr><td><img src='<?php echo RES_PATH; ?>images/panel/admin-blue_13.gif' width='194' height='1'></td></tr>
     
     <!-- start each element : dich vu sua chua -->
     <tr>

@@ -36,6 +36,12 @@ $notice = '';
                     $this->load->view('auth/change_password');
                 } else if ($controller === 'login') {
                     $this->load->view('panel/index');
+                } else if ($controller === 'admin_category') {
+                    if (!isset($action) || trim($action) === "" || trim($action) === "index") {
+                        $this->load->view('panel/category/index');
+                    } else {
+                        $this->load->view('panel/category/edit');
+                    }
                 } else if ($controller === 'admin_news') {
 
                     if (!isset($action) || trim($action) === "" || trim($action) === "index") {
@@ -50,7 +56,7 @@ $notice = '';
                     } else { // load edit page                        
                         $this->load->view('panel/page_news_edit');
                     }
-                }else if ($controller === 'admin_services') {
+                } else if ($controller === 'admin_services') {
 
                     if (!isset($action) || trim($action) === "" || trim($action) === "index") {
                         if (isset($list_items)) {
