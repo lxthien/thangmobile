@@ -23,6 +23,9 @@ echo form_upload($data_upload);
 echo '</td>';
 echo '</tr>';
 */
+
+echo form_hidden('id_news_category', $new_item->id_news_category);
+
 $options = array(
     'small'  => 'Small Shirt',
     'med'    => 'Medium Shirt',
@@ -33,14 +36,14 @@ echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Danh mục cha:');
 echo '</td><td>';
 $data_url = array(
-    'name' => 'parentcat_id',
-    'id' => 'parentcat_id',
-    'value' => $new_item->parentcat_id,
+    'name' => 'id_parent',
+    'id' => 'id_parent',
+    'value' => $new_item->id_parent,
     'class' => 'form field',
 );
-echo form_dropdown('parentcat_id', $options, 'med');
+echo form_dropdown('id_parent', $options, 'med');
 echo '</td><td width="40%">';
-echo form_error('url');
+echo form_error('id_parent');
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
@@ -54,44 +57,44 @@ $data_url = array(
 );
 echo form_input($data_url);
 echo '</td><td width="40%">';
-echo form_error('url');
+echo form_error('name');
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Url:');
 echo '</td><td>';
 $data_url = array(
-    'name' => 'url',
-    'id' => 'url',
-    'value' => $new_item->url,
+    'name' => 'link_rewrite',
+    'id' => 'link_rewrite',
+    'value' => $new_item->link_rewrite,
     'class' => 'form field',
 );
 echo form_input($data_url);
 echo '</td><td width="40%">';
-echo form_error('url');
+echo form_error('link_rewrite');
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Seo Title:');
 echo '</td><td>';
 $data_url = array(
-    'name' => 'seo_title',
-    'id' => 'seo_title',
-    'value' => $new_item->seo_title,
+    'name' => 'meta_title',
+    'id' => 'meta_title',
+    'value' => $new_item->meta_title,
     'class' => 'form field',
 );
 echo form_input($data_url);
 echo '</td><td width="40%">';
-echo form_error('url');
+echo form_error('meta_title');
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Seo Description:');
 echo '</td><td width="29%">';
 $data_title = array(
-    'name'        => 'seo_description',
-    'id'          => 'seo_description',
-    'value'       => $new_item->seo_description,
+    'name'        => 'meta_description',
+    'id'          => 'meta_description',
+    'value'       => $new_item->meta_description,
     'rows'        => '5',
     'cols'        => '10',
     'style'       => 'width:100%',
@@ -103,14 +106,14 @@ echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Seo Keyword:');
 echo '</td><td>';
 $data_url = array(
-    'name' => 'seo_keyword',
-    'id' => 'seo_keyword',
-    'value' => $new_item->seo_keyword,
+    'name' => 'meta_keywords',
+    'id' => 'meta_keywords',
+    'value' => $new_item->meta_keywords,
     'class' => 'form field',
 );
 echo form_input($data_url);
 echo '</td><td width="40%">';
-echo form_error('url');
+echo form_error('meta_keywords');
 echo '</td></tr>';
 
 echo '</td></tr>';
@@ -124,12 +127,8 @@ echo '</tr>';
 
 echo '<tr><td></td><td>';
 echo form_submit('save', 'Save');
-if (isset($new_item->id)) {
-    echo form_hidden('item_id', $new_item->id);
-}
 echo '</td></tr>';
 echo '</table>';
 echo form_fieldset_close();
 
 echo form_close();
-?>
