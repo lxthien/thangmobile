@@ -1,3 +1,6 @@
+<?php
+    $page_link = base_url() . $this->uri->segment(1) . '/' . $this->uri->segment(2);
+?>
 <script language="Javascript">
     function deleteRecord(id)
     {
@@ -21,7 +24,7 @@
     </tr>
 </table>
 
-<form action='' method='post' name='form1' style='margin:0px'>
+<form action='<?php echo $page_link.'/delete';?>' method='post' name='form1' style='margin:0px'>
     <table width="100%" cellspacing="0" cellpadding="5" align="center" border="0">
         <tr class="tr_title_bg">
             <td width="5%" class="td_title_main" align="left">No.</td>
@@ -32,27 +35,54 @@
         </tr>
     </table>
     <table width='100%' cellspacing='0' cellpadding='5' align='center' class='table_border_line'>
+        <?php
+            $i = 1;
+            foreach ($list_items as $row):
+                $listSub = $this->news_category_model->readListByParentId($row["id_news_category"]);
+        ?>
         <tr>
-        	<td width="5%" align="left">1</td>
-            <td width="30%" align="left">Sửa chữa Iphone</td>
-            <td width="20%" align="left">Sửa chữa</td>            
-            <td width="20%" align="left">Hình ảnh</td>            
+        	<td width="5%" align="left"><?php echo $i; ?></td>
+            <td width="30%" align="left"><?php echo $row['name']; ?></td>
+            <td width="20%" align="left">Thư mục gốc</td>
+            <td width="20%" align="left">Hình ảnh</td>
             <td width="15%" align="left">
-            	<a href="<?php echo base_url().'panel/admin_category/edit/100' ; ?>">Edit</a>
-            	<img src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord(" . $row->id . ")' width='14' height='16' border='0' title='Delete'/>
+            	<a href="<?php echo base_url().'panel/admin_category/edit/'.$row['id_news_category']; ?>">Edit</a>
+            	<img style="cursor: pointer; vertical-align: middle;" src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord("<?php echo $row['id_news_category'] ?>")' width='14' height='16' border='0' title='Delete'/>
             </td>
         </tr>
-        <tr>
-        	<td width="5%" align="left">2</td>
-            <td width="30%" align="left">Sửa chữa Samsung</td>
-            <td width="20%" align="left">Sửa chữa</td>            
-            <td width="20%" align="left">Hình ảnh</td>            
-            <td width="15%" align="left">
-            	<a href="<?php echo base_url().'panel/admin_category/edit/100' ; ?>">Edit</a>
-            	<img src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord(" . $row->id . ")' width='14' height='16' border='0' title='Delete'/>
-            </td>
-        </tr>
+            <?php
+                foreach ($listSub as $rowSub):
+                    $listSub2 = $this->news_category_model->readListByParentId($rowSub["id_news_category"]);
+                    $i++;
+            ?>
+            <tr>
+                <td width="5%" align="left"><?php echo $i; ?></td>
+                <td width="30%" align="left">..........<?php echo $rowSub['name']; ?></td>
+                <td width="20%" align="left"><?php echo $row['name']; ?></td>
+                <td width="20%" align="left">Hình ảnh</td>
+                <td width="15%" align="left">
+                    <a href="<?php echo base_url().'panel/admin_category/edit/'.$rowSub['id_news_category']; ?>">Edit</a>
+                    <img style="cursor: pointer; vertical-align: middle;" src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord("<?php echo $rowSub['id_news_category'] ?>")' width='14' height='16' border='0' title='Delete'/>
+                </td>
+            </tr>
+                <?php
+                    foreach ($listSub2 as $rowSub2):
+                        $i++;
+                ?>
+                <tr>
+                    <td width="5%" align="left"><?php echo $i; ?></td>
+                    <td width="30%" align="left">....................<?php echo $rowSub2['name']; ?></td>
+                    <td width="20%" align="left"><?php echo $rowSub['name']; ?></td>
+                    <td width="20%" align="left">Hình ảnh</td>
+                    <td width="15%" align="left">
+                        <a href="<?php echo base_url().'panel/admin_category/edit/'.$rowSub2['id_news_category']; ?>">Edit</a>
+                        <img style="cursor: pointer; vertical-align: middle;" src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord("<?php echo $rowSub2['id_news_category'] ?>")' width='14' height='16' border='0' title='Delete'/>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+        <?php $i++; endforeach; ?>
     </table>
-    <p class='toTop'><a href='<?php echo  base_url(). "panel/admin_category/add" ?>'>Thêm danh mục</a></p>
+    <p class='toTop'><a href='<?php echo base_url() . "panel/admin_category/add" ?>'>Thêm danh mục</a></p>
     <input type='hidden' name='hiddelete' id='hiddelete' value=''/>
 </form>

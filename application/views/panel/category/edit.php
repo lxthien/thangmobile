@@ -1,5 +1,4 @@
 <?php
-
 $con_link = base_url() . $this->uri->segment(1) . '/' . $this->uri->segment(2);
 echo form_open_multipart($con_link . '/save');
 if (isset($error)) {
@@ -26,12 +25,6 @@ echo '</tr>';
 
 echo form_hidden('id_news_category', $new_item->id_news_category);
 
-$options = array(
-    'small'  => 'Small Shirt',
-    'med'    => 'Medium Shirt',
-    'large'   => 'Large Shirt',
-	'xlarge' => 'Extra Large Shirt',
-);
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Danh mục cha:');
 echo '</td><td>';
@@ -41,7 +34,7 @@ $data_url = array(
     'value' => $new_item->id_parent,
     'class' => 'form field',
 );
-echo form_dropdown('id_parent', $options, 'med');
+echo form_dropdown('id_parent', $options, $new_item->id_parent);
 echo '</td><td width="40%">';
 echo form_error('id_parent');
 echo '</td></tr>';
@@ -126,7 +119,11 @@ echo '</td>';
 echo '</tr>';
 
 echo '<tr><td></td><td>';
-echo form_submit('save', 'Save');
+if (!$new_item->id_news_category) {
+    echo form_submit('save', 'Save');
+} else {
+    echo form_submit('update', 'Update');
+}
 echo '</td></tr>';
 echo '</table>';
 echo form_fieldset_close();

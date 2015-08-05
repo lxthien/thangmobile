@@ -42,7 +42,7 @@
 	    		</div>
 	    		<div class="main-boxsp">
 	    			<div class="main-boxsp-large">
-	    				<img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>">
+	    				<a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
 	    				<div class="name-and-price">
 	    					<a href="">Samsung galaxy S5 New Edition</a>
 	    					<p>Giá: <span>4.000.000 đ</span></p>

@@ -50,6 +50,11 @@ class News_category_model extends MY_Model{
         parent::__construct();
     }
 
+    public function read_list() {
+        $query = $this->get();
+        return $query->result();
+    }
+
     public function getIdCategoryByLinkRewrite($link_rewrite){
         $query = $this->getCategoryByLinkRewrite($link_rewrite);
         if (!$query){
@@ -66,6 +71,7 @@ class News_category_model extends MY_Model{
         }
         return false;
     }
+
     public function read_by_link_rewrite($link_rewrite){
         $catOptions = array("link_rewrite"=>$link_rewrite);
         $query = $this->get($catOptions);        
@@ -75,11 +81,7 @@ class News_category_model extends MY_Model{
         }
         return false;
     }
-    /**
-     *PREDICATE METHOD
-     * @param type $parent_id
-     * @return type 
-     */
+ 
     public function readListByParentId($parent_id){
         $catOptions = array("id_parent" => $parent_id);
         $query = $this->get($catOptions);        
@@ -98,7 +100,41 @@ class News_category_model extends MY_Model{
         $options = array('id_news_category' => $id);
         $query = $this->get($options);
         return $query;
-    }        
-}
+    }
 
-?>
+    private function build_selection_list(&$categories, $parent_id) {
+        $resuls = array();        
+        foreach ($categories as $category) {
+            if (isset($category->parent_id) && $category->parent_id === $parent_id) {
+                $resuls[$category->id] = $category->name;
+                unset($category);
+            }
+        }         
+        return $resuls;
+    }
+
+    public function buildTree($categories) {
+        $resuls = array();
+        $resuls['NULL'] = '---Thư mục gốc---';
+        foreach ($categories as $category) {
+            if ( $category->id_parent === NULL ) {
+                $resuls[$category->id_news_category] = $category->name;
+                foreach ($categories as $row) {
+                    if ( $row->id_parent === $category->id_news_category ) {
+                        $resuls[$row->id_news_category] = '..........'.$row->name;
+                        foreach ($categories as $row1) {
+                            if ( $row1->id_parent === $row->id_news_category ) {
+                                $resuls[$row1->id_news_category] = '....................'.$row1->name;
+                            }
+                            unset($row1);
+                        }
+                    }
+                    unset($row);
+                }
+                unset($category);
+            }
+        }
+        return $resuls;
+    }
+
+}

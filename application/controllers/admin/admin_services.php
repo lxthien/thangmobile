@@ -17,8 +17,7 @@ class Admin_services extends CI_Controller {
         parent::__construct();
         $this->load->model('services_model');
         $this->load->model('Admin_menu_model', 'admin_menu');
-        //CK editor        
-//        $news['id_news_category'] = 1;
+        $this->load->model('News_category_model', 'news_category_model');
         $_SESSION['KCFINDER'] = array();
         $_SESSION['KCFINDER']['disabled'] = false;
         $this->load->library('ckeditor', array('instanceName' => 'CKEDITOR1', 'basePath' => base_url() . "ckeditor/", 'outPut' => true));
@@ -26,11 +25,7 @@ class Admin_services extends CI_Controller {
         // From validator
         $this->load->library('form_validation');
         $this->load->helper('form');
-//        $this->form_validation->set_rules('meta_title', 'Meta title', 'required');
-//        $this->form_validation->set_rules('meta_description', 'Description', 'required');
-//        $this->form_validation->set_rules('meta_keywords', 'Keywords', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
-//        $this->form_validation->set_rules('link_rewrite', 'Link rewrite', 'required');
     }
 
     function index($category_id = NULL) {
@@ -48,8 +43,7 @@ class Admin_services extends CI_Controller {
                 $item->category_name = 'Category không hợp lệ';
             }
         }
-//        var_dump($list_items);die;
-        //$this->load->view('admin/m_news',$data);
+
         $data['list_items'] = $list_items;
         $data['category_list'] = $news_categories;
         $data ['filter_category'] = $category_id;
@@ -61,7 +55,6 @@ class Admin_services extends CI_Controller {
     }
 
     public function save() {
-//        $news = array();
         if (isset($_POST['save'])) {
 
             @$news_input->id_language = 1;
@@ -119,7 +112,7 @@ class Admin_services extends CI_Controller {
                 $news['meta_keywords'] = $this->input->post('meta_keywords');
                 $news['content'] = $this->input->post('content');
                 $active = $this->input->post('active');
-//                echo $active.'---';
+
                 if (trim($active) === '') {
                     $active = FALSE;
                 } else {
@@ -127,13 +120,6 @@ class Admin_services extends CI_Controller {
                 }
                 $news['active'] = $active;
 
-
-//                $id = $this->input->post('news_id');
-//                $news_array = get_object_vars($news);
-//                echo '<pre>';
-//                print_r($news);
-//                echo '</pre>';
-//                var_dump($_FILES);
                 $result;
                 if (isset($id_news) && trim($id_news) !== "") {
                     $news['id_news'] = $id;
@@ -190,33 +176,6 @@ class Admin_services extends CI_Controller {
             	$this->load->view('panel/home', $data);
         	}
         }
-//        if (isset($_POST['update'])) {
-//            if ($this->form_validation->run() != FALSE) {
-//                $this->load->view('admin/Editnews', $data);
-//            } else {
-////                echo "edit done";
-////                $new['id_news'] = $id;
-////                $new['id_language'] = 1;
-////                $new['id_news_category'] = $this->input->post('category');
-////                $new['title'] = $this->input->post('title');
-////                $new['meta_title'] = $this->input->post('meta_title');
-////                $new['meta_description'] = $this->input->post('meta_description');
-////                $new['meta_keywords'] = $this->input->post('meta_keywords');
-////                $new['content'] = $this->input->post('content');
-////                $new['link_rewrite'] = 'second-post'; //$this->input->post('link_rewrite');
-////                $new['active'] = $this->input->post('active');
-////                $new['focusable'] = $this->input->post('focus');
-////                echo '<pre>';
-////                print_r($new);
-////                echo '</pre>';
-//                $result = $this->services_model->update($new);
-//                if (!is_numeric($result)) {
-//                    show_error($result);
-//                }
-//            }
-//        } else {
-//            $this->load->view('admin/EditNews', $data);
-//        }
     }
 
     public function delete() {
@@ -226,5 +185,3 @@ class Admin_services extends CI_Controller {
     }
 
 }
-
-?>
