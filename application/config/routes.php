@@ -86,6 +86,9 @@ $route['search'] = 'search/index';
 $route['(:any)/(:any)/(:num)-(:any)'] = 'news/index/$0/$1/$2';
 
 $route['tin-tuc/(:any)'] = 'news/view_post_on_category/$0/$1';
+
+
+$route['dich-vu'] = 'news/servicesDetail/$1';
 $route['dich-vu/(:any)'] = 'news/servicesDetail/$1';
 //$route['(:any)/(:any)/(:num)'] = 'news/view_post_on_category/$0/$1';
 // $route['(:any)'] = 'news/view_post_on_page/$0/1';

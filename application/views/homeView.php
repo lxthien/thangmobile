@@ -27,7 +27,7 @@ if (isset($site_meta_data)) {
 		 	<?php $this->load->view('home/blockPhuKienHot'); ?>
 			<!--end spbanhot-->
 			<!--spbanmoi-->
-			<?php $this->load->view('home/blockNewProduct'); ?>
+			<?php // $this->load->view('home/blockNewProduct'); ?>
 			<!--end spbanmoi--> 
 	 	</div>
 		<!--end left-->	

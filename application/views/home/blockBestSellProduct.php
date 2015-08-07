@@ -1,6 +1,6 @@
-<div class="allboxsp2" style="float:left; padding-top:5px; margin-bottom:10px;">
-	<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#00619f;">HÀNG MỚI VỀ </p>
-	<div class="title1" style="background-color:#00619f; width: 100%; height:3px; margin-bottom:15px; float:left;"></div>
+<div class="allboxsp2" style="float:left; padding-top:1px; margin-bottom:10px;">
+	<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242;">HÀNG MỚI VỀ </p>
+	<div class="title1" style="background-color:#cccccc; width: 100%; height:2px; margin-bottom:15px; float:left;"></div>
 	    <div class="spbanchay">
 	    	<div class="boxsp">
 	    		<div class="title-boxsp">
@@ -34,7 +34,72 @@
 	    			<div class="cl"></div>
 	    		</div>
 	    	</div>
+	    	<div class="boxsp odd">
+	    		<div class="title-boxsp">
+	    			<h2>Lg</h2>
+	    			<a href="#">Xem toàn bộ</a>
+	    			<div class="cl"></div>
+	    		</div>
+	    		<div class="main-boxsp">
+	    			<div class="main-boxsp-large">
+	    				<a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
+	    				<div class="name-and-price">
+	    					<a href="">Samsung galaxy S5 New Edition</a>
+	    					<p>Giá: <span>4.000.000 đ</span></p>
+	    				</div>
+	    				<div class="absolute pr-news">Mới</div>
+	    			</div>
+	    			<div class="main-boxsp-small">
+	    				<img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_60_95'); ?>">
+	    				<div class="name-and-price">
+	    					<a href="">Samsung galaxy S5 New Edition</a>
+	    					<p>Giá: <span>4.000.000 đ</span></p>
+	    				</div>
+	    			</div>
+	    			<div class="main-boxsp-small">
+	    				<img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_60_95'); ?>">
+	    				<div class="name-and-price">
+	    					<a href="">Samsung galaxy S5 New Edition</a>
+	    					<p>Giá: <span>4.000.000 đ</span></p>
+	    				</div>
+	    			</div>
+	    			<div class="cl"></div>
+	    		</div>
+	    	</div>
+	    	<hr>
 	    	<div class="boxsp">
+	    		<div class="title-boxsp">
+	    			<h2>Samsung</h2>
+	    			<a href="#">Xem toàn bộ</a>
+	    			<div class="cl"></div>
+	    		</div>
+	    		<div class="main-boxsp">
+	    			<div class="main-boxsp-large">
+	    				<a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
+	    				<div class="name-and-price">
+	    					<a href="">Samsung galaxy S5 New Edition</a>
+	    					<p>Giá: <span>4.000.000 đ</span></p>
+	    				</div>
+	    				<div class="absolute pr-news">Mới</div>
+	    			</div>
+	    			<div class="main-boxsp-small">
+	    				<img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_60_95'); ?>">
+	    				<div class="name-and-price">
+	    					<a href="">Samsung galaxy S5 New Edition</a>
+	    					<p>Giá: <span>4.000.000 đ</span></p>
+	    				</div>
+	    			</div>
+	    			<div class="main-boxsp-small">
+	    				<img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_60_95'); ?>">
+	    				<div class="name-and-price">
+	    					<a href="">Samsung galaxy S5 New Edition</a>
+	    					<p>Giá: <span>4.000.000 đ</span></p>
+	    				</div>
+	    			</div>
+	    			<div class="cl"></div>
+	    		</div>
+	    	</div>
+	    	<div class="boxsp odd">
 	    		<div class="title-boxsp">
 	    			<h2>Lg</h2>
 	    			<a href="#">Xem toàn bộ</a>

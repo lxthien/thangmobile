@@ -158,8 +158,14 @@ body {
 .left .allboxsp2 .spbanchay {
 	width: 675px; border: 1px solid #cccccc;
 }
+.spbanchay {
+	padding-bottom: 10px;
+}
+.spbanchay hr {
+	float: left; width: 100%; margin: 8px 0; border: 0; border-top: 1px solid #cccccc;
+}
 .spbanchay .boxsp {
-	width: 49.5%; border-right: 1px solid #cccccc; border-bottom: 1px solid #cccccc;
+	width: 49.5%; border-right: 1px solid #cccccc;
 }
 .spbanchay .boxsp .title-boxsp {
 	padding: 10px; line-height: 20px;
@@ -171,7 +177,7 @@ body {
 .spbanchay .boxsp .title-boxsp a{
 	float: right; color: #1a1a1a; font-size: 13px; background: url("../images/icon-arrows-02.png") no-repeat 5px 5px; padding-left: 16px;
 }
-.spbanchay .boxsp:nth-child(2n) {
+.spbanchay .boxsp.odd {
 	border-right: none;
 }
 
@@ -252,7 +258,10 @@ body {
     float: left; width: 90px; height: 80px; margin-right: 10px;
 }
 a.link-block-you-see{
-    float: left; color: #333333; font-size: 13px; font-weight: 600;
+    color: #333333; font-size: 13px; font-weight: 600;
+}
+a.link-block-you-see p {
+	height: 32px; overflow: hidden;
 }
 a.link-block-you-see:hover{
     color: #005a9b;
@@ -260,4 +269,12 @@ a.link-block-you-see:hover{
 
 .sreencontentdownload > p {
 	color: #7a7a7a; font-size: 12px;
+}
+.sreencontentdownload p.des {
+	padding: 3px 0; color: #000000; text-align: justify; line-height: 16px;
+}
+
+
+.boxsp2 {
+	margin-left: 20px;
 }

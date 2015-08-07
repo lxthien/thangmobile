@@ -377,26 +377,26 @@ this element is the one that *you* will style the most.
 
 .bx-prev {
     background: url("image/arow1.png") no-repeat;
-    height: 31px;
-    left: 14px;
+    height: 25px;
+    left: 0px;
     position: absolute;
     text-indent: -999999px;
-    top: 62px;
-    width: 31px;
+    top: 65px;
+    width: 18px;
 }
 
 .bx-next {
     background: url("image/arow2.png") no-repeat;
-    height: 31px;
+    height: 25px;
     position: absolute;
     right: 0px;
     text-indent: -999999px;
-    top: 62px;
-    width: 31px;
+    top: 65px;
+    width: 18px;
 }
 
 .bx-window {
-	left: 25px;
+	
 }
 /***
 * view list product

@@ -70,8 +70,9 @@ endif;
                             <img src="<?php echo image($_watch->news_icon, 'news_90_80'); ?>" alt="<?php echo $_watch->title; ?>"/></a>
                         </div>
                         <a class="link-block-you-see" href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung/'.$_watch->id_news.'-'.$_watch->link_rewrite.'.html'); ?>" title="<?php echo $_watch->title; ?>">
-                            <p style="width:195px; float:left; margin-top:0px;"><?php echo $_watch->title; ?></p>
+                            <p><?php echo $_watch->title; ?></p>
                         </a>
+                        <p class="des">Hãng htc vừa cho ra mắt sản phẩm mới trong quý 3 ...</p>
                         <p><?php echo $_watch->date_add; ?></p>
                     </div>
                 <?php endforeach; ?>
@@ -108,8 +109,9 @@ endif;
                             <img src="<?php echo image($_watch->news_icon, 'news_90_80'); ?>" alt="<?php echo $_watch->title; ?>"/></a>
                         </div>
                         <a class="link-block-you-see" href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung/'.$_watch->id_news.'-'.$_watch->link_rewrite.'.html'); ?>" title="<?php echo $_watch->title; ?>">
-                            <p style="width:195px; float:left; margin-top:0px;"><?php echo $_watch->title; ?></p>
+                            <p><?php echo $_watch->title; ?></p>
                         </a>
+                        <p class="des">Hãng htc vừa cho ra mắt sản phẩm mới trong quý 3 ...</p>
                         <p><?php echo $_watch->date_add; ?></p>
                     </div>
                 <?php endforeach; ?>

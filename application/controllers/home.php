@@ -22,13 +22,13 @@ class Home extends MY_Controller {
         $this->load->model('News_model', 'newsModel');
         $this->load->model('News_category_model', 'category_model');
         $this->load->model('Page_item_model', 'page_item_model');
-        $this->load->model('Page_model', 'page_model');
+        //$this->load->model('Page_model', 'page_model');
         $this->load->model('Mcontact');
         $this->load->model('Download_model', 'download_model');
         $this->load->model('Feedback_model', 'feedback_model');
         $this->load->model('Advertise_model', 'advertise_model');
         $this->load->model('Banner_model', 'banner_model');
-//        $this->load->helper('text');
+        $this->load->model('news_category_model');
     }
 
     public function index() {
@@ -60,6 +60,8 @@ class Home extends MY_Controller {
         //get advertise for block home page
         $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
         $data['banners'] = $this->_get_active_banners();
+
+        $data['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
         $this->load->view('homeView', $data);
     }
     
