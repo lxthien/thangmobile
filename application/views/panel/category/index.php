@@ -30,7 +30,7 @@
             <td width="5%" class="td_title_main" align="left">No.</td>
             <td width="30%" class="td_title_main" align="left">Name</td>
             <td width="20%" class="td_title_main" align="left">Danh mục cha</td>            
-            <td width="20%" class="td_title_main" align="left">Hình ảnh</td>            
+            <td width="20%" class="td_title_main" align="left">&nbsp;</td>            
             <td width="15%" class="td_title_main" align="left">Actions</td>
         </tr>
     </table>
@@ -42,9 +42,9 @@
         ?>
         <tr>
         	<td width="5%" align="left"><?php echo $i; ?></td>
-            <td width="30%" align="left"><?php echo $row['name']; ?></td>
+            <td width="30%" align="left"><a href="<?php echo base_url().'panel/admin_category/edit/'.$row['id_news_category']; ?>"><?php echo $row['name']; ?></a></td>
             <td width="20%" align="left">Thư mục gốc</td>
-            <td width="20%" align="left">Hình ảnh</td>
+            <td width="20%" align="left">&nbsp;</td>
             <td width="15%" align="left">
             	<a href="<?php echo base_url().'panel/admin_category/edit/'.$row['id_news_category']; ?>">Edit</a>
             	<img style="cursor: pointer; vertical-align: middle;" src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord("<?php echo $row['id_news_category'] ?>")' width='14' height='16' border='0' title='Delete'/>
@@ -57,9 +57,9 @@
             ?>
             <tr>
                 <td width="5%" align="left"><?php echo $i; ?></td>
-                <td width="30%" align="left">..........<?php echo $rowSub['name']; ?></td>
+                <td width="30%" align="left"><a href="<?php echo base_url().'panel/admin_category/edit/'.$rowSub['id_news_category']; ?>">..........<?php echo $rowSub['name']; ?></a></td>
                 <td width="20%" align="left"><?php echo $row['name']; ?></td>
-                <td width="20%" align="left">Hình ảnh</td>
+                <td width="20%" align="left">&nbsp;</td>
                 <td width="15%" align="left">
                     <a href="<?php echo base_url().'panel/admin_category/edit/'.$rowSub['id_news_category']; ?>">Edit</a>
                     <img style="cursor: pointer; vertical-align: middle;" src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord("<?php echo $rowSub['id_news_category'] ?>")' width='14' height='16' border='0' title='Delete'/>
@@ -71,9 +71,9 @@
                 ?>
                 <tr>
                     <td width="5%" align="left"><?php echo $i; ?></td>
-                    <td width="30%" align="left">....................<?php echo $rowSub2['name']; ?></td>
+                    <td width="30%" align="left"><a href="<?php echo base_url().'panel/admin_category/edit/'.$rowSub2['id_news_category']; ?>">....................<?php echo $rowSub2['name']; ?></a></td>
                     <td width="20%" align="left"><?php echo $rowSub['name']; ?></td>
-                    <td width="20%" align="left">Hình ảnh</td>
+                    <td width="20%" align="left">&nbsp;</td>
                     <td width="15%" align="left">
                         <a href="<?php echo base_url().'panel/admin_category/edit/'.$rowSub2['id_news_category']; ?>">Edit</a>
                         <img style="cursor: pointer; vertical-align: middle;" src="<?php echo base_url().'assets/images/panel/recycle.gif'; ?>" onclick='deleteRecord("<?php echo $rowSub2['id_news_category'] ?>")' width='14' height='16' border='0' title='Delete'/>

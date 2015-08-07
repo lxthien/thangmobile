@@ -55,6 +55,9 @@ class Admin_category extends CI_Controller {
             } else {
                 $object = array();
                 $object['id_news_category'] = $this->input->post('id_news_category');
+                if ($this->input->post('id_parent') != 'NULL') {
+                    $object['id_parent'] = $this->input->post('id_parent');
+                }
                 $object['name'] = $this->input->post('name');
                 $object['meta_title'] = $this->input->post('meta_title');
                 $object['meta_description'] = $this->input->post('meta_description');

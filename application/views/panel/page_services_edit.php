@@ -63,9 +63,15 @@ echo '<table width="80%" border="0" cellspacing="0" cellpadding="5" align="left"
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Danh mục');
 echo '</td><td>';
-echo form_input(array('name' => 'meta_keywords', 'class' => 'form field'), $news->meta_keywords), '<br>';
+$data_url = array(
+    'name' => 'id_news_category',
+    'id' => 'id_news_category',
+    'value' => $news->id_news_category,
+    'class' => 'form field',
+);
+echo form_dropdown('id_news_category', $options, $news->id_news_category);
 echo '</td><td>';
-echo form_error('meta_keywords');
+echo form_error('id_news_category');
 echo '</td></tr>';
 
 

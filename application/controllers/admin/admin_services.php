@@ -30,8 +30,10 @@ class Admin_services extends CI_Controller {
 
     function index($category_id = NULL) {
         
-        $list_items = $this->services_model->listnews($category_id); //
+        $categories = $this->news_category_model->read_list();
+        $data['options'] = $this->news_category_model->buildTree($categories);
         
+        $list_items = $this->services_model->listnews($category_id);
         $news_categories = $this->services_model->getCname();
         $first_item = array ('../' => "Show all");
         $news_categories = $first_item + $news_categories;
@@ -40,7 +42,7 @@ class Admin_services extends CI_Controller {
             if (isset($news_categories[$item->id_news_category])) {
                 $item->category_name = $news_categories[$item->id_news_category];
             } else {
-                $item->category_name = 'Category không hợp lệ';
+                $item->category_name = 'Category not found';
             }
         }
 
@@ -49,7 +51,7 @@ class Admin_services extends CI_Controller {
         $data ['filter_category'] = $category_id;
         if(!$this->ion_auth->logged_in()){
         	redirect('panel/login');
-        }else{
+        } else {
 	        $this->load->view('panel/home', $data);
         }
     }
@@ -62,7 +64,7 @@ class Admin_services extends CI_Controller {
 
             //use to assign back GUI when data invalid
             $news_input->id_news = $this->input->post('news_id');
-            $news_input->id_news_category = $this->input->post('category');
+            $news_input->id_news_category = $this->input->post('id_news_category');
             $news_input->title = $this->input->post('title');
             $news_input->meta_title = $this->input->post('meta_title');
             $news_input->meta_description = $this->input->post('meta_description');
@@ -85,16 +87,12 @@ class Admin_services extends CI_Controller {
                 $data['error'] = validation_errors();
                 $this->load->view('panel/home', $data);
             } else {
-
                 $id = $this->input->post('news_id');
-                //check if entry is a company introduce or recruitment
-                // don't update category, link rewrite,icon, focus.
-                //otherwise update them
                 if (strlen($id) === 0 || (strlen($id) > 0 && $id !== COMPANY_INSTRODUCE_NEWS_ID 
                 		&& $id !== SERVICES
                 		&& $id !== WARRANTY
                 		&& $id !== SITE_MAP)) {
-                    $news['id_news_category'] = $this->input->post('category');
+                    $news['id_news_category'] = $this->input->post('id_news_category');
                     $news['link_rewrite'] = $this->input->post('link_rewrite');
                     $news['news_icon'] = $this->input->post('news_icon');
                     $focus = $this->input->post('focus');
@@ -125,10 +123,8 @@ class Admin_services extends CI_Controller {
                     $news['id_news'] = $id;
                     $this->services_model->update($news);
                     redirect(base_url('panel/admin_services'));
-                } else {
-                    //return inserted id
+                } else { 
                     $result = $this->services_model->add($news);
-
                     if (is_numeric($result)) {
                         redirect(base_url('panel/admin_services/edit/' . $result));
                     } else {
@@ -142,6 +138,9 @@ class Admin_services extends CI_Controller {
     }
 
     public function add() {
+        $categories = $this->news_category_model->read_list();
+        $data['options'] = $this->news_category_model->buildTree($categories);
+
         $data['Cname'] = $this->services_model->getCname();
         $news = new stdClass();
         $news->id_language = 1;
@@ -160,7 +159,9 @@ class Admin_services extends CI_Controller {
     }
 
     public function edit($id) {
-//        $id = $this->uri->rsegment(3);
+        $categories = $this->news_category_model->read_list();
+        $data['options'] = $this->news_category_model->buildTree($categories);
+
         $column = "id_news";
         $new = array();
         $data['Cname'] = $this->services_model->getCname();
@@ -172,7 +173,6 @@ class Admin_services extends CI_Controller {
             if(!$this->ion_auth->logged_in()){
 		    		redirect('panel/login');    	
         	}else{
-        	
             	$this->load->view('panel/home', $data);
         	}
         }
