@@ -3,14 +3,29 @@
 		<hr />
 		<h2>Dịch vụ sửa chữa</h2>
 	</div>
-	<ul>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-		<li><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></li>
-	</ul>
+	<div class="main-service-bxslider">
+		<div id="service-bxslider">
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>
+			<div class="slide"><a href="#"><img src="<?php echo base_url(); ?>assets/images/service.jpg"></a></div>		
+		</div>
+	</div>
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#service-bxslider').bxSlider({
+			auto: false,
+  			slideWidth: 200,
+			slideMargin: 10
+		});
+	});
+</script>

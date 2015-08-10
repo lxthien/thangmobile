@@ -1,11 +1,7 @@
-	 <!--ttin-->	
-
+<!--ttin-->	
 	 <div class="allboxsp1" style="float:left;">
-
 	        <p style="font-weight:bold; font-size:16px; margin-bottom:3px; margin-left:20px; color:#00619f;">Th&ocirc;ng tin c&ocirc;ng ngh&#7879; </p>
-
 	        <div class="title1" style="background-color:#00619f; width:650px; height:3px;  float:left;"></div>
-
 	    <div class="ttincongghe">
 
 <?php 

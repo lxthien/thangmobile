@@ -142,11 +142,20 @@ body {
 .title-service h2 {
 	position: absolute; text-align: center; padding: 5px 10px; background-color: #ffffff; top: -5px; left: 40%; text-transform: uppercase; color: #000000; font-weight: 400;
 }
-.home-service ul {
-	margin-top: 5px;
+.home-service div#service-bxslider {
+	margin-top: 5px; float: left; width: 980px;
 }
-.home-service ul li {
-	display: inline-block;
+.home-service div#service-bxslider .slide {
+	float: left;
+}
+.main-service-bxslider {
+	width: 980px; height: 75px; float: left; overflow: hidden;
+}
+.main-service-bxslider .bx-wrapper, .main-service-bxslider .bx-wrapper .bx-window{
+	width: 980px !important;
+}
+.main-service-bxslider .bx-prev, .main-service-bxslider .bx-next {
+	top: 30px;
 }
 
 /**
@@ -276,5 +285,147 @@ a.link-block-you-see:hover{
 
 
 .boxsp2 {
-	margin-left: 20px;
+	margin-left: 20px; margin-top: 10px;
+}
+.boxsp2 .titlesp3 p {
+	font-size: 14px;
+}
+.bx-prev {
+	background: url("../images/arrow-bxslider-01.png") no-repeat; top: 85px;
+}
+.bx-next {
+	background: url("../images/arrow-bxslider-02.png") no-repeat; top: 85px;
+}
+.new1, .new2 {
+	width: 485px;
+}
+.new2 {
+	margin-left: 0; float: right;
+}
+.new1 .hinhnew, .new2 .hinhnew {
+	margin-left: 0; width: 110px; height: 85px; border: 2px solid #cccccc; margin-top: 0px;
+}
+.hinhnew img {
+	width: 110px; height: 85px;
+}
+.contentnew a, .contentnew a p{
+	width: auto;
+}
+.line2 {
+	margin-left: 0; width: 485px; background: #cccccc;
+}
+
+.foter {
+	background: #f5f5f5; border-top: 1px solid #cccccc; margin-top: 0px; height: 265px;
+}
+.foter .center {
+	width: 550px; margin: 0 auto; border-top: 1px solid #555555; text-align: center;
+}
+
+.foter .footer-right {
+	width: 335px; height: 110px; border: 1px solid #cccccc; border-radius: 2px; background: #ffffff; float: right; padding: 10px;
+}
+.foter .footer-right h3 {
+	text-transform: uppercase; font-size: 15px;
+}
+.footer-right-01 {
+	padding: 5px 0; border-bottom: 1px solid #cccccc;
+}
+.footer-right-01:last-child {
+	border-bottom: none;
+}
+.footer-right-01 p:first-child {
+	color: #00619f; font-size: 16px;
+}
+.footer-right-01 p:last-child {
+	font-size: 13px;
+}
+
+
+.foter .add .footer-menu {
+	margin-bottom: 10px; float: left;
+}
+.foter .add .footer-menu li {
+	float: left; margin-right: 10px; border-right: 1px solid #000000; padding-right: 10px; line-height: 15px;
+}
+.foter .add .footer-menu li:last-child {
+	border-right: none;
+}
+.foter .add .footer-menu li a{
+	font-size: 13px; color: #000000;
+}
+.foter .add .footer-menu li a:hover{
+	color: #00619f;
+}
+
+.foter .add .category {
+	float: left; width: 100%;
+}
+.foter .add .category li{
+	float: left;
+}
+
+
+.allboxsp1 {
+	border: none; padding-top: 0;
+}
+
+
+/**
+ * Product
+ *****************************/
+.main-product {
+	float: left; width: 980px; margin-top: 20px;
+}
+.main-product .left {
+	width: 100%;
+}
+.main-product .left .allboxsp1 .title {
+	position: relative; float: left; margin: 20px 0;
+}
+.main-product .left .allboxsp1 .title h1{
+	position: absolute; background: #ffffff; left: 0; top: -11px; text-transform: uppercase; font-weight: 400; padding-right: 15px;
+	font-size: 20px;
+}
+.main-product .line7 {
+	width: 980px; background: #cccccc;
+}
+.main-product .xemtatca a{
+	width: auto; float: right; line-height: 25px;
+}
+.boxsp {
+	width: 215px; margin-right: 10px; border: 1px solid #cccccc; margin-bottom: 10px; border-radius: 2px; padding: 10px;
+}
+.boxsp:nth-child(4n) {
+	margin-right: 0px;
+}
+.boxsp .sp3 {
+	width: 65px; height: 125px;
+}
+.boxsp .sp3 img {
+	width: 65px; height: auto; margin-left: 0;
+}
+.boxsp .titlesp {
+	float: left; width: 150px;
+}
+.boxsp .titlesp a{
+	margin: 0; width: 100%; font-weight: 600; height: auto; margin-bottom: 8px;
+}
+.boxsp .titlesp a:hover {
+	margin: 0; color: #00619f; width: 100%; height: auto; margin-bottom: 8px;
+}
+.boxsp .pricespold {
+	width: 150px;
+}
+.boxsp .pricespnew {
+	width: 150px;
+}
+.boxsp .boxsale {
+	float: left; padding: 5px 0;
+}
+.boxsp .boxsale .sp-news span {
+	display: inline-block; padding: 3px 5px; color: #ffffff; background: #0a6abd; text-transform: uppercase; font-weight: 600;
+}
+.boxsp .boxsale .sp-gs span {
+	display: inline-block; padding: 3px 5px; color: #ffffff; background: #cc1414; text-transform: uppercase; font-weight: 600;
 }

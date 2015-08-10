@@ -25,6 +25,7 @@ class MY_Controller extends CI_Controller {
         }
         $this->load->model('Config_model', 'sconfig');
         $this->load->model('Download_category_model', 'download_category_model');
+        $this->load->model('news_category_model');
         $data = array();
         $data['header_main_menus'] = $this->_read_pages_list();
         $site_meta_data = array();
@@ -36,6 +37,7 @@ class MY_Controller extends CI_Controller {
         // get all service to show in menu
         $this->load->model('Services_model', 'services_model');
         $vars['listService'] = $this->services_model->getAll();
+        $vars['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
         
         $this->load->vars($vars);
     }

@@ -10,34 +10,27 @@ $this->load->view('partial/menu');
 //$this->load->view('home/block_banner'); 
 ?>
 
-	<!--main-->	
-  <div class="main" style="width:927px;  float:left; margin-left:35px; margin-top:20px;">
+<!--main-->	
+<div class="main" style="width:980px; float:left;">
 	<!-- left-->	
-	 <div class="left">
-
+	<div class="left">
     <?php //$this->load->view('lienHe/lien_he');?>
 	<?php echo $download_block_main;?>		      
-
-	 </div>
-<!--end left-->	
+	</div>
+	<!--end left-->	
 	<!--right-->		 
- <div class="right" style="width:240px; float:left; margin-left:25px;">
+ 	<div class="right">
 		<!--download-->
 		<?php  $this->load->view('download/blockDownload'); ?>
 		<!--end download-->
 		<!--qc-->
 		<?php $this->load->view('partial/right_column_ads'); ?>
 		<!--end qc-->
- 
- 
- </div>
-	 <!--end right-->
+ 	</div>
+	<!--end right-->
 	<!--doitac-->
-
 	<?php $this->load->view('doiTac/blockDoiTac'); ?>
 	<!--end doitac-->
-	
-  </div>
-    
+</div>
 <?php $this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

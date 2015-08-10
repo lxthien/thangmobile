@@ -11,7 +11,7 @@ $this->load->view('partial/menu');
 ?>
 
 	<!--main-->	
-  <div class="main" style="width:927px;  float:left; margin-left:35px; margin-top:20px;">
+  <div class="main" style="width:980px; float:left;">
 	<!-- left-->	
 	 <div class="left">
 
@@ -21,7 +21,7 @@ $this->load->view('partial/menu');
 	 </div>
 <!--end left-->	
 	<!--right-->		 
- <div class="right" style="width:240px; float:left; margin-left:25px;">
+ <div class="right">
 		<!--download-->
 		<?php  $this->load->view('download/blockDownload'); ?>
 		<!--end download-->

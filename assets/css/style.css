@@ -270,7 +270,7 @@ margin-top:1px;
 .contentdt a { color:#333333; font-size:12px; float:left;}
 .contentdt a:hover { color:#00619f; font-size:12px; float:left;}
 .contentnew a { color:#333333; width:290px;font-weight:bold; font-size:14px; float:left;}
-.contentnew a:hover { color:#000000; width:290px;font-weight:bold; font-size:14px; float:left;}
+.contentnew a:hover {font-weight:bold; font-size:14px; float:left;}
 .line{background-color:#dfdfdf; width:1px; height:162px; margin-left:25px;  margin-right:25px; float:left;}
 .line2{background-color:#e5e5e5; margin-top:5px; width:410px; height:1px; float:left; margin-left:20px;}
 .line3{background-color:#dddddd; margin-top:5px; margin-bottom:10px; width:648px; float:left; height:1px;}

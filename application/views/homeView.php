@@ -8,13 +8,9 @@ if (isset($site_meta_data)) {
     $this->load->view('partial/header');
 }
 	$this->load->view('partial/menu');
-	//echo '<div class="baner"></div>';
-
 	$this->load->view('home/block_banner');
-
 	$this->load->view('home/block_service');
 ?>
-
 	<!--main-->	
   	<div class="main" style="width:980px; float:left;">
 		<!-- left-->	
@@ -22,7 +18,6 @@ if (isset($site_meta_data)) {
 			<!--spbanchay-->	
 			<?php $this->load->view('home/blockBestSellProduct'); ?>
 			<!--end spbanchay-->
-			   
 			<!--spbanhot--> 
 		 	<?php $this->load->view('home/blockPhuKienHot'); ?>
 			<!--end spbanhot-->
@@ -45,9 +40,8 @@ if (isset($site_meta_data)) {
 		<?php $this->load->view('home/home_tin_cong_nghe'); ?>
 	<!--end new-->
 	<!--doitac-->
-
-	<?php $this->load->view('doiTac/blockDoiTac'); ?>
+	<?php //$this->load->view('doiTac/blockDoiTac'); ?>
 	<!--end doitac-->
-  </div>
+  	</div>
 <?php $this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

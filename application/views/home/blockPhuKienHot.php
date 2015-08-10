@@ -16,7 +16,7 @@
 					   		<p align="center" style="width:140px;" ><?php echo $each->model?></p>
 					   	</a>
 					</div>
-					<div class="pricesphot" align="center" style="color: #FF0000;">Giá: <?php echo number_format($each->price,"0",",",".");?> VNÐ</div>
+					<div class="pricesphot" align="center">Giá: <span style="color: #FF0000;"><?php echo number_format($each->price,"0",",",".");?> VNÐ</span></div>
 				</div>
 			<?php 
 				if($index % 4 == 0 && $index != count($phuKienHot)) {
@@ -35,9 +35,4 @@
 			auto: false
 		});
 	});
-</script>
-<style type="text/css">
-	.bx-window{
-		width: 675px !important;
-	}
-</style>	   
+</script>   

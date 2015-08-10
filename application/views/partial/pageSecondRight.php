@@ -1,8 +1,7 @@
-	 <!--ttin-->	
-	 <div class="allboxsp1" style="float:left;">
-        <?php        
+<!--ttin-->	
+<div class="allboxsp1" style="float:left;">
+    <?php        
         if (isset($page_second_right['single_post'])) {
-            //Display selected post
             $data['news_item'] = $page_second_right['single_post'];
             
             if (isset($page_second_right['posts_same_category'])) {
@@ -27,28 +26,5 @@
         } else if(isset($services)){
             $this->load->view('partial/services_page', $data);
         }
-//         else if (isset($page_second_right['gallery_categories'])) {
-//             $data = array();
-// //            var_dump($page_second_right['galleries'])
-//             if (isset($page_second_right['gallery_categories'])) {
-//                 $data['gallery_categories'] = $page_second_right['gallery_categories'];
-//             }
-
-//             if (isset($page_second_right['galleries'])) {
-//                 $data['galleries'] = $page_second_right['galleries'];
-//             }            
-//             if (isset($page_second_right['selected_album'])) {
-//                 $data['gallery'] = $page_second_right['selected_album'];                
-//                 $this->load->view('partial/page_gallery_display', $data);
-//             } else {
-//                 $this->load->view('partial/page_gallery_list_display', $data);
-//             }
-//         } 
-//         else if (isset($page_second_right['selected_album'])) {
-            
-//         }
-        ?>        
-
-    </div>   
-
-	    
+    ?>
+</div>

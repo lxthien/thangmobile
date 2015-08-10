@@ -42,11 +42,13 @@
                 <div class="sreen1" style=" height:35px; float:left;">
                     <h2><a href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>" class="haslin"><p>Dịch vụ sửa chữa</p></a></h2>
                 </div>
+                <?php if(count($menuCategoryService) > 0): ?>
                 <ul style="margin-top: 2px; width: 250px;">
                     <?php foreach ($menuCategoryService as $service): ?>
                         <li class="lv1" style="margin-top:-2px;"><a style="width: 250px;" href="<?php echo base_url('dich-vu/' . $service['link_rewrite']); ?>" class="haslink "><?php echo $service['name']; ?></a></li>
                     <?php endforeach; ?>
                 </ul>
+                <?php endif; ?>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
                 <div class="sreen1" style=" height:35px; float:left;">
