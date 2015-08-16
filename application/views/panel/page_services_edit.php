@@ -34,7 +34,7 @@ $config_mini = array(
 
 //---- Hoặc tùy biến kích thước
 
-$this->ckeditor->config['width'] = '730px';
+$this->ckeditor->config['width'] = '900px';
 
 $this->ckeditor->config['height'] = '300px';
 

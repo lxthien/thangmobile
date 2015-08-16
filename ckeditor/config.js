@@ -36,6 +36,7 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-	config.skin='office2003';
+  //config.skin='office2003';
+	config.skin='kama';
 	config.width=480;
 };

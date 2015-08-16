@@ -16,6 +16,7 @@ if ($right_advertise->logo != '' && $right_advertise->logo != null) {
                 src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $right_advertise->logo); ?>"></a>
     </div>
 <?php } ?>
+<!--
 <script>
     function FloatTopDiv() {
         startLX = ((document.body.clientWidth - MainContentW) / 2) - LeftBannerW - LeftAdjust , startLY = TopAdjust + 80;
@@ -108,3 +109,4 @@ if ($right_advertise->logo != '' && $right_advertise->logo != null) {
     window.onresize = ShowAdDiv;
     ;
 </script>
+-->

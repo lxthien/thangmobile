@@ -11,17 +11,9 @@ $this->load->view('partial/menu');
 ?>
 	<!--main-->	
   	<div class="main main-product">
-		<div class="nav">
-			<a href="">Trang chủ</a>
-			<a href="">Điện thoại</a>
-		</div>
-		<div class="cat-product-hot">
-			Product cat hot
-		</div>
 		<!-- left-->
 		<div class="left">
-	    <?php //$this->load->view('lienHe/lien_he');?>
-		<?php echo $product_block_main;?>		      
+			<?php echo $product_block_main;?>
 		</div>
 		<!--end left-->
 		<!--doitac-->

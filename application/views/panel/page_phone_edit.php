@@ -6,7 +6,7 @@ $config_mini['toolbar'] = array(
 $config_mini = array(
     array('Source', '-', 'Bold', 'Italic', 'Underline', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', '-', 'NumberedList', 'BulletedList'));
 //---- Hoáº·c tÃ¹y biáº¿n kÃ­ch thÆ°á»›c
-$this->ckeditor->config['width'] = '730px';
+$this->ckeditor->config['width'] = '900px';
 $this->ckeditor->config['height'] = '300px';
 
 /* Y la configuraciÃ³n del kcfinder, la debemos poner asÃ­ si estamos trabajando en local */

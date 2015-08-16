@@ -381,7 +381,7 @@ a.link-block-you-see:hover{
 	width: 100%;
 }
 .main-product .left .allboxsp1 .title {
-	position: relative; float: left; margin: 20px 0;
+	position: relative; float: left; margin: 15px 0 5px;
 }
 .main-product .left .allboxsp1 .title h1{
 	position: absolute; background: #ffffff; left: 0; top: -11px; text-transform: uppercase; font-weight: 400; padding-right: 15px;
@@ -393,39 +393,172 @@ a.link-block-you-see:hover{
 .main-product .xemtatca a{
 	width: auto; float: right; line-height: 25px;
 }
-.boxsp {
+.main-product .boxsp {
 	width: 215px; margin-right: 10px; border: 1px solid #cccccc; margin-bottom: 10px; border-radius: 2px; padding: 10px;
+	height: 130px;
 }
-.boxsp:nth-child(4n) {
+.main-product .boxsp:nth-child(4n) {
 	margin-right: 0px;
 }
-.boxsp .sp3 {
+.main-product .boxsp .sp3 {
 	width: 65px; height: 125px;
 }
-.boxsp .sp3 img {
+.main-product .boxsp .sp3 img {
 	width: 65px; height: auto; margin-left: 0;
 }
-.boxsp .titlesp {
+.main-product .boxsp .titlesp {
 	float: left; width: 150px;
 }
-.boxsp .titlesp a{
+.main-product .boxsp .titlesp a{
 	margin: 0; width: 100%; font-weight: 600; height: auto; margin-bottom: 8px;
 }
-.boxsp .titlesp a:hover {
+.main-product .boxsp .titlesp a:hover {
 	margin: 0; color: #00619f; width: 100%; height: auto; margin-bottom: 8px;
 }
-.boxsp .pricespold {
+.main-product .boxsp .pricespold {
 	width: 150px;
 }
-.boxsp .pricespnew {
+.main-product .boxsp .pricespnew {
 	width: 150px;
 }
-.boxsp .boxsale {
-	float: left; padding: 5px 0;
+.main-product .boxsp .boxsale {
+	float: left; padding: 5px 0; width: 150px;
 }
-.boxsp .boxsale .sp-news span {
+.main-product .spbanchay {
+	width: 980px;
+}
+.main-product .boxsp .boxsale a span {
+	margin: 3px 0;
+}
+.main-product .boxsp .boxsale .sp-news span {
 	display: inline-block; padding: 3px 5px; color: #ffffff; background: #0a6abd; text-transform: uppercase; font-weight: 600;
 }
-.boxsp .boxsale .sp-gs span {
+.main-product .boxsp .boxsale .sp-gs span {
 	display: inline-block; padding: 3px 5px; color: #ffffff; background: #cc1414; text-transform: uppercase; font-weight: 600;
+}
+
+.main-product .boxsp .boxsale .sp-giff span {
+	display: inline-block; padding: 3px 5px; color: #ffffff; background: #7bbd0b; text-transform: uppercase; font-weight: 600;
+}
+
+
+.main-product .nav {
+	float: left; width: 100%; margin: 0px 0px 8px;
+}
+.main-product .nav a {
+	display: inline-block; font-size: 14px; color: #000000;
+}
+.main-product .nav span {
+	font-size: 14px;
+}
+.main-product .nav a:hover, .main-product .nav span {
+	color: #00619f;
+}
+
+.main-product .sp_sub_category_big .boxsp {
+	width: 270px;
+}
+
+
+.ttinsanpham {
+	width: 980px;
+}
+
+.leftthongtin {
+	width: 460px;
+}
+.leftthongtin .boxhinhlonsp {
+	width: 440px; height: 380px;
+}
+.leftthongtin .box-chung-toi-cam-ket {
+	padding: 10px 20px; border: 1px solid #cccccc; width: 400px; border-radius: 5px; float: left; background: #fafafa;
+}
+.leftthongtin .box-chung-toi-cam-ket p {
+	font-size: 15px; line-height: 20px; padding: 3px 0 0 20px; background: url("../images/icon-check.png") no-repeat 0 4px;
+}
+.leftthongtin .box-chung-toi-cam-ket span {
+	color: #ed0000; display: block; font-size: 18px; line-height: 20px;
+}
+
+
+.rightthongtin {
+	width: 505px; float: right; margin: 0;
+}
+.price-detail {
+	font-size: 23px; color: #ff0000;
+}
+.tu-van {
+	font-size: 18px; color: #000000;
+}
+.tu-van span:last-child {
+	color: #ff0000;
+}
+.thongtincoban {
+	width: 100%; float: left; margin-bottom: 15px;
+}
+.thongtincoban .p-title {
+	width: 100%; font-size: 16px; color: #000000; margin: 5px 0 2px; font-weight: 600;
+}
+.thongtincoban hr {
+	border: 0; border-top: 1px solid #cccccc; float: left; width: 100%; margin-bottom: 5px;
+}
+.thongtincoban p {
+	font-size: 14px; line-height: 18px;
+}
+
+
+.thongtincanluuy {
+	width: 100%; float: left; margin-bottom: 15px;
+}
+.thongtincanluuy .p-title {
+	width: 100%; font-size: 16px; color: #000000; margin: 5px 0 2px; font-weight: 600;
+}
+.thongtincanluuy hr {
+	border: 0; border-top: 1px solid #cccccc; float: left; width: 100%; margin-bottom: 5px;
+}
+.thongtincanluuy p {
+	font-size: 14px; line-height: 18px;
+}
+
+.qua-khuyen-mai {
+	width: 435px; border: 2px solid #f3ae1a; float: left; background: url("../images/gift.png") no-repeat;
+	border-radius: 3px;
+}
+.info-qua-khuyen-mai {
+	margin: 50px 0 10px 20px;
+}
+.info-qua-khuyen-mai p {
+	font-size: 14px; line-height: 18px;
+}
+
+
+.thongso a {
+	margin-left: 0px;
+}
+.thongso a:hover{
+	margin-left: 0;
+}
+
+#thongsokithuat p, #gioithieusanpham p {
+	margin-bottom: 18px; line-height: 18px;
+}
+
+
+.main-product-detail {
+	width: 980px; float: left; margin-top: 15px;
+}
+.product-col-right {
+	float: right; width: 290px; margin-top: 10px;
+}
+.box-product-col-right {
+	float: left; width: 100%;
+}
+.box-product-col-right-title {
+	width: 100%;
+}
+.box-product-col-right-title h5 {
+	text-transform: uppercase; font-weight: 400; font-size: 18px; color: #000000;
+}
+.box-product-col-right-title hr {
+	border: 0; border-top: 1px solid #cccccc; float: left; width: 100%; margin-bottom: 5px;
 }

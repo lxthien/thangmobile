@@ -73,6 +73,7 @@ class Product extends MY_Controller {
     	$data['contact'] = $this->Mcontact->listcontact();
     	$this->load->view('product', $data);
     }
+
     private function _get_category_metadata($link_rewrite){
     	
     	$page = $this->product_category_model->read_by_link_rewrite($link_rewrite);
@@ -97,7 +98,6 @@ class Product extends MY_Controller {
     	}
     	
     	$data['linkViewAll'] = $firstLevelCategory.'/'.$category;
-    	
     	$data['parentCategoryName'] = $productCategory->name;
     	$data['childrenCategories'] = $children;
     	return $this->load->view('product/display_parent_category',$data,TRUE);
@@ -182,10 +182,12 @@ class Product extends MY_Controller {
     	$data['eachProductList'] = $productList;
     	return $this->load->view('product/display_sub_category',$data,TRUE);
     }
+
  	private function _load_page($id) {
         $page = $this->product_model->read_by_id($id);
         return $page;
     }
+
     public function view_details($firstLevelCategory, $category, $subCategory, $productLink) {
     	$data['view_details'] = 1;
     	$data['product_block_main'] = $this->_load_product_details($firstLevelCategory, $category, $subCategory, $productLink);
@@ -301,7 +303,8 @@ class Product extends MY_Controller {
             }
         }
     }
-/**
+
+    /**
      * Set meta data for page
      * @param type $post 
      */
@@ -334,5 +337,3 @@ class Product extends MY_Controller {
         return $this->partner_model->read_list();
     }
 }
-
-?>
