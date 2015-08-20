@@ -60,7 +60,7 @@ $route['home'] = 'home/index';
 //$route['tin-tuc/(:any)/(:num)-(:any)'] = 'news/index/$2';
 $route['gioi-thieu.html'] = 'company_introduce/index/gioi-thieu-cong-ty';
 $route['site-map.html'] = 'company_introduce/index/site-map';
-$route['dich-vu-sua-dien-thoai-uy-tin-tai-ba-ria-vung-tau.html'] = 'company_introduce/index/dich-vu-sua-chua';
+$route['dich-vu-sua-chua-dien-thoai.html'] = 'company_introduce/index/dich-vu-sua-chua';
 $route['che-do-bao-hanh.html'] = 'company_introduce/index/che-do-bao-hanh';
 //$route['gioi-thieu/(:any)/(:any)/(:num)'] = 'company_introduce/load_pagination/$1/$2/$3';
 //$route['gioi-thieu/(:any)/(:any)/(:num)-(:any).html'] = 'company_introduce/index/$1/$2/$3';
@@ -89,7 +89,7 @@ $route['tin-tuc/(:any)'] = 'news/view_post_on_category/$0/$1';
 
 
 $route['dich-vu'] = 'news/servicesDetail/$1';
-$route['dich-vu/(:any)'] = 'news/servicesDetail/$1';
+$route['dich-vu/(:any)'] = 'news/servicesCat/$1';
 //$route['(:any)/(:any)/(:num)'] = 'news/view_post_on_category/$0/$1';
 // $route['(:any)'] = 'news/view_post_on_page/$0/1';
 $route['(:any)'] = 'news/view_post_on_page/$0/1';

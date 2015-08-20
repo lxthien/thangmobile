@@ -1,7 +1,54 @@
-<p style="font-weight:bold; font-size:16px; margin-bottom:3px; margin-left:20px; color:#00619f;"><?php echo $services->title; ?></p>
-<div class="title1" style="background-color:#00619f; width:650px; height:3px;  float:left;"></div>
-<div class="ttincongghe">
-    <div align="justify" class="noidungthitruongchitiet" style="width:610px; margin-bottom:1px; margin-left:20px; margin-top:5px; font-size: 15px; line-height: 1.4;">
-        <?php echo $services->content; ?>
-    </div>
+<?php
+	foreach ($services as $row) :
+?>
+	<div class="box-service">
+		<img class="img-server" alt="" src="<?php echo base_url().'assets/images/service-news.jpg'; ?>" />
+		<div class="right-box-service">
+			<a href="" title="Cuộc đua giá rẻ làm thay đổi thị trường smartphone">Cuộc đua giá rẻ làm thay đổi thị trường smartphone</a>
+			<p class="date-service">08/07/2015</p>
+			<p class="des-service">Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất</p>
+		</div>
+	</div>
+<?php
+	endforeach;
+?>
+<div class="box-service">
+	<img class="img-server" alt="" src="<?php echo base_url().'assets/images/service-news.jpg'; ?>" />
+	<div class="right-box-service">
+		<a href="" title="Cuộc đua giá rẻ làm thay đổi thị trường smartphone">Cuộc đua giá rẻ làm thay đổi thị trường smartphone</a>
+		<p class="date-service">08/07/2015</p>
+		<p class="des-service">Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất</p>
+	</div>
+</div>
+<div class="box-service">
+	<img class="img-server" alt="" src="<?php echo base_url().'assets/images/service-news.jpg'; ?>" />
+	<div class="right-box-service">
+		<a href="" title="Cuộc đua giá rẻ làm thay đổi thị trường smartphone">Cuộc đua giá rẻ làm thay đổi thị trường smartphone</a>
+		<p class="date-service">08/07/2015</p>
+		<p class="des-service">Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất</p>
+	</div>
+</div>
+<div class="box-service">
+	<img class="img-server" alt="" src="<?php echo base_url().'assets/images/service-news.jpg'; ?>" />
+	<div class="right-box-service">
+		<a href="" title="Cuộc đua giá rẻ làm thay đổi thị trường smartphone">Cuộc đua giá rẻ làm thay đổi thị trường smartphone</a>
+		<p class="date-service">08/07/2015</p>
+		<p class="des-service">Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất</p>
+	</div>
+</div>
+<div class="box-service">
+	<img class="img-server" alt="" src="<?php echo base_url().'assets/images/service-news.jpg'; ?>" />
+	<div class="right-box-service">
+		<a href="" title="Cuộc đua giá rẻ làm thay đổi thị trường smartphone">Cuộc đua giá rẻ làm thay đổi thị trường smartphone</a>
+		<p class="date-service">08/07/2015</p>
+		<p class="des-service">Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất</p>
+	</div>
+</div>
+<div class="box-service">
+	<img class="img-server" alt="" src="<?php echo base_url().'assets/images/service-news.jpg'; ?>" />
+	<div class="right-box-service">
+		<a href="" title="Cuộc đua giá rẻ làm thay đổi thị trường smartphone">Cuộc đua giá rẻ làm thay đổi thị trường smartphone</a>
+		<p class="date-service">08/07/2015</p>
+		<p class="des-service">Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất</p>
+	</div>
 </div>

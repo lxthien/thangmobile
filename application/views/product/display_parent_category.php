@@ -2,6 +2,7 @@
     <a href="<?php echo base_url(); ?>">Trang chủ</a> - 
     <span>Điện thoại</span>
 </div>
+<!--
 <div class="cat-product-hot">
     <div class="allboxsp1">
         <div class="title">
@@ -50,7 +51,7 @@
         </div>
     </div>
 </div>
-
+-->
 <?php
 if (isset($childrenCategories)) {
     foreach ($childrenCategories as $each) {

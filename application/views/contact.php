@@ -11,33 +11,22 @@ $this->load->view('partial/menu');
 ?>
 
 	<!--main-->	
-  <div class="main" style="width:980px; float:left;">
-	<!-- left-->	
-	 <div class="left">
-
-    <?php $this->load->view('lienHe/lien_he');?>
-			      
-
-	 </div>
-<!--end left-->	
-	<!--right-->		 
- <div class="right">
-		<!--download-->
-		<?php  $this->load->view('download/blockDownload'); ?>
-		<!--end download-->
-		<!--qc-->
-		<?php $this->load->view('partial/right_column_ads'); ?>
-		<!--end qc-->
- 
- 
- </div>
-	 <!--end right-->
-	<!--doitac-->
-
-	<?php $this->load->view('doiTac/blockDoiTac'); ?>
-	<!--end doitac-->
-	
-  </div>
-    
+	<div class="main" style="width:980px; float:left; margin-top: 15px;">
+		<!-- left-->	
+	 	<div class="left">
+    		<?php $this->load->view('lienHe/lien_he');?>
+		</div>
+		<!--end left-->	
+		<!--right-->		 
+		<div class="right">
+			<!--download-->
+			<?php  $this->load->view('download/blockDownload'); ?>
+			<!--end download-->
+		</div>
+		<!--end right-->
+		<!--doitac-->
+		<?php $this->load->view('doiTac/blockDoiTac'); ?>
+		<!--end doitac-->
+  	</div>
 <?php $this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

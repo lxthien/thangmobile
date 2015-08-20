@@ -1,23 +1,20 @@
-	 <!--ttin-->
-
 <div class="allboxsp1" style="float: left;">
-	<p style="font-weight: bold; font-size: 16px; margin-bottom: 3px; margin-left: 20px; color: #00619f;">Li&ecirc;n h&#7879;</p>
-	<div class="title1"
-		style="background-color: #00619f; width: 650px; height: 3px; float: left;"></div>
+	<div class="title">
+		<h1>Liên hệ</h1>
+	</div>
+	<div class="line-title">
+		<div class="left-30">&nbsp;</div>
+		<div class="left-70">&nbsp;</div>
+	</div>
+
 	<div class="ttincongghe">
-		<div class="sreentieude"
-			style="width: 610px; margin-left: 20px; margin-top: 10px;">
+		<div class="sreentieude" style="width: 675px; margin-top: 10px; margin-left: 0;">
 			<div class="tieude" style="font-size: 16px; font-weight: bold;">
-				<p>
-					<?php echo $this->sconfig->get_value('site_name');?>
-				</p>
+				<p><?php echo $this->sconfig->get_value('site_name');?></p>
 			</div>
 		</div>
-		<div align="justify" class="noidungchitiet"
-			style="width: 610px; margin-bottom: 1px; margin-left: 20px; margin-top: 5px;">
-
-			<div class="noidunggioithieu"
-				style="width: 543px; margin-bottom: 10px;">
+		<div align="justify" class="noidungchitiet"	style="width: 675px; margin-top: 5px;">
+			<div class="noidunggioithieu" style="width: 543px; margin-bottom: 10px;">
 
 				<div class="contact-tbl">
 					<div class="contact-tbl-row">
@@ -121,5 +118,3 @@
 		</div>
 	</div>
 </div>
-<!--end ttin--> 
-

@@ -3,6 +3,7 @@
     <a href="<?php echo base_url().'san-pham/dien-thoai'; ?>">Điện thoại</a> - 
     <span><?php echo $categoryName; ?></span>
 </div>
+<!--
 <div class="cat-product-hot">
     <div class="allboxsp1">
         <div class="title">
@@ -51,7 +52,7 @@
         </div>
     </div>
 </div>
-
+-->
 <?php
 if (isset($eachProductList)) {
     ?>

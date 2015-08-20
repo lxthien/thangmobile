@@ -443,7 +443,7 @@ a.link-block-you-see:hover{
 
 
 .main-product .nav {
-	float: left; width: 100%; margin: 0px 0px 8px;
+	float: left; width: 100%; margin: 0px 0px 10px;
 }
 .main-product .nav a {
 	display: inline-block; font-size: 14px; color: #000000;
@@ -561,4 +561,64 @@ a.link-block-you-see:hover{
 }
 .box-product-col-right-title hr {
 	border: 0; border-top: 1px solid #cccccc; float: left; width: 100%; margin-bottom: 5px;
+}
+
+
+.box-service {
+	float: left; width: 100%; margin-bottom: 10px; border-bottom: 1px solid #b0b0b0; padding-bottom: 10px;
+}
+.box-service .img-server {
+	float: left; margin-right: 10px; width: 195px; height: 105px; border: 1px solid #cccccc;
+}
+.box-service .right-box-service {
+	float: right; width: 460px;
+}
+.box-service .right-box-service a {
+	text-transform: uppercase; margin-bottom: 5px; font-size: 14px; color: #000000; font-weight: 600;
+}
+.box-service .right-box-service a:hover {
+	color: #00619f;
+}
+.box-service .right-box-service p.date-service {
+	color: #7a7a7a; padding: 3px 0;
+}
+.box-service .right-box-service p.des-service {
+	font-size: 13px; color: #262626; text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.line-title {
+	width: 100%; position: relative;
+}
+.line-title .left-30 {
+	width: 10%; height: 2px; background: #00619f; position: absolute; top: 0; left: 0;
+}
+.line-title .left-70 {
+	width: 90%; height: 2px; background: #787878; position: absolute; top: 0; right: 0;
+}
+
+.phantrang {
+	float:left; width:675px; height:20px;
+}
+.phantrang .back {
+	width: 675px; float: left; text-align: center;
+}
+.phantrang .back p {
+	display: inline-block;
+}
+
+.ttincongghe {
+	width: 675px;
 }

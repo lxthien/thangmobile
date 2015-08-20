@@ -68,6 +68,7 @@ class News extends MY_Controller {
     	 
     	return $latest_downloads;
     }
+
     /*
      * Load tin cho 1 sub category cua tin tuc.
     */
@@ -112,8 +113,7 @@ class News extends MY_Controller {
 
     function index($page_link_rewrite, $category_link = NULL, $thread_id = NULL, $page_nr = 0) {
         $data = $this->load->get_var('data');
-        $page = $this->_load_page($page_link_rewrite);
-//        echo 'hello ba con'.$thread_id;       
+        $page = $this->_load_page($page_link_rewrite);      
         if (!$page) {
             show_404();
         }
@@ -228,12 +228,6 @@ class News extends MY_Controller {
                 $page_item_map_to_category = $page_item;
                 break;
             }
-//            TODO : get all category for page like company_introduce
-//            $categories = $this->category_model->read_list_by_parent_id($page_item['id_news_category']);            
-//            if (sizeof($categories) > 0){
-//                array_push(&$result, $categories);
-//                
-//            }
             echo "Unhandle this case in news controller";
             die();
         }
@@ -250,6 +244,7 @@ class News extends MY_Controller {
         $page = $this->page_model->read_by_link_rewrite($page_link_rewrite);
         return $page;
     }
+
     /*
      * _load_page_by_category()
      * load child category of news_category 
@@ -259,6 +254,7 @@ class News extends MY_Controller {
 		$page = $this->category_model->read_by_link_rewrite($category_link_rewrite);
 		return $page;
 	}
+
     private function _load_posts_by_category_id($category_id) {
         
     }
@@ -430,16 +426,40 @@ class News extends MY_Controller {
             } else if (isset($post->name)) {
                 $this->site_meta_data['title'] = $post->name;
             }
-            $this->site_meta_data['meta_title'] = $post->meta_title;
-            $this->site_meta_data['meta_description'] = $post->meta_description;
+            //$this->site_meta_data['meta_title'] = $post->meta_title;
+            //$this->site_meta_data['meta_description'] = $post->meta_description;
             if (isset($post->meta_keywords)) {
                 $this->site_meta_data['meta_keywords'] = $post->meta_keywords;
             }
         }
     }
+
     private function _get_partners(){
         $this->load->model('Partner_model','partner_model');
         return $this->partner_model->read_list();
+    }
+
+    public function servicesCat($url){
+        $this->load->model('Services_model', 'services_model');
+        $this->load->model('news_category_model');
+
+        $url = $this->uri->segment(2);
+        $catServices = $this->news_category_model->read_by_link_rewrite($url);
+
+        $list = $this->services_model->get_news_list_by_category_id($catServices->id_news_category);
+        
+        $this->_get_meta_data($catServices);
+        $data['site_meta_data'] = $this->site_meta_data;
+
+
+        $data['contact'] = $this->Mcontact->listcontact();
+        $data['services'] = $list;
+        $data['partners'] = $this->_get_partners();
+        $data['banners'] = $this->banner_model->get_active_list();
+        $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
+        $data['latest_downloads'] = $this->get_latest_download();
+        $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+        $this->load->view('universalView', $data);
     }
     
     public function servicesDetail($url){
@@ -462,5 +482,3 @@ class News extends MY_Controller {
         $this->load->view('universalView', $data);
     }
 }
-
-?>

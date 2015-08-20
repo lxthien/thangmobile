@@ -1,8 +1,11 @@
-<!--ttin-->	
-	 <div class="allboxsp1" style="float:left;">
-	        <p style="font-weight:bold; font-size:16px; margin-bottom:3px; margin-left:20px; color:#00619f;">Th&ocirc;ng tin c&ocirc;ng ngh&#7879; </p>
-	        <div class="title1" style="background-color:#00619f; width:650px; height:3px;  float:left;"></div>
-	    <div class="ttincongghe">
+<div class="allboxsp1" style="float:left;">
+	<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#00619f;">Thông tin công nghệ</p>
+	<div class="line-title">
+		<div class="left-30">&nbsp;</div>
+		<div class="left-70">&nbsp;</div>
+	</div>
+	
+	<div class="ttincongghe">
 
 <?php 
 
@@ -140,5 +143,4 @@ if (isset($two_kinhnghiemsudung)) {
 
       </div>
 
-	   </div>
-
+</div>

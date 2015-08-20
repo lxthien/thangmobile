@@ -46,9 +46,9 @@
                 <hr>
                 <div class="main-thongtincoban">
                     <p>- Màn hình supper amolet</p>
-                    <p>- Màn hình supper amolet</p>
-                    <p>- Màn hình supper amolet</p>
-                    <p>- Màn hình supper amolet</p>
+                    <p>- CPU 8 nhân</p>
+                    <p>- Ram 2GB</p>
+                    <p>- Camera 16MP</p>
                 </div>
             </div>
             <div class="thongtincanluuy">
