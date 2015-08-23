@@ -57,9 +57,36 @@ if (!isset($meta_description)) {
         <link rel="stylesheet" href="<?php echo base_url().'assets/'; ?>css/nivo-style.css" type="text/css" media="screen" />
         <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery.bxSlider.min.js" type="text/javascript"></script>
 		<script src="<?php echo base_url().'assets/'; ?>js/AC_RunActiveContent.js" type="text/javascript"></script>
-        
         <!-- nivo slider -->
+
+        <!--jQuery caroufredsel-->
+        <script src="<?php echo base_url(); ?>assets/js/jquery.carouFredSel-5.6.4-packed.js"></script>
         
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#service-bxslider').carouFredSel({
+                    responsive: true,
+                    width: '100%',
+                    height: '100%',
+                    auto: 7000,
+                    prev: '#partner-prev',
+                    next: '#partner-next',
+                    scroll: 1,
+                    swipe: {
+                        onMouse: true,
+                        onTouch: true
+                    },
+                    items: {
+                        width: 200,
+                        visible: {
+                            min: 1,
+                            max: 7
+                        }
+                    }
+                });
+            });
+        </script>
+
 		<script type="text/javascript">
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,6 +1,9 @@
 <div class="sreennew" style="width:980px;  margin-top:1px; float:left;">
     <p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242;">CÓ THỂ BẠN QUAN TÂM</p>
-    <div class="title1" style="background-color:#cccccc; width: 100%; height:2px; margin-bottom:15px; float:left;"></div>
+    <div class="line-title">
+        <div class="left-30">&nbsp;</div>
+        <div class="left-70">&nbsp;</div>
+    </div>
     <div class="boxnew" style="width:980px; float:left;">
         <?php
             for ($i = 0; $i < count($tinCongNghe); $i++) {

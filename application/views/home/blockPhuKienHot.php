@@ -1,6 +1,9 @@
 <div class="sreensphot" style="width:675px; height:210px; float:left; margin-bottom:40px;">
 	<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242;">PHỤ KIỆN</p>
-	<div class="title1" style="background-color:#cccccc; width: 100%; height:2px; margin-bottom:15px; float:left;"></div>
+	<div class="line-title">
+		<div class="left-30">&nbsp;</div>
+		<div class="left-70">&nbsp;</div>
+	</div>
 	<div class="">
 		<ul id="slider1">
 			<li>

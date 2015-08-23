@@ -93,7 +93,7 @@ body {
 	margin: 0;
 }
 #page-navigative-menu ul li {
-	margin: 0px; height: 40px; padding: 0 13px;
+	margin: 0px; height: 40px; padding: 0 13px; position: relative;
 }
 #page-navigative-menu ul li a.haslin {
 	text-transform: uppercase; line-height: 40px;
@@ -106,6 +106,35 @@ body {
 }
 #page-navigative-menu li li a{
 	padding: 2px 0;
+}
+
+
+#page-navigative-menu ul.menu-category {
+	width: 450px; border-bottom: none; position: absolute; top: 40px; left: 0;
+}
+#page-navigative-menu ul.menu-category li{
+	width: 100%; float: left; height: auto; padding-bottom: 10px; border-top: none;
+}
+#page-navigative-menu ul.menu-category li:hover {
+	background: #ffffff;
+}
+#page-navigative-menu ul.menu-category li div.menu-category-list{
+	width: 48%; float: left; margin-right: 10px;
+}
+#page-navigative-menu ul.menu-category li div.menu-category-list:last-child {
+	margin-right: 0px;
+}
+#page-navigative-menu ul.menu-category li div.menu-category-list p {
+	text-transform: uppercase; color: #262626; line-height: 30px; border-bottom: 1px solid #cccccc;
+}
+#page-navigative-menu ul.menu-category li div.menu-category-list .item{
+	height: 28px;
+}
+#page-navigative-menu ul.menu-category li div.menu-category-list .item a{
+	height: 28px; display: block; width: 100%; padding: 0; margin: 0; line-height: 28px; padding-left: 8px;
+}
+#page-navigative-menu ul.menu-category li div.menu-category-list .item a:hover {
+	background: #00619f; color: #ffffff;
 }
 
 /**
@@ -346,7 +375,7 @@ a.link-block-you-see:hover{
 	margin-bottom: 10px; float: left;
 }
 .foter .add .footer-menu li {
-	float: left; margin-right: 10px; border-right: 1px solid #000000; padding-right: 10px; line-height: 15px;
+	float: left; margin-right: 10px; border-right: 1px solid #000000; padding-right: 10px; line-height: 12px; height: 12px;
 }
 .foter .add .footer-menu li:last-child {
 	border-right: none;
@@ -592,15 +621,28 @@ a.link-block-you-see:hover{
 
 
 
-
-
+/**
+ * Download
+ ********************************/
+.hinhcongnghe {
+	width: 195px; height: 105px; border: 1px solid #cccccc; margin-left: 0; margin-right: 10px;
+}
+.hinhcongnghe img {
+	width: 195px; height: 105px;
+}
+.titlecongnghe a {
+	width: 465px; text-transform: uppercase; color: #262626; margin: 0;
+}
+.ttincongghe .sreenttin {
+	margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #cccccc;
+}
 
 
 
 
 
 .line-title {
-	width: 100%; position: relative;
+	width: 100%; position: relative; margin-bottom: 20px;
 }
 .line-title .left-30 {
 	width: 10%; height: 2px; background: #00619f; position: absolute; top: 0; left: 0;

@@ -20,49 +20,31 @@
 
 ?>
 
-<p style="font-weight:bold; font-size:16px; margin-bottom:3px; margin-left:20px; color:#00619f;"><?php echo $pageHeadTitle;?></p>
-
-<div class="title1" style="background-color:#00619f; width:650px; height:3px;  float:left;"></div>
-
-
-
+<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242; text-transform: uppercase;"><?php echo $pageHeadTitle;?></p>
+<div class="line-title">
+	<div class="left-30">&nbsp;</div>
+	<div class="left-70">&nbsp;</div>
+</div>
 <div class="ttincongghe">
-
 	<?php 
-
-	if ($news_item->active === '1') {
-
+		if ($news_item->active === '1') {
 	?>
-
-	<div class="sreentieude" style=" width:610px; margin-left:20px; margin-top:10px;">
-
+	<div class="sreentieude" style="width:610px; margin-left:20px; margin-top:10px;">
 		<div class="tieude" style="font-size:16px; font-weight:bold;" >
-
-        <?php 
-
-			
-
-            if ($isNotFixNews) {
-
+        <?php
+	        if ($isNotFixNews) {
 	            echo '<p>'.$news_item->title.'</p>' ;
-
             } 
-
-        ?>
-
-        </div>
-
-        <?php 
-
-        if ($isNotFixNews) {
-
-	        $date_post = new DateTime($news_item->date_add);
-
-	        echo '<div style="margin-left:420px; ">'.'Đăng lúc '.date_format($date_post,'H:i:s').' - '.date_format($date_post,'d.m.Y').'</div>' ;
-        }
+	    ?>
+	    </div>
+	    <?php 
+	        if ($isNotFixNews) {
+		        $date_post = new DateTime($news_item->date_add);
+		        echo '<div style="margin-left:420px; ">'.'Đăng lúc '.date_format($date_post,'H:i:s').' - '.date_format($date_post,'d.m.Y').'</div>' ;
+	        }
         ?>  
 	</div>
-	<div  align="justify" class="noidungthitruongchitiet" style="width:610px; margin-bottom:1px; margin-left:20px; margin-top:5px; font-size: 15px; line-height: 1.4;">
+	<div class="noidungthitruongchitiet" style="width:675px; margin-top:5px; font-size: 15px; line-height: 1.4;">
 		  <p><?php echo $news_item->content;?></p>
 		  <p align="justify">&nbsp;</p>	
 	</div>

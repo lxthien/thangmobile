@@ -20,12 +20,3 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#service-bxslider').bxSlider({
-			auto: false,
-  			slideWidth: 200,
-			slideMargin: 10
-		});
-	});
-</script>
