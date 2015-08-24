@@ -6,7 +6,6 @@ if (isset($site_meta_data)) {
 }
 $this->load->view('partial/menu');
 //echo '<div class="baner"></div>';
-
 //$this->load->view('home/block_banner'); 
 ?>
 

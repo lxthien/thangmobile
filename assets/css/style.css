@@ -306,8 +306,8 @@ margin-top:1px;
 .hinhcongnghe{ width:90px; height:100px; background-color:#f8f8f8; margin-left:20px;float:left;}
 .hinhcongnghe img { width:90px; height:100px; float:left;}
 
-.titlecongnghe a { color:#333333; width:520px; margin-bottom:3px; font-size:14px; margin-left:10px; font-weight:bold; float:left;}
-.titlecongnghe a:hover { color:#33698c; width:520px; margin-bottom:3px; font-size:14px; margin-left:10px;font-weight:bold; float:left;}
+.titlecongnghe a { color:#333333; font-size:14px; font-weight:bold; float:left;}
+.titlecongnghe a:hover { color:#33698c; font-size:14px; font-weight:bold; float:left;}
 
 .back a { color:#666666; float:left; }
 .back a:hover { color:#0078cc; float:left;}

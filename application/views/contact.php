@@ -25,7 +25,7 @@ $this->load->view('partial/menu');
 		</div>
 		<!--end right-->
 		<!--doitac-->
-		<?php $this->load->view('doiTac/blockDoiTac'); ?>
+		<?php $this->load->view('home/block_service'); ?>
 		<!--end doitac-->
   	</div>
 <?php $this->load->view('partial/right_left_banner'); ?>

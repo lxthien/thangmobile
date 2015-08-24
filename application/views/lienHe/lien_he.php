@@ -1,14 +1,12 @@
 <div class="allboxsp1" style="float: left;">
-	<div class="title">
-		<h1>Liên hệ</h1>
-	</div>
+	<h1 class="h1-title">Liên hệ</h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
 		<div class="left-70">&nbsp;</div>
 	</div>
 
 	<div class="ttincongghe">
-		<div class="sreentieude" style="width: 675px; margin-top: 10px; margin-left: 0;">
+		<div class="sreentieude" style="width: 675px; margin-left: 0;">
 			<div class="tieude" style="font-size: 16px; font-weight: bold;">
 				<p><?php echo $this->sconfig->get_value('site_name');?></p>
 			</div>

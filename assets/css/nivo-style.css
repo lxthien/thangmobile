@@ -90,8 +90,8 @@ a:hover, a:active {
 /*====================*/
 /*=== Other Styles ===*/
 /*====================*/
-.theme-bar .nivoSlider {
-height: 313px;
+.theme-bar .nivoSlider, .theme-bar .nivoSlider a img {
+	height: 277px;
 }
 
 .theme-bar.slider-wrapper {

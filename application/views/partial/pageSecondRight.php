@@ -3,23 +3,18 @@
     <?php        
         if (isset($page_second_right['single_post'])) {
             $data['news_item'] = $page_second_right['single_post'];
-            
             if (isset($page_second_right['posts_same_category'])) {
                 $data['posts_same_category'] = $page_second_right['posts_same_category'];
             }
             @$data['category'] = $page_second_right['category'];
             $this->load->view('partial/news_detail', $data);
         } else if (isset($show_all_news) && $show_all_news == 'true') {
-            //Display posts in selected category
             $data = array();
             $this->load->view('partial/display_all_category_news', $data);
-        //} else if (isset($page_second_right['selected_company_category_newses'])) {
         } else if (isset($show_category_news) && $show_category_news == 'true') {
-            //Display posts in selected category
             $data = array();
             $this->load->view('partial/display_category_news', $data);
         } else if (isset($page_second_right['company_category_newses'])) {
-            //Display list of category and latest post for each
             $data = array();
             $data['company_category_newses'] = $page_second_right['company_category_newses'];
             $this->load->view('partial/company_category_newses', $data);

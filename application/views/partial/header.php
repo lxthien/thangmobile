@@ -68,7 +68,7 @@ if (!isset($meta_description)) {
                     responsive: true,
                     width: '100%',
                     height: '100%',
-                    auto: 7000,
+                    auto: false,
                     prev: '#partner-prev',
                     next: '#partner-next',
                     scroll: 1,
@@ -77,7 +77,7 @@ if (!isset($meta_description)) {
                         onTouch: true
                     },
                     items: {
-                        width: 200,
+                        width: 160,
                         visible: {
                             min: 1,
                             max: 7

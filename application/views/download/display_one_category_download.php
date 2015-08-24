@@ -1,5 +1,5 @@
 <div class="allboxsp1" style="float:left;">
-	<p style="font-weight:bold; font-size:16px; margin-bottom:3px; margin-left: 0px;"><?php echo $selectedCategory->name; ?></p>
+	<h1 style="font-weight:bold; font-size:16px; margin-bottom:3px; margin-left: 0px; text-transform: uppercase;"><?php echo $selectedCategory->name; ?></h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
 		<div class="left-70">&nbsp;</div>
@@ -9,20 +9,19 @@
             if (isset($downloadList)) {
                 $data = array();
                 foreach ($downloadList as $item) : ?>
-                	<div class="sreenttin" style="width: 648px; height: 105px; float: left;">
-						<div class="hinhcongnghe"> <img src="<?php echo RES_PATH.'images/'.$item->icon; ?>" /></div>
+                	<div class="sreenttin" style="width: 675px; height: 105px; float: left;">
+						<div class="hinhcongnghe"><img src="<?php echo base_url().'assets/images/'.$item->icon; ?>" alt="<?php echo $item->name; ?>" /></div>
 						<div class="titlecongnghe">
 							<a href="<?php echo base_url($item->link_rewrite); ?>">
-								<p style="width: 500px; float: left; height: 20px;"><?php echo $item->name; ?></p>
+								<p style="width: 500px; float: left; margin-bottom: 3px;"><?php echo $item->name; ?></p>
 							</a>
 						</div>
-						<div class="noidungcongnghe" style="margin-left: 10px; float: left; width: 490px; height: 100px;">
+						<div class="noidungcongnghe" style="float: left; width: 465px; height: 85px;">
 							<p align="justify">
 								<?php echo $item->description; ?>
 							</p>
 						</div>
 					</div>
-					<div class="line3"></div>
                     <?php
                 endforeach;
             }

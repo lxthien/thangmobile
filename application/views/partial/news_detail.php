@@ -1,26 +1,16 @@
 <?php
-
 	if (isset($news_item)):
-
 	$new_id = $news_item->id_news;
-
 	$isNotFixNews = $new_id !== COMPANY_INSTRODUCE_NEWS_ID && $new_id !== SERVICES && $new_id !== WARRANTY && $new_id !== SITE_MAP;
-
 	if ($isNotFixNews) {
-
 		$pageHeadTitle = $category->name;
-
 	}
-
 	else {
-
 		$pageHeadTitle = $news_item->title;
-
 	}
-
 ?>
 
-<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242; text-transform: uppercase;"><?php echo $pageHeadTitle;?></p>
+<h1 style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242; text-transform: uppercase;"><?php echo $pageHeadTitle;?></h1>
 <div class="line-title">
 	<div class="left-30">&nbsp;</div>
 	<div class="left-70">&nbsp;</div>
@@ -29,7 +19,7 @@
 	<?php 
 		if ($news_item->active === '1') {
 	?>
-	<div class="sreentieude" style="width:610px; margin-left:20px; margin-top:10px;">
+	<div class="sreentieude" style="width:675px; margin-left: 0px;">
 		<div class="tieude" style="font-size:16px; font-weight:bold;" >
         <?php
 	        if ($isNotFixNews) {
@@ -40,7 +30,7 @@
 	    <?php 
 	        if ($isNotFixNews) {
 		        $date_post = new DateTime($news_item->date_add);
-		        echo '<div style="margin-left:420px; ">'.'Đăng lúc '.date_format($date_post,'H:i:s').' - '.date_format($date_post,'d.m.Y').'</div>' ;
+		        echo '<div style="float: right; margin-bottom: 5px;">'.'Đăng lúc '.date_format($date_post,'H:i:s').' - '.date_format($date_post,'d.m.Y').'</div>' ;
 	        }
         ?>  
 	</div>
