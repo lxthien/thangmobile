@@ -446,14 +446,14 @@ class News extends MY_Controller {
         $url = $this->uri->segment(2);
         $catServices = $this->news_category_model->read_by_link_rewrite($url);
 
-        $list = $this->services_model->get_news_list_by_category_id($catServices->id_news_category);
-        
+        $page_category_ids = $this->getCatCategory($catServices);
+        $services = $this->services_model->read_list_by_list_categries($page_category_ids, NULL, NULL);
+
         $this->_get_meta_data($catServices);
         $data['site_meta_data'] = $this->site_meta_data;
 
-
         $data['contact'] = $this->Mcontact->listcontact();
-        $data['services'] = $list;
+        $data['services'] = $services;
         $data['partners'] = $this->_get_partners();
         $data['banners'] = $this->banner_model->get_active_list();
         $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
@@ -480,5 +480,16 @@ class News extends MY_Controller {
         $data['latest_downloads'] = $this->get_latest_download();
         $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
         $this->load->view('universalView', $data);
+    }
+
+    private function getCatCategory($category) {
+        $categoryIds = array();
+
+        $page_items = $this->news_category_model->readListByParentId($category->id_news_category);
+        foreach ($page_items as $page_item) {
+            array_push($categoryIds, $page_item['id_news_category']);
+        }
+        
+        return $categoryIds;
     }
 }

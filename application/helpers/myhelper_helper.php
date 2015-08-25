@@ -42,13 +42,13 @@ if (!function_exists('image')) {
         {
             if($noimage == "")
             {
-                $image_path = 'img/default/no-img.gif';
+                $image_path = 'assets/images/hinh-dai-dien-2.png';
             }
             else
             {
                 if($noimage == "logo")
                 {
-                    $image_path = 'img/default/logo_white.png';
+                    $image_path = 'assets/images/hinh-dai-dien-2.png';
                 }
                 else
                 {
