@@ -14,7 +14,7 @@
 			       	<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_195_105'); ?>" />
 					<div class="right-box-service">
 						<a href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
-						<p class="date-service">08/07/2015</p>
+						<p class="date-service"><?php echo date_format(new DateTime($item->date_add), 'd/m/Y'); ?></p>
 						<p class="des-service"><?php echo $item->content; ?></p>
 					</div>
 				</div>

@@ -1,6 +1,6 @@
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a> - 
-    <a href="<?php echo base_url().'san-pham/dien-thoai'; ?>">Điện thoại</a> - 
+    <a href="<?php echo base_url($linkViewAll); ?>">Điện thoại</a> - 
     <span><?php echo $categoryName; ?></span>
 </div>
 <!--
@@ -99,12 +99,6 @@ if (isset($eachProductList)) {
                 <?php
                 }
                 ?>
-            </div>
-            <div class="line7"></div>
-            <div class="xemtatca">
-                <a href="<?php echo base_url($linkViewAll); ?>">
-                    <p> >> Trở lại </p>
-                </a>
             </div>
         </div>
     </div>

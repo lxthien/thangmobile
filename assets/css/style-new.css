@@ -13,6 +13,12 @@ body {
 .cl {
 	clear: both;
 }
+h1.h1-title{
+	font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242; text-transform: uppercase; line-height: 20px;
+}
+h1.h1-title-detail {
+	color: #00619f; text-transform: uppercase; font-size: 20px; font-weight: 400;
+}
 
 /**
  * Top header
@@ -125,13 +131,13 @@ body {
 	margin-right: 0px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list p {
-	text-transform: uppercase; color: #262626; line-height: 30px; border-bottom: 1px solid #cccccc;
+	text-transform: uppercase; color: #262626; line-height: 20px; border-bottom: 1px solid #cccccc; margin-top: 10px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list .item{
 	height: 28px; background: url("../images/icon-menu.png") no-repeat 1px 11px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list .item a{
-	height: 28px; display: block; width: 100%; padding: 0; margin: 0; line-height: 28px; padding-left: 10px;
+	height: 28px; display: block; width: 206px; padding: 0; margin: 0; line-height: 28px; padding-left: 10px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list .item a:hover {
 	background: url("../images/icon-menu-active.png") no-repeat 1px 11px #00619f; color: #ffffff;
@@ -203,7 +209,7 @@ body {
 	float: left; width: 100%; margin: 8px 0; border: 0; border-top: 1px solid #cccccc;
 }
 .spbanchay .boxsp {
-	width: 49.5%; border-right: 1px solid #cccccc;
+	width: 337px; border-right: 1px solid #cccccc; height: 275px; border-bottom: 1px solid #cccccc;
 }
 .spbanchay .boxsp .title-boxsp {
 	padding: 10px; line-height: 20px;
@@ -216,7 +222,7 @@ body {
 	float: right; color: #1a1a1a; font-size: 13px; background: url("../images/icon-arrows-02.png") no-repeat 5px 5px; padding-left: 16px;
 }
 .spbanchay .boxsp.odd {
-	border-right: none;
+	border-right: none; float: right;
 }
 
 .spbanchay .boxsp .main-boxsp {
@@ -273,10 +279,10 @@ body {
 }
 
 .right .toponline {
-	background: none; width: 100%; height: auto; float: none; margin-bottom: 8px;
+	background: none; width: 100%; height: auto; float: none;
 }
 .right .toponline h2 {
-	color:#424242; font-size:16px; font-weight:bold; margin-bottom:3px; text-transform: uppercase; border-bottom: 2px solid #cccccc;
+	color:#424242; font-size:16px; font-weight:bold; margin-bottom:2px; text-transform: uppercase;
 	line-height: 22px;
 }
 .right .midonline {
@@ -319,11 +325,14 @@ a.link-block-you-see:hover{
 .boxsp2 .titlesp3 p {
 	font-size: 14px;
 }
+.bx-window {
+	left: 0px;
+}
 .bx-prev {
-	background: url("../images/arrow-bxslider-01.png") no-repeat; top: 85px;
+	background: url("../images/arrow-bxslider-01.png") no-repeat; top: 85px; left: 0; width: 15px;
 }
 .bx-next {
-	background: url("../images/arrow-bxslider-02.png") no-repeat; top: 85px;
+	background: url("../images/arrow-bxslider-02.png") no-repeat; top: 85px; right: -5px; width: 15px;
 }
 .new1, .new2 {
 	width: 485px;
@@ -352,7 +361,7 @@ a.link-block-you-see:hover{
 }
 
 .foter .footer-right {
-	width: 335px; height: 110px; border: 1px solid #cccccc; border-radius: 2px; background: #ffffff; float: right; padding: 10px;
+	width: 330px; height: 110px; border: 1px solid #cccccc; border-radius: 2px; background: #ffffff; float: right; padding: 10px;
 }
 .foter .footer-right h3 {
 	text-transform: uppercase; font-size: 15px;
@@ -375,13 +384,13 @@ a.link-block-you-see:hover{
 	margin-bottom: 10px; float: left;
 }
 .foter .add .footer-menu li {
-	float: left; margin-right: 10px; border-right: 1px solid #000000; padding-right: 10px; line-height: 12px; height: 12px;
+	float: left; margin-right: 8px; border-right: 1px solid #000000; padding-right: 10px; line-height: 12px; height: 12px;
 }
 .foter .add .footer-menu li:last-child {
 	border-right: none;
 }
 .foter .add .footer-menu li a{
-	font-size: 13px; color: #000000;
+	font-size: 14px; color: #000000;
 }
 .foter .add .footer-menu li a:hover{
 	color: #00619f;
@@ -391,7 +400,14 @@ a.link-block-you-see:hover{
 	float: left; width: 100%;
 }
 .foter .add .category li{
-	float: left;
+	float: left; padding-left: 10px; background: url('../images/icon-menu.png') no-repeat 0 8px; margin-right: 30px; line-height: 20px;
+	width: 100px;
+}
+.foter .add .category li a {
+	color: #000000; font-size: 14px;
+}
+.foter .add .category li a:hover {
+	color: #00619f;
 }
 
 
@@ -637,8 +653,81 @@ a.link-block-you-see:hover{
 	margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #cccccc;
 }
 
+.main-news-social {
+	margin: 5px 0 10px; width: 100%; float: left;
+}
+.main-news-social .social {
+	float: left; width: 500px;
+}
+.fb_iframe_widget {
+	float: left !important; margin-right: 10px;
+}
+.main-news-social span.time-update-news {
+	float: right; height: 20px; line-height: 20px; font-size: 14px; font-style: italic; color: #797979;
+}
 
 
+.cactinkhac2 {
+	width: 675px; margin: 0px;
+}
+.cactinkhac2 h3.h3-news-related {
+	border-left: 3px solid #299feb; color: #000000; text-transform: uppercase; line-height: 25px; padding-left: 10px;
+	margin-bottom: 10px; font-size: 15px; height: 25px;
+}
+.cactinkhac2 .main-news-related {
+	width: 675px; float: left;
+}
+.cactinkhac2 .main-news-related .sreentieude {
+	float: left; width: 330px; margin-right: 10px; margin-left: 0; margin-bottom: 15px;
+}
+.cactinkhac2 .main-news-related .sreentieude:nth-child(2n) {
+	margin-right: 0px;
+}
+.cactinkhac2 .main-news-related .sreentieude a.img-news-related {
+	width: 100px; height: 75px; border: 2px solid #cccccc; float: left; margin-right: 5px;
+}
+.cactinkhac2 .main-news-related .sreentieude a.img-news-related img {
+	border: none; width: 100%; height: 100%;
+}
+.sreentinkhacchitiet {
+	width: 220px; float: right;
+}
+.sreentinkhacchitiet a{
+	color: #000000; margin-bottom: 3px; font-size: 13px; float: left; font-weight: 600;
+}
+.sreentinkhacchitiet a:hover {
+	color: #00619f;
+}
+.sreentinkhacchitiet p.des-news-related {
+	height: 30px; overflow: hidden; margin-bottom: 2px; float: left; text-align: justify;
+}
+.sreentinkhacchitiet p.date-news-related {
+	color: #7a7a7a;
+}
+
+
+/**************************************
+ * Lien He
+ **************************************/
+.gui input {
+	width: 70px; height: 30px; background: #00619f; border: none; cursor: pointer; float: left; margin-right: 10px;
+	text-transform: uppercase; color: #ffffff;
+}
+.contact-tbl-row {
+	font-size: 14px; line-height: 20px;
+}
+.contact-tbl-row img {
+	vertical-align: middle;
+}
+.contact-tbl-label {
+	margin-bottom: 3px; font-size: 14px; color: #000000;
+}
+.contact-text-field {
+	width: 350px; height: 25px; line-height: 25px; border: 1px solid #cccccc;
+}
+textarea#message {
+	resize: none; border: 1px solid #cccccc; width: 500px; height: 170px;
+}
 
 
 .line-title {
@@ -655,7 +744,7 @@ a.link-block-you-see:hover{
 	float:left; width:675px; height:20px;
 }
 .phantrang .back {
-	width: 675px; float: left; text-align: center;
+	width: 675px; text-align: center;
 }
 .phantrang .back p {
 	display: inline-block;

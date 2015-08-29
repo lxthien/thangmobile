@@ -1,7 +1,7 @@
 <!--foter-->
 <div class="foter">
 	<div style="height: 153px; padding: 10px 15px;">
-		<div class="add" style="width:550px; float:left;">
+		<div class="add" style="width:590px; float:left;">
 			<ul class="footer-menu">
 				<li><a href="">Về chúng tôi</a></li>
 				<li><a href="">Tuyển dụng</a></li>
@@ -10,8 +10,14 @@
 				<li><a href="">Liên hệ</a></li>
 			</ul>
 			<ul class="category">
-				<li><a href="">Điện thoại Apple</a></li>
-				<li><a href="">Điện thoại Samsung</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/samsung'); ?>" class="haslink ">Samsung</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/lg-mobile'); ?>" class="haslink ">LG Mobile</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/sky'); ?>" class="haslink ">Sky</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/iphone'); ?>" class="haslink ">IPhone</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/nokia'); ?>" class="haslink ">Nokia</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/htc'); ?>" class="haslink ">HTC</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/dien-thoai-khac'); ?>" class="haslink ">Điện thoại khác</a></li>
+				<li><a href="<?php echo base_url('san-pham/dien-thoai/may-tinh-bang'); ?>" class="haslink ">Máy tính bảng</a></li>
 			</ul>
 		</div>
 		<div class="footer-right">
@@ -22,7 +28,7 @@
 			</div>
 			<div class="footer-right-01">
 				<p>HDBank</p>
-				<p>Số TK: 34234324234325 Chủ TK: Nguyễn Lê Bá Thắng</p>
+				<p>Số TK: 34234324234325 Chủ TK: Nguyễn Văn Thành</p>
 			</div>
 		</div>
 	</div>

@@ -47,10 +47,10 @@ class Home extends MY_Controller {
         $data['chungKhoanViet'] = $this->_getArrayNewsByCategory(3);
         $data['contact'] = $this->Mcontact->listcontact();
         $data['video_url'] = $this->sconfig->get_value('VIDEO_LINK');
-        //$data['latest_images'] = $this->_get_latest_images();
+        
         $data['latest_downloads'] = $this->get_latest_download();
         $data['you_should_watch'] = $this->you_should_watch();
-        //$site_meta_data = array();
+        
         $site_meta_data['site_name'] = $this->sconfig->get_value('site_name');
         $data['site_meta_data'] = $site_meta_data;
         $data['partners'] = $this->_get_partners();
@@ -62,7 +62,31 @@ class Home extends MY_Controller {
         $data['banners'] = $this->_get_active_banners();
 
         $data['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
+
+        $data['product_block_main'] = $this->_load_product_1st_level('san-pham', 'dien-thoai');
+
         $this->load->view('homeView', $data);
+    }
+
+    private function _load_product_1st_level($firstLevelCategory, $category) {
+        $data = array();
+        
+        $productCategory = $this->product_category_model->read_by_link_rewrite($category);
+         
+        $children = $this->product_category_model->read_by_parent_id($productCategory->id);
+        foreach($children as $each) {
+             $eachProductList = $this->product_model->read_by_category_id($each->id);
+             
+             foreach ($eachProductList as $eachProduct) {
+                $eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.$each->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+             }
+             $each->productList = $eachProductList;
+        }
+        
+        $data['linkViewAll'] = $firstLevelCategory.'/'.$category;
+        $data['parentCategoryName'] = $productCategory->name;
+        $data['childrenCategories'] = $children;
+        return $this->load->view('product/display_parent_category',$data,TRUE);
     }
     
     public function get_latest_download() {

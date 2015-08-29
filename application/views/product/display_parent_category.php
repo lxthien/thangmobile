@@ -58,13 +58,11 @@ if (isset($childrenCategories)) {
         $eachProductList = $each->productList;
         if (count($eachProductList) > 0) {
             ?>
-            <!--sp mobile-->
             <div class="allboxsp1">
                 <div class="title">
                     <h1><?php echo $each->name; ?></h1>
                     <div class="title1" style="background-color:#cccccc; width:980px; height:2px; margin-bottom:20px; float:left;"></div>
                 </div>
-
                 <div class="spbanchay">
                     <div class="sreensp1" style="width:980px; float:left; margin-bottom: 0px; margin-left: 0;">
                     <?php
@@ -74,7 +72,7 @@ if (isset($childrenCategories)) {
                         <div class="boxsp">
                             <div class="sp3">
                                 <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
-                                    <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>" src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $eachProductList[$i]->logo) ?>"/>
+                                    <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_65_86'); ?>"/>
                                 </a>
                             </div>
                             <div class="titlesp">
@@ -103,12 +101,14 @@ if (isset($childrenCategories)) {
                             }
                         ?>
                     </div>
+                    <!--
                     <div class="line7"></div>
                     <div class="xemtatca">
                         <a href="<?php echo base_url($linkViewAll . '/' . $each->link_rewrite); ?>">
                             <p> >> Xem tất cả</p>
                         </a>
                     </div>
+                    -->
                 </div>
             </div>
         <?php

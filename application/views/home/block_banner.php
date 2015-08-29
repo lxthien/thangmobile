@@ -3,13 +3,13 @@
         <div class="slider-wrapper theme-bar">
             <div id="slider" class="nivoSlider">
                 <?php if (sizeof($banners) ==0) {
-                    echo '<img src="'.  base_url().'assets/images/banner.png" data-thumb="'.base_url().'assets/images/banner.png" />';
+                    echo '<img src="'.image('/assets/images/banner.png', 'slider_625_277').'" data-thumb="'.base_url().'assets/images/banner.png" />';
                 } else {
                     foreach($banners as $banner){
                         if (isset($banner->url) &&  trim($banner->url) !== ''){
-                            echo '<a href="'.$banner->url.'"><img src="'.  base_url(BANNER_PATH).'/'.$banner->image.'" data-thumb="'.  base_url(BANNER_PATH).'/'.$banner->image.'" alt="" title="'.$banner->title.'" /></a>';
+                            echo '<a href="'.$banner->url.'"><img src="'.image('assets/images/banners/'.$banner->image, 'slider_625_277').'" data-thumb="'.  base_url(BANNER_PATH).'/'.$banner->image.'" alt="" title="'.$banner->title.'" /></a>';
                         } else {                            
-                            echo '<img src="'.  base_url(BANNER_PATH).'/'.$banner->image.'" data-thumb="'.  base_url(BANNER_PATH).'/'.$banner->image.'" alt="" title="'.$banner->title.'" />';
+                            echo '<img src="'.image('assets/images/banners/'.$banner->image, 'slider_625_277').'" data-thumb="'.  base_url(BANNER_PATH).'/'.$banner->image.'" alt="" title="'.$banner->title.'" />';
                         }
                     }
                 } ?>

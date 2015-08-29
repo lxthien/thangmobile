@@ -20,5 +20,11 @@ $config["image_sizes"]["news_90_100"] = array(90,100);
 $config["image_sizes"]["news_93_90"] = array(93,90);
 $config["image_sizes"]["news_90_80"] = array(90,80);
 $config["image_sizes"]["news_195_105"] = array(195,105);
+
+$config["image_sizes"]["news_100_75"] = array(100,75);
+
+$config["image_sizes"]["slider_625_277"] = array(625,277);
+
 $config["image_sizes"]["product_70_135"] = array(70,135);
 $config["image_sizes"]["product_60_95"] = array(60,95);
+$config["image_sizes"]["product_65_86"] = array(65,86);

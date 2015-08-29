@@ -29,7 +29,7 @@
 		    	endforeach;
 			}
 		?>		                
-		<div class="phantrang" style="float:left; width:110px; margin-left:575px;  height:20px;">
+		<div class="phantrang" style="float:right; width:60px; height:20px;">
 			<div class="back">
 				<a href="<?php echo base_url('tin-tuc/thong-tin-cong-nghe');?>"><p>Xem tất cả</p></a>
 			</div>
@@ -69,7 +69,7 @@
 
 		?>	
 
-		<div class="phantrang" style="float:left; width:110px; margin-left:575px; height:20px;">
+		<div class="phantrang" style="float:right; width:60px; height:20px;">
 			<div class="back">
 				<a href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung');?>"><p>Xem tất cả</p></a> 
 			</div>  

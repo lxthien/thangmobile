@@ -3,6 +3,10 @@
     <div class="toponline">
         <h2>Hỗ trợ online</h2>
     </div>
+    <div class="line-title">
+        <div class="left-30">&nbsp;</div>
+        <div class="left-70">&nbsp;</div>
+    </div>
     <div class="midonline">
         <?php
         $i = 0;
@@ -60,7 +64,11 @@ endif;
 <?php if (isset($you_should_watch)) : ?>
     <div class="sreendownload sreenonline right-box">
         <div class="toponline">
-            <h2>Bạn nên xem</h2>
+            <h2>Tin công nghệ</h2>
+        </div>
+        <div class="line-title">
+            <div class="left-30">&nbsp;</div>
+            <div class="left-70">&nbsp;</div>
         </div>
         <div class="boxdownload">
             <div class="3">
@@ -82,11 +90,14 @@ endif;
 <?php
 endif;
 ?>
-<!--box ban nen xem -->
-<!--box facebook -->
+
 <div class="sreendownload sreenonline right-box">
     <div class="toponline">
         <h2>Facebook</h2>
+    </div>
+    <div class="line-title">
+        <div class="left-30">&nbsp;</div>
+        <div class="left-70">&nbsp;</div>
     </div>
     <div class="boxdownload">
         <div class="3">
@@ -94,12 +105,15 @@ endif;
         </div>
     </div>
 </div>
-<!--box facebook -->
-<!--box tin noi bộ -->
+
 <?php if (isset($you_should_watch)) : ?>
     <div class="sreendownload sreenonline right-box">
         <div class="toponline">
-            <h2>Bạn nên xem</h2>
+            <h2>Tin nội bộ</h2>
+        </div>
+        <div class="line-title">
+            <div class="left-30">&nbsp;</div>
+            <div class="left-70">&nbsp;</div>
         </div>
         <div class="boxdownload">
             <div class="3">
@@ -121,4 +135,3 @@ endif;
 <?php
 endif;
 ?>
-<!--box tin noi bo -->

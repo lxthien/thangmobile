@@ -1,5 +1,5 @@
 <div class="sreensphot" style="width:675px; height:210px; float:left; margin-bottom:40px;">
-	<p style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242;">PHỤ KIỆN</p>
+	<h1 class="h1-title">PHỤ KIỆN</h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
 		<div class="left-70">&nbsp;</div>

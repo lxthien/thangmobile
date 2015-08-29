@@ -9,30 +9,37 @@
 		$pageHeadTitle = $news_item->title;
 	}
 ?>
-
-<h1 style="font-weight:bold; font-size:16px; margin-bottom:3px; color:#424242; text-transform: uppercase;"><?php echo $pageHeadTitle;?></h1>
+<!--
+<h1 class="h1-title"><?php echo $pageHeadTitle;?></h1>
 <div class="line-title">
 	<div class="left-30">&nbsp;</div>
 	<div class="left-70">&nbsp;</div>
 </div>
+-->
 <div class="ttincongghe">
 	<?php 
 		if ($news_item->active === '1') {
 	?>
 	<div class="sreentieude" style="width:675px; margin-left: 0px;">
 		<div class="tieude" style="font-size:16px; font-weight:bold;" >
-        <?php
-	        if ($isNotFixNews) {
-	            echo '<p>'.$news_item->title.'</p>' ;
-            } 
-	    ?>
+		    <h1 class="h1-title-detail"><?php echo $news_item->title; ?></h1>
 	    </div>
-	    <?php 
-	        if ($isNotFixNews) {
-		        $date_post = new DateTime($news_item->date_add);
-		        echo '<div style="float: right; margin-bottom: 5px;">'.'Đăng lúc '.date_format($date_post,'H:i:s').' - '.date_format($date_post,'d.m.Y').'</div>' ;
-	        }
-        ?>  
+	    <div class="main-news-social">
+	    	<div class="social">
+	    		<!-- Button like facebook -->
+                <div class="fb-like" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <!-- Button like facebook -->
+                <!-- Place this tag where you want the +1 button to render. -->
+                <div class="g-plusone" data-size="medium" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html"></div>
+                <!-- Place this tag where you want the +1 button to render. -->
+                <!-- Button share facebook -->
+                <div class="fb-share-button" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html" data-layout="button"></div>
+                <!-- Button share facebook -->
+                <!-- Place this tag where you want the share button to render. -->
+                <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html"></div>
+	    	</div>
+	    	<span class="time-update-news">Cập nhật: <?php $date_post = new DateTime($news_item->date_add); echo date_format($date_post,'d/m/Y'); ?></span>
+	    </div>
 	</div>
 	<div class="noidungthitruongchitiet" style="width:675px; margin-top:5px; font-size: 15px; line-height: 1.4;">
 		  <p><?php echo $news_item->content;?></p>
@@ -41,27 +48,32 @@
 	<?php 
 	if ($isNotFixNews) {
 	?>
-	<div class="line6"></div>
-    <div class="cactinkhac2">
-	<p style="font-size:16px; font-weight:bold; color:#666666; margin-bottom:5px;"> C&aacute;c tin kh&aacute;c: </p>
-	<?php
-        foreach ($posts_same_category as $post): 
-        	$posted_date = new DateTime($post->date_add);
-     ?>
 
-		 <div class="sreentieude" style=" width:600px; height:15px; margin-bottom:3px;  float:left;">
-	       	<div class="icon3"></div>
-		   	<div class="sreentinkhacchitiet" style="width:580px; height:20px; float:left;">
-		   		<div class="tinkhacchitiet">
-		   			<a style="font-size: 13px; width: 580px;"  href="<?php echo base_url($post->link_rewrite);?>">
-		   				<p style="text-align:justify; margin-top:-3px;"><?php echo $post->title;?> <span class="style4">(<?php  echo @date_format($posted_date,'d.m.Y');?>)</span> </p>
-		   			</a>
+    <div class="cactinkhac2">
+		<h3 class="h3-news-related">Các tin khác</h3>
+		<div class="main-news-related">
+			<?php
+		        foreach ($posts_same_category as $post): 
+		        	$posted_date = new DateTime($post->date_add);
+		    ?>
+				<div class="sreentieude">
+					<a class="img-news-related" href="<?php echo base_url($post->link_rewrite);?>">
+						<img src="<?php echo image($post->news_icon, 'news_100_75'); ?>" alt="<?php echo $post->title;?>">
+					</a>
+				   	<div class="sreentinkhacchitiet">
+				   		<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->link_rewrite);?>">
+			   				<span><?php echo $post->title;?></span>
+			   			</a>
+			   			<p class="des-news-related"><?php echo $post->content; ?></p>
+			   			<p class="date-news-related">
+			   				<?php  echo @date_format($posted_date,'d/m/Y');?>
+			   			</p>
+		 			</div>
 				</div>
- 			</div>
-		 </div>
-	<?php
-        endforeach;
-    ?>
+			<?php
+		        endforeach;
+		    ?>
+	    </div>
 	</div>
     <?php 
     }

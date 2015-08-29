@@ -186,7 +186,7 @@ class News_model extends MY_Model {
         $this->db->from($this->primary_table);
         $this->db->where( array('id_news_category' => 3, 'should_watch' => 1) );
         $this->db->order_by("date_add", "desc");
-        $this->db->limit(8);
+        $this->db->limit(5);
         $query = $this->db->get();
         return $query->result();
     }
