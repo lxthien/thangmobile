@@ -18,13 +18,16 @@
                 $download_items = $sub_cat->download_items;
                 foreach ($download_items as $item) : ?>
                 	<div class="sreenttin" style="width: 675px; height: 105px; float: left;">
-						<div class="hinhcongnghe"><img src="<?php echo RES_PATH.'images/'.$item->icon; ?>" alt="<?php echo $item->name; ?>" /></div>
+						<div class="hinhcongnghe">
+							<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->name; ?>"><img src="<?php echo image('assets/images/'.$item->icon, 'news_195_105'); ?>" alt="<?php echo $item->name; ?>" /></a>
+						</div>
 						<div class="titlecongnghe">
-							<a href="<?php echo base_url($item->link_rewrite); ?>">
+							<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->name; ?>">
 								<p><?php echo $item->name; ?></p>
 							</a>
 						</div>
 						<div class="noidungcongnghe" style="float: left; width: 465px; height: 80px;">
+							<p class="date-technology"><?php $date_post = new DateTime($item->date_add); echo date_format($date_post,'d/m/Y'); ?></p>
 							<p align="justify">
 								<?php echo $item->description; ?>
 							</p>

@@ -1,18 +1,12 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of tintuc
  *
  * @author DAU GAU
  */
+
 class News extends MY_Controller {
 
-    //put your code here
     var $page_meta = array();
     var $title_character_nr = 80;
     var $content_word_nr = 100;
@@ -29,6 +23,7 @@ class News extends MY_Controller {
         $this->load->model('Banner_model', 'banner_model');
         $this->load->model('Download_model', 'download_model');
         $this->load->model('Mcontact');
+        $this->load->model('services_model', 'services_model');
     }
 
     /*
@@ -37,11 +32,15 @@ class News extends MY_Controller {
     public function view_post_on_page($page_link_rewrite, $page_nr) {
     	$data = $this->load->get_var('data');
     	$page = $this->_load_page($page_link_rewrite);
-    	//        echo 'hello ba con'.$thread_id;
+    	
     	if (!$page) {
-    		show_404();
+            $page = $this->services_model->read_by_link_rewrite($page_link_rewrite);
+            if (!$page) {
+    		  show_404();
+            }
     	}
-    	$this->_get_meta_data($page);
+    	
+        $this->_get_meta_data($page);
     	$data['contact'] = $this->Mcontact->listcontact(); 
     	
     	$data['categories'] = $this->_load_categories($page);
@@ -153,10 +152,8 @@ class News extends MY_Controller {
         if (isset($category_link)) {
             $selected_category = $this->_load_selected_category($page, $category_link);
             if (isset($selected_category)) {
-//              get meta data for current selected category
                 $this->_get_meta_data($selected_category);
                 if (isset($thread)) {
-//                    load nội dung bài viết
                     $post_content = $this->news_model->read_by_id($thread);
                     if (!isset($post_content)) {
                         show_error("Post not found");
@@ -214,7 +211,6 @@ class News extends MY_Controller {
     }
 
     private function _load_categories($page) {
-        // TODO not read data for parent category (has id in $paget_items)
         $page_items = $this->_load_page_item($page->id_page);
         $page_item_map_to_category;
         if (sizeof($page_items) === 0) {
@@ -250,6 +246,7 @@ class News extends MY_Controller {
      * load child category of news_category 
      * @params: $category_link_rewrite
      */
+
 	private function _load_page_by_category($category_link_rewrite) {
 		$page = $this->category_model->read_by_link_rewrite($category_link_rewrite);
 		return $page;
@@ -260,9 +257,7 @@ class News extends MY_Controller {
     }
 
     private function _load_page_item($page_id) {
-
         $page_items = $this->page_item_model->get_page_items_by_page($page_id);
-
         return $page_items;
     }
 
@@ -301,6 +296,7 @@ class News extends MY_Controller {
      * @param type $parent_category
      * @return type 
      */
+
     private function _get_all_category_id(&$page_category_ids, $parent_category) {
         $sub_categories = $this->category_model->read_list_by_parent_id($parent_category->id_news_category);
         if (sizeof($sub_categories)) {
@@ -449,9 +445,16 @@ class News extends MY_Controller {
         $page_category_ids = $this->getCatCategory($catServices);
         $services = $this->services_model->read_list_by_list_categries($page_category_ids, NULL, NULL);
 
+        $categoryServices = array();
+        for ($i=0; $i < count($page_category_ids); $i++) { 
+            $categoryService = $this->news_category_model->read_by_id($page_category_ids[$i]);
+            array_push($categoryServices, $categoryService);
+        }
+
         $this->_get_meta_data($catServices);
         $data['site_meta_data'] = $this->site_meta_data;
 
+        $data['categoryServices'] = $categoryServices;
         $data['contact'] = $this->Mcontact->listcontact();
         $data['services'] = $services;
         $data['partners'] = $this->_get_partners();

@@ -131,13 +131,13 @@ h1.h1-title-detail {
 	margin-right: 0px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list p {
-	text-transform: uppercase; color: #262626; line-height: 20px; border-bottom: 1px solid #cccccc; margin-top: 10px;
+	text-transform: uppercase; color: #262626; line-height: 30px; border-bottom: 1px solid #cccccc; margin-top: 5px; height: 30px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list .item{
-	height: 28px; background: url("../images/icon-menu.png") no-repeat 1px 11px;
+	height: 30px; background: url("../images/icon-menu.png") no-repeat 1px 11px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list .item a{
-	height: 28px; display: block; width: 206px; padding: 0; margin: 0; line-height: 28px; padding-left: 10px;
+	height: 30px; display: block; width: 206px; padding: 0; margin: 0; line-height: 30px; padding-left: 10px;
 }
 #page-navigative-menu ul.menu-category li div.menu-category-list .item a:hover {
 	background: url("../images/icon-menu-active.png") no-repeat 1px 11px #00619f; color: #ffffff;
@@ -609,6 +609,21 @@ a.link-block-you-see:hover{
 }
 
 
+.sub-category-service {
+	margin: 0 0 5px; width: 100%; float: left;
+}
+.sub-category-service ul li {
+	float: left; line-height: 23px; padding-right: 20px; padding-left: 10px;
+	background: url('../images/icon-menu.png') no-repeat 0 8px;
+}
+.sub-category-service ul li a {
+	color: #000000; font-size: 14px;
+}
+.sub-category-service ul li a:hover {
+	color: #00619f;
+}
+
+
 .box-service {
 	float: left; width: 100%; margin-bottom: 10px; border-bottom: 1px solid #b0b0b0; padding-bottom: 10px;
 }
@@ -652,6 +667,10 @@ a.link-block-you-see:hover{
 .ttincongghe .sreenttin {
 	margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #cccccc;
 }
+.date-technology {
+	font-style: italic; color: #7a7a7a;
+}
+
 
 .main-news-social {
 	margin: 5px 0 10px; width: 100%; float: left;
@@ -672,7 +691,7 @@ a.link-block-you-see:hover{
 }
 .cactinkhac2 h3.h3-news-related {
 	border-left: 3px solid #299feb; color: #000000; text-transform: uppercase; line-height: 25px; padding-left: 10px;
-	margin-bottom: 10px; font-size: 15px; height: 25px;
+	margin-bottom: 15px; font-size: 15px; height: 25px;
 }
 .cactinkhac2 .main-news-related {
 	width: 675px; float: left;

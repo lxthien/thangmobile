@@ -50,7 +50,6 @@ class Page_model extends MY_Model {
     public function read_by_id($id){
         $options = array($this->primary_key =>$id);
         $query = $this->get($options);
-//        var_dump($query);
         return $query;
     }
     public function read_by_link_rewrite($link_rewrite){

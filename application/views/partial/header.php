@@ -133,7 +133,7 @@ if (!isset($meta_description)) {
                     <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url().'assets/images/logo-02.png'; ?>" alt=""/></a>
                 </div>
                 <div class="head-search">
-                    <form action="#" method="get">
+                    <form action="<?php echo base_url('search') ?>" method="get">
                         <div class="input-search">
                             <input name="value" type="text" placeholder="Bạn đang tìm sản phẩm gì ?" />
                         </div>

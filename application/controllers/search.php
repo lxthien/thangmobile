@@ -30,19 +30,11 @@ class Search extends MY_Controller {
         $this->load->model('Mcontact');
     }
 
-//    public function view_post_on_page($page_link_rewrite, $page_nr) {
-//        $this->index($page_link_rewrite, NULL, NULL, $page_nr);
-//    }
-//    public function view_post_on_category($page_link_rewrite, $category_link_rewrite, $page_nr) {
-//        $this->index($page_link_rewrite, $category_link_rewrite, NULL, $page_nr);
-//    }
-
     function index($key_search = NULL) {
         if (!isset($_POST['search_phrase'])) {
             redirect(base_url());
         }
         $key_search = $this->input->post('search_phrase');
-//        echo $key_search.'--------------';
         $data = $this->load->get_var('data');
         $page_second_left['page_name'] = 'Search';
         $data['page_second_left'] = $page_second_left;
@@ -53,13 +45,13 @@ class Search extends MY_Controller {
         $data['download_block_main'] = $this->_get_search_results($key_search);
         $this->load->view('download', $data);
     }
+
     private function _load_meta_data($search_phrase){
-            $this->site_meta_data['title'] = 'Tìm từ khóa "'.$search_phrase.'"' ;
-            
-            $this->site_meta_data['meta_title'] = $this->site_meta_data['title'];
-//            $this->site_meta_data['meta_description'] = $post['meta_description'];
-//            $this->site_meta_data['meta_keywords'] = $post['meta_keywords'];
+        $this->site_meta_data['title'] = 'Tìm từ khóa "'.$search_phrase.'"' ;
+        
+        $this->site_meta_data['meta_title'] = $this->site_meta_data['title'];
     }
+
     private function _load_contact_block() {
         $data = array();
         $data['contact'] = $this->Mcontact->listcontact();
@@ -72,41 +64,25 @@ class Search extends MY_Controller {
         $search_results = array();
         $page_links = $this->_page_links();
 
-        //              just used for entries in news table                
         $page_items_links = $this->_page_item_links($page_links);
-//                echo '<pre>';
-//                var_dump($page_items_links);
-//                echo '</pre>'; 
         if (isset($key_search)) {
             $news_searches = $this->news_model->search($key_search);
-//            var_dump($news_searches);
-//            echo count($news_searches);
             if ($news_searches !== FALSE) {
                 $category_links = $this->_category_links($page_items_links);
-//                echo '<pre>';
-//                var_dump($category_links);
-//                echo '</pre>';
                 $news_search_results = $this->_build_news_search_results($news_searches, $category_links);
-//                echo '<pre>';
-//                var_dump($news_search_results);
-//                echo '</pre>';
                 if (count($news_search_results) > 0) {
                     $search_results = array_merge($search_results, $news_search_results);
                 }
-//                var_dump($news_search_results);
             }
 
-//      Search gallery start
             $gallery_searches = $this->gallery_model->search($key_search);
             if ($gallery_searches !== FALSE) {
-//                get link rewrite of page Download
                 $gallery_category_links = $this->_gallery_category_links($page_items_links['page_item3']);
                 $gallery_search_results = $this->_build_gallery_search_results($gallery_searches, $gallery_category_links);
                 if (count($gallery_search_results) > 0) {
                     $search_results = array_merge($search_results, $gallery_search_results);
                 }
             }
-//      Search gallery end
         }
 
 
@@ -123,17 +99,13 @@ class Search extends MY_Controller {
             		|| $news_search_result->id_news === SERVICES
             		|| $news_search_result->id_news === WARRANTY
             		|| $news_search_result->id_news === SITE_MAP) {
-                //TODO: modify when link rewrite gioi thieu change
                 $link_rewrite = 'gioi-thieu/' . $news_search_result->link_rewrite . URL_TRAIL;
             } else {
-//                echo $news_search_result->title;
                 $link_rewrite = $news_category_links[$news_search_result->id_news_category] . '/' .
                         $news_search_result->id_news . '-' . $news_search_result->link_rewrite . URL_TRAIL;
             }
             $description = $news_search_result->content;
-//            echo $description;die;e
             $date_add;
-//            var_dump($news_search_result);
             if (isset($news_search_result->date_add)) {
                 $date_add = $news_search_result->date_add;                
             }
@@ -167,9 +139,6 @@ class Search extends MY_Controller {
 
     private function _page_item_links($page_links) {
         $page_items = $this->page_item_model->get()->result();
-//        echo '<pre>';
-//        var_dump($page_items);
-//        echo '</pre>';
         $page_item_links = array();
         foreach ($page_items as $page_item) {
             $link_rewrite = $page_links[$page_item->id_page];
@@ -181,13 +150,6 @@ class Search extends MY_Controller {
                 $page_item_links[$page_item->map_to_category] = $link_rewrite;
             } else {
                 $page_item_links['page_item' . $page_item->id_page_item] = $link_rewrite;
-//                if (isset($page_item->link_rewrite)) {
-//                    $page_item_link_rewrite = $page_item->link_rewrite;
-//                    echo '-'.$page_item_link_rewrite.'----<br>';
-//                    $page_item_links[$page_item_link_rewrite] = $link_rewrite;
-//                } else {
-//                    $page_item_links[$link_rewrite] = $link_rewrite;
-//                }
             }
         }
         return $page_item_links;
@@ -197,23 +159,16 @@ class Search extends MY_Controller {
         $categories = $this->news_category_model->get()->result();
         $category_links = array();
         foreach ($categories as &$category) {
-//          build link for parent items first
             if (!isset($category->id_parent)) {
-//              all parent category must be mapped to a page item
                 $category_links[$category->id_news_category] = $page_item_links[$category->id_news_category];
                 unset($category);
             }
         }
         foreach ($categories as $category) {
-//           build link for children items
             if (isset($category->id_parent)) {
                 $category_links[$category->id_news_category] = $category_links[$category->id_parent] . '/' . $category->link_rewrite;
             }
         }
-//        echo '<pre>';
-//        var_dump($category_links);
-//        die;
-//        echo '</pre>';
         return $category_links;
     }
 
@@ -238,10 +193,7 @@ class Search extends MY_Controller {
             $result = $this->_create_search_result($gallery->name, $gallery->description, $link_rewrite);
             array_push($results, $result);
         }
-//        var_dump($gallery_searches);die;
         return $results;
     }
 
 }
-
-?>

@@ -1,13 +1,6 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-
 /**
- * Description of Tin_tuc
+ * Description of Service
  *
  * @author DAU GAU
  */
@@ -55,7 +48,14 @@ class Services_model extends MY_Model {
      *
      * @var bool
      */
+
     var $no_primary_key = FALSE;
+
+
+    /**
+     * Construct Model Service
+     * @var contruct
+     */
 
     function __construct() {
         parent::__construct();
@@ -213,5 +213,14 @@ class Services_model extends MY_Model {
             return $query->first_row();
         }
         return false;
+    }
+
+    public function read_by_link_rewrite($link_rewrite){
+        $options = array('link_rewrite' => $link_rewrite);
+        $query = $this->get($options);
+        if ($query->num_rows() > 0){
+            return $query->first_row();
+        }
+        return false;        
     }
 }

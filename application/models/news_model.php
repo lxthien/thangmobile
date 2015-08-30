@@ -191,6 +191,12 @@ class News_model extends MY_Model {
         return $query->result();
     }
 
+    public function read_by_link_rewrite($link_rewrite){
+        $options = array('link_rewrite' => $link_rewrite);
+        $query = $this->get($options);
+        if ($query->num_rows() > 0){
+            return $query->first_row();
+        }
+        return false;        
+    }
 }
-
-?>

@@ -17,6 +17,7 @@
 							</a>
 						</div>
 						<div class="noidungcongnghe" style="float: left; width: 465px; height: 85px;">
+							<p class="date-technology"><?php $date_post = new DateTime($item->date_add); echo date_format($date_post,'d/m/Y'); ?></p>
 							<p align="justify">
 								<?php echo $item->description; ?>
 							</p>
@@ -26,7 +27,7 @@
                 endforeach;
             }
         ?>
-		<div class="phantrang" style="float:left; width:110px; margin-left:500px;  height:20px;">
+		<div class="phantrang" style="float:right; width:108px; height:20px;">
 			<div class="back">
 				<a href="<?php echo base_url('tai-ve');?>"><p>Xem tất cả các mục</p></a> 		 
 			</div>

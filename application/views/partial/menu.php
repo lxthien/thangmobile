@@ -4,7 +4,9 @@
         <ul class="dropdown-navigative-menu">
             <li class="lv0" style="font-size:12px; font-weight:bold; float:left; ">
                 <div class="sreen1" style="  float:left;">
-                    <h2><a href="<?php echo base_url(); ?>" class="haslin "><p>Trang chủ</p></a></h2>
+                    <h2><a href="<?php echo base_url(); ?>" class="haslin ">
+                        <img style="margin-top: 8px;" src="<?php echo base_url('assets/images/icon-home.png'); ?>" alt="Điện thoại vũng tàu">
+                    </a></h2>
                 </div>
             </li>
             <li class="lv0" style="font-size:12px; font-weight:bold; float:left; ">
@@ -40,15 +42,12 @@
                     <h2><a href="<?php echo base_url('san-pham/phu-kien-dien-thoai'); ?>" class="haslin "><p>Phụ kiện</p></a></h2>
                 </div>
                 <ul>
-                    <li class="lv1"><a href="<?php echo base_url('san-pham/phu-kien/op-lung-bao-da'); ?>" class="haslink ">&#7888;p l&#432;ng - bao da</a></li>
+                    <li class="lv1"><a href="<?php echo base_url('san-pham/phu-kien/op-lung-bao-da'); ?>" class="haslink ">Ốp lưng - bao da</a></li>
                     <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/cam-ung-man-hinh'); ?>" class="haslink ">Cảm ứng - Màn hình</a></li>
                     <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/tai-nghe'); ?>" class="haslink ">Tai nghe</a></li>
-                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/pin-sac-cap'); ?>" class="haslink ">Pin - S&#7841;c
-                            - C&aacute;p</a></li>
-                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/vo-may-dien-thoai'); ?>" class="haslink ">V&#7887;
-                            m&aacute;y &#273;i&#7879;n tho&#7841;i</a></li>
-                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/phu-kien-khac'); ?>" class="haslink ">Phụ kiện
-                            khác</a></li>
+                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/pin-sac-cap'); ?>" class="haslink ">Pin - Sạc - Cáp</a></li>
+                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/vo-may-dien-thoai'); ?>" class="haslink ">Vỏ máy điện thoại</a></li>
+                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('san-pham/phu-kien/phu-kien-khac'); ?>" class="haslink ">Phụ kiện khác</a></li>
                 </ul>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
@@ -70,7 +69,7 @@
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
                 <div class="sreen1" style="float:left;">
-                    <h2><a href="<?php echo base_url('tai-ve'); ?>" class="haslin "><p>Download ph&#7847;n m&#7873;m </p></a></h2>
+                    <h2><a href="<?php echo base_url('tai-ve'); ?>" class="haslin "><p>Download phần mềm</p></a></h2>
                 </div>
                 <ul>
                     <?php
@@ -84,18 +83,16 @@
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
                 <div class="sreen1" style=" height:35px; float:left;">
-                    <h2><a href="<?php echo base_url('tin-tuc'); ?>" class="haslin "><p>Tin t&#7913;c </p></a></h2>
+                    <h2><a href="<?php echo base_url('tin-tuc'); ?>" class="haslin "><p>Tin tức</p></a></h2>
                 </div>
                 <ul>
-                    <li class="lv1"><a href="<?php echo base_url('tin-tuc/thong-tin-cong-nghe'); ?>" class="haslink ">Th&ocirc;ng
-                            tin c&ocirc;ng ngh&#7879;</a></li>
-                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung'); ?>" class="haslink ">Kinh nghi&#7879;m
-                            s&#7917; d&#7909;ng</a></li>
+                    <li class="lv1"><a href="<?php echo base_url('tin-tuc/thong-tin-cong-nghe'); ?>" class="haslink ">Thông tin công nghệ</a></li>
+                    <li class="lv1" style="margin-top:-2px;"><a href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung'); ?>" class="haslink ">Kinh nghiệm sử dụng</a></li>
                 </ul>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
                 <div class="sreen1" style="  height:33px; float:left;">
-                    <h2><a href="<?php echo base_url('lien-he'); ?>" class="haslin "><p>Li&ecirc;n h&#7879; </p></a></h2>
+                    <h2><a href="<?php echo base_url('lien-he'); ?>" class="haslin "><p>Liên hệ</p></a></h2>
                 </div>
             </li>
         </ul>
