@@ -143,6 +143,22 @@ h1.h1-title-detail {
 	background: url("../images/icon-menu-active.png") no-repeat 1px 11px #00619f; color: #ffffff;
 }
 
+
+.dropdown-navigative-menu .dropdown-navigative-menu2 ul {
+	border: 1px solid #cccccc; background: #ffffff; min-width: 200px; border-top: none;
+}
+.dropdown-navigative-menu .dropdown-navigative-menu2 ul:hover {
+	border: 1px solid #00619f; border-top: none;
+}
+#page-navigative-menu .dropdown-navigative-menu .dropdown-navigative-menu2 ul li {
+	height: 30px; background: url("../images/icon-menu.png") no-repeat 15px 11px; border: none; padding: 0;
+}
+#page-navigative-menu .dropdown-navigative-menu .dropdown-navigative-menu2 ul li a {
+	padding: 0 0 0 25px; height: 30px; line-height: 30px; color: #000000; width: 190px; margin: 0;
+}
+#page-navigative-menu .dropdown-navigative-menu .dropdown-navigative-menu2 ul li a:hover {
+	background: url("../images/icon-menu-active.png") no-repeat 15px 11px #00619f; color: #ffffff;
+}
 /**
  * Slider
  **************************/
