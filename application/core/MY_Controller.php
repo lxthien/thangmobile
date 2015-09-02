@@ -1,10 +1,4 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of Admin_Controller
  *
@@ -26,6 +20,9 @@ class MY_Controller extends CI_Controller {
         $this->load->model('Config_model', 'sconfig');
         $this->load->model('Download_category_model', 'download_category_model');
         $this->load->model('news_category_model');
+        $this->load->model('Product_model', 'product_model');
+        $this->load->model('Product_Category_Model', 'product_category_model');
+
         $data = array();
         $data['header_main_menus'] = $this->_read_pages_list();
         $site_meta_data = array();
@@ -38,6 +35,7 @@ class MY_Controller extends CI_Controller {
         $this->load->model('Services_model', 'services_model');
         $vars['listService'] = $this->services_model->getAll();
         $vars['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
+        $vars['newestProduct'] = $this->_getNewestProduct();
         
         $this->load->vars($vars);
     }
@@ -53,11 +51,19 @@ class MY_Controller extends CI_Controller {
         return $pages;
     }
 
+    private function _getNewestProduct(){
+        $newestProductLst = $this->product_model->read_list_newest();
+        
+        foreach ($newestProductLst as $eachProduct) {
+            $eachCategory = $this->product_category_model->read_by_id($eachProduct->product_category_id);
+            $eachProduct->link_rewrite = 'san-pham/dien-thoai/'.$eachCategory->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+        }
+        
+        return $newestProductLst;
+    }
 }
 
 class Admin_controller extends CI_Controller {
-
-    //put your code here
     function __construct() {
         parent::__construct();
         if (!$this->ion_auth->logged_in()) {

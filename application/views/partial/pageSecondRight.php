@@ -18,6 +18,8 @@
             $data = array();
             $data['company_category_newses'] = $page_second_right['company_category_newses'];
             $this->load->view('partial/company_category_newses', $data);
+        } else if (isset($servicesDetail)) {
+            $this->load->view('partial/services_detail', $data);
         } else if(isset($services)){
             $this->load->view('partial/services_page', $data);
         }

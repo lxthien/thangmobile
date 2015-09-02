@@ -25,6 +25,9 @@ $config["image_sizes"]["news_100_75"] = array(100,75);
 
 $config["image_sizes"]["slider_625_277"] = array(625,277);
 
+$config["image_sizes"]["banner_168_87"] = array(168,87);
+$config["image_sizes"]["banner_345_87"] = array(345,87);
+
 $config["image_sizes"]["product_70_135"] = array(70,135);
 $config["image_sizes"]["product_60_95"] = array(60,95);
 $config["image_sizes"]["product_65_86"] = array(65,86);

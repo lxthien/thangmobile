@@ -1,14 +1,11 @@
 <?php
 
-/*
- * This model access page table, manage all page of the site (download, home, about)
- */
-
 /**
  * Description of Phone
  *
  * @author VuQ
  */
+
 class Product_model extends MY_Model {
 
     var $primary_table = 'product';
@@ -53,7 +50,6 @@ class Product_model extends MY_Model {
     public function read_by_id($id) {
         $options = array($this->primary_key => $id);
         $query = $this->get($options);
-//        var_dump($query);
         return $query;
     }
     
@@ -95,23 +91,10 @@ class Product_model extends MY_Model {
     	$this->db->where($where_statement);
     	$this->db->order_by("id", "desc");
     	$this->db->limit($limit);
-//     	$options = array('limit' => $limit);
-//     	$query = $this->db->get($options);
     	$query = $this->db->get();
     	return $query->result();
     }
 
-    /*public function read_list_by_position($position_id) {
-        $options = array('position_id' => $position_id, 'sort_by' => 'index',
-            'sort_direction' => 'DESC', 'active' => '1');
-        $query = $this->get($options);
-        if ($query->num_rows() > 0) {
-            $result = $query->result();
-            return $result;
-        }
-        return false;
-    }
-*/
     public function read_list() {
     	$this->db->select('*');
     	$this->db->from($this->primary_table);
@@ -135,6 +118,7 @@ class Product_model extends MY_Model {
         $query = $this->get($options);
         return $query->result();
     }
+
 	public function list_best_sell(){
 		$this->db->select('*');
 		$this->db->from($this->primary_table);
@@ -155,6 +139,7 @@ class Product_model extends MY_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
 	public function read_list_newest(){
 		$this->db->select('*');
 		$this->db->from($this->primary_table);
@@ -165,6 +150,7 @@ class Product_model extends MY_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
 	public function getCname()
 	{
 		$this->db->select('id, parent_id, name');
@@ -186,6 +172,7 @@ class Product_model extends MY_Model {
 		}
 		return $record;
 	}
+
 	public function read_by_link_rewrite($link_rewrite){
         $options = array('link_rewrite' => $link_rewrite);
         $query = $this->get($options);
@@ -212,6 +199,15 @@ class Product_model extends MY_Model {
         $query = $this->db->get();
         return $query->result();
     }
-}
 
-?>
+    public function search($value) {
+        $this->db->select('*');
+        $this->db->from($this->primary_table);
+        //$this->db->where( array('isIntermediate' => 1) );
+        $this->db->like('model', $value);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+}

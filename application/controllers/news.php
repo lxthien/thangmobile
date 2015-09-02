@@ -465,11 +465,11 @@ class News extends MY_Controller {
         $this->load->view('universalView', $data);
     }
     
-    public function servicesDetail($url){
+    public function servicesDetail($id, $url){
         $this->load->model('Services_model', 'services_model');
 
         $url = $this->uri->segment(2);
-        $page = $this->services_model->getDetail($url);
+        $page = $this->services_model->read_by_id($id);
         
         $this->_get_meta_data($page);
         $data['site_meta_data'] = $this->site_meta_data;
@@ -477,12 +477,13 @@ class News extends MY_Controller {
 
         $data['contact'] = $this->Mcontact->listcontact();
         $data['services'] = $page;
+        $data['servicesDetail'] = $page;
         $data['partners'] = $this->_get_partners();
         $data['banners'] = $this->banner_model->get_active_list();
         $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
         $data['latest_downloads'] = $this->get_latest_download();
         $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
-        $this->load->view('universalView', $data);
+        $this->load->view('universalViewService', $data);
     }
 
     private function getCatCategory($category) {

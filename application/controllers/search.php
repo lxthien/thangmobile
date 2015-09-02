@@ -31,10 +31,10 @@ class Search extends MY_Controller {
     }
 
     function index($key_search = NULL) {
-        if (!isset($_POST['search_phrase'])) {
+        if (!isset($_GET['value'])) {
             redirect(base_url());
         }
-        $key_search = $this->input->post('search_phrase');
+        $key_search = $this->input->get('value');
         $data = $this->load->get_var('data');
         $page_second_left['page_name'] = 'Search';
         $data['page_second_left'] = $page_second_left;
@@ -48,7 +48,6 @@ class Search extends MY_Controller {
 
     private function _load_meta_data($search_phrase){
         $this->site_meta_data['title'] = 'Tìm từ khóa "'.$search_phrase.'"' ;
-        
         $this->site_meta_data['meta_title'] = $this->site_meta_data['title'];
     }
 

@@ -3,11 +3,11 @@
 	<div style="height: 153px; padding: 10px 15px;">
 		<div class="add" style="width:590px; float:left;">
 			<ul class="footer-menu">
-				<li><a href="">Về chúng tôi</a></li>
-				<li><a href="">Tuyển dụng</a></li>
-				<li><a href="">Chính sách bảo hành</a></li>
-				<li><a href="">Chính sách vận chuyển</a></li>
-				<li><a href="">Liên hệ</a></li>
+				<li><a href="<?php echo base_url('gioi-thieu.html'); ?>">Về chúng tôi</a></li>
+				<li><a href="<?php echo base_url('tuyen-dung.html'); ?>">Tuyển dụng</a></li>
+				<li><a href="<?php echo base_url('chinh-sach-bao-hanh.html'); ?>">Chính sách bảo hành</a></li>
+				<li><a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">Chính sách vận chuyển</a></li>
+				<li><a href="<?php echo base_url('lien-he'); ?>">Liên hệ</a></li>
 			</ul>
 			<ul class="category">
 				<li><a href="<?php echo base_url('san-pham/dien-thoai/samsung'); ?>" class="haslink ">Samsung</a></li>
@@ -63,12 +63,12 @@
 	-->
 	<div class="center">
 		<p style="font-size:16px; font-weight:bold; color:#5a5a5a; padding: 5px 0;">THẮNG MOBILE - Mua bán, sửa chữa, phụ kiện điện thoại di động</p>
-		<p style="font-size:14px;"><?php echo $this->sconfig->get_value('address');?></p>
-		<p style="font-size:14px;">Điện thoại: <?php echo $this->sconfig->get_value('TEL');?> - Hotline: <?php echo $this->sconfig->get_value('FAX');?></p>
-		<p style="font-size:14px;">Email: <?php echo $this->sconfig->get_value('CONTACT_EMAIL');?> - Website: <?php echo base_url(); ?></p>
+		<p style="font-size:14px; line-height: 18px;"><?php echo $this->sconfig->get_value('address');?></p>
+		<p style="font-size:14px; line-height: 18px;">Điện thoại: <?php echo $this->sconfig->get_value('TEL');?> - Hotline: <?php echo $this->sconfig->get_value('FAX');?></p>
+		<p style="font-size:14px; line-height: 18px;">Email: <?php echo $this->sconfig->get_value('CONTACT_EMAIL');?> - Website: <?php echo base_url(); ?></p>
 	</div>
 
-	<div>
+	<div style="margin: 5px 0;">
 		<center>
 			<span style="margin-left:50px; width:900px;" class="backlink">
 				<a style="color: #000;" href='http://sotaynhadat.vn/nha-dat-ban-ba-ria-vung-tau' rel='dofollow' target='_blank'>Nhà đất Bà Rịa Vũng Tàu</a> |

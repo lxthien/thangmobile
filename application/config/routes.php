@@ -81,8 +81,8 @@ $route['tai-ve'] = 'download';
 
 $route['lien-he'] = 'contact/index';
 $route['lien-he/(:any)'] = 'contact/$1';
-$route['search/(:any)'] = 'search/index/$1';
-$route['search'] = 'search/index';
+$route['search/(:any)'] = 'product/search/$1';
+$route['search'] = 'product/search';
 
 $route['(:any)/(:any)/(:num)-(:any)'] = 'news/index/$0/$1/$2';
 $route['tin-tuc/(:any)'] = 'news/view_post_on_category/$0/$1';
@@ -91,7 +91,8 @@ $route['tin-tuc/(:any)'] = 'news/view_post_on_category/$0/$1';
 $route['(:any)/(:any)/(:num)-(:any)'] = 'news/index/$0/$1/$2';
 $route['dich-vu'] = 'news/servicesDetail/$1';
 $route['dich-vu/(:any)'] = 'news/servicesCat/$1';
-// $route['(:any)'] = 'news/view_post_on_page/$0/1';
+$route['(:num)-(:any)'] = 'news/servicesDetail/$0/$1';
+
 $route['(:any)'] = 'news/view_post_on_page/$0/1';
 
 

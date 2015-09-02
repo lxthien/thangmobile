@@ -17,11 +17,11 @@
         </div>
     </div>
     <div class="banner">
-        <div class="banner-6of12">banner-6of12</div>
-        <div class="banner-6of12">banner-6of12</div>
-        <div class="banner-6of12">banner-6of12</div>
-        <div class="banner-6of12">banner-6of12</div>
-        <div class="banner-12of12">banner-12of12</div>
+        <div class="banner-6of12"><a href="#"><img src="<?php echo image('assets/images/Ban-hang-tra-gop5047.jpg', 'banner_168_87'); ?>"></a></div>
+        <div class="banner-6of12"><a href="#"><img src="<?php echo image('assets/images/Samsung-Galaxy-Tab-4-389-x146.jpg', 'banner_168_87'); ?>"></a></div>
+        <div class="banner-6of12"><a href="#"><img src="<?php echo image('assets/images/Tuyen-Dung-T9.jpg', 'banner_168_87'); ?>"></a></div>
+        <div class="banner-6of12"><a href="#"><img src="<?php echo image('assets/images/Ban-hang-tra-gop5047.jpg', 'banner_168_87'); ?>"></a></div>
+        <div class="banner-12of12"><a href="#"><img src="<?php echo image('assets/images/banner-iPad-389x1467101.jpg', 'banner_345_87'); ?>"></a></div>
     </div>
 </div>
 

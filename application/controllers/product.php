@@ -336,4 +336,39 @@ class Product extends MY_Controller {
         $this->load->model('Partner_model','partner_model');
         return $this->partner_model->read_list();
     }
+
+    /**
+     * Description: form search product
+     * Author: Thangmobile
+     */
+    function search() {
+        if (!isset($_GET['value'])) {
+            redirect(base_url());
+        }
+        $value = $this->input->get('value');
+
+        // load meta data site
+        $data['site_meta_data'] = $this->site_meta_data;
+
+        // load data
+        $data['product_block_main'] = $this->_load_product_search($value);
+        $this->load->view('product', $data);
+    }
+
+    private function _load_product_search($value){
+        $data = array();
+         
+        //$productCategory = $this->product_category_model->read_by_link_rewrite($subCategory);
+    
+        $productList = $this->product_model->search($value);
+             
+        foreach ($productList as $eachProduct) {
+            //$eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.$subCategory.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+        }
+        
+        $data['value'] = $value;
+        $data['eachProductList'] = $productList;
+        $data['contact'] = $this->Mcontact->listcontact();
+        return $this->load->view('product/search', $data, TRUE);
+    }
 }
