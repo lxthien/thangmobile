@@ -7,6 +7,7 @@
 		<?php endforeach; ?>
 	</ul>
 </div>
+<?php if(count($services) > 0): ?>
 <?php
 	foreach ($services as $row) :
 		$date_post = new DateTime($row->date_add);
@@ -26,3 +27,6 @@
 <?php
 	endforeach;
 ?>
+<?php else: ?>
+	<p class="no-item">Chưa có bài viết cho danh mục này</p>
+<?php endif; ?>

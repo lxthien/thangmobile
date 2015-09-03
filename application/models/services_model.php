@@ -113,20 +113,25 @@ class Services_model extends MY_Model {
 
 
     public function read_list_by_list_categries($category_ids, $offset = NULL, $limit = NULL) {
-        if (isset($limit)) {
-            if (isset($offset)) {
-                $option = array('id_news_category' => $category_ids, 'limit' => $limit, 'offset' => $offset);
+        if (count($category_ids) > 0) {
+            if (isset($limit)) {
+                if (isset($offset)) {
+                    $option = array('id_news_category' => $category_ids, 'limit' => $limit, 'offset' => $offset);
+                } else {
+                    $option = array('id_news_category' => $category_ids, 'limit' => $limit);
+                }
             } else {
-                $option = array('id_news_category' => $category_ids, 'limit' => $limit);
+                $option = array('id_news_category' => $category_ids);
             }
+            $option['sort_by'] = 'date_add';
+            $option['sort_direction'] = 'DESC';
+            $query = $this->get($option);
+            $newses = $query->result();
+            
+            return $newses;
         } else {
-            $option = array('id_news_category' => $category_ids);
+            return null;
         }
-        $option['sort_by'] = 'date_add';
-        $option['sort_direction'] = 'DESC';
-        $query = $this->get($option);
-        $newses = $query->result();
-        return $newses;
     }
 
 
