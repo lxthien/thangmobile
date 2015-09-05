@@ -31,35 +31,7 @@
     </div>
 </div>
 <!--END ONLINE-->
-<!--box download 
-<?php if (isset($latest_downloads)) : ?>
-    <div class="sreendownload" style=" width:237px; margin-bottom:20px; float:left; margin-top:5px;">
-        <p align="center" style="color:#424242; font-size:16px; font-weight:bold; margin-bottom:3px;">Download ph&#7847;n
-            m&#7873;m </p>
-        <div class="titledownload" style="background-color:#b2b2b2; width:224px; margin-bottom:5px; margin-left:7px; height:5px; float:left;"></div>
-        <div class="boxdownload" style="background-color:#FFFFFF; float:left; width:237px;">
-            <div class="1" style=" height:212px; background:url(<?php echo base_url("assets/images/shadow1.png"); ?>); margin-top:-10px; float:left; width:7px;"></div>
-            <div class="3" style="background-color:#FFFFFF; float:left; width:220px;">
-                <?php foreach ($latest_downloads as $download):
-                    //$download->link_rewrite = 'tai-ve/phan-mem/'.$download->id.'-'.$download->link_rewrite.URL_TRAIL;
-                    ?>
-                    <div class="sreencontentdownload" style="width:220px; height:35px; float:left;">
-                        <div class="icon"></div>
-                        <div class="contentdt">
-                            <a href="<?php echo base_url($download->link_rewrite); ?>">
-                                <p style="width:190px; float:left; height:25px; margin-top:5px; margin-left:1px;"><?php echo $download->name; ?></p>
-                            </a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-            <div class="2" style=" height:212px;background:url(<?php echo base_url("assets/images/shadow2.png"); ?>); margin-top:-10px;  float:right; width:7px;"></div>
-        </div>
-    </div>
-<?php
-endif;
-?>
-<!--end box download -->
+
 <!--box ban nen xem -->
 <?php if (isset($you_should_watch)) : ?>
     <div class="sreendownload sreenonline right-box">
@@ -81,7 +53,7 @@ endif;
                             <p><?php echo $_watch->title; ?></p>
                         </a>
                         <p class="des">Hãng htc vừa cho ra mắt sản phẩm mới trong quý 3 ...</p>
-                        <p><?php echo $_watch->date_add; ?></p>
+                        <p><?php echo date_format(new DateTime($_watch->date_add), 'd/m/Y'); ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -126,7 +98,7 @@ endif;
                             <p><?php echo $_watch->title; ?></p>
                         </a>
                         <p class="des">Hãng htc vừa cho ra mắt sản phẩm mới trong quý 3 ...</p>
-                        <p><?php echo $_watch->date_add; ?></p>
+                        <p><?php echo date_format(new DateTime($_watch->date_add), 'd/m/Y'); ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>

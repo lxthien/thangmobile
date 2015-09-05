@@ -62,10 +62,11 @@ $route['gioi-thieu.html'] = 'company_introduce/index/gioi-thieu-cong-ty';
 $route['site-map.html'] = 'company_introduce/index/site-map';
 $route['dich-vu-sua-chua-dien-thoai.html'] = 'company_introduce/index/dich-vu-sua-chua';
 $route['che-do-bao-hanh.html'] = 'company_introduce/index/che-do-bao-hanh';
-//$route['gioi-thieu/(:any)/(:any)/(:num)'] = 'company_introduce/load_pagination/$1/$2/$3';
-//$route['gioi-thieu/(:any)/(:any)/(:num)-(:any).html'] = 'company_introduce/index/$1/$2/$3';
+$route['tuyen-dung.html'] = 'company_introduce/index/tuyen-dung';
+$route['chinh-sach-bao-hanh.html'] = 'company_introduce/index/chinh-sach-bao-hanh';
+$route['chinh-sach-van-chuyen.html'] = 'company_introduce/index/chinh-sach-van-chuyen';
 //$route['gioi-thieu/(:any)'] = 'company_introduce/index/$1';
-//
+
 $route['san-pham/(:any)/(:any)/(:num)-(:any)'] = 'product/view_details/$0/$1/$2/$3';
 $route['san-pham/gia-tu-(:num)-trieu-den-(:num)-trieu'] = 'product/view_theo_khoang_gia/$0/$1';
 $route['san-pham/duoi-(:num)-trieu'] = 'product/view_theo_khoang_gia/$0/$1';

@@ -146,7 +146,7 @@ class Product_model extends MY_Model {
 		$where_statement = 'product_category_id in (2,3,4,7,8,9,10) and is_new = 1';
 		$this->db->where($where_statement);
 		$this->db->order_by("id", "desc");
-		$this->db->limit(18);
+		$this->db->limit(10);
 		$query = $this->db->get();
 		return $query->result();
 	}

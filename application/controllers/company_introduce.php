@@ -44,6 +44,7 @@ class Company_introduce extends MY_Controller {
         $site_meta_data = $data['site_meta_data'];
         $pageSecondLeft = array();
         $page = $this->_loadPageInfo($this->pageId);
+
         $pageCategories = $this->_loadPageItems($page);
         $pageSecondLeft['page_categories'] = $pageCategories;
         $pageSecondLeft['page_name'] = $page->name;
@@ -55,7 +56,6 @@ class Company_introduce extends MY_Controller {
         //get adverties for left menu
         $data['left_advertises'] = $this->advertise_model->read_list_by_position(2);
         $data['site_meta_data'] = $this->site_meta_data;
-//        var_dump($data);
         $data['banners'] = $this->banner_model->get_active_list();
         $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
         $data['latest_downloads'] = $this->get_latest_download();
@@ -74,6 +74,7 @@ class Company_introduce extends MY_Controller {
     	 
     	return $latest_downloads;
     }
+
     /**
      * Get all category of a Page, build re-write url for each item
      * @param type $page
@@ -123,37 +124,42 @@ class Company_introduce extends MY_Controller {
             $pageItem->link_rewrite = $page->link_rewrite . '/' . $pageItem->link_rewrite;
         }
         //TODO
-//        var_dump($pageItem);
+        //var_dump($pageItem);
         if ($pageItem === false || $item === 'gioi-thieu-cong-ty' || 
         		$item === 'site-map' || $item === 'dich-vu-sua-chua' || 
         		$item === 'che-do-bao-hanh') {
         	
-//            echo $item;
             if ($item === 'che-do-bao-hanh') {
                 $query = $this->newsModel->read_by_id(WARRANTY);
-//                var_dump($query);
             } 
             else if($item === 'dich-vu-sua-chua') {
                 $query = $this->newsModel->read_by_id(SERVICES);
-//                var_dump($query);
             } 
             else if($item === 'site-map') {
             	$query = $this->newsModel->read_by_id(SITE_MAP);
-            	//                var_dump($query);
+            }
+            else if($item === 'tuyen-dung') {
+                $query = $this->newsModel->read_by_id(RECRUIT);
+            }
+            else if($item === 'chinh-sach-bao-hanh') {
+                $query = $this->newsModel->read_by_id(WARRANTYPOLICY);
+            }
+            else if($item === 'chinh-sach-van-chuyen') {
+                $query = $this->newsModel->read_by_id(DELEVERYPOLICY);
             }
             else {
                 $query = $this->newsModel->read_by_id(COMPANY_INSTRODUCE_NEWS_ID);
             }
             $result ['single_post'] = $query;
             $this->_get_meta_data($query);
-        } else if ($pageItem->id_page_item === '2') {//Tin tuc cty
-            if (isset($sub_item)) {//load tin tuc cho category da chon
+        } else if ($pageItem->id_page_item === '2') {
+            if (isset($sub_item)) {
                 $selected_category = $this->newsCategoryModel->getCategoryByLinkRewrite($sub_item);
                 if (!$selected_category) {
                     show_404(base_url());
                 }
                 $selected_category->link_rewrite = $pageItem->link_rewrite . '/' . $selected_category->link_rewrite;
-                if (isset($thread)) {//load bai viet
+                if (isset($thread)) {
                     $post = $this->newsModel->read_by_id($thread);
 
                     if (!$post) {
@@ -168,7 +174,7 @@ class Company_introduce extends MY_Controller {
                     $result ['single_post'] = $post;
                     $this->_get_meta_data($post);
                     $result['posts_same_category'] = $same_posts_array;
-                } else {//load bai viet thuoc category da chon                    
+                } else {
                     $page_offset = 0;
                     if ($page_nr > 0) {
                         $page_offset = $page_nr - 1;
@@ -202,7 +208,7 @@ class Company_introduce extends MY_Controller {
                     $config['next_tag_close'] = '</div>';
                     $this->pagination->initialize($config);
                 }
-            } else {// load cac category và 1 vài bai viet
+            } else {
                 $parent_category = $this->newsCategoryModel->read_by_id(7);
                 $this->_get_meta_data($parent_category);
                 $categories = $this->newsCategoryModel->readListByParentId(7);
@@ -218,10 +224,9 @@ class Company_introduce extends MY_Controller {
                 }
                 $result['company_category_newses'] = $categories;
             }
-        } else if ($pageItem->id_page_item === '3') {//Hinh anh            
+        } else if ($pageItem->id_page_item === '3') {
             $this->_get_meta_data($pageItem);
             $gallery_data = $this->_load_gallery_data($pageItem->link_rewrite, $sub_item, $thread);
-//            var_dump($gallery_data);
             return $gallery_data;
         }
         return $result;
@@ -235,7 +240,7 @@ class Company_introduce extends MY_Controller {
         }
         $data['gallery_categories'] = $gallery_categories;
 
-        if (isset($category_id)) {//Đã chọn 1 category                
+        if (isset($category_id)) {
             $gallery_category = $this->gallery_category_model->read_by_id($category_id);
             if (!isset($gallery_category)) {
                 show_404();
@@ -245,7 +250,7 @@ class Company_introduce extends MY_Controller {
 
 
 
-            if (isset($album_id)) {//Xem ảnh của một album
+            if (isset($album_id)) {
                 $album = $this->gallery_model->read_by_id($album_id);
                 if (!isset($album)) {
                     show_error('Cannot find album id: ' . $album_id);
@@ -254,8 +259,7 @@ class Company_introduce extends MY_Controller {
                 $album->images = $this->image_model->read_list_by_album_id($album->id);
                 $this->_get_meta_data($album);
                 $data['selected_album'] = $album;
-//                var_dump($data);
-            } else {// Xem danh sách album của một category
+            } else {
                 $galleries = $this->gallery_model->read_list_by_category($gallery_category->id);
                 foreach ($galleries as &$gallery) {
                     $gallery->link_rewrite = $gallery_category->link_rewrite . '/' . $gallery->id . '-' . $gallery->link_rewrite . URL_TRAIL;
@@ -266,7 +270,7 @@ class Company_introduce extends MY_Controller {
                 }
                 $data['galleries'] = $galleries;
             }
-        } else {// Vưa mới vào thư mục hình
+        } else {
             $latest_album = $this->gallery_model->read_latest_list(20);
             foreach ($latest_album as &$album) {
                 $category_link = $this->_get_category_link_rewrite($album->category_id, $gallery_categories);
@@ -276,7 +280,6 @@ class Company_introduce extends MY_Controller {
             }
             $data['galleries'] = $latest_album;
         }
-//        var_dump($data);
         return $data;
     }
 

@@ -309,8 +309,8 @@ margin-top:1px;
 .titlecongnghe a { color:#333333; font-size:14px; font-weight:bold; float:left;}
 .titlecongnghe a:hover { color:#33698c; font-size:14px; font-weight:bold; float:left;}
 
-.back a { color:#666666; float:left; }
-.back a:hover { color:#0078cc; float:left;}
+.back a {color:#666666;}
+.back a:hover {color:#0078cc;}
 .tuvan{background:url(image/support.png); width:240px; height:45px; float:left; margin-bottom:20px;}
 .boxkhoangia{background-color:#FFFFFF; padding-bottom:10px; border:1px #dddddd solid; margin-left:7px; float:left; width:222px;}
 /*.boxmucgia{background-color:#FFFFFF; padding-bottom:10px; margin-left:7px; float:left; width:222px;}*/

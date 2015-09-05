@@ -189,40 +189,40 @@ class Product extends MY_Controller {
     }
 
     public function view_details($firstLevelCategory, $category, $subCategory, $productLink) {
+        $selectedProduct = $productList = $this->product_model->read_by_id($productLink);
+
+        $limit_san_pham_cung_gia = 5;
+        $product_price_in_mil = ($selectedProduct->price)/1000000;
+        if($product_price_in_mil < 2) {
+            $san_pham_cung_gia  = $this->product_model->read_by_price_range_limit(0, 2, $selectedProduct->id, $limit_san_pham_cung_gia);
+        }
+        else if($product_price_in_mil >= 2 && $product_price_in_mil < 4) {
+            $san_pham_cung_gia = $this->product_model->read_by_price_range_limit(2, 4, $selectedProduct->id, $limit_san_pham_cung_gia);
+        }
+        else if($product_price_in_mil >= 4 && $product_price_in_mil < 6) {
+            $san_pham_cung_gia = $this->product_model->read_by_price_range_limit(4, 6, $selectedProduct->id, $limit_san_pham_cung_gia);
+        }
+        else if($product_price_in_mil >= 6 && $product_price_in_mil < 8) {
+            $san_pham_cung_gia = $this->product_model->read_by_price_range_limit(6, 8, $selectedProduct->id, $limit_san_pham_cung_gia);
+        }
+        else if($product_price_in_mil >= 8) {
+            $san_pham_cung_gia = $this->product_model->read_by_price_range_limit(8, 1000, $selectedProduct->id, $limit_san_pham_cung_gia);
+        }
+        
+        foreach ($san_pham_cung_gia as $eachProduct) {
+            $eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.'chi-tiet'.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+        }
+
     	$data['view_details'] = 1;
-    	$data['product_block_main'] = $this->_load_product_details($firstLevelCategory, $category, $subCategory, $productLink);
+    	$data['product_block_main'] = $this->_load_product_details($firstLevelCategory, $category, $subCategory, $productLink, $san_pham_cung_gia);
     	$data['partners'] = $this->_get_partners();
     	$data['page_name'] = 'Táº£i Vá»�';
     	$data['banners'] = $this->banner_model->get_active_list();
-    	$selectedProduct = $productList = $this->product_model->read_by_id($productLink);
+        
         // load metadata
     	$this->_get_meta_data($selectedProduct);
     	$data['site_meta_data'] = $this->site_meta_data;
-        
-    	$limit_san_pham_cung_gia = 5;
-    	$product_price_in_mil = ($selectedProduct->price)/1000000;
-    	if($product_price_in_mil < 2) {
-    		$san_pham_cung_gia  = $this->product_model->read_by_price_range_limit(0, 2, $selectedProduct->id, $limit_san_pham_cung_gia);
-    	}
-    	else if($product_price_in_mil >= 2 && $product_price_in_mil < 4) {
-    		$san_pham_cung_gia = $this->product_model->read_by_price_range_limit(2, 4, $selectedProduct->id, $limit_san_pham_cung_gia);
-    	}
-    	else if($product_price_in_mil >= 4 && $product_price_in_mil < 6) {
-    		$san_pham_cung_gia = $this->product_model->read_by_price_range_limit(4, 6, $selectedProduct->id, $limit_san_pham_cung_gia);
-    	}
-    	else if($product_price_in_mil >= 6 && $product_price_in_mil < 8) {
-    		$san_pham_cung_gia = $this->product_model->read_by_price_range_limit(6, 8, $selectedProduct->id, $limit_san_pham_cung_gia);
-    	}
-    	else if($product_price_in_mil >= 8) {
-    		$san_pham_cung_gia = $this->product_model->read_by_price_range_limit(8, 1000, $selectedProduct->id, $limit_san_pham_cung_gia);
-    	}
-    	
-    	foreach ($san_pham_cung_gia as $eachProduct) {
-    		$eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.'chi-tiet'.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
-    	}
-    	$data['san_pham_cung_gia'] = $san_pham_cung_gia;
     	$data['currentCategory'] = $category;
-    	//$data['san_pham_cung_gia'] = $this->product_model->read_by_price_range($from, $to);
     	$data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
     	$data['latest_downloads'] = $this->get_latest_download();
 		$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
@@ -230,10 +230,9 @@ class Product extends MY_Controller {
     	$this->load->view('product', $data);
     }
     
-    private function _load_product_details($firstLevelCategory, $category, $subCategory, $productLink) {
+    private function _load_product_details($firstLevelCategory, $category, $subCategory, $productLink, $productRelated) {
     	$data = array();
     	$viewProduct = $productList = $this->product_model->read_by_id($productLink);
-
 
         //Check link_ewwrite not exit.
         $link_rewrite = $viewProduct->link_rewrite;
@@ -265,15 +264,13 @@ class Product extends MY_Controller {
         $this->_get_meta_data($selectedProduct);
         $data['site_meta_data'] = $this->site_meta_data;
 
-
+        $data['san_pham_cung_gia'] = $productRelated;
     	$data['viewProduct'] = $viewProduct;
     	$images_list = $this->image_model->read_list_by_album_id($viewProduct->id);
     	$data['product_images'] = $images_list;
 		$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
-    	return $this->load->view('product/display_product_detail',$data,TRUE);
+    	return $this->load->view('product/display_product_detail', $data, TRUE);
     }
-    
-    //////////////////////
     
 
     /**

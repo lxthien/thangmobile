@@ -363,21 +363,24 @@ class News extends MY_Controller {
         $config['per_page'] = MAX_ITEM_PAGINAGION;
         $config['use_page_numbers'] = TRUE;
         
-        $config['next_link'] = 'Next';
+        $config['next_link'] = 'Sau';
+        $config['prev_link'] = 'Trước';
+        $config['first_link'] = 'Đầu';
+        $config['last_link'] = 'Cuối';
         $config['uri_segment'] = 3;
         
-        $config['num_tag_open'] = '<p>';
-        $config['num_tag_close'] = '</p>';
-        $config['cur_tag_open'] = '<p><a href="#">';
-        $config['cur_tag_close'] = '&nbsp;&nbsp;</a></p>';
-        $config['next_tag_open'] = '<p>';
-        $config['next_tag_close'] = '</p>';
-        $config['prev_tag_open'] = '<p>';
-        $config['prev_tag_close'] = '</p>';
-        $config['first_tag_open'] = '<p>';
-        $config['first_tag_close'] = '</p>';
-        $config['last_tag_open'] = '<p>';
-        $config['last_tag_close'] = '</p>';
+        $config['num_tag_open'] = '';
+        $config['num_tag_close'] = '';
+        $config['cur_tag_open'] = '<span class="active">';
+        $config['cur_tag_close'] = '</span>';
+        $config['next_tag_open'] = '';
+        $config['next_tag_close'] = '';
+        $config['prev_tag_open'] = '';
+        $config['prev_tag_close'] = '';
+        $config['first_tag_open'] = '';
+        $config['first_tag_close'] = '';
+        $config['last_tag_open'] = '';
+        $config['last_tag_close'] = '';
         $this->pagination->initialize($config);
     }
 

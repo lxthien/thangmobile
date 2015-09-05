@@ -22,6 +22,12 @@ h1.h1-title-detail {
 p.no-item {
 	font-size: 15px; padding: 10px 0; float: left; width: 100%;
 }
+.noidungthitruongchitiet {
+	width:675px; margin-top:5px; font-size: 15px; line-height: 1.5;
+}
+.noidungthitruongchitiet p{
+	margin-bottom: 10px;
+}
 
 /**
  * Top header
@@ -102,7 +108,7 @@ p.no-item {
 	margin: 0;
 }
 #page-navigative-menu ul li {
-	margin: 0px; height: 40px; padding: 0 13px; position: relative;
+	margin: 0px; height: 40px; padding: 0 22px; position: relative;
 }
 #page-navigative-menu ul li a.haslin {
 	text-transform: uppercase; line-height: 40px;
@@ -461,13 +467,13 @@ a.link-block-you-see:hover{
 	margin: 3px 0;
 }
 .product-new-right-status .pr-news {
-	background-color: #0b6bbe; padding: 2px 7px; color: #ffffff; font-size: 13px;
+	background-color: #0b6bbe; padding: 2px 7px; color: #ffffff; font-size: 12px; font-weight: 600; text-transform: uppercase;
 }
 .product-new-right-status .pr-gift {
-	background-color: #7bbd0b; padding: 2px 7px; color: #ffffff; font-size: 13px;
+	background-color: #7bbd0b; padding: 2px 7px; color: #ffffff; font-size: 12px; font-weight: 600; text-transform: uppercase;
 }
 .product-new-right-status .pr-good-price {
-	background-color: #cc1414; padding: 2px 7px; color: #ffffff; font-size: 13px;
+	background-color: #cc1414; padding: 2px 7px; color: #ffffff; font-size: 12px; font-weight: 600; text-transform: uppercase;
 }
 
 /**
@@ -660,7 +666,7 @@ a.link-block-you-see:hover{
 	color: #ff0000;
 }
 .thongtincoban {
-	width: 100%; float: left; margin-bottom: 15px;
+	width: 100%; float: left; margin-bottom: 10px;
 }
 .thongtincoban .p-title {
 	width: 100%; font-size: 16px; color: #000000; margin: 5px 0 2px; font-weight: 600;
@@ -699,11 +705,18 @@ a.link-block-you-see:hover{
 
 
 .thongso a {
-	margin-left: 0px;
+	margin-left: 0px; font-size: 18px; font-weight: 400;
 }
 .thongso a:hover{
-	margin-left: 0;
+	margin-left: 0; font-size: 18px; font-weight: 400;
 }
+.gioithieusp a {
+	font-size: 18px; font-weight: 400;
+}
+.gioithieusp a:hover {
+	font-size: 18px; font-weight: 400;
+}
+
 
 #thongsokithuat p, #gioithieusanpham p {
 	margin-bottom: 18px; line-height: 18px;
@@ -851,7 +864,7 @@ a.link-block-you-see:hover{
  **************************************/
 .gui input {
 	width: 70px; height: 30px; background: #00619f; border: none; cursor: pointer; float: left; margin-right: 10px;
-	text-transform: uppercase; color: #ffffff;
+	text-transform: uppercase; color: #ffffff; font-weight: 600;
 }
 .contact-tbl-row {
 	font-size: 14px; line-height: 20px;
@@ -884,11 +897,17 @@ textarea#message {
 	float:left; width:675px; height:20px;
 }
 .phantrang .back {
-	width: 675px; text-align: center;
+	text-align: center;
 }
-.phantrang .back p {
-	display: inline-block;
+/*
+.phantrang .back a, .phantrang .back span{
+	background-color: #555555; border-radius: 50%; color: #ffffff; padding: 0 3px; margin: 0 3px; display: inline-block; float: none;
+	background-color: #999999; margin-left: 5px; color: #FFFFFF; float: left; padding: 2px 6px; font-size: 12px;
 }
+.phantrang .back span.active {
+	background-color: #00619f;
+}
+*/
 
 .ttincongghe {
 	width: 675px;

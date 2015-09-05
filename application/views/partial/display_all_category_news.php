@@ -20,6 +20,7 @@
 					</a>
 				</div>
 				<div class="noidungcongnghe" style="float: left; width: 465px; height: 85px;">
+					<p class="date-technology"><?php echo date_format($date_post, 'd/m/Y'); ?></p>
 					<p align="justify">
 						<?php echo $item->content; ?>
 					</p>

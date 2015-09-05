@@ -43,18 +43,17 @@
 						<?php echo $this->sconfig->get_value('CONTACT_EMAIL');?>
 					</div>
 					<div class="clear"></div>
-					<div class="contact-tbl-title"
-						style="margin-top: 10px; font-size: 16px; font-weight: bold; margin-bottom: 5px;">Liên Hệ</div>
+					<div class="contact-tbl-title" style="margin-top: 10px; font-size: 16px; font-weight: bold; margin-bottom: 5px;">Thông tin liên hệ</div>
 					<div class="clear"></div>
 					<div class="separable"></div>
 					<div class="tbl-inform">
 						<span><span id="ctl28_ctl01_lblInform"></span> </span>
 					</div>
 					<?php
-            if (isset($success)) {
-                echo '<font color="#00619F"><b>'.$success.'</b></font><br/>';
-            }
-            ?>  
+		            if (isset($success)) {
+		                echo '<font color="#00619F"><b>'.$success.'</b></font><br/>';
+		            }
+		            ?>
 					<form id="form_contact" name="form_contact" method="post" action="">
 					<div class="contact-tbl-row" style="margin-bottom: 8px;">
 						<div class="contact-tbl-label">
@@ -102,9 +101,10 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="gui" style="width: 200px; height: 30px; float: left;">
 				<input type ="submit" value ="Gửi" name=" submit" id ="submit"/>
-				<input type="reset" value="H&#7911;y" id="ctl28_ctl01_btnReset" class="button white">
+				<input type="reset" value="Hủy" id="ctl28_ctl01_btnReset" class="button white">
 			</div>
 			
 		</div>

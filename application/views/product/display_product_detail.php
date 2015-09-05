@@ -63,8 +63,9 @@
             </div>
             <div class="qua-khuyen-mai">
                 <div class="info-qua-khuyen-mai">
-                    <p>- Tặng sim 3G</p>
-                    <p>- Tặng sim 3G</p>
+                    <p>- Tặng sim 3G giá trị cao 150.000đ</p>
+                    <p>- Dán màn hình từ tính 3 lớp</p>
+                    <p>- Giảm 20% khi mua phụ kiện</p>
                 </div>
             </div>
             <p style="float: left; padding: 8px 0; font-size: 15px; font-weight: 600; color: #262626;">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="#" style="color: #ed0000;">tại đây</a></p>
@@ -86,12 +87,12 @@
             -->
         </div>
         <div class="main-product-detail">
-            <div class="sreenthongso" style="float:left; width:500px;">
+            <div class="sreenthongso" style="float:left; width:980px;">
                 <div class="thongso"><a href="javascript:void(0);" onclick="showIntroduce();">
                         <p>Giới thiệu sản phẩm</p>
                     </a>
                 </div>
-                <p style="float:left; margin-left:5px; margin-right:5px;">|</p>
+                <p style="float:left; margin-left:8px; margin-right:5px; font-size: 16px;">|</p>
                 <div class="gioithieusp">
                     <a href="javascript:void(0);" onclick="showSpecs();">
                         <p>Thông số sản phẩm</p>
@@ -101,36 +102,106 @@
             <div class="line7"></div>
 
             <div class="sreenttinchitiet" style="width:685px; float:left; margin-top:10px;">
-                <div id="thongsokithuat" class="noidungthongso" style="display:none; width:680px; float:left; text-align: justify;">
+                <div id="thongsokithuat" class="noidungthongso" style="display:none; width:675px; float:left; text-align: justify;">
                     <p><?php echo $viewProduct->description; ?></p>
                 </div>
-                <div id="gioithieusanpham" class="noidungthongso" style="width:680px; float:left; text-align: justify;">
+                <div id="gioithieusanpham" class="noidungthongso" style="width:675px; float:left; text-align: justify;">
                     <p><?php echo $viewProduct->introduction; ?></p>
                 </div>
             </div>
 
             <div class="product-col-right">
-                <div class="box-product-col-right">
-                    <div class="box-product-col-right-title">
-                        <h5>Có thể bạn quan tâm</h5>
-                        <hr>
+                <div class="right">
+                    <div class="sreenonline right-box">
+                        <div class="toponline">
+                            <h2>Có thể bạn quan tâm</h2>
+                        </div>
+                        <div class="line-title">
+                            <div class="left-30">&nbsp;</div>
+                            <div class="left-70">&nbsp;</div>
+                        </div>
+                        <div class="midonline">
+                            <div class="product-news-right">
+                                <?php
+                                $i = 0;
+                                foreach ($san_pham_cung_gia as $eachProduct) {
+                                    $i++;
+                                ?>
+                                <div class="product-news-right-item">
+                                    <a href="#" class="img-product-news">
+                                        <img src="<?php echo image('files/logo/ads/'.$eachProduct->logo, 'product_65_86'); ?>">
+                                    </a>
+                                    <div class="product-news-right-info">
+                                        <a href=""><?php echo $eachProduct->producer . ' ' . $eachProduct->model ?></a>
+                                        <p class="product-new-right-price">Giá: <span><?php echo number_format($eachProduct->price, "0", ",", "."); ?> đ</span>
+                                        </p>
+                                        <p class="product-new-right-status">
+                                            <?php if ($eachProduct->moi_ve == 1) { ?>
+                                            <span class="pr-news">Mới</span>
+                                            <?php } ?>
+                                            <?php if ($eachProduct->qua_tang == 1) { ?>
+                                            <span class="pr-gift">Quà tặng</span>
+                                            <?php } ?>
+                                            <?php if ($eachProduct->gia_tot == 1) { ?>
+                                            <span class="pr-good-price">Giá sốc</span>
+                                            <?php } ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sreenonline right-box">
+                        <div class="toponline">
+                            <h2>Tin công nghệ</h2>
+                        </div>
+                        <div class="line-title">
+                            <div class="left-30">&nbsp;</div>
+                            <div class="left-70">&nbsp;</div>
+                        </div>
+                        <div class="midonline">
+                            <div class="product-news-right">
+                                <?php
+                                $i = 0;
+                                foreach ($san_pham_cung_gia as $eachProduct) {
+                                    $i++;
+                                ?>
+                                <div class="product-news-right-item">
+                                    <a href="#" class="img-product-news">
+                                        <img src="<?php echo image('files/logo/ads/'.$eachProduct->logo, 'product_65_86'); ?>">
+                                    </a>
+                                    <div class="product-news-right-info">
+                                        <a href=""><?php echo $eachProduct->producer . ' ' . $eachProduct->model ?></a>
+                                        <p class="product-new-right-price">Giá: <span><?php echo number_format($eachProduct->price, "0", ",", "."); ?> đ</span>
+                                        </p>
+                                        <p class="product-new-right-status">
+                                            <?php if ($eachProduct->moi_ve == 1) { ?>
+                                            <span class="pr-news">Mới</span>
+                                            <?php } ?>
+                                            <?php if ($eachProduct->qua_tang == 1) { ?>
+                                            <span class="pr-gift">Quà tặng</span>
+                                            <?php } ?>
+                                            <?php if ($eachProduct->gia_tot == 1) { ?>
+                                            <span class="pr-good-price">Giá sốc</span>
+                                            <?php } ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="box-product-col-right">
-                    <div class="box-product-col-right-title">
-                        <h5>Tin công nghệ</h5>
-                        <hr>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
-        <div class="line7"></div>
-        <div class="xemtatca">
-            <a href="<?php echo base_url($linkViewAll); ?>">
-                <p style="width:100px; height:25px;margin-left:550px; margin-top:5px;">>> Trở lại </p>
-            </a>
-        </div>
     </div>
 </div>
 <script>

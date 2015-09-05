@@ -36,6 +36,7 @@ class MY_Controller extends CI_Controller {
         $vars['listService'] = $this->services_model->getAll();
         $vars['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
         $vars['newestProduct'] = $this->_getNewestProduct();
+        $vars['urlSocial'] = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
         
         $this->load->vars($vars);
     }

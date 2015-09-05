@@ -44,6 +44,11 @@ define('COMPANY_INSTRODUCE_NEWS_ID','1');
 define('SITE_MAP','2');
 define('SERVICES','3');
 define('WARRANTY','4');
+define('RECRUIT','139');
+define('WARRANTYPOLICY','139');
+define('DELEVERYPOLICY','139');
+
+
 define('URL_TRAIL','.html');
 define('MAX_ITEM_PAGINAGION',15);
 define('MAX_DES_TITLE', 20);
