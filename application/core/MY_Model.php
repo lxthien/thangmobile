@@ -133,19 +133,14 @@ class MY_Model extends CI_Model {
 	 * @param array $options
 	 * @return array result()
 	 */
-	function get($options = array())
+	function get($options = array(), $isLike = false, $matchKey = null, $matchValue = null)
 	{
-		// set an array for field querys and values
-		// This allows gets with operators
-		// $options = array('status >' => 5)
 		$option_fields = array();
 		foreach($options as $key => $value)
 		{
 			$parts = explode(' ', $key, 2);
-
 			$field = isset($parts[0]) ? $parts[0] : '';
 			$operator = isset($parts[1]) ? $parts[1] : '';
-
 			$option_fields[$field]['query'] = $key;
 			$option_fields[$field]['value'] = $value;
 		}
@@ -161,23 +156,17 @@ class MY_Model extends CI_Model {
 		{
 			if (isset($option_fields[$field]))
 			{
-                            if (is_array($option_fields[$field]['value'])){
-//                                $ids = array('12','13','14');
-//                                var_dump($option_fields[$field]['value']);
-//                                echo '</br>';
-//                                var_dump($ids);
-//                                echo $option_fields[$field]['query'];
-//                                die();
-                                $this->db->where_in($option_fields[$field]['query'], $option_fields[$field]['value']);
-                            }else {
-				$this->db->where($option_fields[$field]['query'], $option_fields[$field]['value']);
-                            }
+                if (is_array($option_fields[$field]['value'])){
+                    $this->db->where_in($option_fields[$field]['query'], $option_fields[$field]['value']);
+                }else {
+					$this->db->where($option_fields[$field]['query'], $option_fields[$field]['value']);
+                }
 			}
 		}
                
 		if (isset($options['limit']) && isset($options['offset']))
 		{
-                    $this->db->limit($options['limit'], $options['offset']);                    
+            $this->db->limit($options['limit'], $options['offset']);                    
 		}
 		else
 		{
@@ -190,6 +179,10 @@ class MY_Model extends CI_Model {
 		if (isset($options['sort_by']))
 		{
 			$this->db->order_by($options['sort_by'], $options['sort_direction']);
+		}
+
+		if ($isLike == true) {
+			$this->db->like($matchKey, $matchValue);
 		}
 
 		$query = $this->db->get($this->primary_table);

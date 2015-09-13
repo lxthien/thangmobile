@@ -12,7 +12,7 @@ class Product_model extends MY_Model {
     var $fields = array('id', 'producer', 'model', 'price','description', 'introduction','logo', 'product_category_id','best_sell',
     						'link_rewrite','meta_title','meta_description','meta_keywords','date_add','date_upd','active',
     					 'sale_off', 'approx_price', 'status', 'accesory', 'time_warranty', 'is_new', 'moi_ve', 'sap_ve', 'gia_tot', 'qua_tang', 'gia_cu',
-    					 'isHight', 'isIntermediate' );
+    					 'isHight', 'isIntermediate', 'baseInformation', 'noteInformation' );
     var $required_fields = array('producer', 'active');
 
     /**

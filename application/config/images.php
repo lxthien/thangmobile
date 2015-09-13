@@ -31,3 +31,4 @@ $config["image_sizes"]["banner_345_87"] = array(345,87);
 $config["image_sizes"]["product_70_135"] = array(70,135);
 $config["image_sizes"]["product_60_95"] = array(60,95);
 $config["image_sizes"]["product_65_86"] = array(65,86);
+$config["image_sizes"]["product_270_370"] = array(270,370);

@@ -15,7 +15,7 @@
 		if ($news_item->active === '1') {
 	?>
 	<div class="sreentieude" style="width:675px; margin-left: 0px;">
-		<div class="tieude" style="font-size:16px; font-weight:bold;" >
+		<div class="tieude" style="font-size:16px; font-weight:bold; padding: 3px 0 12px;" >
 		    <h1 class="h1-title-detail"><?php echo $news_item->title; ?></h1>
 	    </div>
 	    <div class="main-news-social">

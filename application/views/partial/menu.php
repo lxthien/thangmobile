@@ -10,7 +10,7 @@
                 </div>
             </li>
             <li class="lv0" style="font-size:12px; font-weight:bold; float:left; ">
-                <div class="sreen1" style=" height:35px; float:left;">
+                <div class="sreen1" style=" height:40px; float:left;">
                     <h2><a href="<?php echo base_url('san-pham/dien-thoai'); ?>" class="haslin "><p>Điện thoại</p></a></h2>
                 </div>
                 <ul class="menu-category">
@@ -38,7 +38,7 @@
                 </ul>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
-                <div class="sreen1" style=" height:35px; float:left;">
+                <div class="sreen1" style=" height:40px; float:left;">
                     <h2><a href="<?php echo base_url('san-pham/phu-kien-dien-thoai'); ?>" class="haslin "><p>Phụ kiện</p></a></h2>
                 </div>
                 <ul>
@@ -51,7 +51,7 @@
                 </ul>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
-                <div class="sreen1" style=" height:35px; float:left;">
+                <div class="sreen1" style=" height:40px; float:left;">
                     <h2><a href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>" class="haslin"><p>Dịch vụ sửa chữa</p></a></h2>
                 </div>
                 <?php if(count($menuCategoryService) > 0): ?>
@@ -63,10 +63,11 @@
                 <?php endif; ?>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
-                <div class="sreen1" style=" height:35px; float:left;">
+                <div class="sreen1" style=" height:40px; float:left;">
                     <h2><a href="<?php echo base_url('che-do-bao-hanh.html'); ?>" class="haslin "><p>Chế độ bảo hành</p></a></h2>
                 </div>
             </li>
+            <!--
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
                 <div class="sreen1" style="float:left;">
                     <h2><a href="<?php echo base_url('tai-ve'); ?>" class="haslin "><p>Download phần mềm</p></a></h2>
@@ -77,17 +78,19 @@
                     <?php } ?>
                 </ul>
             </li>
+            -->
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
-                <div class="sreen1" style="height:35px; float:left;">
+                <div class="sreen1" style="height:40px; float:left;">
                     <h2><a href="<?php echo base_url('tin-tuc'); ?>" class="haslin "><p>Tin tức</p></a></h2>
                 </div>
                 <ul>
                     <li class="lv1"><a href="<?php echo base_url('tin-tuc/thong-tin-cong-nghe'); ?>" class="haslink ">Thông tin công nghệ</a></li>
                     <li class="lv1"><a href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung'); ?>" class="haslink ">Kinh nghiệm sử dụng</a></li>
+                    <li class="lv1"><a href="<?php echo base_url('tin-tuc/tin-tuc-noi-bo-thang-mobile-ba-ria-vung-tau'); ?>" class="haslink ">Tin tức ThangMobile</a></li>
                 </ul>
             </li>
             <li class="dropdown-navigative-menu2" style="font-size:12px; font-weight:bold; float:left; ">
-                <div class="sreen1" style="height:33px; float:left;">
+                <div class="sreen1" style="height:40px; float:left;">
                     <h2><a href="<?php echo base_url('lien-he'); ?>" class="haslin "><p>Liên hệ</p></a></h2>
                 </div>
             </li>

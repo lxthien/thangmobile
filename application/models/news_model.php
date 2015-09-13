@@ -44,6 +44,7 @@ class News_model extends MY_Model {
      *
      * @var bool
      */
+    
     var $no_primary_key = FALSE;
 
     function __construct() {
@@ -65,11 +66,7 @@ class News_model extends MY_Model {
         $option['sort_direction'] = 'DESC';
         $query = $this->get($option);
         $newses = $query->result();
-//        if(isset())
-//        foreach($newses as &$item) {
-//            $item->title= character_limiter($item->title,40);
-//            $item->content = word_limiter($item->content, $content_length);            
-//        }
+
         return $newses;
     }
 
@@ -87,14 +84,12 @@ class News_model extends MY_Model {
 
     public function getRecordSameCategory($category_id, $post_id, $nb) {
         $this->db->select();
-//        $this->db->from($this->primary_table);
         $this->db->where('id_news_category', $category_id);
         $post_ids = array($post_id);
         $this->db->where_not_in('id_news', $post_ids);
         $this->db->limit($nb);
         $this->db->order_by("date_add", "desc");
         $query = $this->db->get($this->primary_table);
-//        return $query->result_array();
         return $query;
     }
 
@@ -114,11 +109,7 @@ class News_model extends MY_Model {
 
         $query = $this->get($option);
         $newses = $query->result();
-//        if(isset())
-//        foreach($newses as &$item) {
-//            $item['title']= character_limiter($item['title'],40);
-//            $item['content'] = word_limiter($item['content'], $content_length);            
-//        }
+
         return $newses;
     }
 
@@ -141,9 +132,7 @@ class News_model extends MY_Model {
                 }
             }
         }
-//        var_dump($record);
         return $record;
-        //return $query->result_array();
     }
 
     function getNew($columm, $id) {

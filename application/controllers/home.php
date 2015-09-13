@@ -42,6 +42,9 @@ class Home extends MY_Controller {
         
         $data['phuKienHot'] = $this->_getPhuKienHot();
         $data['tinCongNghe'] = $this->_getArrayNewsByCategoryHome(2);
+
+        $data['tinCoTheQuanTam'] = $this->_getArrayNewsByCategoryHomeQuanTam(3);
+
         $data['nhanDinhCuaToChuc'] = $this->_getArrayNewsByCategory(6);
         $data['kinhTeTheGioi'] = $this->_getArrayNewsByCategory(2);
         $data['chungKhoanViet'] = $this->_getArrayNewsByCategory(3);
@@ -62,6 +65,8 @@ class Home extends MY_Controller {
         $data['banners'] = $this->_get_active_banners();
 
         $data['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
+
+        $data['newsThangMobile'] = $this->newsModel->get_news_list_by_category_id(21, 0, 3);
 
         $data['product_block_main'] = $this->_load_product_1st_level('san-pham', 'dien-thoai');
 
@@ -169,6 +174,13 @@ class Home extends MY_Controller {
     	//$category = $this->_getCategory($idCategory);
     	$news = $this->_getNews($options, null);
     	return $news;
+    }
+
+    private function _getArrayNewsByCategoryHomeQuanTam($idCategory) {
+        $options = array('limit' => 6, 'sort_by' => 'date_add', 'sort_direction' => 'DESC', 'id_news_category' => $idCategory);
+        //$category = $this->_getCategory($idCategory);
+        $news = $this->_getNews($options, null);
+        return $news;
     }
  
     private function _getFocusableNews() {
