@@ -74,6 +74,18 @@ echo form_input($data_model);
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
+echo form_label('Note (trang chủ):');
+echo '</td><td>';
+	$data_model = array(
+		'name' => 'note',
+		'id' => 'note',
+		'value' => $new_item->note,
+		'class' => 'form field'
+	);
+echo form_input($data_model);
+echo '</td></tr>';
+
+echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Giá cũ:');
 echo '</td><td>';
 $data_modela = array(
@@ -148,7 +160,7 @@ echo form_error('url');
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
-echo form_label('Được kích hoạt:');
+echo form_label('Mở và hiển thị trang chủ:');
 echo '</td><td width="10%">';
 $active_data = array('name' => 'active', 'id' => 'active', 'value' => 'TRUE', 'checked' => $new_item->active);
 echo form_checkbox($active_data);

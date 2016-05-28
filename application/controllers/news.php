@@ -510,6 +510,13 @@ class News extends MY_Controller {
         if(!is_object($page)){
             redirect(base_url()."dich-vu-sua-chua-dien-thoai.html", 'location', 301);
         }
+
+        // Updates services
+        $data = array(
+               'counts' => $page->counts + 1
+            );
+        $this->db->where('id_news', $page->id_news);
+        $this->db->update('services', $data);
         
         $this->_get_meta_data($page, $services = true);
         $data['site_meta_data'] = $this->site_meta_data;

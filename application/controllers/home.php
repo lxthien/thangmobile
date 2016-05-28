@@ -22,7 +22,7 @@ class Home extends MY_Controller {
         $this->load->model('News_model', 'newsModel');
         $this->load->model('News_category_model', 'category_model');
         $this->load->model('Page_item_model', 'page_item_model');
-        //$this->load->model('Page_model', 'page_model');
+        $this->load->model('services_model', 'services_model');
         $this->load->model('Mcontact');
         $this->load->model('Download_model', 'download_model');
         $this->load->model('Feedback_model', 'feedback_model');
@@ -35,6 +35,7 @@ class Home extends MY_Controller {
         $data = $this->load->get_var('data');
         //$data['tinNoiBat'] = $this->_getFocusableNews();
         $data['spBanChay'] = $this->_getBestSellProduct();
+        $data['productsHomepage'] = $this->_getListProductHomepage();
         $data['newestProduct'] = $this->_getNewestProduct();
         
         $data['productHight'] = $this->_productHight();
@@ -44,6 +45,7 @@ class Home extends MY_Controller {
         $data['tinCongNghe'] = $this->_getArrayNewsByCategoryHome(2);
 
         $data['tinCoTheQuanTam'] = $this->_getArrayNewsByCategoryHomeQuanTam(array(66,67,68));
+        $data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
 
         $data['nhanDinhCuaToChuc'] = $this->_getArrayNewsByCategory(6);
         $data['kinhTeTheGioi'] = $this->_getArrayNewsByCategory(2);
@@ -142,6 +144,17 @@ class Home extends MY_Controller {
 		
 		return $bestSellProdLst;
 	}
+
+    private function _getListProductHomepage(){
+        $bestSellProdLst=$this->product_model->list_home_page();
+        foreach ($bestSellProdLst as $eachProduct) {
+            $eachCategory = $this->product_category_model->read_by_id($eachProduct->product_category_id);
+            $eachProduct->link_rewrite = 'san-pham/dien-thoai/'.$eachCategory->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+        }
+        
+        return $bestSellProdLst;
+    }
+
 	private function _getPhuKienHot(){
 		$bestSellProdLst=$this->product_model->get_list_phu_kien_hot();
 		foreach ($bestSellProdLst as $eachProduct) {
@@ -179,6 +192,12 @@ class Home extends MY_Controller {
     private function _getArrayNewsByCategoryHomeQuanTam($idCategory) {
         $options = array('limit' => 6, 'sort_by' => 'date_add', 'sort_direction' => 'DESC', 'id_news_category' => $idCategory);
         //$category = $this->_getCategory($idCategory);
+        $news = $this->_getNews($options, null);
+        return $news;
+    }
+
+    private function _getArrayNewsHomepage($idCategory) {
+        $options = array('limit' => 3, 'sort_by' => 'counts', 'sort_direction' => 'DESC', 'id_news_category' => $idCategory);
         $news = $this->_getNews($options, null);
         return $news;
     }

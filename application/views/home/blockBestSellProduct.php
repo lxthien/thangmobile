@@ -72,85 +72,32 @@
         ?>
         -->
         <div class="grid">
+            <?php
+                for($i=0; $i < count($productsHomepage); $i++) {
+                    $imgUrl = image('files/logo/ads/'.$productsHomepage[$i]->logo, 'product_110_180');
+            ?>
             <div class="col-01">
-                <a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
+                <a href=""><img src="<?php echo $imgUrl; ?>"></a>
                 <div class="name-and-price">
-                    <a href="">Samsung galaxy S5 New Edition</a>
-                    <p class="note">Hàng mới 100%, Máy Mỹ, 32 GB</p>
-                    <p class="price">Giá: <span>4.000.000 đ</span></p>
+                    <a href=""><?php echo $productsHomepage[$i]->producer . ' ' . $productsHomepage[$i]->model?></a>
+                    <p class="note"><?php echo $productsHomepage[$i]->note != '' ? $productsHomepage[$i]->note : '&nbsp;'; ?></p>
+                    <p class="price">Giá: <span><?php echo number_format($productsHomepage[$i]->price,"0",",","."); ?> đ</span></p>
                 </div>
                 <div class="status-product">
+                    <?php if ($productsHomepage[$i]->moi_ve == 1): ?>
                     <div class="pr-icon pr-news">Mới</div>
+                    <?php endif; ?>
+                    <?php if ($productsHomepage[$i]->gia_tot == 1): ?>
                     <div class="pr-icon pr-gs">Giá sốc</div>
+                    <?php endif; ?>
+                    <?php if ($productsHomepage[$i]->qua_tang == 1): ?>
                     <div class="pr-icon pr-qt">Quà tặng</div>
+                    <?php endif; ?>
                 </div>
             </div>
-            <div class="col-01">
-                <a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
-                <div class="name-and-price">
-                    <a href="">Samsung galaxy S5 New Edition</a>
-                    <p class="note">Hàng mới 100%, Máy Mỹ, 32 GB</p>
-                    <p class="price">Giá: <span>4.000.000 đ</span></p>
-                </div>
-                <div class="status-product">
-                    <div class="pr-icon pr-news">Mới</div>
-                    <div class="pr-icon pr-gs">Giá sốc</div>
-                    <div class="pr-icon pr-qt">Quà tặng</div>
-                </div>
-            </div>
-            <div class="col-01">
-                <a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
-                <div class="name-and-price">
-                    <a href="">Samsung galaxy S5 New Edition</a>
-                    <p class="note">Hàng mới 100%, Máy Mỹ, 32 GB</p>
-                    <p class="price">Giá: <span>4.000.000 đ</span></p>
-                </div>
-                <div class="status-product">
-                    <div class="pr-icon pr-news">Mới</div>
-                    <div class="pr-icon pr-gs">Giá sốc</div>
-                    <div class="pr-icon pr-qt">Quà tặng</div>
-                </div>
-            </div>
-            <div class="col-01">
-                <a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
-                <div class="name-and-price">
-                    <a href="">Samsung galaxy S5 New Edition</a>
-                    <p class="note">Hàng mới 100%, Máy Mỹ, 32 GB</p>
-                    <p class="price">Giá: <span>4.000.000 đ</span></p>
-                </div>
-                <div class="status-product">
-                    <div class="pr-icon pr-news">Mới</div>
-                    <div class="pr-icon pr-gs">Giá sốc</div>
-                    <div class="pr-icon pr-qt">Quà tặng</div>
-                </div>
-            </div>
-            <div class="col-01">
-                <a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
-                <div class="name-and-price">
-                    <a href="">Samsung galaxy S5 New Edition</a>
-                    <p class="note">Hàng mới 100%, Máy Mỹ, 32 GB</p>
-                    <p class="price">Giá: <span>4.000.000 đ</span></p>
-                </div>
-                <div class="status-product">
-                    <div class="pr-icon pr-news">Mới</div>
-                    <div class="pr-icon pr-gs">Giá sốc</div>
-                    <div class="pr-icon pr-qt">Quà tặng</div>
-                </div>
-            </div>
-            <div class="col-01">
-                <a href=""><img src="<?php echo image("/assets/images/lg-g4-vung-tau.png", 'product_70_135'); ?>"></a>
-                <div class="name-and-price">
-                    <a href="">Samsung galaxy S5 New Edition</a>
-                    <p class="note">Hàng mới 100%, Máy Mỹ, 32 GB</p>
-                    <p class="price">Giá: <span>4.000.000 đ</span></p>
-                </div>
-                <div class="status-product">
-                    <div class="pr-icon pr-news">Mới</div>
-                    <div class="pr-icon pr-gs">Giá sốc</div>
-                    <div class="pr-icon pr-qt">Quà tặng</div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
+        <!--
     	<?php 
     		$index = 1;
     		for($i=0; $i < count($spBanChay); $i++) {
@@ -182,5 +129,6 @@
     		}
     	}
     	?>
+        -->
 	</div>
 </div>

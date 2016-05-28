@@ -89,6 +89,7 @@ class Admin_phone extends CI_Controller {
             $phone_input->isIntermediate = $this->input->post('isIntermediate');
             $phone_input->baseInformation = $this->input->post('baseInformation');
             $phone_input->noteInformation = $this->input->post('noteInformation');
+            $phone_input->note = $this->input->post('note');
             
 
             $phone_input->sale_off = $this->input->post('sale_off');
@@ -119,6 +120,7 @@ class Admin_phone extends CI_Controller {
             $phone['isIntermediate'] = $this->input->post('isIntermediate');
             $phone['baseInformation'] = $this->input->post('baseInformation');
             $phone['noteInformation'] = $this->input->post('noteInformation');
+            $phone['note'] = $this->input->post('note');
                 
                 
             $active = $this->input->post('active');
@@ -268,6 +270,7 @@ class Admin_phone extends CI_Controller {
         $phone->isIntermediate = '';
         $phone->baseInformation = '';
         $phone->noteInformation = '';
+        $phone->note = '';
         
         $data['new_item'] = $phone;
         $this->load->view('panel/home', $data);

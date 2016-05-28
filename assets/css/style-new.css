@@ -205,15 +205,16 @@ p.no-item {
 .title-service h2 {
 	position: absolute; text-align: center; padding: 5px 10px; background-color: #ffffff; top: -5px; left: 30%; text-transform: uppercase; color: #000000; font-weight: 400;
 }
-.home-service div#service-bxslider {
-	margin-top: 5px; float: left; width: 980px;
-}
-.home-service div#service-bxslider .slide {
-	float: left; height: 67px; min-height: 67px;
-}
-.main-service-bxslider {
-	width: 980px; height: 75px; float: left; overflow: hidden;
-}
+.home-service div#service-bxslider{margin-top: 5px; float: left; width: 980px; height: 80px !important;}
+.caroufredsel_wrapper{height: 80px !important;}
+.home-service div#service-bxslider .slide {float: left; height: 80px; min-height: 80px;}
+.home-service div#service-bxslider .slide a.image {float: left; width: 150px; margin-right: 10px;} 
+.home-service div#service-bxslider .slide a.image img {width: 150px;}
+
+.home-service div#service-bxslider .slide a.name {font-size: 15px; display: block; color: #000000; font-weight: 500;}
+.home-service div#service-bxslider .slide a.name:hover{color: #263e81;}
+
+.main-service-bxslider {width: 980px; height: 95px; float: left; overflow: hidden; padding: 5px 0;}
 .main-service-bxslider .bx-wrapper, .main-service-bxslider .bx-wrapper .bx-window{
 	width: 980px !important;
 }
