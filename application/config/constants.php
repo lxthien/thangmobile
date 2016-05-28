@@ -39,14 +39,14 @@ define('IMAGES_PATH','assets/images');
 define('CSS_PATH', '/assets/css');
 define('SCRIPT_PATH', 'assets/js');
 define('PIC_PATH', 'assets/hinh');
-define('RES_PATH','/assets/');
+define('RES_PATH','http://localhost/thangmobile/assets/');
 define('COMPANY_INSTRODUCE_NEWS_ID','1');
 define('SITE_MAP','2');
 define('SERVICES','3');
 define('WARRANTY','4');
-define('RECRUIT','139');
-define('WARRANTYPOLICY','139');
-define('DELEVERYPOLICY','139');
+define('RECRUIT','150');
+define('WARRANTYPOLICY','152');
+define('DELEVERYPOLICY','153');
 
 
 define('URL_TRAIL','.html');
@@ -59,7 +59,7 @@ define('MAX_LATEST_IMAGES','20');
 define('DOWNLOAD_DIR','/files');
 define('PARTNER_LOGO','/files/logo');
 define('BANNER_PATH','/assets/images/banners/');
-define('NO_OF_NEWS_IN_EACH_CATEGORY_IN_HOMEPAGE','6');
+define('NO_OF_NEWS_IN_EACH_CATEGORY_IN_HOMEPAGE','3');
 define('NO_OF_FOCUS_NEWS_IN_HOMEPAGE','5');
 define('LIMIT_SHOW_ALL_NEWS','3');
 /* End of file constants.php */
