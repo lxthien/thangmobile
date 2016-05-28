@@ -1,5 +1,6 @@
-# robots.txt for http://thangmobile.com/
+# robots.txt for http://dienthoaivungtau.com
 
 User-agent: *
 Disallow: /panel
-
+Disallow: /dienthoaivungtau
+Disallow: /dienthoaivungtau/dich-vu

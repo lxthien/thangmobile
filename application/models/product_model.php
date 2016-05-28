@@ -12,7 +12,7 @@ class Product_model extends MY_Model {
     var $fields = array('id', 'producer', 'model', 'price','description', 'introduction','logo', 'product_category_id','best_sell',
     						'link_rewrite','meta_title','meta_description','meta_keywords','date_add','date_upd','active',
     					 'sale_off', 'approx_price', 'status', 'accesory', 'time_warranty', 'is_new', 'moi_ve', 'sap_ve', 'gia_tot', 'qua_tang', 'gia_cu',
-    					 'isHight', 'isIntermediate' );
+    					 'isHight', 'isIntermediate', 'baseInformation', 'noteInformation' );
     var $required_fields = array('producer', 'active');
 
     /**
@@ -143,7 +143,7 @@ class Product_model extends MY_Model {
 	public function read_list_newest(){
 		$this->db->select('*');
 		$this->db->from($this->primary_table);
-		$where_statement = 'product_category_id in (2,3,4,7,8,9,10) and is_new = 1';
+		$where_statement = 'product_category_id in (2,3,4,7,8,9,10) and moi_ve = 1';
 		$this->db->where($where_statement);
 		$this->db->order_by("id", "desc");
 		$this->db->limit(10);

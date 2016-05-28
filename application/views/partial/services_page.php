@@ -1,9 +1,8 @@
 <div class="sub-category-service">
+	<p style="font-size: 15px;">Chọn điện thoại/máy tính bảng bạn cần sửa:</p>
 	<ul>
-		<?php
-			foreach ($categoryServices as $row):
-		?>
-		<li><a href="<?php echo base_url('dich-vu/sua-dien-thoai-iphone-apple-tai-ba-ria-vung-tau/'.$row->link_rewrite); ?>"><?php echo $row->name; ?></a></li>
+		<?php foreach ($categoryServices as $row): ?>
+		<li><a class="<?php echo $catServices->id_news_category == $row->id_news_category ? 'breadcrumb-active' : ''; ?>" href="<?php echo base_url('dich-vu/'.$row->link_rewrite); ?>" title="<?php echo $row->name; ?>"><?php echo $row->name; ?></a></li>
 		<?php endforeach; ?>
 	</ul>
 </div>
@@ -14,19 +13,24 @@
 ?>
 	<div class="box-service">
 		<a href="<?php echo base_url($row->id_news.'-'.$row->link_rewrite.URL_TRAIL); ?>" class="img-server" title="<?php echo $row->title; ?>">
-			<img alt="<?php echo $row->title; ?>" src="<?php echo image($row->news_icon, 'news_195_105'); ?>" />
+			<img alt="<?php echo $row->title; ?>" src="<?php echo image($row->news_icon, 'news_195_135'); ?>" />
 		</a>
 		<div class="right-box-service">
 			<a href="<?php echo base_url($row->id_news.'-'.$row->link_rewrite.URL_TRAIL); ?>" title="<?php echo $row->title; ?>"><?php echo $row->title; ?></a>
-			<p class="date-service"><?php echo date_format($date_post, 'd/m/Y'); ?></p>
+			<!--<p class="date-service"><?php echo date_format($date_post, 'd/m/Y'); ?></p>-->
 			<p class="des-service">
-				Điện thoại thông minh giá rẻ mang đến cho người dùng nhiều lựa chọn với chi phí hợp lý, nhưng cũng lấy đi những giá trị vô hình. Trên góc độ người dùng, hệ điều hành Android là một sản phẩm hiệu quả và là nền tảng duy nhất
+				<?php echo $row->content; ?>
 			</p>
 		</div>
 	</div>
 <?php
 	endforeach;
 ?>
+<div class="phantrang">
+	<div class="back">
+		<?php echo $this->pagination->create_links(); ?>
+	</div>
+</div>
 <?php else: ?>
 	<p class="no-item">Chưa có bài viết cho danh mục này</p>
 <?php endif; ?>

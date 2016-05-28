@@ -58,10 +58,10 @@ class Contact extends MY_Controller {
                 
                 //              put send mail here start
                	if ($this->_send_mail_contact($contact_name, $contact_email, $contact_phone, $contact_message, $received_contact_email_address)) {
-                	$data_contact['success'] = '<p class="success">Chúng tôi đã nhận được thông tin của bạn. Chúng tôi sẽ liên lạc với bạn sớm nhất. Cảm ơn bạn!</p>';
+                	$data_contact['success'] = '<p class="success" style="font-size: 13px; padding: 5px 0 0px; line-height: 18px;">Chúng tôi đã nhận được thông tin của bạn. Chúng tôi sẽ liên lạc với bạn sớm nhất. Cảm ơn bạn!</p>';
                	}
                	else {
-               		$data_contact['success'] = '<p class="success">Có lỗi xảy ra, xin quý khách vui lòng quay lại sau!</p>';
+               		$data_contact['success'] = '<p class="success" style="font-size: 13px; padding: 5px 0 0px; line-height: 18px;">Có lỗi xảy ra, xin quý khách vui lòng quay lại sau!</p>';
                	}
 //              put send mail here end
 
@@ -111,10 +111,10 @@ class Contact extends MY_Controller {
      * @param type $post 
      */
     function _get_meta_data() {
-        $this->	site_meta_data['title'] = 'Liên hệ cửa hàng điện thoại Vũng Tàu Thắng Mobile';
-        $this->site_meta_data['meta_title'] = 'Liên hệ cửa hàng điện thoại Vũng Tàu Thắng Mobile';
-        $this->site_meta_data['meta_description'] = 'Thông tin liên hệ cửa hàng điện thoại Vũng Tàu Thắng Mobile, chuyên bán các dòng điện thoại IPhone, Samsung, Sky, LG, HTC, Blackberry, Nokia tại Vũng Tàu';
-        $this->site_meta_data['meta_keywords'] = 'iphone pro vung tau, dien thoai man vung tau, dien thoai huy anh vung tau, ban dien thoai vung tau, dien thoai vung tau, dien thoai sky vung tau, iphone vung tau';
+        $this->	site_meta_data['title'] = 'Liên hệ cửa hàng điện thoại Yes Mobile';
+        $this->site_meta_data['meta_title'] = 'Liên hệ cửa hàng điện thoại Yes Mobile';
+        $this->site_meta_data['meta_description'] = 'Thông tin liên hệ cửa hàng điện thoại Yes Mobile Vũng Tàu, cung cấp các dịch vụ smartphone từ năm 2010. Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu.';
+        $this->site_meta_data['meta_keywords'] = 'ban dien thoai vung tau, dien thoai vung tau, iphone vung tau';
     }
 
     private function _get_partners() {

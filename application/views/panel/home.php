@@ -152,6 +152,12 @@ $notice = '';
                 	} else {
                 		$this->load->view('panel/page_phone_edit');
                 	}
+                } else if ($controller === 'admin_category_phone') {
+                    if (!isset($action) || trim($action) === "" || trim($action) === "index") {
+                        $this->load->view('panel/phonecategory/index');
+                    } else {
+                        $this->load->view('panel/phonecategory/edit');
+                    }
                 } else if ($controller === 'admin_banner') {
                     if (!isset($action) || trim($action) === "") {
                         if (isset($list_items)) {

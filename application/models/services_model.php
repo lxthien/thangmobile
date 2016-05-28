@@ -10,7 +10,7 @@ class Services_model extends MY_Model {
     var $primary_table = 'services';
     var $fields = array('id_news', 'id_news_category', 'id_language', 'title', 'meta_title',
         'meta_description', 'meta_keywords', 'content', 'link_rewrite', 'active',
-        'date_add', 'date_upd', 'focusable', 'news_icon');
+        'date_add', 'date_upd', 'focusable', 'news_icon', 'price', 'time_service');
     var $required_fields = array('id_news_category', 'active', 'content', 'link_rewrite');
 
 
@@ -81,7 +81,23 @@ class Services_model extends MY_Model {
         return $newses;
     }
 
+    public function count_postnr_by_list_categries($category_ids, $offset = NULL, $limit = NULL) {
 
+        if (isset($limit)) {
+            if (isset($offset)) {
+                $option = array('id_news_category' => $category_ids, 'limit' => $limit, 'offset' => $offset);
+            } else {
+                $option = array('id_news_category' => $category_ids, 'limit' => $limit);
+            }
+        } else {
+            $option = array('id_news_category' => $category_ids);
+        }
+        $option['sort_by'] = 'date_add';
+        $option['sort_direction'] = 'DESC';
+
+        $query = $this->get($option);
+        return $query->num_rows();
+    }
 
     public function count_postnr_by_category_id($category_id) {
         $option = array('id_news_category' => $category_id);

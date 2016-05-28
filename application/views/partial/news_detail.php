@@ -14,9 +14,9 @@
 	<?php 
 		if ($news_item->active === '1') {
 	?>
-	<div class="sreentieude" style="width:675px; margin-left: 0px;">
-		<div class="tieude" style="font-size:16px; font-weight:bold;" >
-		    <h1 class="h1-title-detail"><?php echo $news_item->title; ?></h1>
+	<div class="sreentieude" style="width:675px; margin-left: 0px; ">
+		<div class="tieude" style="font-size:17px; font-weight:bold; padding: 3px 0 12px;" >
+		    <h1 class="h1-title-detail" style="font-size:20px; font-weight:bold; color:#033f83;"><?php echo $news_item->title; ?></h1>
 	    </div>
 	    <div class="main-news-social">
 	    	<div class="social">
@@ -32,12 +32,17 @@
                 <!-- Place this tag where you want the share button to render. -->
                 <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 	    	</div>
-	    	<span class="time-update-news">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
+	    	<?php if($news_item->id_news != 3 && $news_item->id_news != 4 && $news_item->id_news != 1 && $news_item->id_news != 150 && $news_item->id_news != 153): ?>
+	    	<span class="time-update-news" style="font-size:11px; margin-bottom:10px">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
+	    	<?php endif; ?>
 	    </div>
 	</div>
 	<div class="noidungthitruongchitiet">
-		  <p><?php echo $news_item->content;?></p>
-		  <p align="justify">&nbsp;</p>	
+		<p><?php echo $news_item->content;?></p>
+	  	<?php if($news_item->source != ''): ?>
+		  	<p align="right" style="font-style: italic; color: #797979;">Nguồn: <?php echo $news_item->source; ?></p>
+		<?php endif; ?>
+		<p align="justify">&nbsp;</p>	
 	</div>
 	<?php 
 	if ($isNotFixNews) {

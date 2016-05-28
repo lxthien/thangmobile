@@ -149,6 +149,8 @@ class Admin_news extends CI_Controller
 
             $news_input->news_icon = $this->input->post('news_icon');
 
+            $news_input->source = $this->input->post('source');
+
             if (strlen($id_news) > 0 && $id_news !== COMPANY_INSTRODUCE_NEWS_ID
 
                 && $id_news !== SERVICES
@@ -198,6 +200,8 @@ class Admin_news extends CI_Controller
                     $news['link_rewrite'] = $this->input->post('link_rewrite');
 
                     $news['news_icon'] = $this->input->post('news_icon');
+
+                    $news['source'] = $this->input->post('source');
 
                     $focus = $this->input->post('focus');
 
@@ -324,6 +328,8 @@ class Admin_news extends CI_Controller
         $news->focusable = 'false';
 
         $news->news_icon = '';
+
+        $news->source = '';
 
         $data['news'] = $news;
 

@@ -15,7 +15,7 @@ class News_model extends MY_Model {
     var $primary_table = 'news';
     var $fields = array('id_news', 'id_news_category', 'id_language', 'title', 'meta_title',
         'meta_description', 'meta_keywords', 'content', 'link_rewrite', 'active',
-        'date_add', 'date_upd', 'focusable', 'news_icon');
+        'date_add', 'date_upd', 'focusable', 'news_icon', 'source');
     var $required_fields = array('id_news_category', 'active', 'content', 'link_rewrite');
 
     /**
@@ -44,6 +44,7 @@ class News_model extends MY_Model {
      *
      * @var bool
      */
+    
     var $no_primary_key = FALSE;
 
     function __construct() {
@@ -65,11 +66,7 @@ class News_model extends MY_Model {
         $option['sort_direction'] = 'DESC';
         $query = $this->get($option);
         $newses = $query->result();
-//        if(isset())
-//        foreach($newses as &$item) {
-//            $item->title= character_limiter($item->title,40);
-//            $item->content = word_limiter($item->content, $content_length);            
-//        }
+
         return $newses;
     }
 
@@ -87,14 +84,12 @@ class News_model extends MY_Model {
 
     public function getRecordSameCategory($category_id, $post_id, $nb) {
         $this->db->select();
-//        $this->db->from($this->primary_table);
         $this->db->where('id_news_category', $category_id);
         $post_ids = array($post_id);
         $this->db->where_not_in('id_news', $post_ids);
         $this->db->limit($nb);
         $this->db->order_by("date_add", "desc");
         $query = $this->db->get($this->primary_table);
-//        return $query->result_array();
         return $query;
     }
 
@@ -114,12 +109,26 @@ class News_model extends MY_Model {
 
         $query = $this->get($option);
         $newses = $query->result();
-//        if(isset())
-//        foreach($newses as &$item) {
-//            $item['title']= character_limiter($item['title'],40);
-//            $item['content'] = word_limiter($item['content'], $content_length);            
-//        }
+
         return $newses;
+    }
+
+    public function count_postnr_by_list_categries($category_ids, $offset = NULL, $limit = NULL) {
+
+        if (isset($limit)) {
+            if (isset($offset)) {
+                $option = array('id_news_category' => $category_ids, 'limit' => $limit, 'offset' => $offset);
+            } else {
+                $option = array('id_news_category' => $category_ids, 'limit' => $limit);
+            }
+        } else {
+            $option = array('id_news_category' => $category_ids);
+        }
+        $option['sort_by'] = 'date_add';
+        $option['sort_direction'] = 'DESC';
+
+        $query = $this->get($option);
+        return $query->num_rows();
     }
 
     function getCname() {
@@ -141,9 +150,7 @@ class News_model extends MY_Model {
                 }
             }
         }
-//        var_dump($record);
         return $record;
-        //return $query->result_array();
     }
 
     function getNew($columm, $id) {

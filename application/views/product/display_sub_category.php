@@ -1,6 +1,10 @@
 <div class="nav">
-    <a href="<?php echo base_url(); ?>">Trang chủ</a> - 
-    <a href="<?php echo base_url($linkViewAll); ?>">Điện thoại</a> - 
+    <a href="<?php echo base_url(); ?>">Trang chủ</a>
+	<?php if($this->uri->segment(2) == 'phu-kien' ): ?>
+    <a href="<?php echo base_url($linkViewAll); ?>">Phụ kiện</a>
+	<?php else: ?>
+	<a href="<?php echo base_url($linkViewAll); ?>">Điện thoại</a>
+	<?php endif; ?>
     <span><?php echo $categoryName; ?></span>
 </div>
 <!--
@@ -70,13 +74,12 @@ if (isset($eachProductList)) {
                 <div class="boxsp">
                     <div class="sp3">
                         <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
-                            <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>"
-                                src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $eachProductList[$i]->logo) ?>"/>
+                            <img alt="<?php echo $eachProductList[$i]->producer.' '.$eachProductList[$i]->model; ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_75_100'); ?>"/>
                         </a>
                     </div>
                     <div class="titlesp">
                         <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
-                            <p style="font-size: 13px;"><?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?></p>
+                            <p style="font-size: 13px;"><?php echo $eachProductList[$i]->producer.' '. $eachProductList[$i]->model ?></p>
                         </a>
                     </div>
                     <?php
@@ -93,7 +96,7 @@ if (isset($eachProductList)) {
                         <?php if ($eachProductList[$i]->gia_tot == 1) { ?>
                         <a class="sp-gs" href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>"><span>Giá sốc</span></a><?php } ?>
                         <?php if ($eachProductList[$i]->qua_tang == 1) { ?>
-                        <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>"><span>Quà tặng</span></a><?php } ?>
+                        <a class="sp-giff" href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>"><span>Quà tặng</span></a><?php } ?>
                     </div>
                 </div>
                 <?php

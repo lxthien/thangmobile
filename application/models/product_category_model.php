@@ -14,7 +14,7 @@ class Product_Category_Model extends MY_Model {
 
     var $primary_table = 'product_category';
     var $fields = array('id', 'name', 'index', 'parent_id', 'meta_title',
-        'meta_description', 'meta_key_words', 'link_rewrite');
+        'meta_description', 'meta_keywords', 'link_rewrite');
     var $required_fields = array('name');
 
     /**
@@ -106,6 +106,10 @@ class Product_Category_Model extends MY_Model {
     	return $query->result();
     }
 
+    public function readListByParentId($parent_id){
+        $catOptions = array("parent_id" => $parent_id);
+        $query = $this->get($catOptions);        
+        
+        return $query->result_array();
+    }
 }
-
-?>

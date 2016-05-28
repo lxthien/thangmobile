@@ -1,5 +1,5 @@
 <div class="nav">
-    <a href="<?php echo base_url(); ?>">Trang chủ</a> - 
+    <a href="<?php echo base_url(); ?>">Trang chủ</a>
     <span><?php echo 'Tìm kiếm'; ?></span>
 </div>
 

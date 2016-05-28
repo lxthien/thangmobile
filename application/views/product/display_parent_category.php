@@ -1,6 +1,10 @@
 <div class="nav">
-    <a href="<?php echo base_url(); ?>">Trang chủ</a> - 
-    <span>Điện thoại</span>
+    <a href="<?php echo base_url(); ?>">Trang chủ</a>
+	<?php if($this->uri->segment(2) == 'phu-kien-dien-thoai' ): ?>
+    <span>Phụ kiện diện thoại</span>
+	<?php else: ?>
+	<span>Điện thoại</span>
+	<?php endif; ?>
 </div>
 <!--
 <div class="cat-product-hot">
@@ -72,7 +76,7 @@ if (isset($childrenCategories)) {
                         <div class="boxsp">
                             <div class="sp3">
                                 <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
-                                    <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_65_86'); ?>"/>
+                                    <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_75_100'); ?>"/>
                                 </a>
                             </div>
                             <div class="titlesp">

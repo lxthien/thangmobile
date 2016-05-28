@@ -33,7 +33,7 @@ class Home extends MY_Controller {
 
     public function index() {
         $data = $this->load->get_var('data');
-        $data['tinNoiBat'] = $this->_getFocusableNews();
+        //$data['tinNoiBat'] = $this->_getFocusableNews();
         $data['spBanChay'] = $this->_getBestSellProduct();
         $data['newestProduct'] = $this->_getNewestProduct();
         
@@ -42,6 +42,9 @@ class Home extends MY_Controller {
         
         $data['phuKienHot'] = $this->_getPhuKienHot();
         $data['tinCongNghe'] = $this->_getArrayNewsByCategoryHome(2);
+
+        $data['tinCoTheQuanTam'] = $this->_getArrayNewsByCategoryHomeQuanTam(array(66,67,68));
+
         $data['nhanDinhCuaToChuc'] = $this->_getArrayNewsByCategory(6);
         $data['kinhTeTheGioi'] = $this->_getArrayNewsByCategory(2);
         $data['chungKhoanViet'] = $this->_getArrayNewsByCategory(3);
@@ -62,6 +65,8 @@ class Home extends MY_Controller {
         $data['banners'] = $this->_get_active_banners();
 
         $data['menuCategoryService'] = $this->news_category_model->readListByParentId(4);
+
+        $data['newsThangMobile'] = $this->newsModel->get_news_list_by_category_id(21, 0, 3);
 
         $data['product_block_main'] = $this->_load_product_1st_level('san-pham', 'dien-thoai');
 
@@ -141,7 +146,7 @@ class Home extends MY_Controller {
 		$bestSellProdLst=$this->product_model->get_list_phu_kien_hot();
 		foreach ($bestSellProdLst as $eachProduct) {
 			$eachCategory = $this->product_category_model->read_by_id($eachProduct->product_category_id);
-			$eachProduct->link_rewrite = 'san-pham/phu-kien/'.$eachCategory->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+			$eachProduct->link_rewrite = 'san-pham/phu-kien-dien-thoai/'.$eachCategory->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
 		}
 	
 		return $bestSellProdLst;
@@ -170,6 +175,13 @@ class Home extends MY_Controller {
     	$news = $this->_getNews($options, null);
     	return $news;
     }
+
+    private function _getArrayNewsByCategoryHomeQuanTam($idCategory) {
+        $options = array('limit' => 6, 'sort_by' => 'date_add', 'sort_direction' => 'DESC', 'id_news_category' => $idCategory);
+        //$category = $this->_getCategory($idCategory);
+        $news = $this->_getNews($options, null);
+        return $news;
+    }
  
     private function _getFocusableNews() {
         $options = array('focusable' => '1', 'limit' => NO_OF_FOCUS_NEWS_IN_HOMEPAGE, 'sort_by' => 'date_add', 'sort_direction' => 'DESC');
@@ -189,17 +201,17 @@ class Home extends MY_Controller {
         $dsTinNoiBat = $query->result_array();
 
         foreach ($dsTinNoiBat as &$item) {
-            $title_lengh = 82;
+            $title_lengh = 120;
             $content_lengh = 145;            
             if (isset($options['focusable'])) {
-                $title_lengh = 85;
+                $title_lengh = 120;
                 $content_lengh = 85;
             }
             $item['f_title'] = $item['title'];
             $item['title'] = text_cut(trim($item['title']), $title_lengh);
 
             $content = strip_tags($item['content']);
-//            $content = strip_punctuation($content);
+            //$content = strip_punctuation($content);
             $length_base_on_title = $content_lengh;
             if (strlen($item['title']) < 30) {
                 $length_base_on_title = $content_lengh + 50;

@@ -12,16 +12,16 @@
 		    <div class="main-news-social">
 		    	<div class="social">
 		    		<!-- Button like facebook -->
-	                <div class="fb-like" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	                <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 	                <!-- Button like facebook -->
 	                <!-- Place this tag where you want the +1 button to render. -->
-	                <div class="g-plusone" data-size="medium" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html"></div>
+	                <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
 	                <!-- Place this tag where you want the +1 button to render. -->
 	                <!-- Button share facebook -->
-	                <div class="fb-share-button" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html" data-layout="button"></div>
+	                <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
 	                <!-- Button share facebook -->
 	                <!-- Place this tag where you want the share button to render. -->
-	                <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html"></div>
+	                <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 		    	</div>
 		    	<span class="time-update-news">Cập nhật: <?php $date_post = new DateTime($selectedDownload->date_add); echo date_format($date_post,'d/m/Y'); ?></span>
 		    </div>

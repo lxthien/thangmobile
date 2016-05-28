@@ -28,11 +28,13 @@ class Product extends MY_Controller {
         $this->load->model('Mcontact');
         $this->load->model('Advertise_model','advertise_model');
         $this->load->model('Banner_model', 'banner_model');
+        $this->load->model('News_model', 'newsModel');
+        $this->load->model('News_category_model', 'category_model');
+        $this->load->model('Page_item_model', 'page_item_model');
     }
     
     public function index() {
         $data = $this->load->get_var('data');
-        //$page = $this->_load_page($this->uri->segment(3));
         
         $data['contact'] = $this->Mcontact->listcontact();
         //$this->_get_meta_data($page);
@@ -84,7 +86,9 @@ class Product extends MY_Controller {
     
     private function _load_product_1st_level($firstLevelCategory, $category) {
     	$data = array();
-    	
+    	//if($category == 'phu-kien-dien-thoai')
+			//$category = 'phu-kien';
+		
     	$productCategory = $this->product_category_model->read_by_link_rewrite($category);
     	 
     	$children = $this->product_category_model->read_by_parent_id($productCategory->id);
@@ -107,6 +111,8 @@ class Product extends MY_Controller {
     	
     	$data['product_block_main'] = $this->_load_product_2nd_level($firstLevelCategory, $category, $subCategory);
     	$link_rewrite = $this->uri->segment(3);
+		//if($link_rewrite == 'phu-kien-dien-thoai')
+			//$link_rewrite = 'phu-kien';
     	$this->_get_category_metadata($link_rewrite);
     	$data['site_meta_data'] = $this->site_meta_data;
     	$data['partners'] = $this->_get_partners();
@@ -132,7 +138,15 @@ class Product extends MY_Controller {
     	$data['categoryName'] = $productCategory->name;
     	$data['eachProductList'] = $productList;
     	$data['contact'] = $this->Mcontact->listcontact();
+        $data['usuallyError'] = $this->_getArrayNewsByCategoryProductUsuallyError(3);
+
     	return $this->load->view('product/display_sub_category',$data,TRUE);
+    }
+
+    private function _getArrayNewsByCategoryProductUsuallyError($idCategory) {
+        $options = array('limit' => 6, 'sort_by' => 'date_add', 'sort_direction' => 'DESC', 'id_news_category' => $idCategory);
+        $news = $this->_getNews($options, null);
+        return $news;
     }
     
     public function view_theo_khoang_gia ($firstLevelCategory, $category) {
@@ -153,8 +167,8 @@ class Product extends MY_Controller {
 	    	$category_name = 'Giá từ '.$from.' triệu đến '.$to.' triệu';
     	}
     	
-    	
-    	
+    	$link_rewrite = $this->uri->segment(2);;
+    	$this->_get_category_metadata($link_rewrite);
     	$data['product_block_main'] = $this->_load_theo_khoang_gia($firstLevelCategory, $from, $to, $category_name);
     	
     	$data['site_meta_data'] = $this->site_meta_data;
@@ -190,6 +204,13 @@ class Product extends MY_Controller {
 
     public function view_details($firstLevelCategory, $category, $subCategory, $productLink) {
         $selectedProduct = $productList = $this->product_model->read_by_id($productLink);
+        if (!is_object($selectedProduct)) {
+            redirect(base_url().$this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$this->uri->segment(3), 'location', 301);
+        }
+
+        if($category == "phu-kien") {
+            redirect(base_url().$this->uri->segment(1).'/phu-kien-dien-thoai/'.$this->uri->segment(3).'/'.$this->uri->segment(4), 'location', 301);
+        }
 
         $limit_san_pham_cung_gia = 5;
         $product_price_in_mil = ($selectedProduct->price)/1000000;
@@ -231,13 +252,13 @@ class Product extends MY_Controller {
     }
     
     private function _load_product_details($firstLevelCategory, $category, $subCategory, $productLink, $productRelated) {
-    	$data = array();
+        $data = array();
     	$viewProduct = $productList = $this->product_model->read_by_id($productLink);
 
         //Check link_ewwrite not exit.
         $link_rewrite = $viewProduct->link_rewrite;
         if( !strpos($productLink, $link_rewrite) ){
-            show_404();
+            redirect(base_url().$firstLevelCategory.'/'.$category.'/'.$subCategory);
         }
 
     	$data['linkViewAll'] = $firstLevelCategory.'/'.$category.'/'.$subCategory;
@@ -269,7 +290,21 @@ class Product extends MY_Controller {
     	$images_list = $this->image_model->read_list_by_album_id($viewProduct->id);
     	$data['product_images'] = $images_list;
 		$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
-    	return $this->load->view('product/display_product_detail', $data, TRUE);
+
+        $data['tinCongNghe'] = $this->newsModel->get_news_list_by_category_id(2, 0, 5);
+
+        $productCategory = $this->product_category_model->read_by_link_rewrite($subCategory);
+        $productList = $this->product_model->read_by_category_id($productCategory->id);
+        foreach ($productList as $eachProduct) {
+            $eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.$subCategory.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+        }
+        $data['eachProductList'] = $productList;
+
+        if($category != 'phu-kien-dien-thoai') {
+            return $this->load->view('product/display_product_detail', $data, TRUE);
+        } else {
+            return $this->load->view('product/display_phukien_detail', $data, TRUE);
+        }
     }
     
 
@@ -339,6 +374,8 @@ class Product extends MY_Controller {
      * Author: Thangmobile
      */
     function search() {
+		//parse_str(array_pop(explode('?', $_SERVER['REQUEST_URI'], 2)), $_GET);
+		
         if (!isset($_GET['value'])) {
             redirect(base_url());
         }
@@ -354,8 +391,6 @@ class Product extends MY_Controller {
 
     private function _load_product_search($value){
         $data = array();
-         
-        //$productCategory = $this->product_category_model->read_by_link_rewrite($subCategory);
     
         $productList = $this->product_model->search($value);
              
@@ -368,4 +403,58 @@ class Product extends MY_Controller {
         $data['contact'] = $this->Mcontact->listcontact();
         return $this->load->view('product/search', $data, TRUE);
     }
+
+    private function _getNews($options, $category) {
+        $isCategoryNull = $category = 2;
+        $query = $this->newsModel->get($options, $isLike = true, $matchKey = 'title', $matchvalue = 'iphone');
+        $dsTinNoiBat = $query->result_array();
+
+        foreach ($dsTinNoiBat as &$item) {
+            $title_lengh = 82;
+            $content_lengh = 145;            
+            if (isset($options['focusable'])) {
+                $title_lengh = 85;
+                $content_lengh = 85;
+            }
+            $item['f_title'] = $item['title'];
+            $item['title'] = text_cut(trim($item['title']), $title_lengh);
+
+            $content = strip_tags($item['content']);
+            $length_base_on_title = $content_lengh;
+            if (strlen($item['title']) < 30) {
+                $length_base_on_title = $content_lengh + 50;
+            }
+            $content = text_cut($content, $length_base_on_title, TRUE);
+            $item['content'] = rip_tags($content);
+
+            if ($isCategoryNull) {
+                $category = $this->category_model->read_by_id($item['id_news_category']);
+            }
+            $page =  $this->_get_page_of_category($category);
+            if (!isset($page)) {
+                show_error("Not page map to category " . $category->name);
+            }
+            $item['link_rewrite'] = $page->link_rewrite . '/' . $category->link_rewrite . '/' . $item['id_news'] . '-' . $item['link_rewrite'] . URL_TRAIL;
+        }
+        return $dsTinNoiBat;
+    }
+
+    private function _get_page_of_category($category) {
+
+        $page_items = $this->page_item_model->get_page_item_by_category_id($category->id_parent);
+        if (sizeof($page_items) > 0) {
+            $page_item = $page_items[0];
+            $page = $this->page_model->read_by_id($page_item->id_page);            
+            if ($page_item->link_rewrite) {
+                $page->link_rewrite = $page->link_rewrite.'/'.$page_item->link_rewrite;    
+            }
+            
+            return $page;
+        } else {
+            show_error("Not page item map to this category, please check in page_item_category");
+        }
+        return false;
+    }
+
+
 }

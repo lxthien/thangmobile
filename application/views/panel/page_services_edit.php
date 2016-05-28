@@ -1,64 +1,29 @@
 <?php
 
-
-
-/*
-
- * To change this template, choose Tools | Templates
-
- * and open the template in the editor.
-
- */
-
-//echo '<pre>';
-
-//print_r($news);
-
-//echo '</pre>';
-
-
-
 $config_mini = array();
 
-
-
 $config_mini['toolbar'] = array(
-
     array('Source', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'Link', 'Unlink', 'Anchor', 'Image')
-
 );
 
 $config_mini = array(
-
     array('Source', '-', 'Bold', 'Italic', 'Underline', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', '-', 'NumberedList', 'BulletedList'));
-
-//---- Hoặc tùy biến kích thước
-
 $this->ckeditor->config['width'] = '900px';
-
 $this->ckeditor->config['height'] = '300px';
 
 
-
-/* Y la configuración del kcfinder, la debemos poner así si estamos trabajando en local */
-
+/* Config ckeditor */
 $config_mini['filebrowserBrowseUrl'] = base_url() . "ckeditor/ckfinder/browse.php";
-
 $config_mini['filebrowserImageBrowseUrl'] = base_url() . "ckeditor/ckfinder/browse.php?type=images";
-
 $config_mini['filebrowserUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=files";
-
 $config_mini['filebrowserImageUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=images";
-
+$config_mini['forcePasteAsPlainText'] = "true";
 
 
 echo form_open( base_url().'panel/admin_services/save' );
 
-
-
 echo form_fieldset('Edit news:');
 echo '<table width="80%" border="0" cellspacing="0" cellpadding="5" align="left">';
-
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Danh mục');
@@ -89,6 +54,21 @@ $data_title = array(
 echo form_input($data_title);
 echo '</td></tr>';
 
+echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
+echo form_label('Giá tiền:');
+echo '</td><td>';
+echo form_input(array('name' => 'price', 'class' => 'form field'), $news->price), '<br>';
+echo '</td><td>';
+echo form_error('price');
+echo '</td></tr>';
+
+echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
+echo form_label('Thời gian bảo hành:');
+echo '</td><td>';
+echo form_input(array('name' => 'time_service', 'class' => 'form field'), $news->time_service), '<br>';
+echo '</td><td>';
+echo form_error('time_service');
+echo '</td></tr>';
 
 if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_ID) 
 					&& trim($news->id_news) !== SERVICES
@@ -108,7 +88,6 @@ if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_
     echo form_input($data_news_icon);
     echo '</td></tr>';
 }
-
 
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
@@ -142,7 +121,6 @@ echo form_error('content');
 echo '</td></tr>';
 
 
-
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Meta Title:');
 echo '</td><td>';
@@ -150,6 +128,8 @@ echo form_input(array('name' => 'meta_title', 'class' => 'form field'), $news->m
 echo '</td><td>';
 echo form_error('meta_title');
 echo '</td></tr>';
+
+
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Description:');
 echo '</td><td>';
@@ -193,5 +173,6 @@ if (isset($news->id_news)) {
 }
 echo '</td></tr>';
 echo '</table>';
+
 echo form_fieldset_close();
 echo form_close();

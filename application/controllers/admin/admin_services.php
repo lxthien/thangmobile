@@ -74,6 +74,9 @@ class Admin_services extends CI_Controller {
             $news_input->active = $this->input->post('active');
             $news_input->focusable = $this->input->post('focus');
             $news_input->news_icon = $this->input->post('news_icon');
+            $news_input->price = $this->input->post('price');
+            $news_input->time_service = $this->input->post('time_service');
+
             if (strlen($id_news) > 0 && $id_news !== COMPANY_INSTRODUCE_NEWS_ID 
             		&& $id_news !== SERVICES
             		&& $id_news !== WARRANTY
@@ -95,6 +98,9 @@ class Admin_services extends CI_Controller {
                     $news['id_news_category'] = $this->input->post('id_news_category');
                     $news['link_rewrite'] = $this->input->post('link_rewrite');
                     $news['news_icon'] = $this->input->post('news_icon');
+                    $news['price'] = $this->input->post('price');
+                    $news['time_service'] = $this->input->post('time_service');
+
                     $focus = $this->input->post('focus');
                     if (trim($focus) === '') {
                         $focus = FALSE;
@@ -154,6 +160,8 @@ class Admin_services extends CI_Controller {
         $news->active = 'true';
         $news->focusable = 'false';
         $news->news_icon = '';
+        $news->price = '';
+        $news->time_service = '';
         $data['news'] = $news;
         $this->load->view('panel/home', $data);
     }

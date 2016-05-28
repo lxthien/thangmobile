@@ -30,30 +30,53 @@ class News extends MY_Controller {
      * Load tat ca tin cho trang tin tuc.
      */
     public function view_post_on_page($page_link_rewrite, $page_nr) {
+        $offset = 0;
+        if($page_nr > 1) {
+            $offset = ($page_nr - 1)*LIMIT_SHOW_ALL_NEWS;
+        }
+
     	$data = $this->load->get_var('data');
     	$page = $this->_load_page($page_link_rewrite);
     	
     	if (!$page) {
             $page = $this->services_model->read_by_link_rewrite($page_link_rewrite);
-            if (!$page) {
-    		  show_404();
+            if (!is_object($page)) {
+                redirect(base_url().$this->uri->segment(1).'/'.$this->uri->segment(2), 'location', 301);
             }
     	}
     	
         $this->_get_meta_data($page);
     	$data['contact'] = $this->Mcontact->listcontact(); 
-    	
+
     	$data['categories'] = $this->_load_categories($page);
     	$data['show_all_news'] = 'true';
     	$data['two_tincongnghe'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(2, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
     	$data['two_kinhnghiemsudung'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(3, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
-    	
+
     	$data['partners'] = $this->_get_partners();
     	$data['site_meta_data'] = $this->site_meta_data;
     	$data['banners'] = $this->banner_model->get_active_list();
     	$data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
     	$data['latest_downloads'] = $this->get_latest_download();
     	$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+
+		if($page_link_rewrite == 'tin-tuc') {
+			$category_ids = array(2, 3, 4);
+			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+			$total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
+			
+			// init paging
+			$this->init_paging('tin-tuc', $total_record_in_post, $segmentDf = false);
+		} else {
+			$data['show_cam_nang'] = true;
+			$category_ids = array(66, 67, 68);
+			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+			$total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
+			
+			// init paging
+			$this->init_paging('cam-nang', $total_record_in_post, $segmentDf = false);
+		}
+
     	$this->load->view('universalView', $data);
     }
 
@@ -72,7 +95,6 @@ class News extends MY_Controller {
      * Load tin cho 1 sub category cua tin tuc.
     */
     public function view_post_on_category($page_link_rewrite, $category_link_rewrite, $page_nr) {
-    	
         $data = $this->load->get_var('data');
         $page = $this->_load_page($page_link_rewrite);
         $page_category = $this->_load_page_by_category($category_link_rewrite);
@@ -97,6 +119,7 @@ class News extends MY_Controller {
         
         $data['all_news'] = $category_posts;
         $data['category_name'] = $selected_category->name;
+        $data['category_link'] = $selected_category->link_rewrite;
         
         $this->init_paging($selected_category->link_rewrite, $total_record_in_post);
         
@@ -112,10 +135,11 @@ class News extends MY_Controller {
 
     function index($page_link_rewrite, $category_link = NULL, $thread_id = NULL, $page_nr = 0) {
         $data = $this->load->get_var('data');
-        $page = $this->_load_page($page_link_rewrite);      
+        $page = $this->_load_page($page_link_rewrite);
         if (!$page) {
             show_404();
         }
+
         $this->_get_meta_data($page);
         $data['categories'] = $this->_load_categories($page);
         $page_second_left = array();
@@ -124,7 +148,6 @@ class News extends MY_Controller {
         $page_second_left['advertises'] = array('1' => 1);
 
         $data['page_second_left'] = $page_second_left;
-
         $data['page_second_right'] = $this->_load_page_second_right($page, $page_nr, $category_link, $thread_id);
         $data['partners'] = $this->_get_partners();
         
@@ -155,15 +178,17 @@ class News extends MY_Controller {
                 $this->_get_meta_data($selected_category);
                 if (isset($thread)) {
                     $post_content = $this->news_model->read_by_id($thread);
-                    if (!isset($post_content)) {
-                        show_error("Post not found");
+                    if (!is_object($post_content)) {
+                        redirect(base_url().$this->uri->segment(1).'/'.$this->uri->segment(2), 'location', 301);
                     }
                     $post_content->link_rewrite = $selected_category->link_rewrite . '/' . $post_content->link_rewrite . URL_TRAIL;
-//                  get page meta data fo selected post
-                    $this->_get_meta_data($post_content);
+                    
+                    //get page meta data fo selected post
+                    $this->_get_meta_data($post_content, $services = true);
                     $result['single_post'] = $post_content;
-//                    load bài viết cùng loại
-                    $same_posts = $this->news_model->getRecordSameCategory($selected_category->id_news_category, $thread, 5);
+                    
+                    //load bài viết cùng loại
+                    $same_posts = $this->news_model->getRecordSameCategory($selected_category->id_news_category, $thread, 6);
                     $same_posts_array = $same_posts->result();
                     foreach ($same_posts_array as &$same_post) {
                         $same_post->link_rewrite = $selected_category->link_rewrite . '/' . $same_post->id_news . '-' . $same_post->link_rewrite . URL_TRAIL;
@@ -172,39 +197,13 @@ class News extends MY_Controller {
                     $result['category'] = $selected_category;
                     $result['posts_same_category'] = $same_posts_array;
                 } else {
-// //                    load bài viết cho selected category                    
-//                     $offset = $this->_calculate_page_offset($page_nr);
-//                     $category_posts = $this->news_model->get_news_list_by_category_id($selected_category->id_news_category, $offset, MAX_ITEM_PAGINAGION);
-//                     $total_record_in_post = $this->news_model->count_postnr_by_category_id($selected_category->id_news_category);
-//                     foreach ($category_posts as &$post) {
-//                         $post->link_rewrite = $selected_category->link_rewrite . '/' . $post->id_news . '-' . $post->link_rewrite . URL_TRAIL;
-//                         $post = $this->truncate_title_content_post($post, MAX_DES_TITLE, MAX_DES_CONTENT);
-//                     }
 
-//                     $category_news = array();
-//                     $category_news['newses'] = $category_posts;
-//                     $result['selected_company_category_newses'] = $category_news;
-//                     $result['category_name'] = $selected_category->name;
-//                     echo "TOTAL: ".$total_record_in_post;
-//                     echo "LINK: ".$selected_category->link_rewrite;
-//                     echo "PAGA: ".$page_nr;
-//                     $this->init_paging($selected_category->link_rewrite, $total_record_in_post, $page_nr);
-                    
                 }
             } else {
                 show_404("Không tìm thấy category này");
             }
         } else {
-//             $page_offset = 0;
-//             if ($page_nr > 0) {
-//                 $page_offset = $page_nr - 1;
-//             }
-//             $offset = $page_offset * MAX_ITEM_PAGINAGION;
-//             $category_news['newses'] = $this->_load_all_post_by_page($page, $offset);
-//             $result['selected_company_category_newses'] = $category_news;
-//             $total_records = $this->_get_post_number($page);
-//             $this->init_paging($page->link_rewrite, $total_records);
-//             echo "ALO";
+            // Nothing todo
         }
 
         return $result;
@@ -246,7 +245,6 @@ class News extends MY_Controller {
      * load child category of news_category 
      * @params: $category_link_rewrite
      */
-
 	private function _load_page_by_category($category_link_rewrite) {
 		$page = $this->category_model->read_by_link_rewrite($category_link_rewrite);
 		return $page;
@@ -267,28 +265,28 @@ class News extends MY_Controller {
      * @param type $page_nr
      * @return type 
      */
-//     private function _load_all_post_by_page($page, $page_nr = 0) {
-//         $page_items = $this->page_item_model->get_page_items_by_page($page->id_page);
-//         $page_category_ids = array();
-//         foreach ($page_items as $page_item) {
+    //     private function _load_all_post_by_page($page, $page_nr = 0) {
+    //         $page_items = $this->page_item_model->get_page_items_by_page($page->id_page);
+    //         $page_category_ids = array();
+    //         foreach ($page_items as $page_item) {
 
-//             if (isset($page_item->map_to_category)) {
-//                 $parent_category = $this->category_model->read_by_id($page_item->map_to_category);
+    //             if (isset($page_item->map_to_category)) {
+    //                 $parent_category = $this->category_model->read_by_id($page_item->map_to_category);
 
-//                 $category_ids = $this->_get_all_category_id($page_category_ids, $parent_category);
-//                 array_merge($page_category_ids, $category_ids);
-//             } else {
-//                 echo "Implement get category from page_item_category";
-//             }
-//         }
-//         $newses = $this->news_model->read_list_by_list_categries($page_category_ids, $page_nr, MAX_ITEM_PAGINAGION);
-//         $newses = $this->truncate_title_content_posts($newses, MAX_DES_TITLE, MAX_DES_CONTENT);
-//         foreach ($newses as &$news) {
-//             $news = $this->_build_link_rewrite($page, $news);
-//         }
+    //                 $category_ids = $this->_get_all_category_id($page_category_ids, $parent_category);
+    //                 array_merge($page_category_ids, $category_ids);
+    //             } else {
+    //                 echo "Implement get category from page_item_category";
+    //             }
+    //         }
+    //         $newses = $this->news_model->read_list_by_list_categries($page_category_ids, $page_nr, MAX_ITEM_PAGINAGION);
+    //         $newses = $this->truncate_title_content_posts($newses, MAX_DES_TITLE, MAX_DES_CONTENT);
+    //         foreach ($newses as &$news) {
+    //             $news = $this->_build_link_rewrite($page, $news);
+    //         }
 
-//         return $newses;
-//     }
+    //         return $newses;
+    //     }
 
     /**
      * Fetch all child category of input category then return array of thier ids
@@ -296,7 +294,6 @@ class News extends MY_Controller {
      * @param type $parent_category
      * @return type 
      */
-
     private function _get_all_category_id(&$page_category_ids, $parent_category) {
         $sub_categories = $this->category_model->read_list_by_parent_id($parent_category->id_news_category);
         if (sizeof($sub_categories)) {
@@ -356,7 +353,7 @@ class News extends MY_Controller {
         return $this->total_posts;
     }
 
-    public function init_paging($link, $total_records) {
+    public function init_paging($link, $total_records, $segmentDf = true) {
         $this->load->library('pagination');
         $config['base_url'] = base_url($link);
         $config['total_rows'] = $total_records;
@@ -367,7 +364,10 @@ class News extends MY_Controller {
         $config['prev_link'] = 'Trước';
         $config['first_link'] = 'Đầu';
         $config['last_link'] = 'Cuối';
-        $config['uri_segment'] = 3;
+        if ($segmentDf)
+            $config['uri_segment'] = 3;
+        else
+            $config['uri_segment'] = 2;
         
         $config['num_tag_open'] = '';
         $config['num_tag_close'] = '';
@@ -381,6 +381,8 @@ class News extends MY_Controller {
         $config['first_tag_close'] = '';
         $config['last_tag_open'] = '';
         $config['last_tag_close'] = '';
+        $config['num_tag_open']         = '';
+        $config['num_tag_close']        = '';
         $this->pagination->initialize($config);
     }
 
@@ -409,7 +411,7 @@ class News extends MY_Controller {
      *Set meta data for page
      * @param type $post 
      */
-    function _get_meta_data($post) {
+    function _get_meta_data($post, $services = false) {
         if (is_array($post)) {
             if (isset($post->title)) {
                 $this->site_meta_data['title'] = $post['title'];
@@ -425,8 +427,11 @@ class News extends MY_Controller {
             } else if (isset($post->name)) {
                 $this->site_meta_data['title'] = $post->name;
             }
-            //$this->site_meta_data['meta_title'] = $post->meta_title;
-            //$this->site_meta_data['meta_description'] = $post->meta_description;
+
+            $this->site_meta_data['meta_title'] = $post->meta_title;
+            if ($services == true){
+                $this->site_meta_data['meta_description'] = $post->meta_description;
+            }
             if (isset($post->meta_keywords)) {
                 $this->site_meta_data['meta_keywords'] = $post->meta_keywords;
             }
@@ -438,15 +443,38 @@ class News extends MY_Controller {
         return $this->partner_model->read_list();
     }
 
-    public function servicesCat($url){
+    public function servicesCat($url, $page_nr){
+        $offset = 0;
+        if($page_nr > 1) {
+            $offset = ($page_nr - 1)*LIMIT_SHOW_ALL_NEWS;
+        }
+
+
         $this->load->model('Services_model', 'services_model');
         $this->load->model('news_category_model');
 
         $url = $this->uri->segment(2);
         $catServices = $this->news_category_model->read_by_link_rewrite($url);
 
-        $page_category_ids = $this->getCatCategory($catServices);
-        $services = $this->services_model->read_list_by_list_categries($page_category_ids, NULL, NULL);
+        $catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
+        if ($catParentServices->link_rewrite == 'dich-vu') {
+            $level = 2;
+        } else {
+            $level = 3;
+        }
+
+        if ($level == 3) {
+            $catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
+            $page_category_ids = $this->getCatCategory($catParentServices);
+            $url = $catParentServices->link_rewrite;
+            $services = $this->truncate_title_content_posts($this->services_model->get_news_list_by_category_id($catServices->id_news_category, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+            $total_record_in_post = $this->services_model->count_postnr_by_list_categries($catServices->id_news_category);
+        } else {
+            $page_category_ids = $this->getCatCategory($catServices);
+            $url = $catServices->link_rewrite;
+            $services = $this->truncate_title_content_posts($this->services_model->read_list_by_list_categries($page_category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+            $total_record_in_post = $this->services_model->count_postnr_by_category_id($page_category_ids);
+        }
 
         $categoryServices = array();
         for ($i=0; $i < count($page_category_ids); $i++) { 
@@ -454,10 +482,16 @@ class News extends MY_Controller {
             array_push($categoryServices, $categoryService);
         }
 
-        $this->_get_meta_data($catServices);
+        // init paging
+        $this->init_paging('dich-vu/'.$url, $total_record_in_post);
+
+        $this->_get_meta_data($catServices, true);
         $data['site_meta_data'] = $this->site_meta_data;
 
+		$data['levelServices'] = 1;
+        $data['catServices'] = $catServices;
         $data['categoryServices'] = $categoryServices;
+        $data['categoryServicesParent'] = $url;
         $data['contact'] = $this->Mcontact->listcontact();
         $data['services'] = $services;
         $data['partners'] = $this->_get_partners();
@@ -473,13 +507,30 @@ class News extends MY_Controller {
 
         $url = $this->uri->segment(2);
         $page = $this->services_model->read_by_id($id);
+        if(!is_object($page)){
+            redirect(base_url()."dich-vu-sua-chua-dien-thoai.html", 'location', 301);
+        }
         
-        $this->_get_meta_data($page);
+        $this->_get_meta_data($page, $services = true);
         $data['site_meta_data'] = $this->site_meta_data;
 
+        $newsRelateds = $this->services_model->getRecordSameCategory($page->id_news_category, $page->id_news, 10);
+        $same_posts_array = $newsRelateds->result();
+        
+        foreach ($same_posts_array as $newsRelated) {
+            $newsRelated = $this->truncate_title_content_post($newsRelated, MAX_DES_TITLE, MAX_DES_CONTENT);
+        }
 
+		$catServices = $this->news_category_model->read_by_id($page->id_news_category);
+		$catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
+		
+		$data['levelServices'] = 2;
+		$data['catServices'] = $catServices;
+		$data['catParentServices'] = $catParentServices;
+		$data['categoryServicesParent'] = $catParentServices->link_rewrite;
         $data['contact'] = $this->Mcontact->listcontact();
         $data['services'] = $page;
+        $data['newsRelateds'] = $same_posts_array;
         $data['servicesDetail'] = $page;
         $data['partners'] = $this->_get_partners();
         $data['banners'] = $this->banner_model->get_active_list();

@@ -7,17 +7,31 @@
 	<div class="ttincongghe" style="width: 675px;">
 		<?php
 		if (isset($all_news)) {
+		    $i = 0;
 		    foreach ($all_news as $item):
+		    	$i++;
 		        $date_post = new DateTime($item->date_add);
+
+		    	if ($i==1):
 		        ?>
-		        <div class="box-service">
-			       	<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_195_105'); ?>" />
-					<div class="right-box-service">
-						<a href="<?php echo base_url('tin-tuc/kinh-nghiem-su-dung/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
-						<p class="date-service"><?php echo date_format(new DateTime($item->date_add), 'd/m/Y'); ?></p>
-						<p class="des-service"><?php echo $item->content; ?></p>
+			        <div class="sreenttin box-service box-service-first">
+				       	<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_250_150'); ?>" />
+						<div class="right-box-service">
+							<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
+							<p class="date-service"><?php echo date_format(new DateTime($item->date_add), 'd/m/Y'); ?></p>
+							<p class="des-service"><?php echo $item->content; ?></p>
+						</div>
 					</div>
-				</div>
+				<?php else: ?>
+					<div class="sreenttin box-service">
+				       	<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_195_135'); ?>" />
+						<div class="right-box-service">
+							<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
+							<p class="date-service"><?php echo date_format(new DateTime($item->date_add), 'd/m/Y'); ?></p>
+							<p class="des-service"><?php echo $item->content; ?></p>
+						</div>
+					</div>
+				<?php endif; ?>
 		    <?php
 		    endforeach;
 		}

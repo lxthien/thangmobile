@@ -1,35 +1,42 @@
 <div class="main-product">
 	<div class="nav">
-		<a href="" title="Trang chủ">Trang chủ</a> - 
-		<span><?php echo $servicesDetail->title; ?></span>
+		<a href="<?php echo base_url(); ?>" title="Trang chủ">Trang chủ</a>
+		<a href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>" title="Sửa chữa điện thoại">Sửa chữa điện thoại</a>
+		<a href="<?php echo base_url('dich-vu/'.$catParentServices->link_rewrite); ?>" title="<?php echo $catParentServices->name; ?>"><?php echo $catParentServices->name; ?></a>
+		<span><?php echo $catServices->name; ?></span>
+		<!--<span><?php echo $servicesDetail->title; ?></span>-->
 	</div>
 </div>
 <div class="server-information">
 	<div class="server-information-left">
-		<img src="<?php echo base_url('assets/images/dich-vu-chi-tiet.jpg'); ?>">
+		<!--<img src="<?php echo base_url('assets/images/dich-vu-chi-tiet.jpg'); ?>">-->
+		<img src="<?php echo image($servicesDetail->news_icon, 'news_390_258'); ?>">
 	</div>
 	<div class="server-information-right">
-		<h1 class="title-service h1-title"><?php echo $servicesDetail->title; ?></h1>
-		<h3>Thông tin cần lưu ý</h3>
-		<div class="main-info-note">
-			<p><span class="span-left">- Bảo hành: </span><span class="span-right">12 Tháng</span></p>
-			<p><span class="span-left">- Tình trạng link kiện: </span><span class="span-right">Mới 100%</span></p>
-		</div>
+		<h1 class="title-service h1-title" style="padding: 3px 0; margin-bottom: 0;"><?php echo $servicesDetail->title; ?></h1>
+		<div class="price-detail">
+			<p>
+            <?php if ($servicesDetail->price != 0) { ?>
+                <span class="product-price" style="font-size: 18px;"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate" style="margin: 3px 5px 0px 5px; font-size: 18px;">vnđ</span> <span class="ngan-cach" style="font-size: 16px; padding: 0 3px;">|</span> <span class="hotline-tu-van" style="font-size: 16px; margin-top: 2px;"><span style="color: #000000;">Tư vấn: </span>0901 260 260</span>
+            <?php }else{ ?>
+            	<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span style="color: #000000;font-size:16px ;padding: 0 3px;">Tư vấn:</span> 0901 260 260</span>
+            <?php } ?>
+            </p>
+        </div>
+        <p style="float: left; margin-bottom: 5px; font-size: 16px;">Thời gian bảo hành: <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
 		<div class="main-news-social">
 	    	<div class="social">
 	    		<!-- Button like facebook -->
-                <div class="fb-like" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
                 <!-- Button like facebook -->
                 <!-- Place this tag where you want the +1 button to render. -->
-
-				<!-- Place this tag where you want the +1 button to render. -->
-				<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="150" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html"></div>
+                <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
                 <!-- Place this tag where you want the +1 button to render. -->
                 <!-- Button share facebook -->
-                <div class="fb-share-button" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html" data-layout="button"></div>
+                <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
                 <!-- Button share facebook -->
                 <!-- Place this tag where you want the share button to render. -->
-				<div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://sotaynhadat.vn/tin-tuc/tin-thi-truong/buon-vui-nha-o-xa-hoi.html"></div>
+                <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 	    	</div>
 	    </div>
 	</div>
@@ -40,15 +47,52 @@
 			<p><?php echo $servicesDetail->content;?></p>
 		</div>
 
+		<?php if(count($newsRelateds) > 0): ?>
 		<div class="cactinkhac2">
-			<h3 class="h3-news-related">Các tin khác</h3>
+			<h3 class="h3-news-related">Các lỗi khác</h3>
 			<div class="main-news-related">
-				
+				<div class="main-news-related">
+					<?php
+				        foreach ($newsRelateds as $post): 
+				        	$posted_date = new DateTime($post->date_add);
+				    ?>
+						<div class="sreentieude">
+							<a class="img-news-related" href="<?php echo base_url($post->id_news.'-'.$post->link_rewrite.URL_TRAIL);?>">
+								<img src="<?php echo image($post->news_icon, 'news_100_75'); ?>" alt="<?php echo $post->title;?>">
+							</a>
+						   	<div class="sreentinkhacchitiet">
+						   		<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->id_news.'-'.$post->link_rewrite.URL_TRAIL);?>">
+					   				<span><?php echo $post->title;?></span>
+					   			</a>
+					   			<p class="des-news-related" style="line-height: 16px;"><?php echo ucfirst(mb_strtolower($post->content, 'UTF-8')); ?></p>
+				 			</div>
+						</div>
+					<?php
+				        endforeach;
+				    ?>
+			    </div>
 		    </div>
 		</div>
+		<?php endif; ?>
 	</div>
 	<div class="server-information-right">
 		<div class="right">
+			<div class="sreenonline right-box">
+				<div class="toponline">
+			        <h2>Dịch vụ sửa chữa</h2>
+			    </div>
+			    <div class="line-title">
+			        <div class="left-30">&nbsp;</div>
+			        <div class="left-70">&nbsp;</div>
+			    </div>
+			    <div class="midonline lists-service-right">
+			    	<ul>
+			    		<?php foreach ($menuCategoryService as $service): ?>
+                        <li><a class="<?php if($catParentServices->link_rewrite == $service['link_rewrite']) {echo 'menu_active';} ?>" href="<?php echo base_url('dich-vu/' . $service['link_rewrite']); ?>"><?php echo $service['name']; ?></a></li>
+                    	<?php endforeach; ?>
+			    	</ul>
+			    </div>
+			</div>
 			<div class="sreenonline right-box">
 			    <div class="toponline">
 			        <h2>Sản phẩm mới</h2>

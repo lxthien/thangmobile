@@ -4,10 +4,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-//echo '<pre>';
-//print_r($news);
-//echo '</pre>';
-
 $config_mini = array();
 
 $config_mini['toolbar'] = array(
@@ -24,6 +20,7 @@ $config_mini['filebrowserBrowseUrl'] = base_url() . "ckeditor/ckfinder/browse.ph
 $config_mini['filebrowserImageBrowseUrl'] = base_url() . "ckeditor/ckfinder/browse.php?type=images";
 $config_mini['filebrowserUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=files";
 $config_mini['filebrowserImageUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=images";
+$config_mini['forcePasteAsPlainText'] = "true";
 
 $con_link = base_url() . $this->uri->segment(1) . '/' . $this->uri->segment(2);
 echo form_open($con_link.'/save');
@@ -61,7 +58,6 @@ if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_
     echo form_label('Icon');
     echo '</td>';
     echo '<td>';
-
     $data_news_icon = array(
         'name' => 'news_icon',
         'id' => 'news_icon',
@@ -69,6 +65,20 @@ if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_
         'class' => 'form field',
     );
     echo form_input($data_news_icon);
+    echo '</td></tr>';
+
+    echo '<tr>';
+    echo'<td align="right" valign="top" width="10%" class="field_name">';
+    echo form_label('Nguồn');
+    echo '</td>';
+    echo '<td>';
+    $data_news_source = array(
+        'name' => 'source',
+        'id' => 'source',
+        'value' => $news->source,
+        'class' => 'form field',
+    );
+    echo form_input($data_news_source);
     echo '</td></tr>';
 }
 
@@ -84,7 +94,6 @@ if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_
 		&& trim($news->id_news) !== SITE_MAP) || !isset($news->id_news)) {
     echo '<td align="left" valign="top" width="10%" class="field_name">';
     echo form_label('Focus');
-//echo '</td><td>';
     
     $focus_data = array('name' => 'focus', 'id' => 'focus', 'value' => 'TRUE');    
     if ($news->focusable === '1'){
@@ -99,11 +108,6 @@ echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Content');
 echo '</td><td colspan ="3">';
 echo $this->ckeditor->editor('content', $news->content, $config_mini);
-//$text=array('name'=>'content',
-//            'rows'=>'5',
-//            'colums'=>'10'
-//        );
-//echo form_textarea($text,$news['content']),'<br>';
 echo '</td><td>';
 echo form_error('content');
 echo '</td></tr>';
@@ -159,4 +163,5 @@ echo '</table>';
 echo form_fieldset_close();
 
 echo form_close();
+
 ?>

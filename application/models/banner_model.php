@@ -76,7 +76,7 @@ class Banner_model extends MY_Model {
     }
 
     public function get_active_list() {
-        $options = array('active' => 1);        
+        $options = array('active' => 1, 'sort_by' => 'id', 'sort_direction' => 'DESC');        
         $query = $this->get($options);
         return $query->result();
     }

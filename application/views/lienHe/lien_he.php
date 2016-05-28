@@ -1,5 +1,5 @@
 <div class="allboxsp1" style="float: left;">
-	<h1 class="h1-title">Liên hệ</h1>
+	<h1 class="h1-title">Liên hệ Yes Mobile</h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
 		<div class="left-70">&nbsp;</div>
@@ -16,34 +16,34 @@
 
 				<div class="contact-tbl">
 					<div class="contact-tbl-row">
-						<img src="assets/images/contact_add.png" width="16" height="18" />
-						<span class="label" style="font-weight: bold;">Địa chỉ: </span>
+						<img src="assets/images/contact_add.png" width="16" height="18" alt="contact icon" />
+						<span class="label" style="font-weight: bold;">Địa chỉ:</span>
 						<?php echo $this->sconfig->get_value('address');?>
 					</div>
 					<div class="contact-tbl-row">
-						<img src="assets/images/contact_phone.png" width="16" height="18" />
-						<span class="label" style="font-weight: bold;">Điện thoại: </span>
+						<img src="assets/images/contact_phone.png" width="16" height="18" alt="mobile icon" />
+						<span class="label" style="font-weight: bold;">Điện thoại:</span>
 						<?php echo $this->sconfig->get_value('TEL');?>
 						&nbsp;&nbsp;
-						<img src="assets/images/contact_hotline.png" width="16" height="18" style="margin-bottom: -3px;" />
+						<img src="assets/images/contact_hotline.png" width="16" height="18" style="margin-bottom: -3px;" alt="hotline icon"/>
 						<span class="label">
-							<span id="ctl28_ctl01_lblTPhone" style="font-weight: bold;">Di động: </span>&nbsp;
+							<span id="ctl28_ctl01_lblTPhone" style="font-weight: bold;">Hotline:</span>
 						</span>
 						<span style="font-size: 14px;"><?php echo $this->sconfig->get_value('FAX');?></span>
 					</div>
 					<div class="contact-tbl-row">
-						<img src="assets/images/contact_web.png" width="16" height="18" />
-						<span class="label" style="font-weight: bold;">Website :</span>
+						<img src="assets/images/contact_web.png" width="16" height="18" alt="web icon" />
+						<span class="label" style="font-weight: bold;">Website:</span>
 						<?php echo base_url(); ?>
 						&nbsp;&nbsp;
-						<img src="assets/images/contact_email.png" width="16" height="18" style="margin-bottom: -4px;" />
+						<img src="assets/images/contact_email.png" width="16" height="18" style="margin-bottom: -4px;" alt="email icon"/>
 						<span class="label">
-							<span id="ctl28_ctl01_lblTPhone" style="font-weight: bold;">Email: </span>&nbsp;
+							<span id="ctl28_ctl01_lblTPhone" style="font-weight: bold;">Email:</span>&nbsp;
 						</span>
 						<?php echo $this->sconfig->get_value('CONTACT_EMAIL');?>
-					</div>
+					</div><br/>
 					<div class="clear"></div>
-					<div class="contact-tbl-title" style="margin-top: 10px; font-size: 16px; font-weight: bold; margin-bottom: 5px;">Thông tin liên hệ</div>
+					<div class="contact-tbl-title" style="margin-top: 10px; font-size: 16px; font-weight: bold; margin-bottom: 5px;">Gửi liên hệ cho Yes Mobile:</div>
 					<div class="clear"></div>
 					<div class="separable"></div>
 					<div class="tbl-inform">
