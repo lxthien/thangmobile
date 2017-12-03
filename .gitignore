@@ -1,1 +1,10 @@
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
 
+# Folder files #
+######################
+/files/
+/assets/news/
