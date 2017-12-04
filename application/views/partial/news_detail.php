@@ -9,14 +9,23 @@
 		$pageHeadTitle = $news_item->title;
 	}
 ?>
-
+<div class="nav">
+	<?php if($isNotFixNews = $new_id == COMPANY_INSTRODUCE_NEWS_ID || $new_id == SERVICES || $new_id == WARRANTY || $new_id == SITE_MAP || $new_id == RECRUIT || $new_id == WARRANTYPOLICY || $new_id == DELEVERYPOLICY): ?>
+    	<span>Trang chủ</span>
+	<?php endif; ?>
+	<?php if ($this->menu_active == 'news' || $this->menu_active == 'guides') : ?>
+		<a href="<?php echo base_url(); ?>">Trang chủ</a>
+		<a href="<?php echo base_url($categoryParent->link_rewrite); ?>"><?php echo $categoryParent->name; ?></a>
+		<span><?php echo $category->name; ?></span>
+	<?php endif; ?>
+</div>
 <div class="ttincongghe">
 	<?php 
 		if ($news_item->active === '1') {
 	?>
 	<div class="sreentieude" style="width:675px; margin-left: 0px; ">
 		<div class="tieude" style="font-size:17px; font-weight:bold; padding: 3px 0 12px;" >
-		    <h1 class="h1-title-detail" style="font-size:20px; font-weight:bold; color:#033f83;"><?php echo $news_item->title; ?></h1>
+		    <h1 class="h1-title-detail" style="font-size:22px; font-weight:bold; color:#033f83; text-transform: none;"><?php echo $news_item->title; ?></h1>
 	    </div>
 	    <div class="main-news-social">
 	    	<div class="social">
@@ -45,10 +54,10 @@
 		<p align="justify">&nbsp;</p>	
 	</div>
 	<?php 
-	if ($isNotFixNews) {
+	if (!$isNotFixNews) {
 	?>
 
-    <div class="cactinkhac2">
+    <div class="cactinkhac2 cactinkhac2-large">
 		<h3 class="h3-news-related">Các tin khác</h3>
 		<div class="main-news-related">
 			<?php
@@ -57,7 +66,7 @@
 		    ?>
 				<div class="sreentieude">
 					<a class="img-news-related" href="<?php echo base_url($post->link_rewrite);?>">
-						<img src="<?php echo image($post->news_icon, 'news_100_75'); ?>" alt="<?php echo $post->title;?>">
+						<img src="<?php echo image($post->news_icon, 'news_200_120'); ?>" alt="<?php echo $post->title;?>">
 					</a>
 				   	<div class="sreentinkhacchitiet">
 				   		<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->link_rewrite);?>">

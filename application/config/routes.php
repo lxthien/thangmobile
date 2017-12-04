@@ -38,6 +38,9 @@
 |
 */
 
+$route['thong-tin-bao-hanh'] = "welcome";
+$route['searchHistory'] = "welcome/searchHistory";
+
 $route['default_controller'] = "home";
 $route['panel'] = 'admin/dashboard';
 $route['panel/(:any)'] = 'admin/$1';
@@ -46,6 +49,7 @@ $route['panel/login'] = 'admin/auth/login';
 $route['panel/logout'] = 'admin/auth/logout';
 $route['panel/change-password'] = 'admin/auth/change_password';
 $route['panel/forgot-password'] = 'admin/auth/forgot_password';
+$route['panel/create-user'] 	= 'admin/auth/create_user';
 $route['admin/(:any)/([0-9]+)'] = 'admin/admin_news/$1/$2';
 $route['contact/(:any)/([0-9]+)']='admin/contact/$1/$2';
 //$route['panel/user'] = 'panel/auth';
@@ -53,6 +57,27 @@ $route['contact/(:any)/([0-9]+)']='admin/contact/$1/$2';
 
 
 $route['media/(:any)']                      = 'media/resize/$1';
+
+$route['auths']                     = 'auths/$1';
+$route['auths/checkWarrantyPeriod(:any)']              = 'auths/checkWarrantyPeriod/$1';
+$route['auths/(:any)']              = 'auths/$1';
+
+//For the member
+$route['customers']                 = 'customers/$1';
+$route['customers/(:any)']          = 'customers/$1';
+$route['customers/(:any)/(:any)']   = 'customers/$1/$2';
+
+//For the tasks
+$route['tasks']                     = 'tasks/$1';
+$route['tasks/add/customer/(:any)']	= 'tasks/add/$1';
+$route['tasks/(:any)']              = 'tasks/$1';
+$route['tasks/(:any)/(:any)']       = 'tasks/$1/$2';
+
+#$route['tasks/listTask']            = 'tasks/listTask';
+#$route['tasks/add']                 = 'tasks/add';
+#$route['tasks/save']                = 'tasks/save';
+#$route['tasks/edit/(:num)']         = 'tasks/edit/$1';
+#$route['tasks/delete/(:num)']       = 'tasks/delete/$1';
 
 
 $route['404_override'] = '';
@@ -85,13 +110,17 @@ $route['lien-he/(:any)'] = 'contact/$1';
 $route['search/(:any)'] = 'product/search/$1';
 $route['search'] = 'product/search';
 
+$route['tin-tuc/(:num)'] = 'news/view_post_on_page/$0/$1';
 $route['(:any)/(:any)/(:num)-(:any)'] = 'news/index/$0/$1/$2';
 $route['tin-tuc/(:any)'] = 'news/view_post_on_category/$0/$1';
 
+$route['cam-nang/(:num)'] = 'news/view_post_on_page/$0/$1';
+$route['(:any)/(:any)/(:num)-(:any)'] = 'news/index/$0/$1/$2';
+$route['cam-nang/(:any)'] = 'news/view_post_on_category/$0/$1';
 
 $route['(:any)/(:any)/(:num)-(:any)'] = 'news/index/$0/$1/$2';
 $route['dich-vu'] = 'news/servicesDetail/$1';
-$route['dich-vu/(:any)'] = 'news/servicesCat/$1';
+$route['dich-vu/(:any)'] = 'news/servicesCat/$1/$2';
 $route['(:num)-(:any)'] = 'news/servicesDetail/$0/$1';
 
 $route['(:any)'] = 'news/view_post_on_page/$0/1';

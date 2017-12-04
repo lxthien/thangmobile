@@ -12,6 +12,10 @@ $this->load->view('partial/menu');
 
 	<!--main-->	
 	<div class="main" style="width:980px; float:left; margin-top: 15px;">
+		<div class="nav">
+		    <a href="<?php echo base_url(); ?>">Trang chủ</a>
+		    <span>Liên hệ</span>
+		</div>
 		<!-- left-->	
 	 	<div class="left">
     		<?php $this->load->view('lienHe/lien_he');?>

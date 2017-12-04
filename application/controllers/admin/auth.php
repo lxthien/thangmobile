@@ -55,6 +55,21 @@ class Auth extends CI_Controller {
             //check for "remember me"
             $remember = (bool) $this->input->post('remember');
 
+            if (isset($_POST['action']) && $_POST['action'] == 'admin') {
+                if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
+                    $this->session->set_flashdata('message', $this->ion_auth->messages());
+
+                    $referal = $this->session->userdata('refered_from');
+                    if (!isset($referal) || trim($referal) === "") {
+                        $referal = base_url('tasks/listTask');
+                    }
+                    redirect($referal, 'refresh');
+                } else {
+                    $this->session->set_flashdata('message', $this->ion_auth->errors());
+                    redirect(base_url('auths/authenticate'), 'refresh');
+                }
+            }
+
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
             	//echo "login success!";
                 //if the login is successful
@@ -351,8 +366,6 @@ class Auth extends CI_Controller {
             $additional_data = array(
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
-//                'company' => $this->input->post('company'),
-//                'phone' => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
             );
         }
         if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data)) {
@@ -400,20 +413,6 @@ class Auth extends CI_Controller {
                 'class' => 'form',
                 'value' => $this->form_validation->set_value('phone1'),
             );
-//            $this->data['phone2'] = array(
-//                'name' => 'phone2',
-//                'id' => 'phone2',
-//                'type' => 'text',
-//                'class' => 'form',
-//                'value' => $this->form_validation->set_value('phone2'),
-//            );
-//            $this->data['phone3'] = array(
-//                'name' => 'phone3',
-//                'id' => 'phone3',
-//                'type' => 'text',
-//                'class' => 'form',
-//                'value' => $this->form_validation->set_value('phone3'),
-//            );
             $this->data['password'] = array(
                 'name' => 'password',
                 'id' => 'password',

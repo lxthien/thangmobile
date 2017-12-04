@@ -33,24 +33,32 @@ class Admin_phone extends CI_Controller {
         $this->logo_dir = dirname($_SERVER['SCRIPT_FILENAME']) . PARTNER_LOGO . '/ads';
     }
 
-    function index() {
-    	
-        $list_items = $this->_get_list_phones();
+    function index($category_id = NULL) {
+        if ($category_id == NULL)
+            $list_items = $this->_get_list_phones();
+        else
+            $list_items = $this->product_model->read_by_category_id($category_id);
+        
         $news_categories = $this->product_model->getCname();
-    	foreach ($list_items as &$item) {
+        $first_item = array('../' => "Show all");
+        $news_categories = $first_item + $news_categories;
+    	
+        foreach ($list_items as &$item) {
             if (isset($news_categories[$item->product_category_id])) {
                 $item->category_name = $news_categories[$item->product_category_id];
             } else {
                 $item->category_name = 'Category không hợp lệ';
             }
         }
-         $data['list_items'] = $list_items;
+         
+        $data['list_items'] = $list_items;
         $data['category_list'] = $news_categories;
-        if(!$this->ion_auth->logged_in()){
-    		redirect('panel/login');    	
-        }else{
+        $data ['filter_category'] = $category_id;
+
+        if(!$this->ion_auth->logged_in()) {
+    		redirect('panel/login');
+        } else {
 	        $this->load->view('panel/home', $data);
-        	
         }
         
     }
@@ -90,6 +98,7 @@ class Admin_phone extends CI_Controller {
             $phone_input->baseInformation = $this->input->post('baseInformation');
             $phone_input->noteInformation = $this->input->post('noteInformation');
             $phone_input->note = $this->input->post('note');
+            $phone_input->isStatus = $this->input->post('isStatus');
             
 
             $phone_input->sale_off = $this->input->post('sale_off');
@@ -115,7 +124,7 @@ class Admin_phone extends CI_Controller {
             $phone['accesory'] = nl2br(htmlspecialchars($this->input->post('accesory')));
             $phone['time_warranty'] = $this->input->post('time_warranty');
             $phone['status'] = $this->input->post('status');
-            
+            $phone['isStatus'] = $this->input->post('isStatus');
             $phone['isHight'] = $this->input->post('isHight');
             $phone['isIntermediate'] = $this->input->post('isIntermediate');
             $phone['baseInformation'] = $this->input->post('baseInformation');
@@ -187,8 +196,11 @@ class Admin_phone extends CI_Controller {
                 $config['upload_path'] = $this->logo_dir;
                 $config['allowed_types'] = 'gif|jpg|png';
                 $file_name = preg_replace('/[^a-zA-Z]/', '', ucwords($phone['producer']));
+                
                 $config['file_name'] = $file_name;
                 $config['overwrite'] = FALSE;
+                $config['encrypt_name'] = TRUE;
+
                 $this->load->library('upload', $config);
                 foreach($_FILES as $field => $file){
                 	
@@ -271,6 +283,7 @@ class Admin_phone extends CI_Controller {
         $phone->baseInformation = '';
         $phone->noteInformation = '';
         $phone->note = '';
+        $phone->isStatus = '';
         
         $data['new_item'] = $phone;
         $this->load->view('panel/home', $data);

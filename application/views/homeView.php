@@ -12,7 +12,7 @@ if (isset($site_meta_data)) {
 	$this->load->view('home/block_service');
 ?>
 	<!--main-->	
-  	<div class="main" style="width:980px; float:left;">
+  	<div class="main" style="width:980px; float:left; display: none;">
 		<!-- left-->	
 	 	<div class="left">
 			<!--spbanchay-->	
@@ -43,5 +43,5 @@ if (isset($site_meta_data)) {
 	<?php //$this->load->view('doiTac/blockDoiTac'); ?>
 	<!--end doitac-->
   	</div>
-<?php $this->load->view('partial/right_left_banner'); ?>
+<?php //$this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

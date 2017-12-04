@@ -12,7 +12,7 @@ class Product_model extends MY_Model {
     var $fields = array('id', 'producer', 'model', 'price','description', 'introduction','logo', 'product_category_id','best_sell',
     						'link_rewrite','meta_title','meta_description','meta_keywords','date_add','date_upd','active',
     					 'sale_off', 'approx_price', 'status', 'accesory', 'time_warranty', 'is_new', 'moi_ve', 'sap_ve', 'gia_tot', 'qua_tang', 'gia_cu',
-    					 'isHight', 'isIntermediate', 'baseInformation', 'noteInformation', 'note' );
+    					 'isHight', 'isIntermediate', 'baseInformation', 'noteInformation', 'note', 'isStatus' );
     var $required_fields = array('producer', 'active');
 
     /**
@@ -144,7 +144,7 @@ class Product_model extends MY_Model {
 	public function get_list_phu_kien_hot(){
 		$this->db->select('*');
 		$this->db->from($this->primary_table);
-		$where_statement = 'product_category_id in (12,13,14,15,16) and best_sell = 1';
+		$where_statement = 'product_category_id in (12,13,14,15,16) and active = 1';
 		$this->db->where($where_statement);
 		$this->db->order_by("id", "desc");
 		$query = $this->db->get();
@@ -154,10 +154,10 @@ class Product_model extends MY_Model {
 	public function read_list_newest(){
 		$this->db->select('*');
 		$this->db->from($this->primary_table);
-		$where_statement = 'product_category_id in (2,3,4,7,8,9,10) and moi_ve = 1';
+		$where_statement = 'product_category_id in (2,3,4,7,8,9,10) and active = 1';
 		$this->db->where($where_statement);
 		$this->db->order_by("id", "desc");
-		$this->db->limit(10);
+		$this->db->limit(3);
 		$query = $this->db->get();
 		return $query->result();
 	}

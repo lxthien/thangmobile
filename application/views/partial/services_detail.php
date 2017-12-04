@@ -24,6 +24,9 @@
             </p>
         </div>
         <p style="float: left; margin-bottom: 5px; font-size: 16px;">Thời gian bảo hành: <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
+		<p style="float: left; margin-bottom: 5px; font-size: 16px;">
+			Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (<a target="_blank" style="font-size: 12px; font-style: italic; color: #263e81;" href="http://dienthoaivungtau.com/tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html">Xem bản đồ</a>)
+		</p>
 		<div class="main-news-social">
 	    	<div class="social">
 	    		<!-- Button like facebook -->
@@ -109,11 +112,11 @@
 				            $i++;
 				        ?>
 				        <div class="product-news-right-item">
-				        	<a href="#" class="img-product-news">
+				        	<a href="<?php echo base_url($eachProduct->link_rewrite); ?>" class="img-product-news">
 				        		<img src="<?php echo image('files/logo/ads/'.$eachProduct->logo, 'product_65_86'); ?>">
 				        	</a>
 				        	<div class="product-news-right-info">
-				        		<a href=""><?php echo $eachProduct->producer . ' ' . $eachProduct->model ?></a>
+				        		<a href="<?php echo base_url($eachProduct->link_rewrite); ?>"><?php echo $eachProduct->producer . ' ' . $eachProduct->model ?></a>
 				        		<p class="product-new-right-price">Giá: <span><?php echo number_format($eachProduct->price, "0", ",", "."); ?> đ</span>
 				        		</p>
 				        		<p class="product-new-right-status">

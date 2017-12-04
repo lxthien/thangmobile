@@ -8,35 +8,29 @@
 	<div class="ttincongghe">
 		<div class="sreentieude" style="width: 675px; margin-left: 0;">
 			<div class="tieude" style="font-size: 16px; font-weight: bold;">
-				<p><?php echo $this->sconfig->get_value('site_name');?></p>
+				<div class="contact-tbl-title" style="margin-top: 10px; font-size: 16px; font-weight: bold; margin-bottom: 5px;">Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</div>
 			</div>
 		</div>
 		<div align="justify" class="noidungchitiet"	style="width: 675px; margin-top: 5px;">
 			<div class="noidunggioithieu" style="width: 543px; margin-bottom: 10px;">
-
 				<div class="contact-tbl">
 					<div class="contact-tbl-row">
-						<img src="assets/images/contact_add.png" width="16" height="18" alt="contact icon" />
 						<span class="label" style="font-weight: bold;">Địa chỉ:</span>
 						<?php echo $this->sconfig->get_value('address');?>
 					</div>
 					<div class="contact-tbl-row">
-						<img src="assets/images/contact_phone.png" width="16" height="18" alt="mobile icon" />
 						<span class="label" style="font-weight: bold;">Điện thoại:</span>
 						<?php echo $this->sconfig->get_value('TEL');?>
 						&nbsp;&nbsp;
-						<img src="assets/images/contact_hotline.png" width="16" height="18" style="margin-bottom: -3px;" alt="hotline icon"/>
 						<span class="label">
 							<span id="ctl28_ctl01_lblTPhone" style="font-weight: bold;">Hotline:</span>
 						</span>
 						<span style="font-size: 14px;"><?php echo $this->sconfig->get_value('FAX');?></span>
 					</div>
 					<div class="contact-tbl-row">
-						<img src="assets/images/contact_web.png" width="16" height="18" alt="web icon" />
 						<span class="label" style="font-weight: bold;">Website:</span>
 						<?php echo base_url(); ?>
 						&nbsp;&nbsp;
-						<img src="assets/images/contact_email.png" width="16" height="18" style="margin-bottom: -4px;" alt="email icon"/>
 						<span class="label">
 							<span id="ctl28_ctl01_lblTPhone" style="font-weight: bold;">Email:</span>&nbsp;
 						</span>

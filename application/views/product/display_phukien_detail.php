@@ -4,6 +4,7 @@
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a>
     <a href="<?php echo base_url().'san-pham/phu-kien-dien-thoai'; ?>">Phụ kiện điện thoại</a>
+    <a href="<?php echo base_url().'san-pham/dien-thoai/'.$productCategory->link_rewrite; ?>"><?php echo $productCategory->name; ?></a>
     <span><?php echo $viewProduct->model; ?></span>
 </div>
 <div class="allboxsp1 phu-kien" style="float:left;">
@@ -19,7 +20,7 @@
                 <?php } ?>
                 <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
             </div>
-            <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0168 200 0800</span></p>
+            <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0901 260 260</span></p>
             <?php if( strlen($viewProduct->noteInformation) > 0): ?>
             <div class="thongtincanluuy">
                 <p class="p-title">Thông tin cần lưu ý</p>
@@ -89,7 +90,8 @@
             </div>
             <div class="product-col-right">
                 <div class="right">
-                    <div class="sreenonline right-box">
+                    <!--
+					<div class="sreenonline right-box">
                         <div class="toponline">
                             <h2>Có thể bạn quan tâm</h2>
                         </div>
@@ -131,6 +133,7 @@
                             </div>
                         </div>
                     </div>
+					-->
                     
                     <div class="sreendownload sreenonline right-box">
                         <div class="toponline">

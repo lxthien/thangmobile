@@ -77,15 +77,15 @@
                     $imgUrl = image('files/logo/ads/'.$productsHomepage[$i]->logo, 'product_110_180');
             ?>
             <div class="col-01">
-                <a href=""><img src="<?php echo $imgUrl; ?>"></a>
+                <a href="<?php echo base_url($productsHomepage[$i]->link_rewrite);?>"><img src="<?php echo $imgUrl; ?>"></a>
                 <div class="name-and-price">
-                    <a href=""><?php echo $productsHomepage[$i]->producer . ' ' . $productsHomepage[$i]->model?></a>
+                    <a href="<?php echo base_url($productsHomepage[$i]->link_rewrite);?>"><?php echo $productsHomepage[$i]->producer . ' ' . $productsHomepage[$i]->model?></a>
                     <p class="note"><?php echo $productsHomepage[$i]->note != '' ? $productsHomepage[$i]->note : '&nbsp;'; ?></p>
                     <p class="price">Giá: <span><?php echo number_format($productsHomepage[$i]->price,"0",",","."); ?> đ</span></p>
                 </div>
                 <div class="status-product">
                     <?php if ($productsHomepage[$i]->moi_ve == 1): ?>
-                    <div class="pr-icon pr-news">Mới</div>
+                    <div class="pr-icon pr-news">Bán chạy</div>
                     <?php endif; ?>
                     <?php if ($productsHomepage[$i]->gia_tot == 1): ?>
                     <div class="pr-icon pr-gs">Giá sốc</div>

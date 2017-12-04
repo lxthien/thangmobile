@@ -19,7 +19,7 @@ $this->ckeditor->config['height'] = '300px';
 $config_mini['filebrowserBrowseUrl'] = base_url() . "ckeditor/ckfinder/browse.php";
 $config_mini['filebrowserImageBrowseUrl'] = base_url() . "ckeditor/ckfinder/browse.php?type=images";
 $config_mini['filebrowserUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=files";
-$config_mini['filebrowserImageUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=images";
+//$config_mini['filebrowserImageUploadUrl'] = base_url() . "ckeditor/ckfinder/upload.php?type=images";
 $config_mini['forcePasteAsPlainText'] = "true";
 
 $con_link = base_url() . $this->uri->segment(1) . '/' . $this->uri->segment(2);

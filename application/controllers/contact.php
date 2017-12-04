@@ -18,14 +18,15 @@ class Contact extends MY_Controller {
     var $content_word_nr = 100;
     var $total_posts;
     var $site_meta_data = array();
+	var $menu_active = 'contact';
 
     public function __construct() {
         parent::__construct();
-        //$this->load->model('Contact_page_model', 'contact_page_model');
         $this->load->model('Mcontact');
         $this->load->model('Banner_model', 'banner_model');
         $this->load->model('Advertise_model', 'advertise_model');
         $this->load->model('Download_model', 'download_model');
+		$this->load->model('services_model', 'services_model');
     }
 
     public function index() {
@@ -85,6 +86,7 @@ class Contact extends MY_Controller {
         $data['latest_downloads'] = $this->get_latest_download();
         $data['contact'] = $this->Mcontact->listcontact();
         $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+		$data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
         $this->load->view('contact', $data);
         
     }

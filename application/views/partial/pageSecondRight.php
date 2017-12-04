@@ -7,6 +7,7 @@
                 $data['posts_same_category'] = $page_second_right['posts_same_category'];
             }
             @$data['category'] = $page_second_right['category'];
+            @$data['categoryParent'] = $page_second_right['categoryParent'];
             $this->load->view('partial/news_detail', $data);
         } else if (isset($show_all_news) && $show_all_news == 'true') {
             $data = array();

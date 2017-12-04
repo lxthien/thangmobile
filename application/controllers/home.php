@@ -12,6 +12,9 @@
  */
 class Home extends MY_Controller {
 
+	var $menu_active = 'home';
+	var $useFull = true;
+	
     //put your code here
     function __construct() {
         parent::__construct();
@@ -183,7 +186,7 @@ class Home extends MY_Controller {
     }
     
     private function _getArrayNewsByCategoryHome($idCategory) {
-    	$options = array('limit' => NO_OF_NEWS_IN_EACH_CATEGORY_IN_HOMEPAGE, 'sort_by' => 'date_add', 'sort_direction' => 'DESC', 'id_news_category' => 2);
+    	$options = array('limit' => NO_OF_NEWS_IN_EACH_CATEGORY_IN_HOMEPAGE, 'sort_by' => 'date_add', 'sort_direction' => 'DESC', 'id_news_category' => array(2, 3));
     	//$category = $this->_getCategory($idCategory);
     	$news = $this->_getNews($options, null);
     	return $news;

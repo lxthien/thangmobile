@@ -16,13 +16,25 @@ $page_link = base_url() . $this->uri->segment(1) . '/' . $this->uri->segment(2);
             return true;
         }
     }
+
+    var link = <?php echo '"'.$page_link.'"'; ?>;
+    function filter() {
+        location = link + '/index/' + $('#category').val();
+    }
 </script>
 <table width='100%' border='0' cellspacing='0' cellpadding='0' align='center'>
     <tr>
         <td height='55' background='<?php echo RES_PATH; ?>images/panel/admin-blue_08.gif' valign='middle' style='padding-left:20px'>
-        <p class='toTop'><a href='<?php echo  $page_link. "/add" ?>'>Add News</a></p>
+            <p class='toTop'><a href='<?php echo  $page_link. "/add" ?>'>Add News</a></p>
         </td>
-        <td align="right" background='<?php echo RES_PATH; ?>images/panel/admin-blue_08.gif' valign='middle' style='padding-right:10px'>&nbsp;</td>
+        <td align="right" background='<?php echo RES_PATH; ?>images/panel/admin-blue_08.gif' valign='middle' style='padding-right:10px'>&nbsp;
+            <?php 
+                echo form_open($page_link, array('id' => 'filter_form'));
+                $js = 'id="category" onChange="filter()"';
+                echo form_dropdown('category', $category_list, set_value('category', $filter_category), $js).'<br>';
+                echo form_close();
+            ?>
+        </td>
     </tr>
 </table>
 <form action='<?php echo $page_link.'/delete';?>' method='post' name='form1' style='margin:0px'>

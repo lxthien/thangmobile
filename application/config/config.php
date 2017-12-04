@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/thangmobile/';
+$config['base_url']	= 'http://localhost/dienthoaivungtau/';
 
 /*
 |--------------------------------------------------------------------------

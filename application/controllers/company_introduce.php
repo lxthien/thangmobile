@@ -130,9 +130,11 @@ class Company_introduce extends MY_Controller {
         		$item === 'che-do-bao-hanh') {
         	
             if ($item === 'che-do-bao-hanh') {
+				$this->menu_active = 'cdbh';
                 $query = $this->newsModel->read_by_id(WARRANTY);
             } 
             else if($item === 'dich-vu-sua-chua') {
+				$this->menu_active = 'services';
                 $query = $this->newsModel->read_by_id(SERVICES);
             } 
             else if($item === 'site-map') {

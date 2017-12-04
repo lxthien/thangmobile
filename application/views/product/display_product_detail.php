@@ -4,6 +4,7 @@
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a>
     <a href="<?php echo base_url().'san-pham/dien-thoai'; ?>">Điện thoại</a>
+    <a href="<?php echo base_url().'san-pham/dien-thoai/'.$productCategory->link_rewrite; ?>"><?php echo $productCategory->name; ?></a>
     <span><?php echo $viewProduct->model; ?></span>
 </div>
 <div class="allboxsp1" style="float:left;">
@@ -27,9 +28,9 @@
             </div>-->
             <div class="box-chung-toi-cam-ket">
                 <span>Chúng tôi cam kết:</span>
-                <p>Yes Mobile cung cấp hàng mới 100% nguyên hộp và hàng đã qua sử dụng nhưng chất lượng và hình thức còn rất tốt:</p>
+                <p>Yes Mobile cung cấp hàng mới 100% nguyên hộp và hàng đã qua sử dụng nhưng chất lượng và hình thức còn rất tốt.</p>
                 <p>Tuyệt đối không bán hàng dựng lại, khắc phục lỗi, đã qua sửa chữa phần cứng.</p>
-                <p>Vì hàng đã qua sử dụng thường có nhiều chất lượng, mức giá, nguồn hàng khác nhau, Yes Mobile không chạy đua theo giá nhưng cam kết bán hàng chất lượng tốt và nâng cao dịch vụ sau bán hàng. Rất mong được Quý khách hàng lưu tâm. Trân trọng cảm ơn!</p>
+                <p>Vì hàng đã qua sử dụng thường có nhiều chất lượng, mức giá, nguồn hàng khác nhau, Yes Mobile không cạnh tranh về giá nhưng cam kết bán hàng chất lượng tốt và nâng cao dịch vụ sau bán hàng. Rất mong được Quý khách hàng lưu tâm. Trân trọng cảm ơn!</p>
             </div>
         </div>
         <div class="rightthongtin">
@@ -40,7 +41,8 @@
                 <?php } ?>
                 <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
             </div>
-            <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0168 200 0800</span></p>
+			<p style="font-size: 18px; color: #023f81;">Sản phẩm tạm hết hàng<p/> <br/>
+            <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0168 200 0080</span></p>
             <div class="thongtincoban">
                 <p class="p-title">Thông tin cấu hình</p>
                 <hr>

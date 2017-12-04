@@ -1,4 +1,9 @@
 <div class="sub-category-service">
+	<?php if($level == 2): ?>
+		<h1 style="margin-bottom: 10px; font-size: 18px;"><?php echo $catServices->name.' tại Vũng Tàu'; ?></h1>
+	<?php else: ?>
+		<h1 style="margin-bottom: 10px; font-size: 18px;"><?php echo 'Sửa ' . $catServices->name.' tại Vũng Tàu'; ?></h1>
+	<?php endif; ?>
 	<p style="font-size: 15px;">Chọn điện thoại/máy tính bảng bạn cần sửa:</p>
 	<ul>
 		<?php foreach ($categoryServices as $row): ?>
@@ -13,7 +18,7 @@
 ?>
 	<div class="box-service">
 		<a href="<?php echo base_url($row->id_news.'-'.$row->link_rewrite.URL_TRAIL); ?>" class="img-server" title="<?php echo $row->title; ?>">
-			<img alt="<?php echo $row->title; ?>" src="<?php echo image($row->news_icon, 'news_195_135'); ?>" />
+			<img alt="<?php echo $row->title; ?>" src="<?php echo image($row->news_icon, 'news_220_160'); ?>" />
 		</a>
 		<div class="right-box-service">
 			<a href="<?php echo base_url($row->id_news.'-'.$row->link_rewrite.URL_TRAIL); ?>" title="<?php echo $row->title; ?>"><?php echo $row->title; ?></a>

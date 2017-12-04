@@ -15,7 +15,9 @@
 		    	if ($i==1):
 		        ?>
 			        <div class="sreenttin box-service box-service-first">
-				       	<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_250_150'); ?>" />
+				       	<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->title; ?>">
+				       		<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_250_180'); ?>" />
+				       	</a>
 						<div class="right-box-service">
 							<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
 							<p class="date-service"><?php echo date_format(new DateTime($item->date_add), 'd/m/Y'); ?></p>
@@ -24,7 +26,9 @@
 					</div>
 				<?php else: ?>
 					<div class="sreenttin box-service">
-				       	<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_195_135'); ?>" />
+						<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->title; ?>">
+				       		<img class="img-server" alt="<?php echo $item->title; ?>" src="<?php echo image($item->news_icon, 'news_220_160'); ?>" />
+				       	</a>
 						<div class="right-box-service">
 							<a href="<?php echo base_url($item->link_rewrite); ?>" title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
 							<p class="date-service"><?php echo date_format(new DateTime($item->date_add), 'd/m/Y'); ?></p>
