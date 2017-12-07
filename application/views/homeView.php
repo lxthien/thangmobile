@@ -12,9 +12,8 @@ if (isset($site_meta_data)) {
 	$this->load->view('home/block_service');
 ?>
 	<!--main-->	
-  	<div class="main" style="width:980px; float:left; display: none;">
-		<!-- left-->	
-	 	<div class="left">
+  	<div class="row main">
+	 	<div class="left col-md-8">
 			<!--spbanchay-->	
 			<?php $this->load->view('home/blockBestSellProduct'); ?>
 			<!--end spbanchay-->
@@ -24,10 +23,8 @@ if (isset($site_meta_data)) {
 			<!--spbanmoi-->
 			<?php // $this->load->view('home/blockNewProduct'); ?>
 			<!--end spbanmoi--> 
-	 	</div>
-		<!--end left-->	
-		<!--right-->		 
- 		<div class="right">
+	 	</div>	 
+ 		<div class="right col-md-4">
 			<!--download-->
 			<?php  $this->load->view('download/blockDownload'); ?>
 			<!--end download-->
@@ -35,13 +32,7 @@ if (isset($site_meta_data)) {
 			<?php //$this->load->view('partial/right_column_ads'); ?>
 			<!--end qc-->
 		</div>
-	 	<!--end right-->
-	 	<!--new-->
-		<?php $this->load->view('home/home_tin_cong_nghe'); ?>
-	<!--end new-->
-	<!--doitac-->
-	<?php //$this->load->view('doiTac/blockDoiTac'); ?>
-	<!--end doitac-->
+		<?php //$this->load->view('home/home_tin_cong_nghe'); ?>
   	</div>
 <?php //$this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

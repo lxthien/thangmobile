@@ -1,5 +1,4 @@
-<!--ttin-->	
-<div class="allboxsp1" style="float:left;">
+<div class="allboxsp1">
     <?php        
         if (isset($page_second_right['single_post'])) {
             $data['news_item'] = $page_second_right['single_post'];

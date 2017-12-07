@@ -62,7 +62,6 @@ if (!isset($meta_description)) {
         <link rel="stylesheet" href="<?php echo base_url().'assets/'; ?>css/nivo-style.css" type="text/css" media="screen" />
         <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery.bxSlider.min.js" type="text/javascript"></script>
 		<script src="<?php echo base_url().'assets/'; ?>js/AC_RunActiveContent.js" type="text/javascript"></script>
-        <!-- nivo slider -->
 
         <!-- Google analytic -->
 		<!-- <script>
@@ -75,13 +74,16 @@ if (!isset($meta_description)) {
            ga('send', 'pageview');</script>
 		</script> -->
 
-        <!-- Api google plus -->
+
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://apis.google.com/js/platform.js" async defer>
           {lang: 'vi'}
         </script>
 
+        <!-- Import font Roboto -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,500italic,700,300' rel='stylesheet' type='text/css'>
+
+        <!-- Script chat -->
 		<!-- <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=41e6a15d29b0336ce3b80f023db47ab7&data=eyJzc29faWQiOjEzMTU3ODAsImhhc2giOiI1MzU0N2Q4ZTU4Y2U0YmM5NGM1NTAxMWUzY2UxOWU1YyJ9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script> -->
     </head>
     <body class="green-color">

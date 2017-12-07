@@ -49,7 +49,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/du-an">Dịch vụ sửa chữa</a>
+                        <a class="nav-link dropdown-toggle" href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>">Dịch vụ sửa chữa</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php foreach ($menuCategoryService as $service): ?>
                                 <li class="dropdown-item">

@@ -22,7 +22,6 @@
 		</a>
 		<div class="right-box-service">
 			<a href="<?php echo base_url($row->id_news.'-'.$row->link_rewrite.URL_TRAIL); ?>" title="<?php echo $row->title; ?>"><?php echo $row->title; ?></a>
-			<!--<p class="date-service"><?php echo date_format($date_post, 'd/m/Y'); ?></p>-->
 			<p class="des-service">
 				<?php echo $row->content; ?>
 			</p>
@@ -31,8 +30,8 @@
 <?php
 	endforeach;
 ?>
-<div class="phantrang">
-	<div class="back">
+<div class="phantrang row">
+	<div class="back col-md-12">
 		<?php echo $this->pagination->create_links(); ?>
 	</div>
 </div>

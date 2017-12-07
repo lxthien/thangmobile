@@ -1,4 +1,4 @@
-<div class="sreensphot" style="width:675px; height:210px; float:left; margin-bottom:40px;">
+<div class="sreensphot">
 	<h1 class="h1-title">PHỤ KIỆN</h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
@@ -30,12 +30,4 @@
 			</li>
 		</ul>
 	</div>
-</div>   
-	   
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#slider1').bxSlider({
-			auto: false
-		});
-	});
-</script>   
+</div>

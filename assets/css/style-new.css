@@ -141,7 +141,7 @@ p.no-item {
  * Home page
  ******************************/
 .home-service {
-	width: 100%; height: 110px; clear: both;
+	/*width: 100%; height: 110px; clear: both;*/
 }
 .title-service {
 	padding: 10px 0;
@@ -1094,12 +1094,14 @@ height: 70px;}
 	.main-slider .nivoSlider a img {
 		width: 100%;
 	}
+	
 	.banner {
+		width: 100%; float: none; clear: both;
+	}
+	.banner img{
 		width: 100%;
 	}
-	.banner {
-		float: none; clear: both;
-	}
+
 	.main-slider .nivoSlider img {
 		width: 100%;
 	}
@@ -1114,11 +1116,93 @@ height: 70px;}
 
 
 	/*=========================
+	 * Homepage
+	 =========================*/
+	.main .left {
+		width: 100%;
+	}
+	.left .allboxsp2 .spbanchay {
+		width: 100%;
+	}
+	.grid .col-01 {
+		width: 100%;
+	}
+
+	.main .right {
+		width: 100%;
+	}
+	.main .right .sreencontentdownload {
+		width: 100%;
+	}
+
+	/*=========================
+	 * Product listing page
+	 =========================*/
+	.main-product {
+		width: auto; float: none;
+	}
+
+	.product-list-page {
+		padding-top: 15px;
+	}
+	.product-list-page .spbanchay {
+		width: auto;
+	}
+	.product-list-page .spbanchay .sreensp1 {
+		width: 100%; margin: 0;
+	}
+	.product-list-page .spbanchay .boxsp {
+		width: auto;
+	}
+
+	.main-product .product-list-page .boxsp {
+		margin: 0;
+	}
+
+	/*=========================
+	 * Service page
+	 =========================*/
+	.ttincongghe {
+		width: 100%;
+	}
+	.ttincongghe .sreentieude {
+		width: 100%; margin-left: 0px;
+	}
+	.ttincongghe .noidungthitruongchitiet {
+		width: 100%;
+	}
+
+	.box-service .img-server {
+		width: 145px; height: auto;
+	}
+	.box-service .img-server img {
+		width: 100%;
+	}
+	.box-service .right-box-service {
+		width: 100%; float: none;
+	}
+
+	.allboxsp1 .phantrang {
+		width: 100%;
+	}
+
+	/*=========================
 	 * Footer
 	 =========================*/
-	.foter .footer-right {
-		height: auto;
+	.foter {
+		width: 100%; background: #ffffff; border-top: 1px solid #fff;
 	}
+	.foter .add {
+		width: 100%;
+	}
+	.foter .add .footer-menu li {
+		height: 20px; line-height: 20px;
+	}
+
+	.foter .footer-right {
+		height: auto; width: 100%; float: none;
+	}
+
 	.footer-address p {
 		font-size:14px; line-height: 20px;
 	}
@@ -1231,6 +1315,76 @@ height: 70px;}
 	}
 	.banner {
 		float: none; clear: none;
+	}
+
+	/*=========================
+	 * Homepage
+	 =========================*/
+	.main .left {
+		float: none; width: 100%;
+	}
+	.allboxsp2 {
+		float: left; padding-top: 1px; margin-bottom: 10px;
+	}
+	.left .allboxsp2 .spbanchay {
+		width: 100%;
+	}
+
+	.main .sreensphot {
+		width: 675px; height: 210px; float: left; margin-bottom: 40px;
+	}
+
+	/*=========================
+	 * Product listing page
+	 =========================*/
+	.product-list-page .title .title1 {
+		background-color:#cccccc; width:980px; height:2px; margin-bottom:20px; float:left;
+	}
+	.product-list-page .spbanchay .sreensp1 {
+		width: auto; margin-left: 0;
+	}
+	.product-list-page .spbanchay .sreensp1 .boxsp {
+		width: 100%; margin: 0 0 10px 0;
+	}
+	.product-list-page .spbanchay .sreensp1 .boxsp .titlesp p,
+	.product-list-page .spbanchay .sreensp1 .boxsp .pricespnew {
+		font-size: 13px; margin-bottom: 0;
+	}
+
+	/*=========================
+	 * Service page
+	 =========================*/
+	.ttincongghe {
+		width: 675px;
+	}
+	.ttincongghe .sreentieude {
+		width:675px; margin-left: 0px;
+	}
+	.ttincongghe .sreentieude .tieude {
+		font-size:17px; font-weight:bold; padding: 3px 0 12px;
+	}
+	.ttincongghe .sreentieude .tieude .h1-title-detail {
+		font-size:22px; font-weight:bold; color:#033f83; text-transform: none;
+	}
+	.ttincongghe .noidungthitruongchitiet {
+		width: 675px; margin-top: 5px; font-size: 15px; line-height: 1.5;
+	}
+
+	.box-service .img-server {
+		width: 200px; height: 145px;
+	}
+	.box-service .img-server img {
+		width: 100%;
+	}
+	.box-service .right-box-service {
+		width: 430px;
+	}
+
+	/*=========================
+	 * Footer
+	 =========================*/
+	.foter .add {
+		width:590px; float:left;
 	}
 }
 

@@ -23,9 +23,9 @@
 	<?php 
 		if ($news_item->active === '1') {
 	?>
-	<div class="sreentieude" style="width:675px; margin-left: 0px; ">
-		<div class="tieude" style="font-size:17px; font-weight:bold; padding: 3px 0 12px;" >
-		    <h1 class="h1-title-detail" style="font-size:22px; font-weight:bold; color:#033f83; text-transform: none;"><?php echo $news_item->title; ?></h1>
+	<div class="sreentieude">
+		<div class="tieude">
+		    <h1 class="h1-title-detail"><?php echo $news_item->title; ?></h1>
 	    </div>
 	    <div class="main-news-social">
 	    	<div class="social">

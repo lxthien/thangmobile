@@ -1,8 +1,9 @@
+			<div class="clearfix"></div>
 			<!--foter-->
 			<div class="foter">
 				<div class="row">
 					<div class="col-md-8">
-						<div class="add" style="width:590px; float:left;">
+						<div class="add">
 							<ul class="footer-menu">
 								<li><a href="<?php echo base_url('gioi-thieu.html'); ?>">Về Chúng tôi</a></li>
 								<li><a href="<?php echo base_url('tuyen-dung.html'); ?>">Tuyển dụng</a></li>
@@ -22,7 +23,7 @@
 					<div class="col-md-4">
 						<div class="footer-right">
 							<h3>Tài khoản thanh toán</h3>
-							<div class="footer-right-01" style="font-size:10px">
+							<div class="footer-right-01">
 								<p>Vietcombank - Chi nhánh Vũng Tàu</p>
 								<p>Số TK: 008 100 1232 991 - Chủ TK: Nguyễn Văn Thành</p>
 							</div>
@@ -51,6 +52,17 @@
 
 	<!--jQuery caroufredsel-->
     <script src="<?php echo base_url(); ?>assets/js/jquery.carouFredSel-5.6.4-packed.js"></script>
+
+    <!--jQuery Nivo Slider-->
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.nivo.slider.js"></script>
+
+	<!--jQuery Mobile Detect-->
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/detectmobilebrowser.js"></script>
+
+	<!-- Product detail page -->
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo RES_PATH; ?>css/prettyPhoto.css"/>
+	<script type="text/javascript" src="<?php echo RES_PATH; ?>js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="<?php echo RES_PATH; ?>js/functions.js"></script>
 	
 	<!-- Custom JS -->
 	<script src="<?php echo base_url(); ?>assets/js/app.js"></script>
