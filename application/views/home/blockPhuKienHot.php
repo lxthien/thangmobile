@@ -1,10 +1,10 @@
-<div class="sreensphot">
+<div class="sreensphot home-accessories">
 	<h1 class="h1-title">PHỤ KIỆN</h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
 		<div class="left-70">&nbsp;</div>
 	</div>
-	<div class="">
+	<div class="phu-kien-hot">
 		<ul id="slider1">
 			<li>
 			<?php 

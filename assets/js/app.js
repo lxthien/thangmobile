@@ -8,7 +8,8 @@ $(document).ready(function() {
 				width: '100%',
 				scroll: 1,
 				items: {
-					width: 160,
+                    width: 160,
+                    height: 120,
 					visible: {
 						min: 1,
 						max: 1
@@ -40,8 +41,19 @@ $(document).ready(function() {
 
         $('#slider').nivoSlider({animSpeed: 500, pauseTime: 9000});
 
-        $('#slider1').bxSlider({
-			auto: false
+        $('#slider1').carouFredSel({
+            auto: false,
+            responsive: true,
+            scroll: {
+                items: 1,
+                duration: 3000
+            },
+            mousewheel: true,
+            items: {
+                visible: 1,
+                width: 200,
+                height: 190
+            }
 		});
 	}
 });

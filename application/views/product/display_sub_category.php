@@ -21,7 +21,7 @@ if (isset($eachProductList)) {
             $index = 1;
             for ($i = 0; $i < count($eachProductList); $i++) {
                 ?>
-                <div class="boxsp col-md-3 col-6">
+                <div class="boxsp col-md-3 col-12">
                     <div class="sp3">
                         <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
                             <img alt="<?php echo $eachProductList[$i]->producer.' '.$eachProductList[$i]->model; ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_75_100'); ?>"/>

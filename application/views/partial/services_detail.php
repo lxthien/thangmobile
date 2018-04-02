@@ -4,27 +4,25 @@
 		<a href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>" title="Sửa chữa điện thoại">Sửa chữa điện thoại</a>
 		<a href="<?php echo base_url('dich-vu/'.$catParentServices->link_rewrite); ?>" title="<?php echo $catParentServices->name; ?>"><?php echo $catParentServices->name; ?></a>
 		<span><?php echo $catServices->name; ?></span>
-		<!--<span><?php echo $servicesDetail->title; ?></span>-->
 	</div>
 </div>
 <div class="server-information">
 	<div class="server-information-left">
-		<!--<img src="<?php echo base_url('assets/images/dich-vu-chi-tiet.jpg'); ?>">-->
 		<img src="<?php echo image($servicesDetail->news_icon, 'news_390_258'); ?>">
 	</div>
 	<div class="server-information-right">
-		<h1 class="title-service h1-title" style="padding: 3px 0; margin-bottom: 0;"><?php echo $servicesDetail->title; ?></h1>
+		<h1 class="title-service h1-title"><?php echo $servicesDetail->title; ?></h1>
 		<div class="price-detail">
 			<p>
             <?php if ($servicesDetail->price != 0) { ?>
-                <span class="product-price" style="font-size: 18px;"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate" style="margin: 3px 5px 0px 5px; font-size: 18px;">vnđ</span> <span class="ngan-cach" style="font-size: 16px; padding: 0 3px;">|</span> <span class="hotline-tu-van" style="font-size: 16px; margin-top: 2px;"><span style="color: #000000;">Tư vấn: </span>0901 260 260</span>
+                <span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate" style="margin: 3px 5px 0px 5px; font-size: 18px;">vnđ</span> <span class="ngan-cach" style="font-size: 16px; padding: 0 3px;">|</span> <span class="hotline-tu-van" style="font-size: 16px; margin-top: 2px;"><span style="color: #000000;">Tư vấn: </span>0901 260 260</span>
             <?php }else{ ?>
             	<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span style="color: #000000;font-size:16px ;padding: 0 3px;">Tư vấn:</span> 0901 260 260</span>
             <?php } ?>
             </p>
         </div>
-        <p style="float: left; margin-bottom: 5px; font-size: 16px;">Thời gian bảo hành: <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
-		<p style="float: left; margin-bottom: 5px; font-size: 16px;">
+        <p class="time-wanarry">Thời gian bảo hành: <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
+		<p class="address">
 			Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (<a target="_blank" style="font-size: 12px; font-style: italic; color: #263e81;" href="http://dienthoaivungtau.com/tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html">Xem bản đồ</a>)
 		</p>
 		<div class="main-news-social">
@@ -44,7 +42,7 @@
 	    </div>
 	</div>
 </div>
-<div class="server-information-detail server-information">
+<div class="server-information-detail server-information"  style="display:none;">
 	<div class="server-information-left">
 		<div class="noidungthitruongchitiet">
 			<p><?php echo $servicesDetail->content;?></p>

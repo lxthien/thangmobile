@@ -90,7 +90,7 @@ endif;
     </div>
     <div class="boxdownload">
         <div class="3">
-            <div class="fb-page" data-href="https://www.facebook.com/YesMobile.VietNam" data-width="295" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/YesMobile.VietNam"><a href="https://www.facebook.com/YesMobile.VietNam">dienthoaivungtau.com</a></blockquote></div></div>
+            <div class="fb-page" data-href="https://www.facebook.com/YesMobile.VietNam" data-adapt-container-width="true" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/YesMobile.VietNam"><a href="https://www.facebook.com/YesMobile.VietNam">dienthoaivungtau.com</a></blockquote></div></div>
         </div>
     </div>
 </div>

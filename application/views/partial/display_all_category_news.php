@@ -19,7 +19,7 @@
 		        $date_post = new DateTime($item->date_add);
 		        if ($i==1):
 		?>
-					<div class="sreenttin box-service box-service-first" style="width: 675px; float: left;">
+					<div class="sreenttin box-service box-service-first">
 						<div class="hinhcongnghe">
 							<a href="<?php echo base_url($category.'/'.$categoryUrl.'/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>">
 								<img src="<?php echo image($item->news_icon, 'news_250_180'); ?>" alt="<?php echo $item->title; ?>" />
@@ -38,7 +38,7 @@
 						</div>
 					</div>
 			<?php else: ?>
-					<div class="sreenttin box-service" style="width: 675px; float: left;">
+					<div class="sreenttin box-service">
 						<div class="hinhcongnghe">
 							<a href="<?php echo base_url($category.'/'.$categoryUrl.'/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>">
 								<img src="<?php echo image($item->news_icon, 'news_220_160'); ?>" alt="<?php echo $item->title; ?>" />

@@ -1,4 +1,4 @@
-<div class="row home-service col-md-12">
+<div class="row home-service">
 	<div class="col-md-12">
 		<div class="title-service relative">
 			<hr />

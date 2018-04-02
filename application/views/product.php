@@ -11,7 +11,9 @@
 			<?php echo $product_block_main;?>
 		</div>
 		<div class="clearfix"></div>
-		<?php $this->load->view('home/block_service'); ?>
+		<div class="container">
+			<?php $this->load->view('home/block_service'); ?>
+		</div>
   	</div>
 <?php $this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

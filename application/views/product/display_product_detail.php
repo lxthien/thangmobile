@@ -5,10 +5,12 @@
     <span><?php echo $viewProduct->model; ?></span>
 </div>
 
-<div class="allboxsp1 row">
+<div class="allboxsp1">
     <div class="ttinsanpham row">
-        <div class="leftthongtin col-md-6">
-            <div class="boxhinhlonsp"><img alt="<?php echo $site_meta_data['meta_title']; ?>" src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $viewProduct->logo); ?>"/></div>
+        <div class="leftthongtin col-md-6 col-md-12">
+            <div class="boxhinhlonsp">
+                <img alt="<?php echo $site_meta_data['meta_title']; ?>" src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $viewProduct->logo); ?>"/>
+            </div>
             <div class="box-chung-toi-cam-ket">
                 <span>Chúng tôi cam kết:</span>
                 <p>Yes Mobile cung cấp hàng mới 100% nguyên hộp và hàng đã qua sử dụng nhưng chất lượng và hình thức còn rất tốt.</p>
@@ -16,15 +18,15 @@
                 <p>Vì hàng đã qua sử dụng thường có nhiều chất lượng, mức giá, nguồn hàng khác nhau, Yes Mobile không cạnh tranh về giá nhưng cam kết bán hàng chất lượng tốt và nâng cao dịch vụ sau bán hàng. Rất mong được Quý khách hàng lưu tâm. Trân trọng cảm ơn!</p>
             </div>
         </div>
-        <div class="rightthongtin col-md-6">
-            <h1 style="font-size:23px; font-weight: 400; color:#222222;"><?php echo $viewProduct->model; ?></h1>
+        <div class="rightthongtin col-md-6 col-md-12">
+            <h1><?php echo $viewProduct->model; ?></h1>
             <div class="price-detail">
                 <?php if ($viewProduct->gia_cu != 0 && $viewProduct->gia_cu != '' && $viewProduct->gia_cu != null) { ?>
                     <span class="product-price" style="text-decoration:line-through;"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span><!-- <span class="icon-price">New</span>-->
                 <?php } ?>
                 <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
             </div>
-			<p style="font-size: 18px; color: #023f81;">Sản phẩm tạm hết hàng<p/> <br/>
+            <p class="product-out-of-stock">Sản phẩm tạm hết hàng<p/>
             <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0168 200 0080</span></p>
             <div class="thongtincoban">
                 <p class="p-title">Thông tin cấu hình</p>
@@ -57,8 +59,8 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <p style="float: left; padding: 8px 0; font-size: 15px; font-weight: 600; color: #262626;">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="http://dienthoaivungtau.com/chinh-sach-van-chuyen.html" style="color: #ed0000;">tại đây</a></p>
-            <div class="share-product" style="float: left; width: 100%; margin-bottom: 8px;">
+            <p class="note-delivery">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="http://dienthoaivungtau.com/chinh-sach-van-chuyen.html" style="color: #ed0000;">tại đây</a></p>
+            <div class="share-product">
                 <div class="social">
                     <!-- Button like facebook -->
                     <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
@@ -76,22 +78,20 @@
         </div>
         <div class="main-product-detail col-md-12">
             <div class="row">
-                <div class="sreenthongso col-md-8">
-                    <div class="thongso"><a href="javascript:void(0);" onclick="showIntroduce();">
+                <div class="sreenthongso col-md-8 col-md-12">
+                    <div class="thongso">
+                        <a href="javascript:void(0);" onclick="showIntroduce();">
                             <p>Trải nghiệm sản phẩm</p>
                         </a>
                     </div>
-                    <p style="float:left; margin-left:8px; margin-right:5px; font-size: 16px;">|</p>
+                    <p class="pd-10">|</p>
                     <div class="gioithieusp">
                         <a href="javascript:void(0);" onclick="showSpecs();">
                             <p>Thông số cấu hình</p>
                         </a>
                     </div>
                 </div>
-
-                <div class="line7"></div>
-                
-                <div class="sreenttinchitiet">
+                <div class="container sreenttinchitiet col-md-12">
                     <div id="thongsokithuat" class="noidungthongso">
                         <?php echo $viewProduct->description; ?>
                     </div>
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>    
         </div>
     </div>
 </div>
