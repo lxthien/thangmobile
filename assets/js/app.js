@@ -5,7 +5,8 @@ $(document).ready(function() {
 		if(jQuery.browser.mobile) {
 			$('#service-bxslider').carouFredSel({
 	            responsive: true,
-				width: '100%',
+                width: '100%',
+                auto: true,
 				scroll: 1,
 				items: {
                     width: 160,
@@ -22,8 +23,6 @@ $(document).ready(function() {
                 width: '100%',
                 height: '100%',
                 auto: false,
-                prev: '#partner-prev',
-                next: '#partner-next',
                 scroll: 1,
                 swipe: {
                     onMouse: true,
@@ -39,7 +38,10 @@ $(document).ready(function() {
             });
         }
 
-        $('#slider').nivoSlider({animSpeed: 500, pauseTime: 9000});
+        $('#slider').nivoSlider({
+            animSpeed: 500,
+            pauseTime: 9000
+        });
 
         $('#slider1').carouFredSel({
             auto: false,

@@ -42,14 +42,14 @@
                 <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 	    	</div>
 	    	<?php if($news_item->id_news != 3 && $news_item->id_news != 4 && $news_item->id_news != 1 && $news_item->id_news != 150 && $news_item->id_news != 153): ?>
-	    	<span class="time-update-news" style="font-size:11px; margin-bottom:10px">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
+	    	<span class="time-update-news">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
 	    	<?php endif; ?>
 	    </div>
 	</div>
 	<div class="noidungthitruongchitiet">
 		<p><?php echo $news_item->content;?></p>
 	  	<?php if($news_item->source != ''): ?>
-		  	<p align="right" style="font-style: italic; color: #797979;">Nguồn: <?php echo $news_item->source; ?></p>
+		  	<p align="right">Nguồn: <?php echo $news_item->source; ?></p>
 		<?php endif; ?>
 		<p align="justify">&nbsp;</p>	
 	</div>
@@ -73,9 +73,6 @@
 			   				<span><?php echo $post->title;?></span>
 			   			</a>
 			   			<p class="des-news-related"><?php echo $post->content; ?></p>
-			   			<p class="date-news-related">
-			   				<?php  echo @date_format($posted_date,'d/m/Y');?>
-			   			</p>
 		 			</div>
 				</div>
 			<?php
@@ -87,14 +84,14 @@
     }
 	} else {
 	?>
-    <div class="sreentieude" style=" width:610px; margin-left:20px; margin-top:10px;">
-		<div class="tieude" style="font-size:16px; font-weight:bold;" >
-        	&nbsp;
-        </div>   
-	</div>
-	<div  align="justify" class="noidungthitruongchitiet" style="width:610px; margin-bottom:1px; margin-left:20px; margin-top:5px;">
-		  <p>Hiện tại chưa có nội dung trong mục này</p>
-	</div>
+		<div class="sreentieude">
+			<div class="tieude">
+				&nbsp;
+			</div>   
+		</div>
+		<div class="noidungthitruongchitiet">
+			<p>Hiện tại chưa có nội dung trong mục này</p>
+		</div>
 	<?php 
     }
 	?>
