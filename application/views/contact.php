@@ -11,26 +11,26 @@ $this->load->view('partial/menu');
 ?>
 
 	<!--main-->	
-	<div class="main" style="width:980px; float:left; margin-top: 15px;">
-		<div class="nav">
+	<div class="row main">
+		<div class="nav nav-contact">
 		    <a href="<?php echo base_url(); ?>">Trang chủ</a>
 		    <span>Liên hệ</span>
 		</div>
 		<!-- left-->	
-	 	<div class="left">
+	 	<div class="left col-md-8">
     		<?php $this->load->view('lienHe/lien_he');?>
 		</div>
 		<!--end left-->	
 		<!--right-->		 
-		<div class="right">
+		<div class="right col-md-4">
 			<!--download-->
 			<?php  $this->load->view('download/blockDownload'); ?>
 			<!--end download-->
 		</div>
 		<!--end right-->
-		<!--doitac-->
-		<?php $this->load->view('home/block_service'); ?>
-		<!--end doitac-->
-  	</div>
+	</div>
+	<!--doitac-->
+	<?php $this->load->view('home/block_service'); ?>
+	<!--end doitac-->
 <?php $this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

@@ -8,7 +8,7 @@
 ?>
 
 <!--main-->	
-<div class="row main <?php echo $this->router->fetch_method(); ?>">
+<div class="row main <?php echo $this->router->fetch_class(); ?> <?php echo $this->router->fetch_method(); ?>">
 	<?php if (($this->menu_active == 'news' || $this->menu_active == 'guides') && $this->router->fetch_method() == 'view_post_on_page') : ?>
         <div class="nav">
             <a href="<?php echo base_url(); ?>">Trang chủ</a>

@@ -1,4 +1,4 @@
-<div class="allboxsp1">
+<div class="allboxsp1 row">
     <?php        
         if (isset($page_second_right['single_post'])) {
             $data['news_item'] = $page_second_right['single_post'];

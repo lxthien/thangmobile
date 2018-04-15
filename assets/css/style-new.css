@@ -1351,6 +1351,20 @@ height: 70px;}
 	.main .right .lists-service-right ul li a {
 		font-size: 16px;
 	}
+	.company_introduce .nav {
+		margin: 30px 0px 10px;
+	}
+	.company_introduce .allboxsp1 {
+		padding: 0 15px;
+	}
+
+	.servicesCat .allboxsp1,
+	.servicesDetail .allboxsp1 {
+		padding: 0 15px;
+	}
+	.servicesCat .server-information {
+		margin-top: 5px;
+	}
 
 	/*=========================
 	 * Right column
@@ -1373,19 +1387,74 @@ height: 70px;}
 	}
 
 	/*=========================
+	 * News page
+	 =========================*/
+	.view_post_on_page .nav,
+	view_post_on_category .nav {
+		margin: 30px 10px 10px;
+	}
+	.view_post_on_page .left .allboxsp1 .allboxsp1,
+	.view_post_on_category .left .allboxsp1 .allboxsp1 {
+		padding: 0 15px;
+	}
+
+	/*=========================
 	 * News detail
 	 =========================*/
+	.news.index .nav {
+		margin: 30px 0px 10px;
+	}
+	.news.index .left .allboxsp1 {
+		padding: 0 15px;
+	}
 	.cactinkhac2,
 	.cactinkhac2 .main-news-related{
 		width: 100%;
 	}
+	.main-news-social span.time-update-news {
+		float: left;
+		height: 20px;
+		line-height: 20px;
+		font-size: 14px;
+		font-style: italic;
+		color: #797979;
+		margin-top: 10px;
+	}
 	.cactinkhac2-large .main-news-related .sreentieude a.img-news-related {
-		width: 150px;
-    	height: 100px;
+		width: 100%;
+    	height: auto;
 	}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet {
 		width: auto;
 		float: left;
+	}
+	.cactinkhac2 .main-news-related .sreentieude{
+		margin-right: 0px;
+	}
+	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet a {
+		margin: 5px 0;
+	}
+	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet p.des-news-related {
+		height: auto;
+		display: none;
+	}
+
+	/*=========================
+	 * Contact page
+	==========================*/
+	.nav.nav-contact {
+		margin: 30px 10px 10px;
+	}
+	.contact-form .ttincongghe .sreentieude {
+
+	}
+	#form_contact .contact-text-field {
+		width: 100%;
+		height: 35px;
+		line-height: 35px;
+	}
+	#form_contact textarea#message {
+		width: 100%;
 	}
 
 	/*=========================
@@ -1586,10 +1655,67 @@ height: 70px;}
 	.box-service .right-box-service {
 		width: 430px;
 	}
+	.company_introduce .nav {
+		margin: 15px 0px 10px;
+	}
+	.company_introduce .nav {
+		margin-top: 15px;
+	}
+	.company_introduce .allboxsp1 {
+		padding: 0;
+	}
+
+	.servicesCat .allboxsp1,
+	.servicesDetail .allboxsp1 {
+		padding: 0;
+	}
+	.servicesCat .allboxsp1 .box-service .right-box-service {
+		width: 675px;
+	}
+	.servicesCat .server-information {
+		margin-top: 35px;
+	}
+
+	/*=========================
+	 * News page
+	 =========================*/
+	.view_post_on_page .nav,
+	.view_post_on_category .nav {
+		 margin: 30px 0px 10px;
+	}
+	.view_post_on_page .left .allboxsp1 .allboxsp1,
+	.view_post_on_category .left .allboxsp1 .allboxsp1 {
+		padding: 0;
+	}
+	.view_post_on_page .box-service .right-box-service,
+	.view_post_on_category .box-service .right-box-service {
+		width: 675px;
+	}
+	.main .right .right-box:first-child {
+		margin-top: 0px !important;
+	}
 
 	/*=========================
 	 * News detail
 	 =========================*/
+	.news.index .nav {
+		margin: 15px 0px 10px;
+	}
+	.news.index .left .allboxsp1 {
+		padding: 0;
+	}
+	.main-news-social span.time-update-news {
+		float: right;
+		height: 20px;
+		line-height: 20px;
+		font-size: 14px;
+		font-style: italic;
+		color: #797979;
+		margin-top: 0px;
+	}
+	.main-news-social .social {
+		width: auto;
+	}
 	.cactinkhac2 .main-news-related{
 		width: 675px;
 	}
@@ -1600,6 +1726,67 @@ height: 70px;}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet {
 		width: 460px;
 		float: right;
+	}
+	.cactinkhac2 .main-news-related .sreentieude{
+		margin-right: 10px;
+	}
+	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet a {
+		margin: 0;
+	}
+	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet p.des-news-related {
+		height: 90px;
+		display: block;
+	}
+
+	/*=========================
+	 * Contact page
+	==========================*/
+	.contact-form .col-md-12 {
+		padding: 0;
+	}
+	.nav.nav-contact {
+		margin: 15px 0px 10px;
+	}
+	.contact-form .ttincongghe .sreentieude {
+		width: 675px;
+		margin-left: 0;	
+	}
+	.contact-form .ttincongghe .sreentieude .contact-tbl-title {
+		margin-top: 10px;
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	.contact-form .ttincongghe .noidungchitiet {
+		width: 675px;
+		margin-top: 5px;
+	}
+	.contact-form .ttincongghe .noidungchitiet .noidunggioithieu {
+		width: 543px;
+		margin-bottom: 10px;
+	}
+	.contact-form .ttincongghe .noidungchitiet .noidunggioithieu .contact-tbl-row label {
+		font-weight: bold;
+	}
+	.contact-form .ttincongghe .noidungchitiet .gui {
+		width: 200px;
+		height: 30px;
+		float: left;
+	}
+	.contact-form .contact-tbl-title {
+		margin-top: 10px;
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	#form_contact .contact-tbl-row {
+		margin-bottom: 8px;
+	}
+	#form_contact .contact-text-field {
+		width: 350px;
+		height: 25px;
+		line-height: 25px;
+		border: 1px solid #cccccc;
 	}
 
 	/*=========================

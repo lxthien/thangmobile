@@ -1,4 +1,4 @@
-<div class="allboxsp1" style="float:left;">
+<div class="allboxsp1">
 	<?php if(empty($show_cam_nang)): ?>
 		<h1 class="h1-title">Tin tức</h1>
 	<?php else: ?>

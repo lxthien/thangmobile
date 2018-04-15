@@ -80,7 +80,7 @@ endif;
 </div>
 <?php endif; ?>
 
-<div class="sreendownload sreenonline right-box">
+<div class="sreendownload sreenonline right-box" style="display: none;">
     <div class="toponline">
         <h2>Facebook</h2>
     </div>
@@ -121,54 +121,6 @@ endif;
     </div>
 </div>
 <?php endif; ?>
-
-<!--box ban nen xem -->
-<?php if ($this->menu_active == 'news' || $this->menu_active == 'guides') : ?>
-    <div class="sreenonline right-box">
-        <div class="toponline">
-            <h2>Sản phẩm mới</h2>
-        </div>
-        <div class="line-title">
-            <div class="left-30">&nbsp;</div>
-            <div class="left-70">&nbsp;</div>
-        </div>
-        <div class="midonline">
-            <div class="product-news-right">
-                <?php
-                $i = 0;
-                foreach ($newestProduct as $eachProduct) {
-                    $i++;
-                ?>
-                <div class="product-news-right-item">
-                    <a href="<?php echo base_url($eachProduct->link_rewrite); ?>" class="img-product-news">
-                        <img src="<?php echo image('files/logo/ads/'.$eachProduct->logo, 'product_65_86'); ?>">
-                    </a>
-                    <div class="product-news-right-info">
-                        <a href="<?php echo base_url($eachProduct->link_rewrite); ?>"><?php echo $eachProduct->producer . ' ' . $eachProduct->model ?></a>
-                        <p class="product-new-right-price">Giá: <span><?php echo number_format($eachProduct->price, "0", ",", "."); ?> đ</span>
-                        </p>
-                        <p class="product-new-right-status">
-                            <?php if ($eachProduct->moi_ve == 1) { ?>
-                            <span class="pr-news">Mới</span>
-                            <?php } ?>
-                            <?php if ($eachProduct->qua_tang == 1) { ?>
-                            <span class="pr-gift">Quà tặng</span>
-                            <?php } ?>
-                            <?php if ($eachProduct->gia_tot == 1) { ?>
-                            <span class="pr-good-price">Giá sốc</span>
-                            <?php } ?>
-                        </p>
-                    </div>
-                </div>
-                <?php
-                    }
-                ?>
-            </div>
-        </div>
-    </div>
-<?php
-endif;
-?>
 
 <?php if (isset($you_should_watch)) : ?>
     <div class="sreendownload sreenonline right-box" style="margin-top: 20px;">

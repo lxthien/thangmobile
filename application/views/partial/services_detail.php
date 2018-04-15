@@ -42,7 +42,7 @@
 	    </div>
 	</div>
 </div>
-<div class="server-information-detail server-information"  style="display:none;">
+<div class="server-information-detail server-information">
 	<div class="server-information-left">
 		<div class="noidungthitruongchitiet">
 			<p><?php echo $servicesDetail->content;?></p>
