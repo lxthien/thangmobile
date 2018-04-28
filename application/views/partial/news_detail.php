@@ -19,7 +19,7 @@
 		<span><?php echo $category->name; ?></span>
 	<?php endif; ?>
 </div>
-<div class="ttincongghe">
+<div class="ttincongghe col-md-12">
 	<?php 
 		if ($news_item->active === '1') {
 	?>
@@ -64,17 +64,17 @@
 		        foreach ($posts_same_category as $post): 
 		        	$posted_date = new DateTime($post->date_add);
 		    ?>
-				<div class="sreentieude">
-					<a class="img-news-related" href="<?php echo base_url($post->link_rewrite);?>">
-						<img src="<?php echo image($post->news_icon, 'news_200_120'); ?>" alt="<?php echo $post->title;?>">
+			<div class="sreentieude">
+				<a class="img-news-related" href="<?php echo base_url($post->link_rewrite);?>">
+					<img src="<?php echo image($post->news_icon, 'news_200_120'); ?>" alt="<?php echo $post->title;?>">
+				</a>
+				<div class="sreentinkhacchitiet">
+					<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->link_rewrite);?>">
+						<span><?php echo $post->title;?></span>
 					</a>
-				   	<div class="sreentinkhacchitiet">
-				   		<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->link_rewrite);?>">
-			   				<span><?php echo $post->title;?></span>
-			   			</a>
-			   			<p class="des-news-related"><?php echo $post->content; ?></p>
-		 			</div>
+					<p class="des-news-related"><?php echo $post->content; ?></p>
 				</div>
+			</div>
 			<?php
 		        endforeach;
 		    ?>

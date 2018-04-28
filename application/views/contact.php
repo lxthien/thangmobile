@@ -11,7 +11,7 @@ $this->load->view('partial/menu');
 ?>
 
 	<!--main-->	
-	<div class="row main">
+	<div class="row main contact">
 		<div class="nav nav-contact">
 		    <a href="<?php echo base_url(); ?>">Trang chủ</a>
 		    <span>Liên hệ</span>

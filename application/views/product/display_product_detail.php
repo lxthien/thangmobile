@@ -5,7 +5,7 @@
     <span><?php echo $viewProduct->model; ?></span>
 </div>
 
-<div class="allboxsp1">
+<div class="allboxsp1 row">
     <div class="ttinsanpham row">
         <div class="leftthongtin col-md-6 col-md-12">
             <div class="boxhinhlonsp">

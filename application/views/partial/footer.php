@@ -2,7 +2,7 @@
 			<!--foter-->
 			<div class="foter">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-7">
 						<div class="add">
 							<ul class="footer-menu">
 								<li><a href="<?php echo base_url('gioi-thieu.html'); ?>">Về Chúng tôi</a></li>
@@ -20,7 +20,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<div class="footer-right">
 							<h3>Tài khoản thanh toán</h3>
 							<div class="footer-right-01">

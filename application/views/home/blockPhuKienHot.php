@@ -16,10 +16,10 @@
 					<div class="sp2" align="center">
 						<a href="<?php echo base_url($each->link_rewrite);?>"><img alt="<?php echo $each->model?>" src="<?php echo base_url(PARTNER_LOGO. '/ads/' . $each->logo)?>"/></a></div>
 					   		<div class="titlesp3"><a href="<?php echo base_url($each->link_rewrite);?>">
-					   		<p align="center" style="width:140px;" ><?php echo $each->model?></p>
+					   		<p><?php echo $each->model?></p>
 					   	</a>
 					</div>
-					<div class="pricesphot" align="center">Giá: <span style="color: #FF0000;"><?php echo number_format($each->price,"0",",",".");?> VNÐ</span></div>
+					<div class="pricesphot">Giá: <span style="color: #FF0000;"><?php echo number_format($each->price,"0",",",".");?> VNÐ</span></div>
 				</div>
 			<?php 
 				if($index % 4 == 0 && $index != count($phuKienHot)) {

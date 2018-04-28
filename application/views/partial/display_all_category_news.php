@@ -1,4 +1,4 @@
-<div class="allboxsp1">
+<div class="allboxsp1 col-md-12">
 	<?php if(empty($show_cam_nang)): ?>
 		<h1 class="h1-title">Tin tức</h1>
 	<?php else: ?>
