@@ -6,7 +6,7 @@
 	}
 	$this->load->view('partial/menu');
 ?>
-  	<div class="row main main-product clearfix">
+  	<div class="row main main-product product-page clearfix">
 		<div class="left col-md-12">
 			<?php echo $product_block_main;?>
 		</div>

@@ -405,7 +405,7 @@ a.link-block-you-see:hover{
 	margin-top: 10px;
 }
 .server-information-detail .server-information-left {
-	width: 675px; float: left; border-top: 2px solid #555555; text-align: left; margin-top: 24px;
+	width: 675px; float: left; text-align: left; margin-top: 24px;
 }
 .server-information-detail .server-information-left p{
 	line-height: 20px; margin-bottom: 20px;
@@ -621,14 +621,14 @@ a.link-block-you-see:hover{
 .leftthongtin .boxhinhlonsp {
 	width: 440px; height: 320px;
 }
-.leftthongtin .box-chung-toi-cam-ket {
+.box-chung-toi-cam-ket {
 	padding: 10px 20px; border: 1px solid #cccccc; width: 400px; border-radius: 5px; float: left; background: #fafafa;
 }
-.leftthongtin .box-chung-toi-cam-ket p {
+.box-chung-toi-cam-ket p {
 	font-size: 13px; line-height: 18px; padding: 3px 0 0 20px; background: url("../images/icon-check.png") no-repeat 0 4px;
 	text-align: justify;
 }
-.leftthongtin .box-chung-toi-cam-ket span {
+.box-chung-toi-cam-ket span {
 	color: #ed0000; display: block; font-size: 18px; line-height: 20px;
 }
 
@@ -705,6 +705,9 @@ span.hotline-tu-van {
 }
 .info-qua-khuyen-mai p {
 	font-size: 13px; line-height: 18px;
+}
+.main-product .line7 {
+	width: 100%;
 }
 
 
@@ -1078,9 +1081,28 @@ height: 70px;}
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {
+	.nav {
+		margin: 20px 0px 10px 15px;
+	}
+	.nav a, .nav span {
+		padding: 0 15px 0 0;
+		line-height: 25px;
+	}
+	.nav a {
+		background: url(../images/icon4.png) no-repeat right 0px center;
+		background-size: 7px;
+	}
+	.nav span {
+		background: none;
+		color: #000000;
+	}
+
+	.ttincongghe.col-md-12 {
+		margin: 0 -15px; width: auto;
+	}
 	/**
 	 * Menu
-	 *************************/
+	*************************/
 	.top-header{
 		display: none;
 	}
@@ -1109,7 +1131,7 @@ height: 70px;}
 
 	/*=========================
 	 * Banner
-	 =========================*/
+	=========================*/
 	.main-slider {
 		width: 384px; display: none;
 	}
@@ -1137,7 +1159,7 @@ height: 70px;}
 
 	/*=========================
 	 * Home service
-	 =========================*/
+	=========================*/
 	.home-service .title-service{
 		padding: 3px 0;
 	}
@@ -1160,7 +1182,7 @@ height: 70px;}
 
 	/*=========================
 	 * Homepage
-	 =========================*/
+	=========================*/
 	.main .left {
 		width: 100%;
 	}
@@ -1201,7 +1223,7 @@ height: 70px;}
 
 	/*=========================
 	 * Product listing page
-	 =========================*/
+	=========================*/
 	.main-product .left .allboxsp1 .title {
 		margin: 10px 0 0px;
 	}
@@ -1209,7 +1231,7 @@ height: 70px;}
 		position: relative;
 	}
 	.nav {
-		margin: 30px 0px 10px;
+		margin: 30px 0px 10px 15px;
 	}
 	 .main-product {
 		width: auto; float: none;
@@ -1246,7 +1268,10 @@ height: 70px;}
 
 	/*=========================
 	 * Product detail page
-	 =========================*/
+	=========================*/
+	.product-page .nav {
+		margin: 30px 0 10px 0;
+	}
 	.main-product .ttinsanpham, .main-product .ttinsanpham .main-product-detail {
 		width: 109%;
 	}
@@ -1258,6 +1283,9 @@ height: 70px;}
 		width: 100%;
 	}
 	.main-product .ttinsanpham .leftthongtin .box-chung-toi-cam-ket {
+		display: none;
+	}
+	.box-chung-toi-cam-ket {
 		width: 100%;
 	}
 	.main-product .ttinsanpham .rightthongtin {
@@ -1280,7 +1308,7 @@ height: 70px;}
 		width: 100%;
 	}
 	.main-product .ttinsanpham .note-delivery {
-		float: left; padding: 8px 0; font-size: 15px; font-weight: 600; color: #262626;
+		float: left; padding: 8px 0; font-size: 15px; font-weight: 600; color: #262626; margin-bottom: 5px;
 	}
 	.main-product .ttinsanpham .share-product {
 		float: left; width: 100%; margin-bottom: 8px;
@@ -1300,9 +1328,85 @@ height: 70px;}
 		width: auto;
 	}
 
+	.main-product .product-detail .ttinsanpham {
+		width: 100%;
+	}
+	.main-product .product-detail .ttinsanpham, .main-product .ttinsanpham .main-product-detail {
+		width: 100%;
+	}
+	.main-product .product-detail .ttinsanpham .rightthongtin {
+		width: 100%;
+	}
+	.box-chung-toi-cam-ket span {
+		margin-bottom: 10px;
+	}
+	.qua-khuyen-mai {
+		margin-bottom: 10px;
+	}
+	.info-qua-khuyen-mai p {
+		font-size: 14px;
+	}
+	.main-product .leftthongtin .note-delivery a {
+		color: #ed0000;
+	}
+
+	.main-product .ttinsanpham .main-product-detail .thongso a, .main-product .ttinsanpham .main-product-detail .gioithieusp a {
+		font-size: 13px;
+	}
+	.main-product .ttinsanpham .main-product-detail .pd-10 {
+		font-size: 12px;
+	}
+
+	/*=========================
+	 * Phu kien detail page
+	=========================*/
+	.phu-kien .rightthongtin > h1 {
+		font-size:23px; font-weight: 400; color:#222222;
+	}
+	.phu-kien .main-product-detail {
+		width: 100%;
+	}
+	.phu-kien .main-product-detail 	.sreenthongso {
+		float:left; margin-top: 19px; max-width: 650px;
+	}
+	.main-product .left .phu-kien.allboxsp1 .title {
+		position: relative; width: 100%; float: left; margin: 5px 0 30px;
+	}
+	.main-product .left .phu-kien.allboxsp1 .title .title1 {
+		display: none;
+	}
+	.main-product .left .phu-kien.allboxsp1 .title h1 {
+		position: absolute;
+	}
+	.main-product .phu-kien .ttinsanpham {
+		width: 100%;
+	}
+	.main-product .phu-kien .ttinsanpham .main-product-detail .sreenthongso {
+		display: block;
+	}
+	.main-product .phu-kien .ttinsanpham .rightthongtin {
+		width: 100%;
+	}
+
+	.thongtincanluuy,
+	.main-thongtincanluuy p {
+		margin-bottom: 0;
+	}
+
+	ul.accessories {
+		width: 100%;
+	}
+	ul.accessories li {
+		margin-right: 0;
+	}
+
+	.main-product .phu-kien .ttinsanpham .main-product-detail .right {
+		width: auto;
+	}
+
 	/*=========================
 	 * Service page
-	 =========================*/
+	=========================*/
 	.ttincongghe {
 		width: 100%;
 	}
@@ -1391,6 +1495,12 @@ height: 70px;}
 	/*=========================
 	 * Service detail page
 	=========================*/
+	.servicesDetail .nav {
+		margin: 30px 0px 10px 0px
+	}
+	.server-information {
+		margin-top: 0px;
+	}
 	.noidungthitruongchitiet {
 		width: 100%;
 	}
@@ -1417,21 +1527,18 @@ height: 70px;}
 		width: 100%;
 	}
 	.servicesDetail .noidungthitruongchitiet {
-		width: auto;
-    	margin: 0 -15px;
+		width: auto; margin: 0 -15px;
 	}
 	.servicesDetail .cactinkhac2 {
-		width: auto;
-		margin: 0 -15px;
+		width: auto; margin: 0 -15px;
 	}
 	.servicesDetail .server-information-right .right {
-		float: none;
-		width: auto;
+		float: none; width: auto; margin: 0 -15px;
 	}
 
 	/*=========================
 	 * Right column
-	 =========================*/
+	=========================*/
 	.right .right-box{
 		margin-top: 0px;
 	}
@@ -1451,10 +1558,10 @@ height: 70px;}
 
 	/*=========================
 	 * News page
-	 =========================*/
+	=========================*/
 	.view_post_on_page .nav,
 	view_post_on_category .nav {
-		margin: 30px 10px 10px;
+		margin: 30px 10px 10px 15px;
 	}
 	.view_post_on_page .left .allboxsp1 .allboxsp1,
 	.view_post_on_category .left .allboxsp1 .allboxsp1 {
@@ -1511,8 +1618,14 @@ height: 70px;}
 	/*=========================
 	 * Contact page
 	==========================*/
+	.contact-form .contact-tbl-title {
+		margin-top: 10px;
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
 	.nav.nav-contact {
-		margin: 30px 10px 10px;
+		margin: 30px 10px 10px 15px;
 	}
 	.contact-form .ttincongghe .sreentieude {
 
@@ -1531,6 +1644,9 @@ height: 70px;}
 	=========================*/
 	.allboxsp1.warranty {
 		padding: 0 15px;
+	}
+	.allboxsp1.warranty > .col-md-12 {
+		margin: 0 -15px; width: auto;
 	}
 	.time-warranty-note {
 		width: 100%; float: left; font-size: 14px;
@@ -1593,16 +1709,28 @@ height: 70px;}
 		margin: 20px 0px 20px 15px;
 	}
 	.nav a, .nav span {
-		padding: 0 5px 0 0;
+		padding: 0 15px 0 0;
+	}
+	.nav a {
+		background: url(../images/icon4.png) no-repeat right 0px center;
+		background-size: 7px;
 	}
 	.nav a:hover {
-		background: none;
+		background: url(../images/icon4.png) no-repeat right 0px center;
+		background-size: 7px;
 		color: #000000;
 		text-decoration: underline;
 	}
 	.nav span {
 		background: none;
 		color: #000000;
+	}
+
+	.ttincongghe.col-md-12 {
+		margin: 0; width: 100%;
+	}
+	.allboxsp1.warranty > .col-md-12 {
+		margin: 0; width: 100%;
 	}
 	/*=========================
 	 * Top header
@@ -1752,7 +1880,10 @@ height: 70px;}
 
 	/*=========================
 	 * Product listing page
-	 =========================*/
+	=========================*/
+	.product-page .nav {
+		margin: 10px 0px 0px;
+	}
 	.product-list-page .title .title1 {
 		background-color:#cccccc; width:980px; height:2px; margin-bottom:20px; float:left;
 	}
@@ -1788,6 +1919,77 @@ height: 70px;}
 		width: 505px; float: right;
 	}
 
+	.box-chung-toi-cam-ket {
+		display: none;
+	}
+	.main-product .ttinsanpham .leftthongtin .box-chung-toi-cam-ket {
+		display: block;
+	}
+
+	.sreenthongso {
+		width: 100%;
+	}
+	.main-product .ttinsanpham .main-product-detail .thongso a, .main-product .ttinsanpham .main-product-detail .gioithieusp a {
+		font-size: 18px; font-weight: 400; color: #626262; text-transform: none;
+	}
+	.main-product .ttinsanpham .main-product-detail .thongso a p, .main-product .ttinsanpham .main-product-detail .gioithieusp a p {
+		margin-bottom: 0;
+	}
+	.main-product .ttinsanpham .main-product-detail .pd-10 {
+		float:left; margin-left:8px; margin-right:5px; font-size: 16px; margin-bottom: 0px;
+	}
+	.main-product .line7 {
+		margin: 5px auto 15px;
+	}
+
+	.main-product .product-detail .ttinsanpham .rightthongtin {
+		width: 530px;
+	}
+
+	.container.sreenttinchitiet {
+		max-width: 670px; margin: 0;
+	}
+	.product-col-right {
+		margin-top: 0px;
+	}
+
+	/*=========================
+	 * Phu kien detail page
+	=========================*/
+	.phu-kien .main-product-detail {
+		width: 100%;
+	}
+	.main-product .phu-kien .ttinsanpham .rightthongtin {
+		width: 505px;
+	}
+	.phu-kien .main-product-detail 	.sreenthongso {
+		float:left; width:650px; margin-top: 19px; max-width: 650px;
+	}
+	.main-product .left .phu-kien.allboxsp1 .title {
+		position: relative; float: left; margin: 5px 0px 30px;
+	}
+	.main-product .left .phu-kien.allboxsp1 .title .title1 {
+		background-color:#cccccc; width:650px; height:2px; margin-bottom:0px; float:left; display: block;
+	}
+	.main-product .left .phu-kien.allboxsp1 .title h1 {
+		position: absolute;
+	}
+	.main-product .phu-kien .ttinsanpham {
+		width: 100%;
+	}
+	.main-product .phu-kien .ttinsanpham .main-product-detail .sreenthongso {
+		display: block;
+	}
+	ul.accessories {
+		width: 650px;
+	}
+	ul.accessories li {
+		margin-right: 0;
+	}
+	ul.accessories li a.name {
+		padding: 0 5px; height: 42px;
+	}
+
 	/*=========================
 	 * Service page
 	=========================*/
@@ -1820,13 +2022,16 @@ height: 70px;}
 		margin: 15px 0px 10px 15px;
 	}
 	.company_introduce .nav {
-		margin-top: 15px;
+		margin-top: 20px;
 	}
 	.company_introduce .allboxsp1 {
 		padding: 0;
 	}
 	.company_introduce.index .ttincongghe .noidungthitruongchitiet {
 		width: 660px;
+	}
+	.company_introduce.index .right .right-box {
+		margin-top: 20px;
 	}
 
 	.servicesCat .allboxsp1,
@@ -1902,6 +2107,9 @@ height: 70px;}
 	.servicesDetail .cactinkhac2 .main-news-related .sreentieude {
 		margin-right: 0;
 	}
+	.servicesDetail .noidungthitruongchitiet {
+		margin: 0; border-top: 2px solid #555555;
+	}
 
 	/*=========================
 	 * News page
@@ -1972,12 +2180,15 @@ height: 70px;}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet {
 		width: 440px;
 	}
+	.news.index .right .right-box {
+		margin-top: 20px;
+	}
 
 	/*=========================
 	 * Contact page
 	==========================*/
 	.nav.nav-contact {
-		margin: 15px 0px 10px 15px;
+		margin: 20px 0px 10px 15px;
 	}
 	.contact-form .ttincongghe {
 		width: 660px;
@@ -2019,8 +2230,9 @@ height: 70px;}
 	}
 	#form_contact .contact-text-field {
 		width: 350px;
-		height: 25px;
-		line-height: 25px;
+		height: 30px;
+		line-height: 30px;
+		padding-left: 5px;
 		border: 1px solid #cccccc;
 	}
 

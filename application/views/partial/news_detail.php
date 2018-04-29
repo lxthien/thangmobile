@@ -11,7 +11,8 @@
 ?>
 <div class="nav">
 	<?php if($isNotFixNews = $new_id == COMPANY_INSTRODUCE_NEWS_ID || $new_id == SERVICES || $new_id == WARRANTY || $new_id == SITE_MAP || $new_id == RECRUIT || $new_id == WARRANTYPOLICY || $new_id == DELEVERYPOLICY): ?>
-    	<span>Trang chủ</span>
+		<a href="<?php echo base_url(); ?>">Trang chủ</a>
+		<span><?php echo $news_item->title; ?></span>
 	<?php endif; ?>
 	<?php if ($this->menu_active == 'news' || $this->menu_active == 'guides') : ?>
 		<a href="<?php echo base_url(); ?>">Trang chủ</a>

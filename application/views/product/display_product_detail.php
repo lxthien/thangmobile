@@ -5,24 +5,26 @@
     <span><?php echo $viewProduct->model; ?></span>
 </div>
 
-<div class="allboxsp1 row">
-    <div class="ttinsanpham row">
+<div class="product-detail allboxsp1 row">
+    <div class="ttinsanpham">
         <div class="leftthongtin col-md-6 col-md-12">
-            <div class="boxhinhlonsp">
-                <img alt="<?php echo $site_meta_data['meta_title']; ?>" src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $viewProduct->logo); ?>"/>
-            </div>
-            <div class="box-chung-toi-cam-ket">
-                <span>Chúng tôi cam kết:</span>
-                <p>Yes Mobile cung cấp hàng mới 100% nguyên hộp và hàng đã qua sử dụng nhưng chất lượng và hình thức còn rất tốt.</p>
-                <p>Tuyệt đối không bán hàng dựng lại, khắc phục lỗi, đã qua sửa chữa phần cứng.</p>
-                <p>Vì hàng đã qua sử dụng thường có nhiều chất lượng, mức giá, nguồn hàng khác nhau, Yes Mobile không cạnh tranh về giá nhưng cam kết bán hàng chất lượng tốt và nâng cao dịch vụ sau bán hàng. Rất mong được Quý khách hàng lưu tâm. Trân trọng cảm ơn!</p>
+            <div class="row">
+                <div class="boxhinhlonsp">
+                    <img alt="<?php echo $site_meta_data['meta_title']; ?>" src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $viewProduct->logo); ?>"/>
+                </div>
+                <div class="box-chung-toi-cam-ket">
+                    <span>Chúng tôi cam kết:</span>
+                    <p>Yes Mobile cung cấp hàng mới 100% nguyên hộp và hàng đã qua sử dụng nhưng chất lượng và hình thức còn rất tốt.</p>
+                    <p>Tuyệt đối không bán hàng dựng lại, khắc phục lỗi, đã qua sửa chữa phần cứng.</p>
+                    <p>Vì hàng đã qua sử dụng thường có nhiều chất lượng, mức giá, nguồn hàng khác nhau, Yes Mobile không cạnh tranh về giá nhưng cam kết bán hàng chất lượng tốt và nâng cao dịch vụ sau bán hàng. Rất mong được Quý khách hàng lưu tâm. Trân trọng cảm ơn!</p>
+                </div>
             </div>
         </div>
         <div class="rightthongtin col-md-6 col-md-12">
             <h1><?php echo $viewProduct->model; ?></h1>
             <div class="price-detail">
                 <?php if ($viewProduct->gia_cu != 0 && $viewProduct->gia_cu != '' && $viewProduct->gia_cu != null) { ?>
-                    <span class="product-price" style="text-decoration:line-through;"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span><!-- <span class="icon-price">New</span>-->
+                    <span class="product-price"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span><!-- <span class="icon-price">New</span>-->
                 <?php } ?>
                 <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
             </div>
@@ -59,19 +61,18 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <p class="note-delivery">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="http://dienthoaivungtau.com/chinh-sach-van-chuyen.html" style="color: #ed0000;">tại đây</a></p>
+            <div class="box-chung-toi-cam-ket on-mobile">
+                <span>Chúng tôi cam kết:</span>
+                <p>Yes Mobile cung cấp hàng mới 100% nguyên hộp và hàng đã qua sử dụng nhưng chất lượng và hình thức còn rất tốt.</p>
+                <p>Tuyệt đối không bán hàng dựng lại, khắc phục lỗi, đã qua sửa chữa phần cứng.</p>
+                <p>Vì hàng đã qua sử dụng thường có nhiều chất lượng, mức giá, nguồn hàng khác nhau, Yes Mobile không cạnh tranh về giá nhưng cam kết bán hàng chất lượng tốt và nâng cao dịch vụ sau bán hàng. Rất mong được Quý khách hàng lưu tâm. Trân trọng cảm ơn!</p>
+            </div>
+            <p class="note-delivery">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">tại đây</a></p>
             <div class="share-product">
                 <div class="social">
-                    <!-- Button like facebook -->
                     <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-                    <!-- Button like facebook -->
-                    <!-- Place this tag where you want the +1 button to render. -->
                     <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
-                    <!-- Place this tag where you want the +1 button to render. -->
-                    <!-- Button share facebook -->
                     <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
-                    <!-- Button share facebook -->
-                    <!-- Place this tag where you want the share button to render. -->
                     <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
                 </div>
             </div>
@@ -91,6 +92,7 @@
                         </a>
                     </div>
                 </div>
+                <div class="line7"></div>
                 <div class="container sreenttinchitiet col-md-12">
                     <div id="thongsokithuat" class="noidungthongso">
                         <?php echo $viewProduct->description; ?>
