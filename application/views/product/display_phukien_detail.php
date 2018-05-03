@@ -69,9 +69,8 @@
                         </div>
                         <ul class="accessories grid">
                             <?php
-                                $index = 1;
-                                for ($i = 0; $i < count($eachProductList); $i++):
-                                    if($eachProductList[$i]->id != $viewProduct->id):
+                                for ($i = 0; $i < count($eachProductList); $i++) :
+                                    if ($eachProductList[$i]->id != $viewProduct->id) :
                             ?>
                             <li class="col-01 col-md-4">
                                 <a class="img" href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>" title="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>">

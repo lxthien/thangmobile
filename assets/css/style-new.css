@@ -526,7 +526,7 @@ a.link-block-you-see:hover{
  * Product
  *****************************/
 .main-product {
-	float: left; width: 980px; margin-top: 15px;
+	float: left; width: 980px; margin-top: 12px;
 }
 .main-product .left {
 	width: 100%;
@@ -1095,6 +1095,7 @@ height: 70px;}
 	.nav span {
 		background: none;
 		color: #000000;
+		font-weight: 600;
 	}
 
 	.ttincongghe.col-md-12 {
@@ -1103,9 +1104,25 @@ height: 70px;}
 	/**
 	 * Menu
 	*************************/
-	.top-header{
+	.top-header .col-md-4 {
 		display: none;
 	}
+	.top-header .top-header-left {
+		padding: 10px 0; float: left; width: 100%; border-bottom: 2px solid #cccccc;
+	}
+	.top-header .top-header-left-01 {
+		width: 50%; float: left;
+	}
+	.top-header .top-header-left-02 {
+		float: right; text-align: right; padding-top: 3px;
+	}
+	.top-header .top-header-left-01 span {
+		font-size: 15px; color: #f85f32; vertical-align: middle; font-weight: 600; margin-left: 5px;
+	}
+	.top-header .top-header-left-01 span.top-span {
+		display: none;
+	}
+
 
 	.logo {
 		width: 100%; height: auto; margin: 0; padding: 10px 0;
@@ -1129,6 +1146,25 @@ height: 70px;}
 		display: block; width: 22px; height: 2px; border-radius: 1px; background-color: #ffffff; margin: 5px 0;
 	}
 
+	.dropdown-toggle::after {
+		display: none;
+	}
+	.navbar-nav li.dropdown .drop-down {
+		position: absolute; right: 0px; top: 10px; width: 15px; height: 15px;
+	}
+	.navbar-nav li.dropdown .drop-down .icon-drop-down {
+		position: relative;
+	}
+	.navbar-nav li.dropdown .drop-down .icon-drop-down:after {
+		position: absolute; font: normal normal normal 14px/1 FontAwesome; content: "\f078"; right: -15px; color: #ffffff; top: 0px; transform: scale(0.7,0.7);
+	}
+	.navbar-nav li.dropdown .drop-down.active .icon-drop-down:after {
+		content: "\f077";
+	}
+
+	.navbar .dropdown-menu {
+		padding: 10px;
+	}
 	/*=========================
 	 * Banner
 	=========================*/
@@ -1270,7 +1306,7 @@ height: 70px;}
 	 * Product detail page
 	=========================*/
 	.product-page .nav {
-		margin: 30px 0 10px 0;
+		margin: 20px 0 0 0;
 	}
 	.main-product .ttinsanpham, .main-product .ttinsanpham .main-product-detail {
 		width: 109%;
@@ -1356,6 +1392,9 @@ height: 70px;}
 	.main-product .ttinsanpham .main-product-detail .pd-10 {
 		font-size: 12px;
 	}
+	.thongtincanluuy {
+		margin-bottom: 15px;
+	}
 
 	/*=========================
 	 * Phu kien detail page
@@ -1388,8 +1427,8 @@ height: 70px;}
 		width: 100%;
 	}
 
-	.thongtincanluuy,
-	.main-thongtincanluuy p {
+	.main-product .left .phu-kien .thongtincanluuy,
+	.main-product .left .phu-kien .main-thongtincanluuy p {
 		margin-bottom: 0;
 	}
 
@@ -1736,8 +1775,27 @@ height: 70px;}
 	 * Top header
 	 *=========================*/
 	.top-header {
-		height: 44px; border-bottom: 2px solid #cccccc;
+		height: 46px; border-bottom: 2px solid #cccccc; margin: 0px;
 	}
+	.top-header .col-md-8, .top-header .col-md-4 {
+		padding: 0;
+	}
+	.top-header .top-header-left {
+		padding: 0; float: none; width: auto; border-bottom: 0;
+	}
+	.top-header .top-header-left-01 {
+		width: auto; float: left;
+	}
+	.top-header .top-header-left-02 {
+		padding-top: 8px;
+	}
+	.top-header .col-md-4 {
+		display: block;
+	}
+	.top-header .top-header-left-01 span.top-span {
+		display: inline-block; color: #000000;
+	}
+
 	.top-header-left {
 		float: left; height: 44px;
 	}
@@ -1768,7 +1826,7 @@ height: 70px;}
 		height: 44px; float: right;
 	}
 	.top-header-right ul li {
-		float: left; font-size: 14px; padding: 15px 10px;  border-right: 1px dotted #cccccc;
+		float: left; font-size: 14px; padding: 11px 10px;  border-right: 1px dotted #cccccc;
 	}
 	.top-header-right ul li:last-child {
 		border-right: none;
@@ -1847,6 +1905,10 @@ height: 70px;}
 	}
 	.navbar .dropdown-menu .dropdown-item a {
 		font-weight: 600;
+	}
+
+	.navbar .dropdown-menu {
+		padding: 10px 0px;
 	}
 
 	/*=========================

@@ -113,11 +113,7 @@
                             </div>
                             <div class="midonline">
                                 <div class="product-news-right">
-                                    <?php
-                                    $i = 0;
-                                    foreach ($san_pham_cung_gia as $eachProduct) {
-                                        $i++;
-                                    ?>
+                                    <?php foreach ($san_pham_cung_gia as $eachProduct) : ?>
                                     <div class="product-news-right-item">
                                         <a href="<?php echo base_url($eachProduct->link_rewrite); ?>" class="img-product-news">
                                             <img src="<?php echo image('files/logo/ads/'.$eachProduct->logo, 'product_65_86'); ?>" alt="<?php echo $eachProduct->producer . ' ' . $eachProduct->model ?>">
@@ -139,9 +135,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <?php
-                                        }
-                                    ?>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

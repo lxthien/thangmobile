@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link home active" href="<?php echo $base_url; ?>">
+                        <a class="nav-link home active" href="<?php echo base_url(); ?>">
                             <img src="<?php echo base_url('assets/images/icon-home.png'); ?>" alt="Điện thoại vũng tàu">
                         </a>
                     </li>
@@ -19,6 +19,7 @@
                         <a class="nav-link dropdown-toggle" href="<?php echo base_url('san-pham/dien-thoai'); ?>">
                             Điện thoại
                         </a>
+                        <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu product-menu" aria-labelledby="navbarDropdown">
                             <li>
                                 <ul>
@@ -65,6 +66,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="<?php echo base_url('san-pham/phu-kien-dien-thoai'); ?>">Phụ kiện</a>
+                        <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/cam-ung-man-hinh'); ?>" class="haslink ">Cảm ứng - Màn hình</a>
@@ -85,6 +87,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>">Dịch vụ sửa chữa</a>
+                        <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php foreach ($menuCategoryService as $service): ?>
                                 <li class="dropdown-item">
@@ -100,6 +103,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="<?php echo base_url('tin-tuc'); ?>">Tin tức</a>
+                        <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('tin-tuc/san-pham-moi'); ?>" class="haslink ">Sản phẩm mới</a>
@@ -114,6 +118,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="<?php echo base_url('cam-nang'); ?>">Cẩm nang</a>
+                        <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('cam-nang/cam-nang-android'); ?>" class="haslink ">Cẩm nang Android</a>

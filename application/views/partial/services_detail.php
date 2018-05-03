@@ -1,7 +1,7 @@
 <div class="allboxsp1 col-md-12">
 	<div class="main-product">
 		<div class="nav">
-			<a class="fa fa-angle-right" href="<?php echo base_url(); ?>" title="Trang chủ">Trang chủ</a>
+			<a href="<?php echo base_url(); ?>" title="Trang chủ">Trang chủ</a>
 			<a href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>" title="Sửa chữa điện thoại">Sửa chữa điện thoại</a>
 			<a href="<?php echo base_url('dich-vu/'.$catParentServices->link_rewrite); ?>" title="<?php echo $catParentServices->name; ?>"><?php echo $catParentServices->name; ?></a>
 			<span><?php echo $catServices->name; ?></span>

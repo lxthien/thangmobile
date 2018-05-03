@@ -1,6 +1,16 @@
 $(document).ready(function() {
-	initSlider();
+    initSlider();
+    menuNavigation();
 
+    function menuNavigation() {
+        $('.drop-down').click(function() {
+            $('.nav-item .dropdown-menu').hide();
+            if( $(this).hasClass('active') )
+                $(this).removeClass('active').next('.dropdown-menu').hide();
+            else
+                $(this).addClass('active').next('.dropdown-menu').show();
+        })
+    }
 	function initSlider() {
 		if(jQuery.browser.mobile) {
 			$('#service-bxslider').carouFredSel({
