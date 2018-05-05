@@ -22,7 +22,9 @@ if (isset($site_meta_data)) {
 			<!--end spbanhot-->
 			<!--spbanmoi-->
 			<?php // $this->load->view('home/blockNewProduct'); ?>
-			<!--end spbanmoi--> 
+			<!--end spbanmoi-->
+
+			<?php $this->load->view('home/home_tin_cong_nghe'); ?>
 	 	</div>	 
  		<div class="right col-md-4">
 			<!--download-->
@@ -32,7 +34,7 @@ if (isset($site_meta_data)) {
 			<?php //$this->load->view('partial/right_column_ads'); ?>
 			<!--end qc-->
 		</div>
-		<?php //$this->load->view('home/home_tin_cong_nghe'); ?>
+		<?php $this->load->view('home/home_tin_cong_nghe'); ?>
   	</div>
 <?php //$this->load->view('partial/right_left_banner'); ?>
 <?php $this->load->view('partial/footer'); ?>

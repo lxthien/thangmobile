@@ -80,7 +80,7 @@ endif;
 </div>
 <?php endif; ?>
 
-<div class="sreendownload sreenonline right-box" style="display: none;">
+<div class="sreendownload sreenonline right-box">
     <div class="toponline">
         <h2>Facebook</h2>
     </div>

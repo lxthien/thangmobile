@@ -15,47 +15,49 @@
             </div>
         </div>
         <div class="rightthongtin col-md-6 col-md-12">
-            <h1><?php echo $viewProduct->model; ?></h1>
-            <div class="price-detail">
-                <?php if ($viewProduct->gia_cu != 0 && $viewProduct->gia_cu != '' && $viewProduct->gia_cu != null) { ?>
-                    <span class="product-price"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span><!-- <span class="icon-price">New</span>-->
-                <?php } ?>
-                <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
-            </div>
-            <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0901 260 260</span></p>
-            <?php if( strlen($viewProduct->noteInformation) > 0): ?>
-            <div class="thongtincanluuy">
-                <p class="p-title">Thông tin cần lưu ý</p>
-                <hr>
-                <div class="main-thongtincanluuy">
-                    <?php if( strlen($viewProduct->noteInformation) > 0): ?>
-                        <?php echo $viewProduct->noteInformation; ?>
-                    <?php else: ?>
-                        <p>...</p>
-                    <?php endif; ?>
+            <div class="row">
+                <h1><?php echo $viewProduct->model; ?></h1>
+                <div class="price-detail">
+                    <?php if ($viewProduct->gia_cu != 0 && $viewProduct->gia_cu != '' && $viewProduct->gia_cu != null) { ?>
+                        <span class="product-price"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span><!-- <span class="icon-price">New</span>-->
+                    <?php } ?>
+                    <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
                 </div>
-            </div>
-            <?php endif; ?>
-            <?php if( strlen($viewProduct->baseInformation) > 0): ?>
-            <div class="thongtincoban">
-                <p class="p-title">Thông tin cơ bản</p>
-                <hr>
-                <div class="main-thongtincoban">
-                    <?php if( strlen($viewProduct->baseInformation) > 0): ?>
-                        <?php echo $viewProduct->baseInformation; ?>
-                    <?php else: ?>
-                        <p>...</p>
-                    <?php endif; ?>
+                <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0901 260 260</span></p>
+                <?php if( strlen($viewProduct->noteInformation) > 0): ?>
+                <div class="thongtincanluuy">
+                    <p class="p-title">Thông tin cần lưu ý</p>
+                    <hr>
+                    <div class="main-thongtincanluuy">
+                        <?php if( strlen($viewProduct->noteInformation) > 0): ?>
+                            <?php echo $viewProduct->noteInformation; ?>
+                        <?php else: ?>
+                            <p>...</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-            <?php endif; ?>
-            <p class="note-delivery">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">tại đây</a></p>
-            <div class="share-product">
-                <div class="social">
-                    <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-                    <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
-                    <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
-                    <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
+                <?php endif; ?>
+                <?php if( strlen($viewProduct->baseInformation) > 0): ?>
+                <div class="thongtincoban">
+                    <p class="p-title">Thông tin cơ bản</p>
+                    <hr>
+                    <div class="main-thongtincoban">
+                        <?php if( strlen($viewProduct->baseInformation) > 0): ?>
+                            <?php echo $viewProduct->baseInformation; ?>
+                        <?php else: ?>
+                            <p>...</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+                <p class="note-delivery">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">tại đây</a></p>
+                <div class="share-product">
+                    <div class="social">
+                        <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                        <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
+                        <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
+                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
+                    </div>
                 </div>
             </div>
         </div>

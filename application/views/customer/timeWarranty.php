@@ -32,13 +32,16 @@
 				event.preventDefault();
 				$.ajax({
 				    type: "POST",
-				    url: "http://dienthoaivungtau.com/searchHistory",
+				    url: "<?php echo base_url(); ?>searchHistory",
 				    data: 'q=' + $('.timeWarranty .search').val(),
 				    dataType: "text",
 				    success: function(resultData){
 				        $('.timeWarrantyBody').html(resultData);
 				        $('.time-warranty-note').hide();
-				    }
+				    },
+					error: function() {
+						alert("Có lỗi trong quá trình kiểm tra. Vui lòng kiểm tra lại hoặc quay lại sau một thời gian");
+					}
 				});
 			});
 		})

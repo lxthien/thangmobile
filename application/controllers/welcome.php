@@ -30,7 +30,7 @@ class Welcome extends MY_Controller {
         $q = $this->input->post('q');
         $customers = $this->customer_model->getHistoryByNameOrPhone($q);
         if(count($customers) == 0) {
-        	echo '<p class="msg message">Số điện thoại này chưa có thông tin bảo hành tại Yes Mobile. Quý khách hàng vui lòng kiểm tra lại số điện thoại hoặc liên hệ ngay với Chúng tôi: 0901 260 260. Cám ơn Quý khách hàng!</p><div style="width: 675px; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
+        	echo '<p class="msg message">Số điện thoại này chưa có thông tin bảo hành tại Yes Mobile. Quý khách hàng vui lòng kiểm tra lại số điện thoại hoặc liên hệ ngay với Chúng tôi: 0901 260 260. Cám ơn Quý khách hàng!</p><div style="width: 100%; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
                     <p>438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
                     <p>ĐT: 0646.557.999 - Hotline: 0901 260 260</p>
                     <p>Email: yesmobile.vn@gmail.com</p>
@@ -38,13 +38,13 @@ class Welcome extends MY_Controller {
         } else {
         	$tasks = $this->task_model->customerRequest($customers[0]->id);
         	if(count($tasks) == 0) {
-        		echo '<p class="msg message">Cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile. Số điện thoại này chưa có thông tin bảo hành tại cửa hàng Chúng tôi. Mọi thắc mắc vui lòng liên hệ: 0901 260 260</p><div style="width: 675px; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
+        		echo '<p class="msg message">Cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile. Số điện thoại này chưa có thông tin bảo hành tại cửa hàng Chúng tôi. Mọi thắc mắc vui lòng liên hệ: 0901 260 260</p><div style="width: 100%; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
                     <p>438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
                     <p>ĐT: 0646.557.999 - Hotline: 0901 260 260</p>
                     <p>Email: yesmobile.vn@gmail.com</p>
                     <p>Website: <a href="http://yesmobile.vn/">www.yesmobile.vn</a> - <a href="http://dienthoaivungtau.com/">www.dienthoaivungtau.com</a></p></div>';
         	} else {
-        		$information='<p class="msg message">Cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile. Dưới đây là thông tin bảo hành của Quý khách:</p><div class="table" style="margin-top: 20px;">';
+        		$information='<p class="msg message">Cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile. Dưới đây là thông tin bảo hành của Quý khách:</p><div class="table">';
         		foreach ($tasks as $key => $value) {
         			$status = $value->taskStatus == 1 ? formatDate($value->warrantyPeriod) : 'Chưa có';
         			$information .= '<div class="row">';
@@ -61,7 +61,7 @@ class Welcome extends MY_Controller {
         			$information .= '</div>';
         		}
         		$information.='</div>';
-        		$information.='<div style="width: 675px; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
+        		$information.='<div style="width: 100%; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
                     <p>438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
                     <p>ĐT: 0646.557.999 - Hotline: 0901 260 260</p>
                     <p>Email: yesmobile.vn@gmail.com</p>

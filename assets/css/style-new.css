@@ -968,7 +968,7 @@ ul.accessories{
 	width: 675px;
 }
 ul.accessories li{
-	float: left; border: 1px solid #cccccc; margin-right: 5px; margin-bottom: 5px; width: 32.5%; border-radius: 3px; min-height: 190px;
+	float: left; border: 1px solid #cccccc; margin-right: 5px; width: 32.5%; border-radius: 3px; min-height: 190px;
 }
 ul.accessories li:nth-child(3n){
 	margin-right: 0px;
@@ -1015,7 +1015,7 @@ ul.accessories li p span{
 
 .grid .col-01 {float: left; border-right: 1px solid #cccccc; border-bottom: 1px solid #cccccc; width: 224px; padding: 15px 0px; box-shadow: 0px 3px 5px #e2e2e2;
 position: relative;}
-.grid .col-01:nth-child(3n){border-right: none;}
+.grid .col-01:nth-child(3n){}
 .grid .col-01:hover{box-shadow: 0px 3px 10px #A3A3A3;}
 
 .grid .col-01>a{display: block; text-align: center;}
@@ -1256,6 +1256,45 @@ height: 70px;}
 		font-size: 14px;
 	}
 
+	.sreennew.home-technology {
+		display: none; width: 100%; margin-top: 5px; float: left;
+	}
+	.sreennew.home-technology .boxnew {
+		width: 100%; float: left;
+	}
+	.sreennew.home-technology .boxnew .sreennew1{
+		width: 100%; float:left; margin-bottom:12px;
+	}
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew {
+		float:left; margin-left:10px; width: 220px; height: 85px;
+	}
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew p{
+		margin-bottom: 5px;
+	}
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew .noidung,
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew .sreenchitiet {
+		display: none;
+	}
+
+	.home-technology .boxnew .new1,
+	.home-technology .boxnew .new2 {
+		width: 100%;
+	}
+	.home-technology .new1 .hinhnew,
+	.home-technology .new2 .hinhnew {
+		margin-left: 0; width: 115px; height: 85px; margin-top: 0px;
+	}
+	.home-technology .new1 .hinhnew img,
+	.home-technology .new2 .hinhnew img {
+		width: 115px; height: 85px;
+	}
+	.home-technology .line2 {
+		width: 100%; margin: 8px 0;
+	}
+
+	.main .left .sreennew.home-technology {
+		display: block; padding: 0;
+	}
 
 	/*=========================
 	 * Product listing page
@@ -1318,6 +1357,9 @@ height: 70px;}
 	.main-product .ttinsanpham .leftthongtin .boxhinhlonsp {
 		width: 100%;
 	}
+	.main-product .ttinsanpham .leftthongtin .boxhinhlonsp img {
+		width: 60%;
+	}
 	.main-product .ttinsanpham .leftthongtin .box-chung-toi-cam-ket {
 		display: none;
 	}
@@ -1331,13 +1373,13 @@ height: 70px;}
 		margin: 5px 0;
 	}
 	.main-product .ttinsanpham .rightthongtin .thongtincoban p, .main-product .ttinsanpham .rightthongtin .thongtincanluuy p {
-		font-size: 14px;
+		font-size: 14px; margin-bottom: 8px;
 	}
 	.thongtincoban .p-title, .thongtincanluuy .p-title {
-		text-transform: uppercase;
+		text-transform: uppercase; font-weight: 600;
 	}
 	.thongtincoban hr, .thongtincanluuy hr {
-		margin: 5px 0;
+		margin: 5px 0 10px;
 	}
 
 	.main-product .ttinsanpham .qua-khuyen-mai {
@@ -1367,6 +1409,13 @@ height: 70px;}
 	.main-product .product-detail .ttinsanpham {
 		width: 100%;
 	}
+	.main-product .product-detail .ttinsanpham .rightthongtin h1 {
+		font-size:23px; font-weight: 400; color:#222222;
+	}
+	.main-product .product-detail .ttinsanpham .rightthongtin .product-out-of-stock,
+	.main-product .product-detail .ttinsanpham .rightthongtin .tu-van {
+		margin-bottom: 5px; font-size: 17px;
+	}
 	.main-product .product-detail .ttinsanpham, .main-product .ttinsanpham .main-product-detail {
 		width: 100%;
 	}
@@ -1394,6 +1443,9 @@ height: 70px;}
 	}
 	.thongtincanluuy {
 		margin-bottom: 15px;
+	}
+	.main-product .phu-kien .ttinsanpham .rightthongtin h1 {
+		font-size: 23px;
 	}
 
 	/*=========================
@@ -1460,7 +1512,7 @@ height: 70px;}
 		width: 145px; height: auto;
 	}
 	.box-service .img-server img {
-		width: 100%;
+		width: 100%; height: 95px;
 	}
 	.box-service .right-box-service {
 		width: 100%; float: none;
@@ -1529,6 +1581,12 @@ height: 70px;}
 	.servicesDetail .main-service-detail .server-information-left,
 	.servicesDetail .main-service-detail .server-information-right {
 		width: 100%;
+	}
+	.server-information-detail .server-information-left {
+		margin-top: 0px;
+	}
+	.servicesDetail .main-service-detail .server-information .server-information-left .row {
+		display: block;
 	}
 
 	/*=========================
@@ -1691,13 +1749,25 @@ height: 70px;}
 		width: 100%; float: left; font-size: 14px;
 	}
 	.timeWarrantyBody {
-		width: 100%; margin-top: 30px; margin-bottom: 30px;
+		width: 100%; margin-top: 30px; margin-bottom: 30px; text-align: left;
+	}
+	.timeWarrantyBody p {
+		font-size: 14px; margin-bottom: 8px;
+	}
+	.timeWarrantyBody .table {
+		padding: 0 15px; width: 100%; margin: 20px 0 0 0;
 	}
 	form.timeWarranty input{
 		height: 30px; line-height: 30px; width: 100%; padding-left: 10px; margin: 0 auto; font-size: 14px; margin-right: 10px; float: left; margin-bottom: 10px;
 	}
+	form.timeWarranty input {
+		border: 1px solid #cccccc;
+	}
 	form.timeWarranty button{
 		height: 32px; width: 100px; border: none; cursor: pointer; text-transform: uppercase; font-size: 15px; background-color: #263e81; color: #ffffff; display: table; margin: auto;
+	}
+	.timeWarrantyBody>p.message {
+		color: #263e81; font-weight: 600;
 	}
 
 	/*=========================
@@ -1923,7 +1993,10 @@ height: 70px;}
 
 	/*=========================
 	 * Homepage
-	 =========================*/
+	=========================*/
+	.main .left .sreensphot.home-accessories {
+		width: 643px; height: 240px; margin-bottom: 10px;
+	}
 	.main .left {
 		float: none; width: 100%;
 	}
@@ -1940,11 +2013,51 @@ height: 70px;}
 		margin: 0;
 	}
 
+	.main .left .sreennew.home-technology {
+		display: none;
+	}
+
+	.sreennew.home-technology {
+		display: block; width: 980px; margin-top: 1px; float: left;
+	}
+	.sreennew.home-technology .boxnew {
+		width: 980px; float: left;
+	}
+	.sreennew.home-technology .boxnew .sreennew1{
+		width:980px; float:left; margin-bottom:12px;
+	}
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew {
+		float:left; margin-left:10px; width:320px; height: 90px;
+	}
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew .sreenchitiet {
+		float:right; width:60px; height:20px;
+	}
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew .noidung,
+	.sreennew.home-technology .boxnew .sreennew1 .sreentitlenew .sreenchitiet {
+		display: block;
+	}
+
+	.home-technology .boxnew .new1,
+	.home-technology .boxnew .new2 {
+		width: 485px;
+	}
+	.home-technology .new1 .hinhnew,
+	.home-technology .new2 .hinhnew {
+		margin-left: 0; width: 150px; height: 100px; margin-top: 0px;
+	}
+	.home-technology .new1 .hinhnew img,
+	.home-technology .new2 .hinhnew img {
+		width: 150px; height: 100px;
+	}
+	.home-technology .line2 {
+		width: 485px; margin: 12px 0 0;
+	}
+
 	/*=========================
 	 * Product listing page
 	=========================*/
 	.product-page .nav {
-		margin: 10px 0px 0px;
+		margin: 10px 0px 20px;
 	}
 	.product-list-page .title .title1 {
 		background-color:#cccccc; width:980px; height:2px; margin-bottom:20px; float:left;
@@ -1953,7 +2066,7 @@ height: 70px;}
 		width: 100%; margin-left: 0;
 	}
 	.product-list-page .spbanchay .sreensp1 .boxsp {
-		width: 100%; margin: 0 0 10px 0;
+		width: 100%; margin: 0 0 0 0;
 	}
 	.product-list-page .spbanchay .sreensp1 .boxsp .titlesp p,
 	.product-list-page .spbanchay .sreensp1 .boxsp .pricespnew {
@@ -1976,6 +2089,9 @@ height: 70px;}
 	.main-product .ttinsanpham .leftthongtin .box-chung-toi-cam-ket {
 		width: 460px;
 	}
+	.main-product .ttinsanpham .leftthongtin .boxhinhlonsp img {
+		width: 50%;
+	}
 
 	.main-product .ttinsanpham .rightthongtin {
 		width: 505px; float: right;
@@ -1992,13 +2108,13 @@ height: 70px;}
 		width: 100%;
 	}
 	.main-product .ttinsanpham .main-product-detail .thongso a, .main-product .ttinsanpham .main-product-detail .gioithieusp a {
-		font-size: 18px; font-weight: 400; color: #626262; text-transform: none;
+		font-size: 18px; font-weight: 400; color: #000000; text-transform: none;
 	}
 	.main-product .ttinsanpham .main-product-detail .thongso a p, .main-product .ttinsanpham .main-product-detail .gioithieusp a p {
 		margin-bottom: 0;
 	}
 	.main-product .ttinsanpham .main-product-detail .pd-10 {
-		float:left; margin-left:8px; margin-right:5px; font-size: 16px; margin-bottom: 0px;
+		float:left; font-size: 16px; margin: 3px 5px 0 8px;
 	}
 	.main-product .line7 {
 		margin: 5px auto 15px;
@@ -2013,6 +2129,20 @@ height: 70px;}
 	}
 	.product-col-right {
 		margin-top: 0px;
+	}
+	.main-product .ttinsanpham .rightthongtin .thongtincoban .p-title,
+	.main-product .ttinsanpham .rightthongtin .thongtincanluuy .p-title {
+		text-transform: none; font-size: 16px;
+	}
+	.thongtincoban > hr, .thongtincanluuy > hr {
+		margin: 3px 0 8px;
+	}
+	.main-product .ttinsanpham .rightthongtin .thongtincoban .main-thongtincoban p,
+	.main-product .ttinsanpham .rightthongtin .thongtincanluuy .main-thongtincanluuy p {
+		text-transform: none; font-size: 14px; line-height: 18px; margin-bottom: 5px;
+	}
+	.info-qua-khuyen-mai p {
+		margin-bottom: 5px;
 	}
 
 	/*=========================
@@ -2031,7 +2161,7 @@ height: 70px;}
 		position: relative; float: left; margin: 5px 0px 30px;
 	}
 	.main-product .left .phu-kien.allboxsp1 .title .title1 {
-		background-color:#cccccc; width:650px; height:2px; margin-bottom:0px; float:left; display: block;
+		background-color:#cccccc; width:630px; height:2px; margin-bottom:0px; float:left; display: block;
 	}
 	.main-product .left .phu-kien.allboxsp1 .title h1 {
 		position: absolute;
@@ -2043,7 +2173,7 @@ height: 70px;}
 		display: block;
 	}
 	ul.accessories {
-		width: 650px;
+		width: 630px;
 	}
 	ul.accessories li {
 		margin-right: 0;
@@ -2075,7 +2205,7 @@ height: 70px;}
 		width: 200px; height: 145px;
 	}
 	.box-service .img-server img {
-		width: 100%;
+		width: 100%; height: 145px;
 	}
 	.box-service .right-box-service {
 		width: 430px;
@@ -2150,8 +2280,11 @@ height: 70px;}
 	.servicesDetail .noidungthitruongchitiet {
 		width: auto
 	}
+	.servicesDetail .main-service-detail .server-information .server-information-left .row {
+		display: block;
+	}
 	.servicesDetail .main-service-detail .server-information .server-information-left img {
-		width: auto;
+		width: 100%;
 	}
 	.servicesDetail .price-detail .product-price-text {
 		float: left;
@@ -2170,7 +2303,20 @@ height: 70px;}
 		margin-right: 0;
 	}
 	.servicesDetail .noidungthitruongchitiet {
-		margin: 0; border-top: 2px solid #555555;
+		margin: 3px -15px; border-top: 2px solid #555555; width: 640px;
+	}
+	.server-information-detail .server-information-left {
+		margin-top: 20px;
+	}
+
+	.server-information-detail .cactinkhac2 .main-news-related {
+		width: 640px;
+	}
+	.server-information-detail .cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet {
+		width: 425px;
+	}
+	.servicesDetail .main-service-detail .server-information-right {
+		width: 560px;
 	}
 
 	/*=========================
@@ -2240,7 +2386,7 @@ height: 70px;}
 		display: block;
 	}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet {
-		width: 440px;
+		width: 440px; height: 115px; overflow: hidden;;
 	}
 	.news.index .right .right-box {
 		margin-top: 20px;
@@ -2309,10 +2455,19 @@ height: 70px;}
 		padding: 0;
 	}
 	.time-warranty-note {
-		width: 670px; float: left; font-size: 14px;
+		width: 660px; float: left; font-size: 14px;
 	}
 	.timeWarrantyBody {
-		width: 675px; margin-top: 50px; float: left; margin-bottom: 30px;
+		width: 660px; margin-top: 50px; float: left; margin-bottom: 30px;
+	}
+	.timeWarrantyBody p {
+		margin-bottom: 5px;
+	}
+	.timeWarrantyBody .table {
+		padding: 0 15px; margin: 20px 0 0 0;
+	}
+	.timeWarrantyBody .table .row{
+		margin: 0;
 	}
 	form.timeWarranty {
 		margin: 0 auto; width: 430px;
@@ -2330,7 +2485,7 @@ height: 70px;}
 		color: #263e81; font-weight: 600;
 	}
 	.table {
-		width: 94%;
+		width: 100%;
 		padding: 0 3%;
 		border: 1px solid #cccccc;
 		float: left;
