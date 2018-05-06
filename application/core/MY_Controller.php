@@ -42,7 +42,7 @@ class MY_Controller extends CI_Controller {
         $vars['newestProduct'] = $this->_getNewestProduct();
         $vars['urlSocial'] = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
 
-        $useFulls = $this->news_model->read_list_viewmost_by_list_categries(array(66, 67, 68), 0, 3);
+        $useFulls = $this->news_model->read_list_viewmost_by_list_categries(array(66, 67, 68), 0, 5);
         foreach ($useFulls as &$news) {
             $news = $this->_build_link_rewrite($news);
         }

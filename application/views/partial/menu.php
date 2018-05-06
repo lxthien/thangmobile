@@ -69,17 +69,17 @@
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
-                                <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/cam-ung-man-hinh'); ?>" class="haslink ">Cảm ứng - Màn hình</a>
+                                <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/pin-sac-cap'); ?>" class="haslink ">Sạc - Cáp</a>
                             </li>
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/tai-nghe'); ?>" class="haslink ">Tai nghe</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/pin-sac-cap'); ?>" class="haslink ">Pin - Sạc - Cáp</a>
+                                <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/sac-du-phong'); ?>" class="haslink ">Sạc dự phòng</a>
                             </li>
-                            <li class="dropdown-item">
+                            <!-- <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/vo-may-dien-thoai'); ?>" class="haslink ">Vỏ máy điện thoại</a>
-                            </li>
+                            </li> -->
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/phu-kien-khac'); ?>" class="haslink ">Phụ kiện khác</a>
                             </li>

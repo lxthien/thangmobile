@@ -67,7 +67,7 @@ class News extends MY_Controller {
 
 		if($page_link_rewrite == 'tin-tuc') {
 			$this->menu_active = 'news';
-			$category_ids = array(2, 3, 4);
+			$category_ids = array(2, 3, 21);
 			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
 			$total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
 			
@@ -498,7 +498,7 @@ class News extends MY_Controller {
         if ($level == 3) {
             $catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
             $page_category_ids = $this->getCatCategory($catParentServices);
-            $url = $catParentServices->link_rewrite;
+            $url = $catServices->link_rewrite;
             $services = $this->truncate_title_content_posts($this->services_model->get_news_list_by_category_id($catServices->id_news_category, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
             $total_record_in_post = $this->services_model->count_postnr_by_list_categries($catServices->id_news_category);
         } else {
