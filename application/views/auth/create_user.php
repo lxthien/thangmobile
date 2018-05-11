@@ -1,11 +1,11 @@
-<?php $con_link = base_url() . $this->uri->segment(1) . '/' . $this->uri->segment(2); ?>
+<?php $con_link = base_url() . $this->uri->segment(1); ?>
 <h1>Create User</h1>
 <?php echo form_fieldset('Create user'); ?>
 <p>Please enter the users information below.</p>
 
 <div id="infoMessage"><?php echo $message; ?></div>
 
-<?php echo form_open($con_link . "/create_user", array('id' => 'users')); ?>
+<?php echo form_open($con_link . "/create-user", array('id' => 'users')); ?>
 
     
 <p>

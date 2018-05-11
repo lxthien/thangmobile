@@ -18,6 +18,7 @@ class Product extends MY_Controller {
     var $content_word_nr = 100;
     var $total_posts;
     var $site_meta_data = array();
+	var $menu_active = 'phone';
 
     public function __construct() {
         parent::__construct();
@@ -31,6 +32,7 @@ class Product extends MY_Controller {
         $this->load->model('News_model', 'newsModel');
         $this->load->model('News_category_model', 'category_model');
         $this->load->model('Page_item_model', 'page_item_model');
+        $this->load->model('services_model', 'services_model');
     }
     
     public function index() {
@@ -86,8 +88,8 @@ class Product extends MY_Controller {
     
     private function _load_product_1st_level($firstLevelCategory, $category) {
     	$data = array();
-    	//if($category == 'phu-kien-dien-thoai')
-			//$category = 'phu-kien';
+    	if($category == 'phu-kien-dien-thoai')
+			$this->menu_active = 'accessories';
 		
     	$productCategory = $this->product_category_model->read_by_link_rewrite($category);
     	 
@@ -104,6 +106,9 @@ class Product extends MY_Controller {
     	$data['linkViewAll'] = $firstLevelCategory.'/'.$category;
     	$data['parentCategoryName'] = $productCategory->name;
     	$data['childrenCategories'] = $children;
+
+        $data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
+
     	return $this->load->view('product/display_parent_category',$data,TRUE);
     }
     
@@ -111,8 +116,8 @@ class Product extends MY_Controller {
     	
     	$data['product_block_main'] = $this->_load_product_2nd_level($firstLevelCategory, $category, $subCategory);
     	$link_rewrite = $this->uri->segment(3);
-		//if($link_rewrite == 'phu-kien-dien-thoai')
-			//$link_rewrite = 'phu-kien';
+		if($category == 'phu-kien')
+			$this->menu_active = 'accessories';
     	$this->_get_category_metadata($link_rewrite);
     	$data['site_meta_data'] = $this->site_meta_data;
     	$data['partners'] = $this->_get_partners();
@@ -139,6 +144,8 @@ class Product extends MY_Controller {
     	$data['eachProductList'] = $productList;
     	$data['contact'] = $this->Mcontact->listcontact();
         $data['usuallyError'] = $this->_getArrayNewsByCategoryProductUsuallyError(3);
+
+        $data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
 
     	return $this->load->view('product/display_sub_category',$data,TRUE);
     }
@@ -184,16 +191,22 @@ class Product extends MY_Controller {
     
     private function _load_theo_khoang_gia($firstLevelCategory, $from, $to, $category_name) {
     	$data = array();
-    	$productCategory = 'theo-gia-tu-'.$from.'-trieu-den-'.$to.'-trieu';//$this->product_category_model->read_by_link_rewrite($subCategory);
+    	$productCategory = 'theo-gia-tu-'.$from.'-trieu-den-'.$to.'-trieu';
+        //$this->product_category_model->read_by_link_rewrite($subCategory);
     
     	$productList = $this->product_model->read_by_price_range($from, $to);
     	 
     	foreach ($productList as $eachProduct) {
-    		$eachProduct->link_rewrite = $firstLevelCategory.'/'.$productCategory.'/'.'chi-tiet'.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+            $productCategory = $this->product_category_model->read_by_id($eachProduct->product_category_id);
+            $productCategorySecond = $this->product_category_model->read_by_id($productCategory->parent_id);
+    		$eachProduct->link_rewrite = $firstLevelCategory.'/'.$productCategorySecond->link_rewrite.'/'.$productCategory->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
     	}
     	$data['linkViewAll'] = '';
     	$data['categoryName'] = $category_name;
     	$data['eachProductList'] = $productList;
+
+        $data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
+        
     	return $this->load->view('product/display_sub_category',$data,TRUE);
     }
 
@@ -203,6 +216,8 @@ class Product extends MY_Controller {
     }
 
     public function view_details($firstLevelCategory, $category, $subCategory, $productLink) {
+        $data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
+        
         $selectedProduct = $productList = $this->product_model->read_by_id($productLink);
         if (!is_object($selectedProduct)) {
             redirect(base_url().$this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$this->uri->segment(3), 'location', 301);
@@ -211,6 +226,9 @@ class Product extends MY_Controller {
         if($category == "phu-kien") {
             redirect(base_url().$this->uri->segment(1).'/phu-kien-dien-thoai/'.$this->uri->segment(3).'/'.$this->uri->segment(4), 'location', 301);
         }
+		
+		if($category == 'phu-kien-dien-thoai')
+			$this->menu_active = 'accessories';
 
         $limit_san_pham_cung_gia = 5;
         $product_price_in_mil = ($selectedProduct->price)/1000000;
@@ -231,7 +249,9 @@ class Product extends MY_Controller {
         }
         
         foreach ($san_pham_cung_gia as $eachProduct) {
-            $eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.'chi-tiet'.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
+            $productCategory = $this->product_category_model->read_by_id($eachProduct->product_category_id);
+            $productCategorySecond = $this->product_category_model->read_by_id($productCategory->parent_id);
+            $eachProduct->link_rewrite = $firstLevelCategory.'/'.$productCategorySecond->link_rewrite.'/'.$productCategory->link_rewrite.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;
         }
 
     	$data['view_details'] = 1;
@@ -290,10 +310,11 @@ class Product extends MY_Controller {
     	$images_list = $this->image_model->read_list_by_album_id($viewProduct->id);
     	$data['product_images'] = $images_list;
 		$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
-
+        $data['subCategory'] = $subCategory;
         $data['tinCongNghe'] = $this->newsModel->get_news_list_by_category_id(2, 0, 5);
 
         $productCategory = $this->product_category_model->read_by_link_rewrite($subCategory);
+        $data['productCategory'] = $productCategory;
         $productList = $this->product_model->read_by_category_id($productCategory->id);
         foreach ($productList as $eachProduct) {
             $eachProduct->link_rewrite = $firstLevelCategory.'/'.$category.'/'.$subCategory.'/'.$eachProduct->id.'-'.$eachProduct->link_rewrite.URL_TRAIL;

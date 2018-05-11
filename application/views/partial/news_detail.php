@@ -9,14 +9,24 @@
 		$pageHeadTitle = $news_item->title;
 	}
 ?>
-
-<div class="ttincongghe">
+<div class="nav">
+	<?php if($isNotFixNews = $new_id == COMPANY_INSTRODUCE_NEWS_ID || $new_id == SERVICES || $new_id == WARRANTY || $new_id == SITE_MAP || $new_id == RECRUIT || $new_id == WARRANTYPOLICY || $new_id == DELEVERYPOLICY): ?>
+		<a href="<?php echo base_url(); ?>">Trang chủ</a>
+		<span><?php echo $news_item->title; ?></span>
+	<?php endif; ?>
+	<?php if ($this->menu_active == 'news' || $this->menu_active == 'guides') : ?>
+		<a href="<?php echo base_url(); ?>">Trang chủ</a>
+		<a href="<?php echo base_url($categoryParent->link_rewrite); ?>"><?php echo $categoryParent->name; ?></a>
+		<span><?php echo $category->name; ?></span>
+	<?php endif; ?>
+</div>
+<div class="ttincongghe col-md-12">
 	<?php 
 		if ($news_item->active === '1') {
 	?>
-	<div class="sreentieude" style="width:675px; margin-left: 0px; ">
-		<div class="tieude" style="font-size:17px; font-weight:bold; padding: 3px 0 12px;" >
-		    <h1 class="h1-title-detail" style="font-size:20px; font-weight:bold; color:#033f83;"><?php echo $news_item->title; ?></h1>
+	<div class="sreentieude">
+		<div class="tieude">
+		    <h1 class="h1-title-detail"><?php echo $news_item->title; ?></h1>
 	    </div>
 	    <div class="main-news-social">
 	    	<div class="social">
@@ -33,42 +43,39 @@
                 <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 	    	</div>
 	    	<?php if($news_item->id_news != 3 && $news_item->id_news != 4 && $news_item->id_news != 1 && $news_item->id_news != 150 && $news_item->id_news != 153): ?>
-	    	<span class="time-update-news" style="font-size:11px; margin-bottom:10px">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
+	    	<span class="time-update-news">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
 	    	<?php endif; ?>
 	    </div>
 	</div>
 	<div class="noidungthitruongchitiet">
 		<p><?php echo $news_item->content;?></p>
 	  	<?php if($news_item->source != ''): ?>
-		  	<p align="right" style="font-style: italic; color: #797979;">Nguồn: <?php echo $news_item->source; ?></p>
+		  	<p align="right">Nguồn: <?php echo $news_item->source; ?></p>
 		<?php endif; ?>
 		<p align="justify">&nbsp;</p>	
 	</div>
 	<?php 
-	if ($isNotFixNews) {
+	if (!$isNotFixNews) {
 	?>
 
-    <div class="cactinkhac2">
+    <div class="cactinkhac2 cactinkhac2-large">
 		<h3 class="h3-news-related">Các tin khác</h3>
 		<div class="main-news-related">
 			<?php
 		        foreach ($posts_same_category as $post): 
 		        	$posted_date = new DateTime($post->date_add);
 		    ?>
-				<div class="sreentieude">
-					<a class="img-news-related" href="<?php echo base_url($post->link_rewrite);?>">
-						<img src="<?php echo image($post->news_icon, 'news_100_75'); ?>" alt="<?php echo $post->title;?>">
+			<div class="sreentieude">
+				<a class="img-news-related" href="<?php echo base_url($post->link_rewrite);?>">
+					<img src="<?php echo image($post->news_icon, 'news_200_120'); ?>" alt="<?php echo $post->title;?>">
+				</a>
+				<div class="sreentinkhacchitiet">
+					<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->link_rewrite);?>">
+						<span><?php echo $post->title;?></span>
 					</a>
-				   	<div class="sreentinkhacchitiet">
-				   		<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->link_rewrite);?>">
-			   				<span><?php echo $post->title;?></span>
-			   			</a>
-			   			<p class="des-news-related"><?php echo $post->content; ?></p>
-			   			<p class="date-news-related">
-			   				<?php  echo @date_format($posted_date,'d/m/Y');?>
-			   			</p>
-		 			</div>
+					<p class="des-news-related"><?php echo $post->content; ?></p>
 				</div>
+			</div>
 			<?php
 		        endforeach;
 		    ?>
@@ -78,14 +85,14 @@
     }
 	} else {
 	?>
-    <div class="sreentieude" style=" width:610px; margin-left:20px; margin-top:10px;">
-		<div class="tieude" style="font-size:16px; font-weight:bold;" >
-        	&nbsp;
-        </div>   
-	</div>
-	<div  align="justify" class="noidungthitruongchitiet" style="width:610px; margin-bottom:1px; margin-left:20px; margin-top:5px;">
-		  <p>Hiện tại chưa có nội dung trong mục này</p>
-	</div>
+		<div class="sreentieude">
+			<div class="tieude">
+				&nbsp;
+			</div>   
+		</div>
+		<div class="noidungthitruongchitiet">
+			<p>Hiện tại chưa có nội dung trong mục này</p>
+		</div>
 	<?php 
     }
 	?>

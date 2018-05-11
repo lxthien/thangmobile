@@ -113,6 +113,26 @@ class News_model extends MY_Model {
         return $newses;
     }
 
+    public function read_list_viewmost_by_list_categries($category_ids, $offset = NULL, $limit = NULL) {
+
+        if (isset($limit)) {
+            if (isset($offset)) {
+                $option = array('id_news_category' => $category_ids, 'limit' => $limit, 'offset' => $offset);
+            } else {
+                $option = array('id_news_category' => $category_ids, 'limit' => $limit);
+            }
+        } else {
+            $option = array('id_news_category' => $category_ids);
+        }
+        $option['sort_by'] = 'counts';
+        $option['sort_direction'] = 'DESC';
+
+        $query = $this->get($option);
+        $newses = $query->result();
+
+        return $newses;
+    }
+
     public function count_postnr_by_list_categries($category_ids, $offset = NULL, $limit = NULL) {
 
         if (isset($limit)) {

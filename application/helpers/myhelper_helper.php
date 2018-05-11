@@ -70,3 +70,83 @@ if (!function_exists('image')) {
         return $new_path;
     }
 }
+
+
+function getCategory($id) {
+    $ci = &get_instance();
+
+    $ci->load->model('News_category_model', 'category_model');
+    $category = $ci->category_model->read_by_id($id);
+
+    return $category->link_rewrite;
+}
+
+function getCustomerName($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('customer_model', 'customer_model');
+    $customer = $ci->customer_model->read_by_id($customerID);
+    if (!isset($customer) && !$customer) {
+        return;
+    } else {
+        return $customer->name;
+    }
+}
+
+function getCustomerPhone($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('customer_model', 'customer_model');
+    $customer = $ci->customer_model->read_by_id($customerID);
+    if (!isset($customer) && !$customer) {
+        return;
+    } else {
+        return $customer->phone;
+    }
+}
+
+function customerRequest ($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $customer = $ci->task_model->countRequest($customerID);
+    return $customer;
+}
+
+function countPriceCustomerRequest ($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $customer = $ci->task_model->countPriceCustomerRequest($customerID);
+    return $customer;
+}
+
+function formatTime($time) {
+    if($time == "" || $time == "0000-00-00 00:00:00") return "";
+    $date = new DateTime($time);
+    return $date->format('d/m/Y H:i:s');
+}
+
+function formatDate($time) {
+    if($time == "" || $time == "0000-00-00 00:00:00") return "";
+    $date = new DateTime($time);
+    return $date->format('d/m/Y');
+}
+
+function formatTimeInForm($time) {
+    if($time == "") return "";
+    $date = new DateTime($time);
+    return $date->format('Y-m-d');
+}
+
+function formatTimeInForm2($time) {
+    if($time == "") return "";
+    $date = new DateTime($time);
+    return $date->format('h:i A');
+}
+
+function lastDoing($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $lastDoing = $ci->task_model->customerRequest($customerID);
+    if(count($lastDoing) > 0) {
+        return $lastDoing[0]->phoneType;
+    }
+    return "";
+}

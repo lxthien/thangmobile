@@ -1,4 +1,4 @@
-<div class="allboxsp1" style="float:left;">
+<div class="allboxsp1 col-md-12">
 	<?php if(empty($show_cam_nang)): ?>
 		<h1 class="h1-title">Tin tức</h1>
 	<?php else: ?>
@@ -12,56 +12,32 @@
 		<?php 
 		if (isset($news)) {
 			$this->load->model('News_category_model', 'category_model');
-			$i = 0;
 		    foreach ($news as $item):
-		    	$i++;
 		    	$categoryUrl = getCategory($item->id_news_category);
 		        $date_post = new DateTime($item->date_add);
-		        if ($i==1):
 		?>
-					<div class="sreenttin box-service box-service-first" style="width: 675px; float: left;">
-						<div class="hinhcongnghe">
-							<img src="<?php echo image($item->news_icon, 'news_250_150'); ?>" alt="<?php echo $item->title; ?>" />
-						</div>
-						<div class="titlecongnghe">
-							<a href="<?php echo base_url('tin-tuc/'.$categoryUrl.'/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>">
-								<p style="float: left; margin-bottom: 3px;"><?php echo $item->title; ?></p>
-							</a>
-						</div>
-						<div class="noidungcongnghe" style="float: left; width: 410px; height: 85px;">
-							<p class="date-technology"><?php echo date_format($date_post, 'd/m/Y'); ?></p>
-							<p align="justify">
-								<?php echo $item->content; ?>
-							</p>
-						</div>
+				<div class="box-service">
+					<a href="<?php echo base_url($category.'/'.$categoryUrl.'/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>" class="img-server" >
+						<img src="<?php echo image($item->news_icon, 'news_220_160'); ?>" alt="<?php echo $item->title; ?>" />
+					</a>
+					<div class="right-box-service">
+						<a href="<?php echo base_url($category.'/'.$categoryUrl.'/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>">
+							<?php echo $item->title; ?>
+						</a>
+						<p class="des-service">
+							<?php echo $item->content; ?>
+						</p>
 					</div>
-			<?php else: ?>
-					<div class="sreenttin box-service" style="width: 675px; float: left;">
-						<div class="hinhcongnghe">
-							<img src="<?php echo image($item->news_icon, 'news_195_135'); ?>" alt="<?php echo $item->title; ?>" />
-						</div>
-						<div class="titlecongnghe">
-							<a href="<?php echo base_url('tin-tuc/'.$categoryUrl.'/'.$item->id_news.'-'.$item->link_rewrite. URL_TRAIL); ?>" title="<?php echo $item->title; ?>">
-								<p style="float: left; margin-bottom: 3px;"><?php echo $item->title; ?></p>
-							</a>
-						</div>
-						<div class="noidungcongnghe" style="float: left; width: 465px; height: 85px;">
-							<p class="date-technology"><?php echo date_format($date_post, 'd/m/Y'); ?></p>
-							<p align="justify">
-								<?php echo $item->content; ?>
-							</p>
-						</div>
-					</div>
-			<?php endif; ?>
+				</div>
 			<?php
 		    	endforeach;
 			}
 		?>		                
 		<div class="phantrang">
 			<div class="back">
-			<?php 
-				echo $this->pagination->create_links();
-			?>
+				<?php 
+					echo $this->pagination->create_links();
+				?>
 			</div>
 		</div>
     </div>

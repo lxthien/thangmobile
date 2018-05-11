@@ -36,6 +36,8 @@ $notice = '';
                     $this->load->view('auth/change_password');
                 } else if ($controller === 'login') {
                     $this->load->view('panel/index');
+                } else if ($controller === 'create-user') {
+                    $this->load->view('auth/create_user');
                 } else if ($controller === 'admin_category') {
                     if (!isset($action) || trim($action) === "" || trim($action) === "index") {
                         $this->load->view('panel/category/index');
@@ -142,7 +144,7 @@ $notice = '';
 	                		$this->load->view('panel/page_pimage_edit', $data);
 	                   	}
                 } else if ($controller === 'admin_phone') {
-                	if (!isset($action) || trim($action) === "") {
+                	if (!isset($action) || trim($action) === "" || trim($action) === "index") {
                 		if (isset($list_items)) {
                 			$data['item_list'] = $list_items;
                 			$this->load->view('panel/display_list_phone', $data);

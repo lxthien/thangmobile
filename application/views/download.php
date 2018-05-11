@@ -1,16 +1,14 @@
 <?php
-if (isset($site_meta_data)) {
-    $this->load->view('partial/header', $site_meta_data);
-} else {
-    $this->load->view('partial/header');
-}
-$this->load->view('partial/menu');
-//echo '<div class="baner"></div>';
-//$this->load->view('home/block_banner'); 
+	if (isset($site_meta_data)) {
+		$this->load->view('partial/header', $site_meta_data);
+	} else {
+		$this->load->view('partial/header');
+	}
+	$this->load->view('partial/menu');
 ?>
 
 <!--main-->	
-<div class="main" style="width:980px; float:left; margin-top: 20px;">
+<div class="main">
 	<!-- left-->	
 	<div class="left">
 		<?php echo $download_block_main;?>		      

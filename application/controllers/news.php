@@ -12,6 +12,7 @@ class News extends MY_Controller {
     var $content_word_nr = 100;
     var $total_posts;
     var $site_meta_data = array();
+	var $menu_active = 'news';
     
     public function __construct() {
         parent::__construct();
@@ -44,10 +45,14 @@ class News extends MY_Controller {
                 redirect(base_url().$this->uri->segment(1).'/'.$this->uri->segment(2), 'location', 301);
             }
     	}
-    	
-        $this->_get_meta_data($page);
-    	$data['contact'] = $this->Mcontact->listcontact(); 
 
+        $this->_get_meta_data($page);
+
+        $page_category = $this->_load_page_by_category($page_link_rewrite);
+        if($page_category)
+            $this->_get_meta_data($page_category);
+
+    	$data['contact'] = $this->Mcontact->listcontact(); 
     	$data['categories'] = $this->_load_categories($page);
     	$data['show_all_news'] = 'true';
     	$data['two_tincongnghe'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(2, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
@@ -61,13 +66,15 @@ class News extends MY_Controller {
     	$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
 
 		if($page_link_rewrite == 'tin-tuc') {
-			$category_ids = array(2, 3, 4);
+			$this->menu_active = 'news';
+			$category_ids = array(2, 3, 21);
 			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
 			$total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
 			
 			// init paging
 			$this->init_paging('tin-tuc', $total_record_in_post, $segmentDf = false);
 		} else {
+			$this->menu_active = 'guides';
 			$data['show_cam_nang'] = true;
 			$category_ids = array(66, 67, 68);
 			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
@@ -76,6 +83,8 @@ class News extends MY_Controller {
 			// init paging
 			$this->init_paging('cam-nang', $total_record_in_post, $segmentDf = false);
 		}
+
+        $data['category'] = $page_link_rewrite;
 
     	$this->load->view('universalView', $data);
     }
@@ -123,6 +132,11 @@ class News extends MY_Controller {
         
         $this->init_paging($selected_category->link_rewrite, $total_record_in_post);
         
+		if($page_link_rewrite == 'tin-tuc') {
+			$this->menu_active = 'news';
+		} else {
+			$this->menu_active = 'guides';
+		}
         
         $data['partners'] = $this->_get_partners();
     	$data['site_meta_data'] = $this->site_meta_data;
@@ -134,11 +148,22 @@ class News extends MY_Controller {
     }
 
     function index($page_link_rewrite, $category_link = NULL, $thread_id = NULL, $page_nr = 0) {
+        if ($page_link_rewrite == 'cam-nang') {
+            $this->menu_active = 'guides';
+        }
         $data = $this->load->get_var('data');
         $page = $this->_load_page($page_link_rewrite);
         if (!$page) {
             show_404();
         }
+
+        // Updates services
+        $posts = $this->news_model->read_by_id($thread_id);
+        $data = array(
+               'counts' => $posts->counts + 1
+            );
+        $this->db->where('id_news', $posts->id_news);
+        $this->db->update('news', $data);
 
         $this->_get_meta_data($page);
         $data['categories'] = $this->_load_categories($page);
@@ -188,13 +213,15 @@ class News extends MY_Controller {
                     $result['single_post'] = $post_content;
                     
                     //load bài viết cùng loại
-                    $same_posts = $this->news_model->getRecordSameCategory($selected_category->id_news_category, $thread, 6);
+                    $same_posts = $this->news_model->getRecordSameCategory($selected_category->id_news_category, $thread, 8);
                     $same_posts_array = $same_posts->result();
                     foreach ($same_posts_array as &$same_post) {
                         $same_post->link_rewrite = $selected_category->link_rewrite . '/' . $same_post->id_news . '-' . $same_post->link_rewrite . URL_TRAIL;
                         $same_post = $this->truncate_title_content_post($same_post, MAX_DES_TITLE, MAX_DES_CONTENT);
                     }
                     $result['category'] = $selected_category;
+                    $categoryParent = $this->category_model->read_by_id($selected_category->id_parent);
+                    $result['categoryParent'] = $categoryParent;
                     $result['posts_same_category'] = $same_posts_array;
                 } else {
 
@@ -421,6 +448,10 @@ class News extends MY_Controller {
             $this->site_meta_data['meta_title'] = $post['meta_title'];
             $this->site_meta_data['meta_description'] = $post['meta_description'];
             $this->site_meta_data['meta_keywords'] = $post['meta_keywords'];
+        } elseif (is_object($post)) {
+            $this->site_meta_data['meta_title'] = $post->meta_title;
+            $this->site_meta_data['meta_description'] = $post->meta_description;
+            $this->site_meta_data['meta_keywords'] = $post->meta_keywords;
         } else {
             if (isset($post->title)) {
                 $this->site_meta_data['title'] = $post->title;
@@ -444,6 +475,7 @@ class News extends MY_Controller {
     }
 
     public function servicesCat($url, $page_nr){
+		$this->menu_active = 'services';
         $offset = 0;
         if($page_nr > 1) {
             $offset = ($page_nr - 1)*LIMIT_SHOW_ALL_NEWS;
@@ -466,7 +498,7 @@ class News extends MY_Controller {
         if ($level == 3) {
             $catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
             $page_category_ids = $this->getCatCategory($catParentServices);
-            $url = $catParentServices->link_rewrite;
+            $url = $catServices->link_rewrite;
             $services = $this->truncate_title_content_posts($this->services_model->get_news_list_by_category_id($catServices->id_news_category, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
             $total_record_in_post = $this->services_model->count_postnr_by_list_categries($catServices->id_news_category);
         } else {
@@ -489,6 +521,7 @@ class News extends MY_Controller {
         $data['site_meta_data'] = $this->site_meta_data;
 
 		$data['levelServices'] = 1;
+        $data['level'] = $level;
         $data['catServices'] = $catServices;
         $data['categoryServices'] = $categoryServices;
         $data['categoryServicesParent'] = $url;
@@ -503,6 +536,7 @@ class News extends MY_Controller {
     }
     
     public function servicesDetail($id, $url){
+		$this->menu_active = 'services';
         $this->load->model('Services_model', 'services_model');
 
         $url = $this->uri->segment(2);
