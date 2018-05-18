@@ -20,13 +20,14 @@
 				<div class="price-detail">
 					<p>
 					<?php if ($servicesDetail->price != 0) { ?>
-						<span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span> <span class="ngan-cach" style="font-size: 16px; padding: 0 3px;">|</span> <span class="hotline-tu-van" style="font-size: 16px; margin-top: 2px;"><span style="color: #000000;">Tư vấn: </span>0901 260 260</span>
+						<span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Tư vấn: </span>0901 260 260</span>
 					<?php }else{ ?>
 						<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Tư vấn:</span> 0901 260 260</span>
 					<?php } ?>
 					</p>
 				</div>
-				<p class="time-wanarry">Thời gian bảo hành: <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
+				<p class="time-wanarry"><span>Thời gian sửa chữa:</span> <?php echo $servicesDetail->time_repair != null ? $servicesDetail->time_repair : 'Đang cập nhật ...'; ?></p>
+				<p class="time-wanarry"><span>Thời gian bảo hành:</span> <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
 				<p class="address">
 					Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (<a class="service-view-map" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Xem bản đồ</a>)
 				</p>
@@ -51,9 +52,23 @@
 	<div class="clearfix"></div>
 	<div class="server-information-detail server-information">
 		<div class="server-information-left col-md-8">
+			<?php if ($servicesDetail->content != null) : ?>
 			<div class="noidungthitruongchitiet row">
-				<p><?php echo $servicesDetail->content;?></p>
+				<article>
+					<p><?php echo $servicesDetail->content;?></p>
+				</article>
+				<script type="text/javascript" src="<?php echo base_url().'assets/'; ?>js/readmore.min.js"></script>
+				<script type="text/javascript">
+					$('article').readmore({
+						speed: 75,
+						moreLink: '<a class="read-more" href="javascript:void(0)">Đọc thêm</a>',
+						lessLink: '<a class="read-more" href="javascript:void(0)">Rút gọn</a>',
+						collapsedHeight: 162,
+						heightMargin:1,
+					});
+				</script>
 			</div>
+			<?php endif; ?>
 			<?php if(count($newsRelateds) > 0): ?>
 			<div class="cactinkhac2 cactinkhac2-large row">
 				<h3 class="h3-news-related">Các lỗi khác thường gặp</h3>

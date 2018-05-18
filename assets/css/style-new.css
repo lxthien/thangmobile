@@ -643,7 +643,7 @@ a.link-block-you-see:hover{
 	float: left;
 }
 .price-detail span.icon-price-rate {
-	line-height: 15px; margin-top: 5px; font-size: 19px; margin: 7px 10px 0px 5px;
+	line-height: 15px; margin-top: 5px; font-size: 19px; margin: 5px 5px 0px 5px;
 }
 .price-detail span.icon-price {
 	background-color: #ffffff; color: #000000; font-size: 10px; border: 1px solid #000000; padding: 0 5px; font-weight: 600;
@@ -659,7 +659,7 @@ span.ngan-cach {
 	font-size: 16px; padding: 0 5px; color: #cccccc;
 }
 span.hotline-tu-van {
-	font-weight: 400; font-size: 16px;
+	font-weight: 400; font-size: 16px; margin-top: 2px; font-weight: 600;
 }
 
 
@@ -1081,6 +1081,15 @@ height: 70px;}
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {
+	.noidungthitruongchitiet img {
+		width: 100% !important;
+    	height: auto !important;
+	}
+	.noidungthitruongchitiet iframe {
+		width: 95% !important;
+    	height: auto !important;
+	}
+
 	.nav {
 		margin: 20px 0px 10px 15px;
 	}
@@ -1192,10 +1201,16 @@ height: 70px;}
 		padding-left: 5px; margin-bottom: 5px;
 	}
 
+	.sreenbaner {
+		height: auto; margin-bottom: 20px;
+	}
 
 	/*=========================
 	 * Home service
 	=========================*/
+	.home-service {
+		display: none;
+	}
 	.home-service .title-service{
 		padding: 3px 0;
 	}
@@ -1244,7 +1259,7 @@ height: 70px;}
 	}
 
 	.left .home-accessories{
-		display: inline-block; margin-top: 10px; width: 100%;
+		display: none; margin-top: 10px; width: 100%;
 	}
 	.left .home-accessories .phu-kien-hot{
 		width: 100%; overflow: hidden;
@@ -1358,7 +1373,7 @@ height: 70px;}
 		width: 100%;
 	}
 	.main-product .ttinsanpham .leftthongtin .boxhinhlonsp img {
-		width: 60%;
+		width: 53%;
 	}
 	.main-product .ttinsanpham .leftthongtin .box-chung-toi-cam-ket {
 		display: none;
@@ -1446,6 +1461,11 @@ height: 70px;}
 	}
 	.main-product .phu-kien .ttinsanpham .rightthongtin h1 {
 		font-size: 23px;
+	}
+
+	#gioithieusanpham img {
+		width: 100% !important;
+		height: auto !important;
 	}
 
 	/*=========================
@@ -1546,7 +1566,7 @@ height: 70px;}
 		font-size: 18px;
 	}
 	.servicesDetail .main-service-detail .server-information .server-information-right .time-wanarry {
-		float: left; margin-bottom: 5px; font-size: 16px;
+		float: left; margin-bottom: 5px; font-size: 16px; width: 100%;
 	}
 	.servicesDetail .main-service-detail .server-information .server-information-right .address {
 		float: left; margin-bottom: 5px; font-size: 16px;
@@ -1589,6 +1609,10 @@ height: 70px;}
 		display: block;
 	}
 
+	.servicesDetail .main-service-detail .server-information .server-information-left .noidungthitruongchitiet a.read-more {
+		display: inline-block; margin: 10px 0px 20px; color: #00619f; text-decoration: underline; font-weight: 600;
+	}
+
 	/*=========================
 	 * Service detail page
 	=========================*/
@@ -1614,14 +1638,14 @@ height: 70px;}
 		display: none;
 	}
 	span.hotline-tu-van span{
-		color: #000000; font-size:16px ;padding: 0 3px 0 0;
+		color: #000000; font-size:16px ;padding: 0 3px 0 10px; font-weight: 400;
 	}
 	.service-view-map {
 		font-size: 12px; font-style: italic; color: #263e81;
 	}
 
 	.servicesDetail .main-service-detail .server-information .server-information-left img {
-		width: 100%;
+		width: 100% !important; height: auto !important;
 	}
 	.servicesDetail .noidungthitruongchitiet {
 		width: auto; margin: 0 -15px;
@@ -1814,6 +1838,15 @@ height: 70px;}
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+	.noidungthitruongchitiet img {
+		width: auto !important;
+    	height: auto !important;
+	}
+	.noidungthitruongchitiet iframe {
+		width: auto !important;
+    	height: auto !important;
+	}
+
 	.nav {
 		margin: 20px 0px 20px 15px;
 	}
@@ -1980,6 +2013,9 @@ height: 70px;}
 	.navbar .dropdown-menu {
 		padding: 10px 0px;
 	}
+	.navbar-nav li.dropdown .drop-down {
+		display: none;
+	}
 
 	/*=========================
 	 * Slider
@@ -1988,7 +2024,14 @@ height: 70px;}
 		display: block; width: 625px;
 	}
 	.banner {
-		float: none; clear: none;
+		float: right; clear: none; width: 345px;
+	}
+	.sreenbaner {
+		height: 290px; margin-bottom: 10px;
+	}
+	.banner .row .col-md-6.ml,
+	.banner .row .col-md-6.mr {
+		margin-bottom: 8px;
 	}
 
 	/*=========================
@@ -2051,6 +2094,11 @@ height: 70px;}
 	}
 	.home-technology .line2 {
 		width: 485px; margin: 12px 0 0;
+	}
+
+	.home-service,
+	.left .home-accessories {
+		display: block;
 	}
 
 	/*=========================
@@ -2278,13 +2326,16 @@ height: 70px;}
 		margin-top: 0;
 	}
 	.servicesDetail .noidungthitruongchitiet {
-		width: auto
+		width: auto;
 	}
 	.servicesDetail .main-service-detail .server-information .server-information-left .row {
-		display: block;
+		display: block; margin-bottom: 20px;
 	}
 	.servicesDetail .main-service-detail .server-information .server-information-left img {
-		width: 100%;
+		width: auto !important;
+	}
+	.servicesDetail .main-service-detail .server-information .server-information-left .noidungthitruongchitiet a.read-more {
+		display: inline-block; margin: 10px 0px; color: #00619f; text-decoration: underline; font-weight: 600;
 	}
 	.servicesDetail .price-detail .product-price-text {
 		float: left;

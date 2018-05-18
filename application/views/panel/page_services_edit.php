@@ -63,6 +63,14 @@ echo form_error('price');
 echo '</td></tr>';
 
 echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
+echo form_label('Thời gian sửa chữa:');
+echo '</td><td>';
+echo form_input(array('name' => 'time_repair', 'class' => 'form field'), $news->time_repair), '<br>';
+echo '</td><td>';
+echo form_error('time_repair');
+echo '</td></tr>';
+
+echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
 echo form_label('Thời gian bảo hành:');
 echo '</td><td>';
 echo form_input(array('name' => 'time_service', 'class' => 'form field'), $news->time_service), '<br>';

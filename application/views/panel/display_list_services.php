@@ -28,9 +28,15 @@
 <table width='100%' border='0' cellspacing='0' cellpadding='0' align='center'>
     <tr>
         <td height='55' background='<?php echo RES_PATH; ?>images/panel/admin-blue_08.gif' valign='middle' style='padding-left:20px'>
-        <p class='toTop'><a href='<?php echo base_url() . "panel/admin_services/add" ?>'>Add News</a></p>
+            <p class='toTop'><a href='<?php echo base_url() . "panel/admin_services/add" ?>'>Add News</a></p>
         </td>
         <td align="right" background='<?php echo RES_PATH; ?>images/panel/admin-blue_08.gif' valign='middle' style='padding-right:10px'>
+            <?php 
+				echo form_open($page_link, array('id' => 'filter_form'));
+				$js = 'id="category" onChange="filter()"';
+				echo form_dropdown('category', $category_list, set_value('category', $filter_category), $js).'<br>';
+				echo form_close();
+			?>
         </td>
     </tr>
 </table>

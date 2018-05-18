@@ -11,12 +11,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link home active" href="<?php echo base_url(); ?>">
+                        <a class="nav-link home <?php echo $this->menu_active == 'home' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>">
                             <img src="<?php echo base_url('assets/images/icon-home.png'); ?>" alt="Điện thoại vũng tàu">
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="<?php echo base_url('san-pham/dien-thoai'); ?>">
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'phone' ? 'active' : ''; ?>" href="<?php echo base_url('san-pham/dien-thoai'); ?>">
                             Điện thoại
                         </a>
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
@@ -65,7 +65,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="<?php echo base_url('san-pham/phu-kien-dien-thoai'); ?>">Phụ kiện</a>
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'accessories' ? 'active' : ''; ?>" href="<?php echo base_url('san-pham/phu-kien-dien-thoai'); ?>">Phụ kiện</a>
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
@@ -86,7 +86,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>">Dịch vụ sửa chữa</a>
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'services' ? 'active' : ''; ?>" href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>">Dịch vụ sửa chữa</a>
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php foreach ($menuCategoryService as $service): ?>
@@ -99,10 +99,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('thong-tin-bao-hanh'); ?>">Kiểm tra bảo hành</a>
+                        <a class="nav-link <?php echo $this->menu_active == 'bao-hanh' ? 'active' : ''; ?>" href="<?php echo base_url('thong-tin-bao-hanh'); ?>">Kiểm tra bảo hành</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="<?php echo base_url('tin-tuc'); ?>">Tin tức</a>
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'news' ? 'active' : ''; ?>" href="<?php echo base_url('tin-tuc'); ?>">Tin tức</a>
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
@@ -117,7 +117,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="<?php echo base_url('cam-nang'); ?>">Cẩm nang</a>
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'guides' ? 'active' : ''; ?>" href="<?php echo base_url('cam-nang'); ?>">Cẩm nang</a>
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
@@ -132,7 +132,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('lien-he'); ?>">Liên hệ</a>
+                        <a class="nav-link <?php echo $this->menu_active == 'contact' ? 'active' : ''; ?>" href="<?php echo base_url('lien-he'); ?>">Liên hệ</a>
                     </li>
                 </ul>
             </div>

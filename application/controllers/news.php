@@ -524,7 +524,7 @@ class News extends MY_Controller {
         $data['level'] = $level;
         $data['catServices'] = $catServices;
         $data['categoryServices'] = $categoryServices;
-        $data['categoryServicesParent'] = $url;
+        $data['categoryServicesParent'] = $catParentServices->link_rewrite;
         $data['contact'] = $this->Mcontact->listcontact();
         $data['services'] = $services;
         $data['partners'] = $this->_get_partners();

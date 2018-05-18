@@ -2,6 +2,8 @@
 
 class Welcome extends MY_Controller {
 
+    var $menu_active = 'bao-hanh';
+
     public function __construct() {
         parent::__construct();
         $this->load->model('Image_model','image_model');

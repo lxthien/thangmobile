@@ -10,7 +10,7 @@
 								clear: both;
 							}
 					    	.cls2 {
-					    		width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 1px solid #cccccc; margin-top: 20px; font-family: "Arial";
+					    		width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 0px solid #cccccc; margin-top: 20px; font-family: "Arial";
 					    	}
 					    	.cls2 .header {
 					    		padding: 10px 0;
@@ -90,7 +90,7 @@
 											clear: both;
 										}
 								    	.cls2 {
-								    		width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 1px solid #cccccc; margin-top: 20px; font-family: "Arial";
+								    		width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 0px solid #cccccc; margin-top: 10px; font-family: "Arial";
 								    	}
 								    	.cls2 .header {
 								    		padding: 10px 0;
@@ -225,7 +225,7 @@
 										  	</div>
 										  	<div class="row-table">
 										    	<div class="col-table">Thời gian nhận máy</div>
-										    	<div class="col-table"><?php echo formatTime($task->created); ?></div>
+										    	<div class="col-table"><?php echo formatTime($task->created, true); ?></div>
 										  	</div>
 										  	<div class="row-table">
 										    	<div class="col-table">Dự kiến sửa xong</div>
@@ -235,13 +235,12 @@
 										</div>
 										<div class="right">
 											<p><b>Các trường hợp từ chối bảo hành sửa chữa:</b></p>
-											<p>- Phiếu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa hoặc bóc gỡ, không còn nguyên vẹn. Phiếu bảo hành không có đóng dấu của cửa hàng.</p>
+											<p>- Phiếu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn. Phiếu bảo hành không có đóng dấu bảo hành của cửa hàng.</p>
 											<p>- Máy đã từng qua sửa chữa, tự cài đặt phần mềm (hoặc bên thứ 3) trong thời gian bảo hành.</p>
-											<p>- Máy bị thấm chất lỏng (do đi mưa hoặc rớt nước…).</p>
+											<p>- Máy bị thấm chất lỏng (do bị ẩm, đi mưa hoặc rớt nước…).</p>
 											<p>- Máy bị biến dạng, cong vênh (rớt, va đập, can thiệp ngoài…).</p>
-											<p>- Vỏ, thân máy, màn hình cảm ứng không bảo hành.</p>
 											<p><b>Lưu ý:</b></p>
-											<p>- Quý khách hàng vui lòng giữ lại biên nhận này để nhận lại máy.</p>
+											<p>- Quý khách hàng vui lòng giữ lại biên nhận này để nhận lại máy. Nếu bị mất, vui lòng gọi ngay: <strong>0901 260 260</strong>.</p>
 											<p>- Biên nhận sửa chữa này chỉ có giá trị trong thời gian 30 ngày.</p>
 											<div class="footer">
 								                <p>Đại diện cửa hàng</p>

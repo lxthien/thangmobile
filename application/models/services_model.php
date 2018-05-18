@@ -10,7 +10,7 @@ class Services_model extends MY_Model {
     var $primary_table = 'services';
     var $fields = array('id_news', 'id_news_category', 'id_language', 'title', 'meta_title',
         'meta_description', 'meta_keywords', 'content', 'link_rewrite', 'active',
-        'date_add', 'date_upd', 'focusable', 'news_icon', 'price', 'time_service');
+        'date_add', 'date_upd', 'focusable', 'news_icon', 'price', 'time_service', 'time_repair');
     var $required_fields = array('id_news_category', 'active', 'content', 'link_rewrite');
 
 
