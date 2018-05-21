@@ -17,6 +17,7 @@
             $data['tasks'] = $this->task_model->readListDoing();
             $data['tasksFinish'] = $this->task_model->readListFinish();
             $data['tasksNotifiedCustomer'] = $this->task_model->readListNotifiedCustomer();
+            $data['tasksCustomerReceived'] = $this->task_model->readListCustomerReceived();
             $data['view'] = 'customer/task/index';
             $this->load->view('customer', $data);
         }

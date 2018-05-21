@@ -187,6 +187,67 @@
 			            	<?php endif; ?>
 			            </div>
 			        </div>
+				</div>
+				<div class="col-lg-12">
+			        <div class="box">
+			            <header>
+			                <div class="icons"><i class="fa fa-table"></i></div>
+			                <h5>CÁC MÁY ĐÃ GIAO CHO KHÁCH HÀNG</h5>
+			            </header>
+			            <div id="collapse4" class="body">
+							<?php if(count($tasksCustomerReceived) > 0) : ?>
+							<p style="color: red;">Lưu ý: Tin này sẽ không hiển thị sau 1 ngày kể từ lúc khách hàng nhận máy</p>
+			                <table id="dataTable" class="table table-bordered table-condensed">
+			                    <thead>
+			                    <tr>
+									<th>Mã số</th>
+									<th>Loại máy</th>
+									<th>Tình trạng</th>
+									<th>Tên</th>
+			                        <th>Điện thoại</th>
+			                        <th>Imei</th>
+			                        <th>Note</th>
+			                        <th>Pass</th>
+			                        <th>Sim, Thẻ SD</th>
+			                        <th>Báo giá</th>
+			                        <th>TG Giao Máy</th>
+									<th>&nbsp;</th>
+									<!-- <th>&nbsp;</th> -->
+			                    </tr>
+			                    </thead>
+			                    <tbody>
+			                    	<?php foreach ($tasksCustomerReceived as $row): ?>
+		                            	<?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
+										<?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
+										<tr style="<?php echo $cssBg.$cssBgVip; ?>">
+										<td><?php echo $row->code; ?></td>
+										<td><?php echo $row->phoneType; ?></td>
+		                                <td><?php echo $row->phoneStatus; ?></td>
+		                                <td><?php echo getCustomerName($row->customer_id); ?></td>
+		                                <td><?php echo getCustomerPhone($row->customer_id); ?></td>
+		                                <td><?php echo $row->phoneImei; ?></td>
+		                                <td><?php echo $row->notePrivate; ?></td>
+		                                <td><?php echo $row->phonePass; ?></td>
+		                                <td><?php echo $row->phoneSim; ?></td>
+		                                <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
+										<td><?php echo formatTime($row->timeClosedTask); ?></td>
+										<td>
+											<a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
+										</td>
+										<!-- <td>
+											<a href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
+										</td> -->
+		                            </tr>
+		                        	<?php endforeach; ?>
+			                    </tbody>
+			                </table>
+			                <?php else: ?>
+			            	<table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+			            	<p class="center">Không có yêu cầu nào đã giao cho khách hàng</p>
+			            	</table>
+			            	<?php endif; ?>
+			            </div>
+			        </div>
 			    </div>
 			</div>
 			<!-- /.row -->

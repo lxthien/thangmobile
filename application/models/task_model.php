@@ -62,6 +62,20 @@
             return $query->result();
         }
 
+        public function readListCustomerReceived() {
+            $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            $datetime->sub(new DateInterval('P1D'));
+
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d H:i:s'));
+            $this->db->order_by("created", "asc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
 	    public function delete_by_id($id) {
 	        $options = array($this->primary_key => $id);
 	        $this->delete($options);

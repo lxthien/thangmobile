@@ -23,9 +23,18 @@
 			</a>
 			<div class="right-box-service">
 				<a href="<?php echo base_url($row->id_news.'-'.$row->link_rewrite.URL_TRAIL); ?>" title="<?php echo $row->title; ?>"><?php echo $row->title; ?></a>
-				<p class="des-service">
-					<?php echo $row->content; ?>
-				</p>
+				<div class="des-service">
+					<?php if ($row->price != 0) : ?>
+						<p class="product-price-text">
+							Giá: <span><?php echo number_format($row->price, "0", ",", "."); ?> vnđ</span>
+						</p>
+					<?php else: ?>
+						<p class="product-price-text">Giá: <span>Xin vui lòng liên hệ</span></p>
+					<?php endif; ?>
+					<p>Thời gian sửa chữa: <?php echo $row->time_repair != null ? $row->time_repair : 'Đang cập nhật ...'; ?></p>
+					<p>Thời gian bảo hành: <?php echo $row->time_service != null ? $row->time_service : 'Đang cập nhật ...'; ?></p>
+					<?php //echo $row->content; ?>
+				</div>
 			</div>
 		</div>
 	<?php

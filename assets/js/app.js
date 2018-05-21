@@ -15,7 +15,7 @@ $(document).ready(function() {
 		if(jQuery.browser.mobile) {
 			$('#service-bxslider').carouFredSel({
 	            responsive: true,
-                width: '100%',
+                width: 320,
                 auto: true,
 				scroll: 1,
 				items: {

@@ -39,6 +39,7 @@
 */
 
 $route['thong-tin-bao-hanh'] = "welcome";
+$route['thong-tin-bao-hanh/(:num)'] = "welcome";
 $route['searchHistory'] = "welcome/searchHistory";
 
 $route['default_controller'] = "home";

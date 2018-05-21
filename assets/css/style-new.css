@@ -1090,6 +1090,40 @@ height: 70px;}
     	height: auto !important;
 	}
 
+	/*=========================
+	 * Column right
+	=========================*/
+	.boxdownload.widget-warranty {
+		text-align: center;
+	}
+	.boxdownload.widget-warranty input {
+		width: 100%;
+		border: 1px solid #cccccc;
+		height: 30px;
+		padding: 0 0 0 10px;
+		margin-bottom: 10px;
+	}
+	.boxdownload.widget-warranty p.widget-warranty-response {
+		text-align: left;
+		margin: 5px 0 0;
+		font-style: italic;
+		font-weight: 600;
+		display: none;
+	}
+	.boxdownload.widget-warranty button {
+		border: none;
+		height: 30px;
+		text-align: center;
+		color: #ffffff;
+		background: #263e81;
+		text-transform: uppercase;
+		padding: 0 20px;
+		margin: 8px 0 0 0;
+		cursor: pointer;
+		font-size: 13px;
+		font-weight: 600;
+	}
+
 	.nav {
 		margin: 20px 0px 10px 15px;
 	}
@@ -1174,6 +1208,7 @@ height: 70px;}
 	.navbar .dropdown-menu {
 		padding: 10px;
 	}
+
 	/*=========================
 	 * Banner
 	=========================*/
@@ -1537,8 +1572,12 @@ height: 70px;}
 	.box-service .right-box-service {
 		width: 100%; float: none;
 	}
-	.box-service .right-box-service p.des-service {
+	.box-service .right-box-service .des-service {
 		margin-bottom: 0;
+		display: none;
+	}
+	.box-service .right-box-service .des-service p {
+		display: block;
 	}
 
 	.allboxsp1 .phantrang {
@@ -1733,6 +1772,9 @@ height: 70px;}
 	}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet p.des-news-related {
 		height: auto;
+		display: none;
+	}
+	.sreentieude .sreentinkhacchitiet .des-news-related {
 		display: none;
 	}
 
@@ -2291,6 +2333,38 @@ height: 70px;}
 		margin-top: 20px;
 	}
 
+	.box-service .right-box-service .des-service {
+		margin-top: 10px;
+		display: block;
+	}
+	.box-service .right-box-service .des-service p {
+		font-size: 15px;
+		margin-bottom: 5px;
+	}
+	.box-service .right-box-service .des-service p.product-price-text {
+		float: none;
+	}
+	.box-service .right-box-service .des-service p.product-price-text span {
+		color: #ff0000;
+		font-weight: 600;
+	}
+
+	.sreentieude .sreentinkhacchitiet .des-news-related {
+		display: block;
+		margin-top: 30px;
+	}
+	.sreentieude .sreentinkhacchitiet .des-news-related p {
+		font-size: 15px;
+		margin-bottom: 5px;
+	}
+	.sreentieude .sreentinkhacchitiet .des-news-related p.product-price-text {
+		float: none;
+	}
+	.sreentieude .sreentinkhacchitiet .des-news-related p.product-price-text span {
+		color: #ff0000;
+		font-weight: 600;
+	}
+
 	/*=========================
 	 * Service detail page
 	=========================*/
@@ -2430,7 +2504,7 @@ height: 70px;}
 		margin-right: 0px;
 	}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet a {
-		margin: 0;
+		margin: 0; display: block; width: 100%;
 	}
 	.cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet p.des-news-related {
 		height: 90px;

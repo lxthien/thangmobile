@@ -1,4 +1,66 @@
 <!--box ban nen xem -->
+<?php if (isset($this->useFull)) : ?>
+    <div class="sreendownload sreenonline right-box">
+        <div class="toponline">
+            <h2>Kiểm tra bảo hành</h2>
+        </div>
+        <div class="line-title">
+            <div class="left-30">&nbsp;</div>
+            <div class="left-70">&nbsp;</div>
+        </div>
+        <div class="boxdownload widget-warranty">
+            <div class="3">
+                <input type="text" name="phone" class="search" placeholder="Vui lòng nhập số điện thoại...">
+                <p class="widget-warranty-response"></p>
+                <button>Kiểm tra</button>
+
+                <script type="text/javascript">
+                    var $phoneField = $('.widget-warranty .search');
+
+                    $(document).ready(function() {
+                        $phoneField.keypress(function(e) {
+                            $phoneField.css('border-color', '#cccccc');
+                            $('.widget-warranty-response').hide();
+                        });
+
+                        $( ".widget-warranty button").click(function( event ) {
+                            event.preventDefault();
+                            
+                            if ($('.widget-warranty .search').val() === '') {
+                                $phoneField.focus().css('border-color', 'red');
+                                return;
+                            }
+
+                            if ($('.widget-warranty .search').val().length < 10 || $('.widget-warranty .search').val().length > 11) {
+                                $phoneField.focus().css('border-color', 'red');
+                                return;
+                            }
+
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo base_url(); ?>searchHistory",
+                                data: 'q=' + $('.widget-warranty .search').val() + '&format=true',
+                                dataType: "text",
+                                success: function(resultData) {
+                                    if (resultData != 1) {
+                                        $('.widget-warranty-response').html(resultData).show();
+                                        $phoneField.css('border-color', '#cccccc');
+                                    } else {
+                                        window.location.href = "<?php echo base_url(); ?>thong-tin-bao-hanh/" + $('.widget-warranty .search').val();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+<?php
+endif;
+?>
+
+<!--box ban nen xem -->
 <?php if ($this->menu_active == 'news' || $this->menu_active == 'guides') : ?>
     <div class="sreendownload sreenonline right-box">
         <div class="toponline">

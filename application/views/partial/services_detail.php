@@ -52,7 +52,7 @@
 	<div class="clearfix"></div>
 	<div class="server-information-detail server-information">
 		<div class="server-information-left col-md-8">
-			<?php if ($servicesDetail->content != null) : ?>
+			<?php if ($servicesDetail->content != '') : ?>
 			<div class="noidungthitruongchitiet row">
 				<article>
 					<p><?php echo $servicesDetail->content;?></p>
@@ -86,7 +86,18 @@
 									<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->id_news.'-'.$post->link_rewrite.URL_TRAIL);?>">
 										<span><?php echo $post->title;?></span>
 									</a>
-									<p class="des-news-related"><?php echo ucfirst(mb_strtolower($post->content, 'UTF-8')); ?></p>
+									<div class="des-news-related">
+										<?php if ($post->price != 0) : ?>
+											<p class="product-price-text">
+												Giá: <span><?php echo number_format($post->price, "0", ",", "."); ?> vnđ</span>
+											</p>
+										<?php else: ?>
+											<p class="product-price-text">Giá: <span>Xin vui lòng liên hệ</span></p>
+										<?php endif; ?>
+										<p>Thời gian sửa chữa: <?php echo $post->time_repair != null ? $post->time_repair : 'Đang cập nhật ...'; ?></p>
+										<p>Thời gian bảo hành: <?php echo $post->time_service != null ? $post->time_service : 'Đang cập nhật ...'; ?></p>
+										<?php //echo ucfirst(mb_strtolower($post->content, 'UTF-8')); ?>
+									</div>
 								</div>
 							</div>
 						<?php

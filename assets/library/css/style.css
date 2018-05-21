@@ -92,3 +92,7 @@ hr
 .error{
     color:red;
 }
+
+.tr-hidden {
+    display: none;
+}

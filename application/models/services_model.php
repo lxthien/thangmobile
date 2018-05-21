@@ -11,7 +11,7 @@ class Services_model extends MY_Model {
     var $fields = array('id_news', 'id_news_category', 'id_language', 'title', 'meta_title',
         'meta_description', 'meta_keywords', 'content', 'link_rewrite', 'active',
         'date_add', 'date_upd', 'focusable', 'news_icon', 'price', 'time_service', 'time_repair');
-    var $required_fields = array('id_news_category', 'active', 'content', 'link_rewrite');
+    var $required_fields = array('id_news_category', 'active', 'link_rewrite');
 
 
     /**
@@ -175,12 +175,14 @@ class Services_model extends MY_Model {
 
     function getCname() {
         $this->db->select('id_news_category,id_parent,name');
-        $query = $this->db->get('news_category');
+        $this->db->from('news_category');
+        $query = $this->db->get();
         $record = array();
         $results = $query->result();
         $parents = array();
+        
         foreach ($results as $parent) {
-            if (!isset($parent->id_parent)) {
+            if (isset($parent->id_parent) && $parent->id_parent == 4) {
                 $parents[$parent->id_news_category] = $parent->name;
             }
         }

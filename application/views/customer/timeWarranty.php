@@ -10,7 +10,7 @@
 			<div class="sreentieude">
 				<div class="tieude">
 					<form class="timeWarranty">
-						<input type="text" name="search" class="search" placeholder="Vui lòng nhập số điện thoại...">
+						<input type="text" name="search" class="search" value="<?php echo $phoneNumber ?>" placeholder="Vui lòng nhập số điện thoại...">
 						<button>Kiểm tra</button>
 					</form>
 				</div>
@@ -28,6 +28,22 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			if ($('.timeWarranty .search').val() != '') {
+				$.ajax({
+				    type: "POST",
+				    url: "<?php echo base_url(); ?>searchHistory",
+				    data: 'q=' + $('.timeWarranty .search').val(),
+				    dataType: "text",
+				    success: function(resultData){
+				        $('.timeWarrantyBody').html(resultData);
+				        $('.time-warranty-note').hide();
+				    },
+					error: function() {
+						alert("Có lỗi trong quá trình kiểm tra. Vui lòng kiểm tra lại hoặc quay lại sau một thời gian");
+					}
+				});
+			}
+
 			$( ".timeWarranty button" ).click(function( event ) {
 				event.preventDefault();
 				$.ajax({
