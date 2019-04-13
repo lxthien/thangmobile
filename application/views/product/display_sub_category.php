@@ -1,16 +1,19 @@
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a>
-	<?php if($this->uri->segment(2) == 'phu-kien' ): ?>
-    <a href="<?php echo base_url($linkViewAll); ?>">Phụ kiện</a>
-	<?php else: ?>
-	<a href="<?php echo base_url($linkViewAll); ?>">Điện thoại</a>
-	<?php endif; ?>
+    <?php if($this->uri->segment(2) == 'phu-kien' ): ?>
+        <a href="<?php echo base_url($linkViewAll); ?>">Phụ kiện</a>
+    <?php else: ?>
+        <a href="<?php echo base_url($linkViewAll); ?>">Điện thoại</a>
+    <?php endif; ?>
     <span><?php echo $categoryName; ?></span>
 </div>
+
+<?php $cropImage = 'product_100_133'; ?>
+
 <?php
 if (isset($eachProductList)) {
     ?>
-    <div class="allboxsp1 product-list-page">
+    <div class="allboxsp1 product-list-page <?php echo $this->uri->segment(2) === 'phu-kien' ? 'phu-kien' : 'san-pham'; ?>"">
         <div class="title">
             <h1><?php echo $categoryName; ?></h1>
             <div class="title1"></div>
@@ -24,7 +27,7 @@ if (isset($eachProductList)) {
                 <div class="boxsp col-md-3 col-12">
                     <div class="sp3">
                         <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
-                            <img alt="<?php echo $eachProductList[$i]->producer.' '.$eachProductList[$i]->model; ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_75_100'); ?>"/>
+                            <img alt="<?php echo $eachProductList[$i]->producer.' '.$eachProductList[$i]->model; ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, $cropImage); ?>"/>
                         </a>
                     </div>
                     <div class="titlesp">

@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="banner">
+        <div class="banner d-none d-lg-block">
             <div class="row">
                 <div class="col-md-6 col-6 ml">
                     <a href="http://dienthoaivungtau.com/san-pham/dien-thoai">

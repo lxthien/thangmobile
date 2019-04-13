@@ -1,6 +1,6 @@
 <div class="row allboxsp1 contact-form">
 	<div class="col-md-12">
-		<h1 class="h1-title">Liên hệ Yes Mobile</h1>
+		<h1 class="h1-title">Liên hệ Yes Mobile Vũng Tàu</h1>
 		<div class="line-title">
 			<div class="left-30">&nbsp;</div>
 			<div class="left-70">&nbsp;</div>
@@ -15,11 +15,14 @@
 				<div class="noidunggioithieu">
 					<div class="contact-tbl">
 						<div class="contact-tbl-row">
-							<span class="label">Địa chỉ:</span>
+							<span class="label" style="font-weight: bold;">Địa chỉ:</span>
 							<?php echo $this->sconfig->get_value('address');?>
 						</div>
 						<div class="contact-tbl-row">
-							<span class="label">Điện thoại:</span>
+							<span class="label">Cách ngã 3 Nguyễn Tri Phương - Trương Công Định 30m, đi về hướng Nguyễn An Ninh</span>
+						</div>
+						<div class="contact-tbl-row">
+							<span class="label" style="font-weight: bold;"> Điện thoại:</span>
 							<?php echo $this->sconfig->get_value('TEL');?>
 							&nbsp;&nbsp;
 							<span class="label">
@@ -28,7 +31,7 @@
 							<span style="font-size: 14px;"><?php echo $this->sconfig->get_value('FAX');?></span>
 						</div>
 						<div class="contact-tbl-row">
-							<span class="label">Website:</span>
+							<span class="label" style="font-weight: bold;">Website:</span>
 							<?php echo base_url(); ?>
 							&nbsp;&nbsp;
 							<span class="label">

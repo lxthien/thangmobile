@@ -46,7 +46,7 @@
 		                                <td><?php echo $row->phonePass; ?></td>
 		                                <td><?php echo $row->phoneSim; ?></td>
 		                                <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
-		                                <td><?php echo formatTime($row->created); ?></td>
+		                                <td><?php echo formatTime($row->created, true); ?></td>
 		                                <td><?php echo formatTime($row->warrantyPeriodEnd); ?></td>
 		                                <td>
 		                                	<a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
@@ -108,7 +108,7 @@
 		                                <td><?php echo $row->phonePass; ?></td>
 		                                <td><?php echo $row->phoneSim; ?></td>
 		                                <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
-		                                <td><?php echo formatTime($row->created); ?></td>
+		                                <td><?php echo formatTime($row->created, true); ?></td>
 		                                <td><?php echo formatTime($row->warrantyPeriodEnd); ?></td>
 										<td>
 											<a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
@@ -169,7 +169,7 @@
 		                                <td><?php echo $row->phonePass; ?></td>
 		                                <td><?php echo $row->phoneSim; ?></td>
 		                                <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
-										<td><?php echo formatTime($row->created); ?></td>
+										<td><?php echo formatTime($row->created, true); ?></td>
 										<td>
 											<a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
 										</td>

@@ -166,15 +166,15 @@
 						        <div class="wrapper">
 						            <div class="header">
 						                <div class="logo">
-						                	<img src="http://dienthoaivungtau.com/assets/admin/assets/img/logo2.png">
+						                	<img src="http://yesmobile.vn/assets/admin/assets/img/logo2.png">
 						                	<p>sửa chữa, mua bán smartphone từ 2010</p>
 						                </div>
 						                <div class="address">
-						                	<p class="company"><strong>CỬA HÀNG ĐIỆN THOẠI THÔNG MINH YES MOBILE</strong></p>
+						                	<p class="company"><strong>CỬA HÀNG SỬA CHỮA ĐIỆN THOẠI YES MOBILE</strong></p>
 						                	<p>Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu</p>
 						                	<p>Tel: (0254) 6 557 999 – Email: yesmobile.vn@gmail.com</p>
 						                	<p>Web: www.yesmobile.vn - www.dienthoaivungtau.com</p>
-						                	<p><strong>Kiểm tra tình trạng máy sửa chữa: 0901 260 260</strong></p>
+						                	<p><strong>Kiểm tra tình trạng máy sửa chữa: 0845 772 772</strong></p>
 						                </div>
 						            </div>
 						            <div class="cl"></div>
@@ -216,7 +216,7 @@
 										    	<div class="col-table"><?php echo $task->notePrivate; ?></div>
 										  	</div>
 										  	<div class="row-table">
-										    	<div class="col-table">Giá sửa chữa</div>
+										    	<div class="col-table">Chi phí sửa chữa</div>
 										    	<div class="col-table"><strong><?php echo is_numeric($task->phonePrice) ? number_format($task->phonePrice).' VND' : ($task->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $task->phonePrice); ?></strong></div>
 										  	</div>
 										  	<div class="row-table">
@@ -234,14 +234,14 @@
 										</section>
 										</div>
 										<div class="right">
+											<p><b>Lưu ý:</b></p>
+											<p>- Quý Khách Hàng sử dụng phiếu này để nhận lại máy. Nếu bị mất phiếu, vui lòng gọi ngay: <strong>0845 772 772</strong>.</p>
+											<p>- Biên nhận này có giá trị trong thời gian 30 ngày.</p>
 											<p><b>Các trường hợp từ chối bảo hành sửa chữa:</b></p>
 											<p>- Phiếu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn. Phiếu bảo hành không có đóng dấu bảo hành của cửa hàng.</p>
 											<p>- Máy đã từng qua sửa chữa, tự cài đặt phần mềm (hoặc bên thứ 3) trong thời gian bảo hành.</p>
 											<p>- Máy bị thấm chất lỏng (do bị ẩm, đi mưa hoặc rớt nước…).</p>
 											<p>- Máy bị biến dạng, cong vênh (rớt, va đập, can thiệp ngoài…).</p>
-											<p><b>Lưu ý:</b></p>
-											<p>- Quý khách hàng vui lòng giữ lại biên nhận này để nhận lại máy. Nếu bị mất, vui lòng gọi ngay: <strong>0901 260 260</strong>.</p>
-											<p>- Biên nhận sửa chữa này chỉ có giá trị trong thời gian 30 ngày.</p>
 											<div class="footer">
 								                <p>Đại diện cửa hàng</p>
 								            </div>

@@ -10,7 +10,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Phần mềm quản lý công việc nội bộ | Yes Mobile</title>
 
-    <meta name="description" content="Hệ thống quản lý công việc nội bộ của Yes Mobile | Sửa chữa, mua bán smartphone từ 2010 | 438 Trương Công Định, Phường 8, TP.Vũng Tàu.">
+    <meta name="description" content="Hệ thống quản lý công việc nội bộ của Yes Mobile | 438 Trương Công Định, Phường 8, TP.Vũng Tàu.">
     <meta name="author" content="Yes Mobile">
 
     <meta name="msapplication-TileColor" content="#5bc0de" />
@@ -53,7 +53,7 @@
     <hr>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form action="http://dienthoaivungtau.com/panel/login" method="post">
+            <form action="http://yesmobile.vn/panel/login" method="post">
                 <p class="text-muted text-center">
                     Vui lòng nhập tài khoản và mật khẩu
                 </p>

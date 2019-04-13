@@ -12,7 +12,7 @@
                 </a>
                 <div class="name-and-price">
                     <a href="<?php echo base_url().'dich-vu/sua-dien-thoai-iphone-apple-tai-ba-ria-vung-tau'; ?>">
-                        <p>Sửa chữa điện thoại iPhone</p>
+                        <p>Sửa điện thoại iPhone</p>
                     </a>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 </a>
                 <div class="name-and-price">
                     <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-samsung-tai-ba-ria-vung-tau'; ?>">
-                        <p>Sửa chữa điện thoại Samsung</p>
+                        <p>Sửa điện thoại Samsung</p>
                     </a>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 </a>
                 <div class="name-and-price">
                     <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-sony-xperia-tai-ba-ria-vung-tau'; ?>">
-                       <p>Sửa chữa điện thoại Sony</p>
+                       <p>Sửa điện thoại Sony</p>
                     </a>
                 </div>
             </div>
@@ -47,41 +47,41 @@
                 </div>
             </div>
             <div class="col-01 col-md-4">
-                <a href="<?php echo base_url().'dich-vu/mo-mang-unlock-nap-tieng-viet-may-dien-thoai-xach-tay-tai-ba-ria-vung-tau'; ?>">
+                <a href="<?php echo base_url().'dich-vu/mo-mang-unlock-nap-tieng-viet-dien-thoai-xach-tay-tai-ba-ria-vung-tau'; ?>">
                     <img src="files/logo/homepage/unlock.png">
                 </a>
                 <div class="name-and-price">
-                    <a href="<?php echo base_url().'dich-vu/mo-mang-unlock-nap-tieng-viet-may-dien-thoai-xach-tay-tai-ba-ria-vung-tau'; ?>">
-                       <p>Mở mạng điện thoại xách tay</p>
+                    <a href="<?php echo base_url().'dich-vu/mo-mang-unlock-nap-tieng-viet-dien-thoai-xach-tay-tai-ba-ria-vung-tau'; ?>">
+                       <p>Mở mạng - Nạp tiếng Việt</p>
                     </a>
                 </div>
             </div>
             <div class="col-01 col-md-4">
-                <a href="<?php echo base_url().'dich-vu/sua-chua-may-tinh-bang-tablet-tai-ba-ria-vung-tau'; ?>">
+                <a href="<?php echo base_url().'dich-vu/sua-chua-ipad-apple-tai-ba-ria-vung-tau'; ?>">
                     <img src="files/logo/homepage/mtb.png">
                 </a>
                 <div class="name-and-price">
-                    <a href="<?php echo base_url().'dich-vu/sua-chua-may-tinh-bang-tablet-tai-ba-ria-vung-tau'; ?>">
-                       <p>Sửa máy tính bảng</p>
+                    <a href="<?php echo base_url().'dich-vu/sua-chua-ipad-apple-tai-ba-ria-vung-tau'; ?>">
+                       <p>Sửa máy tính bảng iPad</p>
                     </a>
                 </div>
             </div>
             <div class="col-01 col-md-4">
-                <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-oppo-xiaomi-tai-ba-ria-vung-tau'; ?>">
-                    <img src="files/logo/homepage/oppo.jpg">
+                <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-oppo-tai-ba-ria-vung-tau'; ?>">
+                    <img src="files/logo/homepage/oppo.png">
                 </a>
                 <div class="name-and-price">
-                    <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-oppo-xiaomi-tai-ba-ria-vung-tau'; ?>">
+                    <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-oppo-tai-ba-ria-vung-tau'; ?>">
                        <p>Sửa điện thoại Oppo</p>
                     </a>
                 </div>
             </div>
             <div class="col-01 col-md-4">
-                <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-oppo-xiaomi-tai-ba-ria-vung-tau'; ?>">
+                <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-xiaomi-tai-ba-ria-vung-tau'; ?>">
                     <img src="files/logo/homepage/xiaomi.png">
                 </a>
                 <div class="name-and-price">
-                    <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-oppo-xiaomi-tai-ba-ria-vung-tau'; ?>">
+                    <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-xiaomi-tai-ba-ria-vung-tau'; ?>">
                        <p>Sửa điện thoại Xiaomi</p>
                     </a>
                 </div>
@@ -97,11 +97,11 @@
                 </div>
             </div>
             <div class="col-01 col-md-4">
-                <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-nokia-tai-ba-ria-vung-tau'; ?>">
-                    <img src="files/logo/homepage/Nokia.png">
+                <a href="<?php echo base_url().'dich-vu/sua-dien-thoai-nokia-tai-ba-ria-vung-tau'; ?>">
+                    <img src="files/logo/homepage/nokia.png">
                 </a>
                 <div class="name-and-price">
-                    <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-nokia-tai-ba-ria-vung-tau'; ?>">
+                    <a href="<?php echo base_url().'dich-vu/sua-dien-thoai-nokia-tai-ba-ria-vung-tau'; ?>">
                        <p>Sửa điện thoại Nokia</p>
                     </a>
                 </div>
@@ -117,12 +117,12 @@
                 </div>
             </div>
             <div class="col-01 col-md-4">
-                <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-asus-lenovo-tai-ba-ria-vung-tau'; ?>">
+                <a href="<?php echo base_url().'dich-vu/sua-dien-thoai-asus-zenfone-tai-ba-ria-vung-tau'; ?>">
                     <img src="files/logo/homepage/zenfone.png">
                 </a>
                 <div class="name-and-price">
-                    <a href="<?php echo base_url().'dich-vu/sua-chua-dien-thoai-asus-lenovo-tai-ba-ria-vung-tau'; ?>">
-                       <p>Sửa điện thoại Asus Zenfone</p>
+                    <a href="<?php echo base_url().'dich-vu/sua-dien-thoai-asus-zenfone-tai-ba-ria-vung-tau'; ?>">
+                       <p>Sửa điện thoại Zenfone</p>
                     </a>
                 </div>
             </div>

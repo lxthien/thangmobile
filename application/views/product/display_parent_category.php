@@ -1,19 +1,21 @@
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a>
-	<?php if($this->uri->segment(2) == 'phu-kien-dien-thoai' ): ?>
-    <span>Phụ kiện diện thoại</span>
-	<?php else: ?>
-	<span>Điện thoại</span>
-	<?php endif; ?>
+    <?php if($this->uri->segment(2) == 'phu-kien-dien-thoai' ): ?>
+        <span>Phụ kiện diện thoại</span>
+    <?php else: ?>
+        <span>Điện thoại</span>
+    <?php endif; ?>
 </div>
 <div class="clearfix"></div>
+
+<?php $cropImage = 'product_100_133'; ?>
 <?php
 if (isset($childrenCategories)) {
     foreach ($childrenCategories as $each) {
         $eachProductList = $each->productList;
         if (count($eachProductList) > 0) {
             ?>
-            <div class="allboxsp1 product-list-page">
+            <div class="allboxsp1 product-list-page <?php echo $this->uri->segment(2) === 'phu-kien-dien-thoai' ? 'phu-kien' : 'san-pham'; ?>">
                 <div class="title">
                     <h1><?php echo $each->name; ?></h1>
                     <div class="title1"></div>
@@ -27,7 +29,7 @@ if (isset($childrenCategories)) {
                         <div class="boxsp col-md-3 col-12">
                             <div class="sp3">
                                 <a href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>">
-                                    <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_75_100'); ?>"/>
+                                    <img alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, $cropImage); ?>"/>
                                 </a>
                             </div>
                             <div class="titlesp">

@@ -176,6 +176,7 @@ class Services_model extends MY_Model {
     function getCname() {
         $this->db->select('id_news_category,id_parent,name');
         $this->db->from('news_category');
+        //$this->db->where('id_parent',4);
         $query = $this->db->get();
         $record = array();
         $results = $query->result();

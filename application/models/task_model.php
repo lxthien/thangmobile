@@ -71,7 +71,7 @@
             $this->db->where('taskType', 1);
             $this->db->where('taskStatus', 1);
             $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d H:i:s'));
-            $this->db->order_by("created", "asc");
+            $this->db->order_by("timeClosedTask", "desc");
             $query = $this->db->get();
             return $query->result();
         }

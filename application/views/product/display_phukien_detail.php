@@ -23,7 +23,7 @@
                     <?php } ?>
                     <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
                 </div>
-                <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0901 260 260</span></p>
+                <p class="tu-van"><span>Hotline tư vấn:</span> <span>0845 772 772</span></p>
                 <?php if( strlen($viewProduct->noteInformation) > 0): ?>
                 <div class="thongtincanluuy">
                     <p class="p-title">Thông tin cần lưu ý</p>

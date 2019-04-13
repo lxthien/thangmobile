@@ -20,16 +20,16 @@
 				<div class="price-detail">
 					<p>
 					<?php if ($servicesDetail->price != 0) { ?>
-						<span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Tư vấn: </span>0901 260 260</span>
+						<span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Hotline tư vấn: </span>0845 772 772</span>
 					<?php }else{ ?>
-						<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Tư vấn:</span> 0901 260 260</span>
+						<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Hotline tư vấn:</span> 0845 772 772</span>
 					<?php } ?>
 					</p>
 				</div>
 				<p class="time-wanarry"><span>Thời gian sửa chữa:</span> <?php echo $servicesDetail->time_repair != null ? $servicesDetail->time_repair : 'Đang cập nhật ...'; ?></p>
-				<p class="time-wanarry"><span>Thời gian bảo hành:</span> <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></p>
+				<p class="time-wanarry"><span>Thời gian bảo hành:</span> <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?> - <a class="service-view-map" style="font-size:15px" target="_blank" href="<?php echo base_url('/che-do-bao-hanh.html'); ?>">Chính sách bảo hành</a></p>
 				<p class="address">
-					Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (<a class="service-view-map" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Xem bản đồ</a>)
+					Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (Gần ngã ba Trương Công Định và Nguyễn Tri Phương - <a class="service-view-map" style="font-size:15px" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Bản đồ đường đi</a>)
 				</p>
 				<div class="main-news-social">
 					<div class="social">
@@ -63,7 +63,7 @@
 						speed: 75,
 						moreLink: '<a class="read-more" href="javascript:void(0)">Đọc thêm</a>',
 						lessLink: '<a class="read-more" href="javascript:void(0)">Rút gọn</a>',
-						collapsedHeight: 162,
+						collapsedHeight: 450,
 						heightMargin:1,
 					});
 				</script>
@@ -112,7 +112,7 @@
 			<div class="right">
 				<div class="sreenonline right-box">
 					<div class="toponline">
-						<h2>Dịch vụ sửa chữa</h2>
+						<h2>Danh mục sửa chữa smartphone</h2>
 					</div>
 					<div class="line-title">
 						<div class="left-30">&nbsp;</div>

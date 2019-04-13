@@ -28,8 +28,8 @@
                 <?php } ?>
                 <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
             </div>
-            <p class="product-out-of-stock">Sản phẩm tạm hết hàng<p/>
-            <p class="tu-van"><span>Tư vấn 24/24:</span> <span>0168 200 0080</span></p>
+            <p class="product-out-of-stock" style="font-size:20px">SẢN PHẨM NGỪNG KINH DOANH<p/>
+            <p class="tu-van"><span>Tư vấn:</span> <span>038 200 0080</span></p>
             <div class="thongtincoban">
                 <p class="p-title">Thông tin cấu hình</p>
                 <hr>

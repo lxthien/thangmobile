@@ -25,7 +25,7 @@ class Admin_services extends CI_Controller {
         // From validator
         $this->load->library('form_validation');
         $this->load->helper('form');
-        //$this->form_validation->set_rules('content', 'Content', 'required');
+        $this->form_validation->set_rules('id_news_category', 'Category', 'required');
     }
 
     function index($category_id = NULL) {

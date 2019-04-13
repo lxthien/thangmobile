@@ -2,5 +2,4 @@
 
 User-agent: *
 Disallow: /panel
-Disallow: /dienthoaivungtau
-Disallow: /dienthoaivungtau/dich-vu
+Disallow: /tai-ve

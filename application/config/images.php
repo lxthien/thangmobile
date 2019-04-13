@@ -43,3 +43,4 @@ $config["image_sizes"]["product_60_95"] = array(60,95);
 $config["image_sizes"]["product_65_86"] = array(65,86);
 $config["image_sizes"]["product_270_370"] = array(270,370);
 $config["image_sizes"]["product_90_120"] = array(90,120);
+$config["image_sizes"]["product_100_133"] = array(100,133);

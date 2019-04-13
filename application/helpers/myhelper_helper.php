@@ -117,9 +117,12 @@ function countPriceCustomerRequest ($customerID) {
     return $customer;
 }
 
-function formatTime($time) {
+function formatTime($time, $created = false) {
     if($time == "" || $time == "0000-00-00 00:00:00") return "";
-    $date = new DateTime($time);
+    $date = new DateTime($time, new DateTimeZone('Asia/Ho_Chi_Minh'));
+    if($created && date_default_timezone_get() == "Asia/Ho_Chi_Minh") {
+        $date->add(new DateInterval("PT420M"));
+    }
     return $date->format('d/m/Y H:i:s');
 }
 

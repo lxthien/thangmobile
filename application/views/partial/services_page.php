@@ -3,9 +3,9 @@
 		<?php if($level == 2): ?>
 			<h1><?php echo $catServices->name.' tại Vũng Tàu'; ?></h1>
 		<?php else: ?>
-			<h1><?php echo 'Sửa ' . $catServices->name.' tại Vũng Tàu'; ?></h1>
+			<h1><?php echo $catServices->name.' tại Vũng Tàu'; ?></h1>
 		<?php endif; ?>
-		<!-- <p>Chọn điện thoại/máy tính bảng bạn cần sửa:</p> -->
+		<!-- <p>Chọn mục bạn cần sửa:</p> -->
 		<ul>
 			<?php foreach ($categoryServices as $row): ?>
 			<li><a class="<?php echo $catServices->id_news_category == $row->id_news_category ? 'breadcrumb-active' : ''; ?>" href="<?php echo base_url('dich-vu/'.$row->link_rewrite); ?>" title="<?php echo $row->name; ?>"><?php echo $row->name; ?></a></li>

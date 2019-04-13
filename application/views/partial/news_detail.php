@@ -33,14 +33,9 @@
 	    		<!-- Button like facebook -->
                 <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
                 <!-- Button like facebook -->
-                <!-- Place this tag where you want the +1 button to render. -->
-                <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
-                <!-- Place this tag where you want the +1 button to render. -->
                 <!-- Button share facebook -->
                 <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
                 <!-- Button share facebook -->
-                <!-- Place this tag where you want the share button to render. -->
-                <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 	    	</div>
 	    	<?php if($news_item->id_news != 3 && $news_item->id_news != 4 && $news_item->id_news != 1 && $news_item->id_news != 150 && $news_item->id_news != 153): ?>
 	    	<span class="time-update-news">Cập nhật: <?php echo date_format(new DateTime($news_item->date_add),'d/m/Y'); ?></span>
