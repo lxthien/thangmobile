@@ -77,6 +77,7 @@ class Admin_services extends CI_Controller {
             $news_input->price = $this->input->post('price');
             $news_input->time_service = $this->input->post('time_service');
             $news_input->time_repair = $this->input->post('time_repair');
+            $news_input->hotline = $this->input->post('hotline');
 
             if (strlen($id_news) > 0 && $id_news !== COMPANY_INSTRODUCE_NEWS_ID 
             		&& $id_news !== SERVICES
@@ -102,6 +103,7 @@ class Admin_services extends CI_Controller {
                     $news['price'] = $this->input->post('price');
                     $news['time_service'] = $this->input->post('time_service');
                     $news['time_repair'] = $this->input->post('time_repair');
+                    $news['hotline'] = $this->input->post('hotline');
 
                     $focus = $this->input->post('focus');
                     if (trim($focus) === '') {
@@ -165,6 +167,7 @@ class Admin_services extends CI_Controller {
         $news->price = '';
         $news->time_service = '';
         $news->time_repair = '';
+        $news->hotline = '';
         $data['news'] = $news;
         $this->load->view('panel/home', $data);
     }

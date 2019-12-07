@@ -4,14 +4,14 @@
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a>
     <a href="<?php echo base_url().'san-pham/phu-kien-dien-thoai'; ?>">Phụ kiện điện thoại</a>
-    <a href="<?php echo base_url().'san-pham/dien-thoai/'.$productCategory->link_rewrite; ?>"><?php echo $productCategory->name; ?></a>
+    <a href="<?php echo base_url().'san-pham/phu-kien-dien-thoai/'.$productCategory->link_rewrite; ?>"><?php echo $productCategory->name; ?></a>
     <span><?php echo $viewProduct->model; ?></span>
 </div>
 <div class="allboxsp1 phu-kien">
     <div class="ttinsanpham">
         <div class="leftthongtin col-md-6 col-md-12">
             <div class="row">
-                <div class="boxhinhlonsp"><img alt="<?php echo $site_meta_data['meta_title']; ?>" src="<?php echo base_url(PARTNER_LOGO . '/ads/' . $viewProduct->logo); ?>"/></div>
+                <div class="boxhinhlonsp"><img title="<?php echo $viewProduct->model; ?> tại Vũng Tàu, Long Sơn" src="<?php echo image('files/logo/ads/'. $viewProduct->logo, 'product_270_358'); ?>" alt="<?php echo $viewProduct->model; ?> tại Vũng Tàu, Long Sơn" ></div>
             </div>
         </div>
         <div class="rightthongtin col-md-6 col-md-12">
@@ -19,11 +19,11 @@
                 <h1><?php echo $viewProduct->model; ?></h1>
                 <div class="price-detail">
                     <?php if ($viewProduct->gia_cu != 0 && $viewProduct->gia_cu != '' && $viewProduct->gia_cu != null) { ?>
-                        <span class="product-price"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span><!-- <span class="icon-price">New</span>-->
+                        <span class="product-price"><?php echo number_format($viewProduct->gia_cu, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
                     <?php } ?>
                     <span class="product-price"><?php echo number_format($viewProduct->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span>
                 </div>
-                <p class="tu-van"><span>Hotline tư vấn:</span> <span>0845 772 772</span></p>
+                <p class="tu-van"><span>Hotline tư vấn:</span> <span>0847 72 72 72</span></p>
                 <?php if( strlen($viewProduct->noteInformation) > 0): ?>
                 <div class="thongtincanluuy">
                     <p class="p-title">Thông tin cần lưu ý</p>
@@ -50,13 +50,10 @@
                     </div>
                 </div>
                 <?php endif; ?>
-                <p class="note-delivery">Nếu bạn muốn mua hàng từ xa, vui lòng xem <a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">tại đây</a></p>
                 <div class="share-product">
                     <div class="social">
                         <div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-                        <div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
                         <div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
-                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
                     </div>
                 </div>
             </div>
@@ -76,7 +73,7 @@
                             ?>
                             <li class="col-01 col-md-4">
                                 <a class="img" href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>" title="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>">
-                                    <img src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_90_120'); ?>" alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>">
+                                    <img title="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?> tại Vũng Tàu, Long Sơn" src="<?php echo image('files/logo/ads/'.$eachProductList[$i]->logo, 'product_90_120'); ?>" alt="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?> tại Vũng Tàu, Long Sơn">
                                 </a>
                                 <a class="name" href="<?php echo base_url($eachProductList[$i]->link_rewrite); ?>" title="<?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>">
                                     <?php echo $eachProductList[$i]->producer . ' ' . $eachProductList[$i]->model ?>

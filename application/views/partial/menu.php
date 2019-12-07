@@ -8,15 +8,31 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand d-block d-sm-none" href="<?php echo base_url(); ?>">
+                <img src="<?php echo base_url().'assets/images/logo-trang.png'; ?>" height="25" class="d-inline-block" alt="YesMobile">
+            </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link home <?php echo $this->menu_active == 'home' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>">
-                            <img src="<?php echo base_url('assets/images/icon-home.png'); ?>" alt="Điện thoại vũng tàu">
+                            <img src="<?php echo base_url('assets/images/icon-home.png'); ?>" alt="Yes Mobile">
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'phone' ? 'active' : ''; ?>" href="<?php echo base_url('san-pham/dien-thoai'); ?>">
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'services' ? 'active' : ''; ?>" href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>">Dịch vụ sửa chữa</a>
+                        <span class="drop-down"><span class="icon-drop-down"></span></span>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <?php foreach ($menuCategoryService as $service): ?>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" href="<?php echo base_url('dich-vu/' . $service['link_rewrite']); ?>">
+                                        <?php echo $service['name']; ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'phone' ? 'active' : ''; ?>" href="<?php echo base_url('#'); ?>">
                             Điện thoại
                         </a>
                         <span class="drop-down"><span class="icon-drop-down"></span></span>
@@ -25,40 +41,40 @@
                                 <ul>
                                     <p>Hãng sản xuất</p>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/dien-thoai/samsung'); ?>">Samsung</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Samsung</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/dien-thoai/lg-mobile'); ?>">LG Mobile</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">LG Mobile</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/dien-thoai/sky'); ?>">Sky</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Sky</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/dien-thoai/iphone'); ?>">iPhone</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">iPhone</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/dien-thoai/htc'); ?>">HTC</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">HTC</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/dien-thoai/dien-thoai-khac'); ?>">Điện thoại khác</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Điện thoại khác</a>
                                     </li>
                                 </ul>
                                 <ul>
                                     <p>Mức giá</p>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/duoi-2-trieu'); ?>">Dưới 2 triệu</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Dưới 2 triệu</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/gia-tu-2-trieu-den-4-trieu'); ?>">Từ 2 triệu - 4 triệu</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Từ 2 triệu - 4 triệu</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/gia-tu-4-trieu-den-6-trieu'); ?>">Từ 4 triệu - 6 triệu</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Từ 4 triệu - 6 triệu</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/gia-tu-6-trieu-den-8-trieu'); ?>">Từ 6 triệu - 8 triệu</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Từ 6 triệu - 8 triệu</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="<?php echo base_url('san-pham/tren-8-trieu'); ?>">Trên 8 triệuHTC</a>
+                                        <a class="nav-link" href="<?php echo base_url('#'); ?>">Trên 8 triệu</a>
                                     </li>
                                 </ul>
                             </li>
@@ -77,25 +93,9 @@
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/sac-du-phong'); ?>" class="haslink ">Sạc dự phòng</a>
                             </li>
-                            <!-- <li class="dropdown-item">
-                                <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/vo-may-dien-thoai'); ?>" class="haslink ">Vỏ máy điện thoại</a>
-                            </li> -->
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('san-pham/phu-kien/phu-kien-khac'); ?>" class="haslink ">Phụ kiện khác</a>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle <?php echo $this->menu_active == 'services' ? 'active' : ''; ?>" href="<?php echo base_url('dich-vu-sua-chua-dien-thoai.html'); ?>">Dịch vụ sửa chữa</a>
-                        <span class="drop-down"><span class="icon-drop-down"></span></span>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php foreach ($menuCategoryService as $service): ?>
-                                <li class="dropdown-item">
-                                    <a class="nav-link" href="<?php echo base_url('dich-vu/' . $service['link_rewrite']); ?>">
-                                        <?php echo $service['name']; ?>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -124,7 +124,7 @@
                                 <a class="nav-link" href="<?php echo base_url('cam-nang/cam-nang-android'); ?>" class="haslink ">Cẩm nang Android</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="nav-link" href="<?php echo base_url('cam-nang/cam-nang-ios'); ?>" class="haslink ">Cẩm nang IOS</a>
+                                <a class="nav-link" href="<?php echo base_url('cam-nang/cam-nang-ios'); ?>" class="haslink ">Cẩm nang iOS</a>
                             </li>
                             <li class="dropdown-item">
                                 <a class="nav-link" href="<?php echo base_url('cam-nang/cam-nang-dien-thoai'); ?>" class="haslink ">Cẩm nang điện thoại</a>

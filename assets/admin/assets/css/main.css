@@ -2610,5 +2610,9 @@ table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting:after {
 }
 .customers div.dataTables_wrapper div.dataTables_filter input {width: 100%;}
 
-
-
+#dataTableCustomer_wrapper .dt-buttons,
+#dataTableCustomer_wrapper .dataTables_length,
+#dataTableCustomer_wrapper .dataTables_filter {
+    width: 33.33%;
+    display: inline-block;
+}

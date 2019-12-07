@@ -1,14 +1,16 @@
+<?php $cropImage = 'product_100_133'; ?>
+
 <div class="nav">
     <a href="<?php echo base_url(); ?>">Trang chủ</a>
     <?php if($this->uri->segment(2) == 'phu-kien-dien-thoai' ): ?>
         <span>Phụ kiện diện thoại</span>
+        <?php $cropImage = 'product_100_143'; ?>
     <?php else: ?>
         <span>Điện thoại</span>
     <?php endif; ?>
 </div>
 <div class="clearfix"></div>
 
-<?php $cropImage = 'product_100_133'; ?>
 <?php
 if (isset($childrenCategories)) {
     foreach ($childrenCategories as $each) {

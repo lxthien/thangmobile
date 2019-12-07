@@ -174,7 +174,7 @@
 						                	<p>Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu</p>
 						                	<p>Tel: (0254) 6 557 999 – Email: yesmobile.vn@gmail.com</p>
 						                	<p>Web: www.yesmobile.vn - www.dienthoaivungtau.com</p>
-						                	<p><strong>Kiểm tra tình trạng máy sửa chữa: 0845 772 772</strong></p>
+						                	<p><strong>Kiểm tra tình trạng máy sửa chữa: 0847 72 72 72</strong></p>
 						                </div>
 						            </div>
 						            <div class="cl"></div>
@@ -209,7 +209,7 @@
 										  	</div>
 										  	<div class="row-table">
 										    	<div class="col-table">Tình trạng máy</div>
-										    	<div class="col-table"><?php echo $task->phoneStatus; ?></div>
+										    	<div class="col-table"><strong><?php echo $task->phoneStatus; ?></strong></div>
 										  	</div>
 										  	<div class="row-table">
 										    	<div class="col-table">Lưu ý</div>
@@ -235,10 +235,11 @@
 										</div>
 										<div class="right">
 											<p><b>Lưu ý:</b></p>
-											<p>- Quý Khách Hàng sử dụng phiếu này để nhận lại máy. Nếu bị mất phiếu, vui lòng gọi ngay: <strong>0845 772 772</strong>.</p>
+											<p>- Quý Khách Hàng sử dụng phiếu này để nhận lại máy sửa chữa. Nếu bị mất phiếu, vui lòng gọi ngay: <strong>0847 72 72 72</strong>.</p>
 											<p>- Biên nhận này có giá trị trong thời gian 30 ngày.</p>
-											<p><b>Các trường hợp từ chối bảo hành sửa chữa:</b></p>
-											<p>- Phiếu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn. Phiếu bảo hành không có đóng dấu bảo hành của cửa hàng.</p>
+											<p><b>Các trường hợp từ chối bảo hành:</b></p>
+											<p>- Các chức năng Yes Mobile không sửa chữa.</p>
+											<p>- Phiếu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn. Phiếu bảo hành không có dấu bảo hành.</p>
 											<p>- Máy đã từng qua sửa chữa, tự cài đặt phần mềm (hoặc bên thứ 3) trong thời gian bảo hành.</p>
 											<p>- Máy bị thấm chất lỏng (do bị ẩm, đi mưa hoặc rớt nước…).</p>
 											<p>- Máy bị biến dạng, cong vênh (rớt, va đập, can thiệp ngoài…).</p>

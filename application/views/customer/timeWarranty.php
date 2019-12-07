@@ -20,7 +20,7 @@
 		</div>
 		<div class="time-warranty-note">
 		Quý khách hàng vui lòng nhập số điện thoại để kiểm tra bảo hành: </br>
-		- Đối với các máy sửa chữa phần cứng, thay thế linh kiện, Chúng tôi áp dụng chế độ bảo hành từ 1 - 6 tháng. </br>
+		- Đối với các máy sửa chữa phần cứng, Yes Mobile áp dụng chế độ bảo hành từ 1 - 12 tháng. </br>
 		- Quý khách hàng tham thảo thêm thông tin chính sách bảo hành của Chúng tôi.</br>
 		- Mọi thắc mắc hoặc cần tư vấn, Quý khách hàng vui lòng liên hệ: 0901 260 260 
 		</div>

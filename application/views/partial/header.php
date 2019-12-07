@@ -6,7 +6,7 @@ and open the template in the editor.
 <?php
 //echo $title.$site_name.$meta_title.$meta_key_words.$meta_description;
 if (!isset($site_name)) {
-    $site_name = 'Yes Mobile Vũng Tàu';
+    $site_name = 'Yes Mobile';
 }
 
 if (!isset($title)) {
@@ -19,10 +19,10 @@ if (isset($meta_title) && $meta_title !== "") {
     $title = $meta_title;
 }
 if (!isset($meta_keywords)) {
-    $meta_keywords = $this->sconfig->get_value('SEO_KEYWORDS');//'dien thoai, samsung, xach tay';
+    $meta_keywords = $this->sconfig->get_value('SEO_KEYWORDS');;
 }
 if (!isset($meta_description)) {
-    $meta_description = $this->sconfig->get_value('SEO_DESCRIPTION');//'Chuyên cung cấp Điện Thoại Hàn Quốc xách tay, click vào xem...';
+    $meta_description = $this->sconfig->get_value('SEO_DESCRIPTION');;
 }
 ?>
 <html>
@@ -40,6 +40,7 @@ if (!isset($meta_description)) {
         <meta name="ROBOTS" content="INDEX, FOLLOW">
         <meta name="REVISIT-AFTER" content="1 DAYS">
         <meta name="RATING" content="GENERAL">
+		<meta name="theme-color" content="#000080">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -75,7 +76,6 @@ if (!isset($meta_description)) {
 
             gtag('config', 'UA-75747509-2');
         </script>
-
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://apis.google.com/js/platform.js" async defer>
           {lang: 'vi'}
@@ -88,33 +88,14 @@ if (!isset($meta_description)) {
         <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=41e6a15d29b0336ce3b80f023db47ab7&data=eyJzc29faWQiOjEzMTU3ODAsImhhc2giOiI1MzU0N2Q4ZTU4Y2U0YmM5NGM1NTAxMWUzY2UxOWU1YyJ9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
     </head>
     <body class="green-color">
-        <!-- Load Facebook SDK for JavaScript -->
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-        <!-- Your customer chat code -->
-        <div class="fb-customerchat"
-            attribution="setup_tool"
-            page_id="355967864486249"
-            logged_in_greeting="Chào bạn, bạn cần tư vấn gì?"
-            logged_out_greeting="Chào bạn, bạn cần tư vấn gì?">
-        </div>
-
         <!-- begin wrap -->
         <div class="container sreenwrap">
             <div class="wrap">
                 <div class="row top-header">
                     <div class="col-md-8">
                         <div class="top-header-left">
-                            <div class="top-header-left-01"><img src="<?php echo base_url().'assets/images/icon-phone.png'; ?>"><span class="top-span">Sửa chữa:</span><span>0845.772.772</span></div>
-                            <div class="top-header-left-01 top-header-left-02"><img src="<?php echo base_url().'assets/images/icon-mobifone.png'; ?>"><span class="top-span">Bảo hành:</span><span>0382.000.080</span></div>
-                            <div class="top-header-left-01 top-header-left-03"><img src="<?php echo base_url().'assets/images/icon-vi-tri.png'; ?>"><span class="top-span">Địa chỉ:</span><span>438 Trương Công Định</span></div>
+                            <div class="top-header-left-01"><img src="<?php echo base_url().'assets/images/icon-phone.png'; ?>"><span class="top-span">Sửa chữa:</span><span>0847 72 72 72</span></div>
+                            <div class="top-header-left-01 top-header-left-03"><img src="<?php echo base_url().'assets/images/icon-mobifone.png'; ?>"><span class="top-span">Bảo hành:</span><span>0382 000 080</span></div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -129,9 +110,9 @@ if (!isset($meta_description)) {
                 </div>
                 <div class="row">
                     <div class="col-md-12 ">
-                        <div class="logo">
+                        <div class="logo d-none d-sm-block">
                             <a href="<?php echo base_url(); ?>">
-                                <img src="<?php echo base_url().'assets/images/logo-02.png'; ?>" alt="Yes Mobile Vũng Tàu, Yes Mobile"/>
+                                <img src="<?php echo base_url().'assets/images/logo.png'; ?>" alt="Yes Mobile"/>
                             </a>
                         </div>
                     </div>

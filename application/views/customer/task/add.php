@@ -38,8 +38,8 @@
                                 <div class="form-group">
                                     <label class="control-label col-lg-4">Khách hàng</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="customer_id">
-                                            <option>Nhập tên hoặc điện thoại để tìm kiếm khách hàng</option>
+                                        <select data-placeholder="Nhập tên hoặc điện thoại để tìm kiếm khách hàng" class="chzn-select form-control" name="customer_id">
+                                            <option></option>
                                             <?php foreach ($customers as $row): ?>
                                             <option value="<?php echo $row->id ?>" <?php echo $row->id == $task->customer_id ? 'selected="selected"' : ''; ?>><?php echo $row->name.' ('.$row->phone.')' ?></option>
                                             <?php endforeach; ?>

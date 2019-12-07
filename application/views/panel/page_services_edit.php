@@ -78,6 +78,14 @@ echo '</td><td>';
 echo form_error('time_service');
 echo '</td></tr>';
 
+echo '<tr><td align="right" valign="top" width="10%" class="field_name">';
+echo form_label('Hotline: (Nếu có)');
+echo '</td><td>';
+echo form_input(array('name' => 'hotline', 'class' => 'form field'), $news->hotline), '<br>';
+echo '</td><td>';
+echo form_error('hotline');
+echo '</td></tr>';
+
 if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_ID) 
 					&& trim($news->id_news) !== SERVICES
 					&& trim($news->id_news) !== WARRANTY

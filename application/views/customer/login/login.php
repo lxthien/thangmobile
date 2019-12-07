@@ -53,7 +53,7 @@
     <hr>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form action="http://yesmobile.vn/panel/login" method="post">
+            <form action="<?php echo base_url().'panel/login' ?>" method="post">
                 <p class="text-muted text-center">
                     Vui lòng nhập tài khoản và mật khẩu
                 </p>

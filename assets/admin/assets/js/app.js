@@ -997,21 +997,17 @@
 
     /*----------- BEGIN TABLESORTER CODE -------------------------*/
     /* required jquery.tablesorter.min.js*/
-    $(".sortableTable").tablesorter();
+    //$(".sortableTable").tablesorter();
     /*----------- END TABLESORTER CODE -------------------------*/
 
     /*----------- BEGIN datatable CODE -------------------------*/
     $('#dataTable').dataTable({
         "lengthMenu": [[50, -1], [50, "All"]],
-        "order": [[ 0, "asc" ]],
+        "order": [],
         "oLanguage": {
             "sSearch": "<span>Search:</span>"
-        }
-      //         "sDom": "<'pull-right'l>t<'row'<'col-lg-6'f><'col-lg-6'p>>",
-      //         "sPaginationType": "bootstrap",
-      //         "oLanguage": {
-      //             "sLengthMenu": "Show _MENU_ entries"
-      //         }
+        },
+        draggable: false
     });
     /*----------- END datatable CODE -------------------------*/
 

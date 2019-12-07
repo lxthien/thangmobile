@@ -8,7 +8,7 @@
                                 <li><a href="<?php echo base_url('gioi-thieu.html'); ?>">Về Chúng tôi</a></li>
                                 <li><a href="<?php echo base_url('tuyen-dung.html'); ?>">Tuyển dụng</a></li>
                                 <li><a href="<?php echo base_url('che-do-bao-hanh.html'); ?>">Chính sách bảo hành</a></li>
-                                <li><a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">Mua hàng từ xa</a></li>
+                                <li><a href="<?php echo base_url('chinh-sach-van-chuyen.html'); ?>">Khách hàng ở xa</a></li>
                                 <li><a href="<?php echo base_url('lien-he'); ?>">Liên hệ</a></li>
                             </ul>
                             <ul class="category">
@@ -44,10 +44,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 footer-address text-center">
-                        <p>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</p>
-                        <p><?php echo $this->sconfig->get_value('address');?></p>
-                        <p>Cách ngã 3 Nguyễn Tri Phương - Trương Công Định 30m, đi về hướng Nguyễn An Ninh</p>
+                    <div class="col-md-12 footer-address text-left">
+                        <p>Yes Mobile | Sửa chữa điện thoại từ 2010</p>
+                        <p><b>Cửa hàng 1:</b> <?php echo $this->sconfig->get_value('address');?></p>
+                        <p><b>Cửa hàng 2:</b> Đường 28/4, Thôn 6, X.Long Sơn, TP.Vũng Tàu, Bà Rịa - Vũng Tàu</p>
                         <p>Điện thoại: <?php echo $this->sconfig->get_value('TEL');?> - Hotline: <?php echo $this->sconfig->get_value('FAX');?></p>
                         <p>Email: <?php echo $this->sconfig->get_value('CONTACT_EMAIL');?> - Website: <?php echo base_url(); ?></p>
                     </div>
@@ -60,29 +60,30 @@
     <!--end wrap-->
     
     <!-- Load Facebook SDK for JavaScript -->
-    <div class="fb-customerchat"
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v4.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
         page_id="355967864486249"
-        minimized="true"
-        logged_in_greeting="Chào bạn! Bạn cần hỗ trợ gì?"
-        logged_out_greeting="Chào bạn! Bạn cần hỗ trợ gì?">
-    </div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            : '912333495590130',
-          autoLogAppEvents : true,
-          xfbml            : true,
-          version          : 'v2.11'
-        });
-      };
-    (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+  logged_in_greeting="Hi! Yes Mobile có thể giúp gì cho bạn?"
+  logged_out_greeting="Hi! Yes Mobile có thể giúp gì cho bạn?">
+      </div>
     <style>
         /*
         #fb-root > div.fb_dialog.fb_dialog_advanced {

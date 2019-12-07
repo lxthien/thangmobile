@@ -54,14 +54,14 @@
             $task->note = '';
             $data['task'] = $task;
             $data['view'] = 'customer/task/add';
-            $data['customers'] = $this->customer_model->read_list();
+            $data['customers'] = $this->customer_model->read_all();
             $this->load->view('customer', $data);
         }
 
         public function edit() {
             $id = $this->uri->rsegment(3);
             $task = $this->task_model->read_by_id($id);
-            $data['customers'] = $this->customer_model->read_list();
+            $data['customers'] = $this->customer_model->read_all();
             if (!isset($task) || !$task) {
                 show_error("Connot find item id " . $id . ' in system');
             } else {

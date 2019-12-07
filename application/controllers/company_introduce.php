@@ -65,14 +65,14 @@ class Company_introduce extends MY_Controller {
     }
 
     public function get_latest_download() {
-    	$latest_downloads = $this->download_model->_get_latest_download();
-    	foreach ($latest_downloads as $download) {
-    		$eachCategory = $this->download_category_model->read_by_id($download->category_id);
-    		$download->link_rewrite = 'tai-ve/'.$eachCategory->link_rewrite.'/'.$download->id.'-'.$download->link_rewrite.URL_TRAIL;
+        $latest_downloads = $this->download_model->_get_latest_download();
+        foreach ($latest_downloads as $download) {
+            $eachCategory = $this->download_category_model->read_by_id($download->category_id);
+            $download->link_rewrite = 'tai-ve/'.$eachCategory->link_rewrite.'/'.$download->id.'-'.$download->link_rewrite.URL_TRAIL;
     
-    	}
-    	 
-    	return $latest_downloads;
+        }
+         
+        return $latest_downloads;
     }
 
     /**
@@ -126,19 +126,23 @@ class Company_introduce extends MY_Controller {
         //TODO
         //var_dump($pageItem);
         if ($pageItem === false || $item === 'gioi-thieu-cong-ty' || 
-        		$item === 'site-map' || $item === 'dich-vu-sua-chua' || 
-        		$item === 'che-do-bao-hanh') {
-        	
+                $item === 'site-map' || $item === 'dich-vu-sua-chua' || 
+                $item === 'che-do-bao-hanh') {
+            
             if ($item === 'che-do-bao-hanh') {
-				$this->menu_active = 'cdbh';
+                $this->menu_active = 'cdbh';
                 $query = $this->newsModel->read_by_id(WARRANTY);
             } 
             else if($item === 'dich-vu-sua-chua') {
-				$this->menu_active = 'services';
+                $this->menu_active = 'services';
                 $query = $this->newsModel->read_by_id(SERVICES);
-            } 
+            }
+            else if($item === 'ep-kinh-dien-thoai-tai-vung-tau') {
+                $this->menu_active = 'ep-kinh';
+                $query = $this->newsModel->read_by_id(EPKINH);
+            }
             else if($item === 'site-map') {
-            	$query = $this->newsModel->read_by_id(SITE_MAP);
+                $query = $this->newsModel->read_by_id(SITE_MAP);
             }
             else if($item === 'tuyen-dung') {
                 $query = $this->newsModel->read_by_id(RECRUIT);

@@ -43,16 +43,17 @@
 
 
 <form action='<?php echo $page_link.'/delete';?>' method='post' name='form1' style='margin:0px'>
-    <table width="100%" cellspacing="0" cellpadding="5" align="center" border="0">
+    <table width="100%" cellspacing="0" cellpadding="6" align="center" border="0">
         <tr class="tr_title_bg">
             <td width="10%" class="td_title_main" align="left">No.</td>
             <td width='30%' class="td_title_main" align="left">Name</td>
+            <td width='20%' class="td_title_main" align="left">Giá</td>
             <td width="20%" class="td_title_main" align="left">Category</td>
-            <td width="20%" class="td_title_main" align="left"></td>
-            <td width="20%" class="td_title_main" align="left">Actions</td>
+            <td width="10%" class="td_title_main" align="left"></td>
+            <td width="10%" class="td_title_main" align="left">Actions</td>
         </tr>
     </table>
-    <table width='100%' cellspacing='0' cellpadding='5' align='center' class='table_border_line'>
+    <table width='100%' cellspacing='0' cellpadding='6' align='center' class='table_border_line'>
         <?php
         $index = 1;
         foreach ($list_items as $row) {
@@ -63,12 +64,20 @@
             else {
                 $bg_color = '#FFF1BC';
             }
+
+            if ($row->price != 0) {
+                $priceDisplay = number_format($row->price, "0", ",", ".");
+            } else {
+                $priceDisplay = '';
+            }
+
             echo "<tr" . $bg_color . ">";
-            echo "<td width='10%'  align='left'>" . $index . "</td>";            
+            echo "<td width='10%'  align='left'>" . $index . "</td>";
             echo "<td width='30%'  align='left'><a href='". base_url() . "panel/admin_services/edit/" . $row->id_news."'>". $row->title . "</a></td>";
+            echo "<td width='20%'  align='left'><b>". $priceDisplay . "</b></td>";
             echo "<td width='20%' align='left'>" . "<a "."style = 'color:black' href ='" . $page_link .'/index/' . $row->id_news_category ."'>".$row->id_news_category."</a></td>";
-            echo "<td width='20%'  align='left'><a href='" . base_url() . "panel/admin_services/edit/" . $row->id_news . "'>Edit</a></td>";
-            echo "<td width='20%' align='left'><img src='" . base_url() . "assets/images/panel/recycle.gif' onclick='deleteRecord(" . $row->id_news . ")' width='14' height='16' border='0' title='Delete'/></td>";
+            echo "<td width='10%'  align='left'><a href='" . base_url() . "panel/admin_services/edit/" . $row->id_news . "'>Edit</a></td>";
+            echo "<td width='10%' align='left'><img src='" . base_url() . "assets/images/panel/recycle.gif' onclick='deleteRecord(" . $row->id_news . ")' width='14' height='16' border='0' title='Delete'/></td>";
             echo "</tr>";
             $index++;
         }

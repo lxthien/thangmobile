@@ -1,6 +1,6 @@
 <div class="row allboxsp1 contact-form">
 	<div class="col-md-12">
-		<h1 class="h1-title">Liên hệ Yes Mobile Vũng Tàu</h1>
+		<h1 class="h1-title">Liên hệ Yes Mobile</h1>
 		<div class="line-title">
 			<div class="left-30">&nbsp;</div>
 			<div class="left-70">&nbsp;</div>
@@ -8,7 +8,7 @@
 		<div class="ttincongghe">
 			<div class="sreentieude">
 				<div class="tieude">
-					<div class="contact-tbl-title">Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</div>
+					<div class="contact-tbl-title">Yes Mobile | Sửa chữa điện thoại từ 2010</div>
 				</div>
 			</div>
 			<div align="justify" class="noidungchitiet">
@@ -19,7 +19,7 @@
 							<?php echo $this->sconfig->get_value('address');?>
 						</div>
 						<div class="contact-tbl-row">
-							<span class="label">Cách ngã 3 Nguyễn Tri Phương - Trương Công Định 30m, đi về hướng Nguyễn An Ninh</span>
+							<span class="label">Cách ngã 3 Nguyễn Tri Phương - Trương Công Định 20m, đi về hướng Nguyễn An Ninh</span>
 						</div>
 						<div class="contact-tbl-row">
 							<span class="label" style="font-weight: bold;"> Điện thoại:</span>

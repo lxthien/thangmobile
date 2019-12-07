@@ -147,9 +147,60 @@ function formatTimeInForm2($time) {
 function lastDoing($customerID) {
     $ci = & get_instance();
     $ci->load->model('task_model', 'task_model');
-    $lastDoing = $ci->task_model->customerRequest($customerID);
+    $lastDoing = $ci->task_model->customerRequestOne($customerID);
     if(count($lastDoing) > 0) {
         return $lastDoing[0]->phoneType;
+    }
+    return "";
+}
+
+function customerRequestImei ($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $lastDoing = $ci->task_model->customerRequestOne($customerID);
+    if (count($lastDoing) > 0) {
+        return $lastDoing[0]->phoneImei;
+    }
+    return "";
+}
+
+function customerRequestTimeReceive ($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $lastDoing = $ci->task_model->customerRequestOne($customerID);
+    if (count($lastDoing) > 0) {
+        return formatTime($lastDoing[0]->timeClosedTask);
+    }
+    return "";
+}
+
+function customerRequestPrice ($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $lastDoing = $ci->task_model->customerRequestOne($customerID);
+    if (count($lastDoing) > 0) {
+        return is_numeric($lastDoing[0]->phonePrice) ? number_format($lastDoing[0]->phonePrice) : ($lastDoing[0]->phonePrice == '' ? 'Kiểm tra, báo giá trước khi sửa chữa' : $lastDoing[0]->phonePrice);
+        //return is_numeric($lastDoing[0]->phonePrice) ? number_format($lastDoing[0]->phonePrice) : ($lastDoing[0]->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $lastDoing[0]->phonePrice);
+    }
+    return "";
+}
+
+function customerRequestTimeWarranty($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $lastDoing = $ci->task_model->customerRequestOne($customerID);
+    if (count($lastDoing) > 0) {
+        return $lastDoing[0]->taskStatus == 1 ? formatTime($lastDoing[0]->warrantyPeriod) : 'Không có';
+    }
+    return "";
+}
+
+function customerRequestNote($customerID) {
+    $ci = & get_instance();
+    $ci->load->model('task_model', 'task_model');
+    $lastDoing = $ci->task_model->customerRequestOne($customerID);
+    if (count($lastDoing) > 0) {
+        return $lastDoing[0]->note;
     }
     return "";
 }

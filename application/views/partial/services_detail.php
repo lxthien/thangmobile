@@ -11,7 +11,7 @@
 	<div class="server-information">
 		<div class="server-information-left col-md-5">
 			<div class="row">
-				<img src="<?php echo image($servicesDetail->news_icon, 'news_390_258'); ?>">
+				<img title="<?php echo $servicesDetail->title;?> tại Vũng Tàu" src="<?php echo image($servicesDetail->news_icon, 'news_390_258'); ?>" alt="<?php echo $servicesDetail->title;?> tại Vũng Tàu">
 			</div>
 		</div>
 		<div class="server-information-right col-md-7">
@@ -20,30 +20,25 @@
 				<div class="price-detail">
 					<p>
 					<?php if ($servicesDetail->price != 0) { ?>
-						<span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Hotline tư vấn: </span>0845 772 772</span>
+						<span class="product-price"><?php echo number_format($servicesDetail->price, "0", ",", "."); ?></span> <span class="icon-price-rate">vnđ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Hotline tư vấn: </span>0847 72 72 72</span>
 					<?php }else{ ?>
-						<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Hotline tư vấn:</span> 0845 772 772</span>
+						<span class="product-price-text">Giá: Xin vui lòng liên hệ</span> <span class="ngan-cach">|</span> <span class="hotline-tu-van"><span>Hotline tư vấn:</span> 0847 72 72 72</span>
 					<?php } ?>
 					</p>
 				</div>
-				<p class="time-wanarry"><span>Thời gian sửa chữa:</span> <?php echo $servicesDetail->time_repair != null ? $servicesDetail->time_repair : 'Đang cập nhật ...'; ?></p>
-				<p class="time-wanarry"><span>Thời gian bảo hành:</span> <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?> - <a class="service-view-map" style="font-size:15px" target="_blank" href="<?php echo base_url('/che-do-bao-hanh.html'); ?>">Chính sách bảo hành</a></p>
+				<p class="time-wanarry"><span>Thời gian sửa chữa:<b></span> <?php echo $servicesDetail->time_repair != null ? $servicesDetail->time_repair : 'Đang cập nhật ...'; ?></p></b>
+				<p class="time-wanarry"><span>Thời gian bảo hành:<b></span> <?php echo $servicesDetail->time_service != null ? $servicesDetail->time_service : 'Đang cập nhật ...'; ?></b> - <a class="service-view-map" style="font-size:15px" target="_blank" href="<?php echo base_url('/che-do-bao-hanh.html'); ?>">Chính sách bảo hành</a></p>
 				<p class="address">
-					Địa chỉ: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (Gần ngã ba Trương Công Định và Nguyễn Tri Phương - <a class="service-view-map" style="font-size:15px" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Bản đồ đường đi</a>)
+					Địa chỉ sửa chữa: 438 Trương Công Định, Phường 8, TP.Vũng Tàu (Gần ngã ba Trương Công Định và Nguyễn Tri Phương - <a class="service-view-map" style="font-size:15px" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Bản đồ đường đi</a>)
 				</p>
 				<div class="main-news-social">
 					<div class="social">
 						<!-- Button like facebook -->
 						<div class="fb-like" data-href="<?php echo $urlSocial; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 						<!-- Button like facebook -->
-						<!-- Place this tag where you want the +1 button to render. -->
-						<div class="g-plusone" data-size="medium" data-href="<?php echo $urlSocial; ?>"></div>
-						<!-- Place this tag where you want the +1 button to render. -->
 						<!-- Button share facebook -->
 						<div class="fb-share-button" data-href="<?php echo $urlSocial; ?>" data-layout="button"></div>
 						<!-- Button share facebook -->
-						<!-- Place this tag where you want the share button to render. -->
-						<div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $urlSocial; ?>"></div>
 					</div>
 				</div>
 			</div>
@@ -63,7 +58,7 @@
 						speed: 75,
 						moreLink: '<a class="read-more" href="javascript:void(0)">Đọc thêm</a>',
 						lessLink: '<a class="read-more" href="javascript:void(0)">Rút gọn</a>',
-						collapsedHeight: 450,
+						collapsedHeight: 650,
 						heightMargin:1,
 					});
 				</script>
@@ -80,7 +75,7 @@
 						?>
 							<div class="sreentieude">
 								<a class="img-news-related" href="<?php echo base_url($post->id_news.'-'.$post->link_rewrite.URL_TRAIL);?>">
-									<img src="<?php echo image($post->news_icon, 'news_200_120'); ?>" alt="<?php echo $post->title;?>">
+									<img title="<?php echo $post->title;?> tại Vũng Tàu" src="<?php echo image($post->news_icon, 'news_200_120'); ?>" alt="<?php echo $post->title;?> tại Vũng Tàu">
 								</a>
 								<div class="sreentinkhacchitiet">
 									<a title="<?php echo $post->title;?>" href="<?php echo base_url($post->id_news.'-'.$post->link_rewrite.URL_TRAIL);?>">

@@ -43,6 +43,7 @@ echo '</td></tr>';
 
 if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_ID) 
 					&& trim($news->id_news) !== SERVICES
+					&& trim($news->id_news) !== EPKINH
 					&& trim($news->id_news) !== WARRANTY
 					&& trim($news->id_news) !== SITE_MAP) || !isset($news->id_news)) {
     echo '<tr>';
@@ -90,6 +91,7 @@ echo form_checkbox($active_data);
 echo '</td>';
 if ((isset($news->id_news) && (trim($news->id_news) !== COMPANY_INSTRODUCE_NEWS_ID) 
 		&& trim($news->id_news) !== SERVICES
+		&& trim($news->id_news) !== EPKINH
 		&& trim($news->id_news) !== WARRANTY
 		&& trim($news->id_news) !== SITE_MAP) || !isset($news->id_news)) {
     echo '<td align="left" valign="top" width="10%" class="field_name">';
