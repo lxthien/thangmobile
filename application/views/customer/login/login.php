@@ -53,16 +53,25 @@
     <hr>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form action="<?php echo base_url().'panel/login' ?>" method="post">
+            <form action="<?php echo base_url($this->uri->segment(1) . '/login') ?>" method="post" enctype="multipart/form-data" name="formDK">
                 <p class="text-muted text-center">
                     Vui lòng nhập tài khoản và mật khẩu
                 </p>
+                <p><?php echo '<div id = "infoMessage">' . $message . '</div>'; ?></p>
                 <input name="action" type="hidden" value="admin" />
-                <input name="identity" type="text" placeholder="Tài khoản" class="form-control top">
-                <input name="password" type="password" placeholder="Mật khẩu" class="form-control bottom">
+                <?php
+                    $identity['class'] = 'form-control bottom';
+                    $identity['placeholder'] = 'Tài khoản';
+                    echo form_input($identity);
+                ?>
+                <?php
+                    $password['class'] = 'form-control bottom';
+                    $password['placeholder'] = 'Mật khẩu';
+                    echo form_input($password);
+                ?>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Ghi nhớ đăng nhập
+                        <?php echo form_input($remember); ?> Ghi nhớ đăng nhập
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng nhập</button>

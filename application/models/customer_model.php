@@ -2,7 +2,7 @@
     class Customer_model extends MY_Model {
         
         var $primary_table = 'customers';
-        var $fields = array('id', 'name', 'phone');
+        var $fields = array('id', 'name', 'phone', 'shop');
         var $required_fields = array('name', 'phone');
 
         var $primary_key = 'id';

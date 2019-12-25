@@ -10,13 +10,10 @@ class Auth extends CI_Controller {
         $this->load->library('ion_auth');
         $this->load->library('session');
         $this->load->library('form_validation');
-        $this->load->helper('url');        
+        $this->load->helper('url');
         $this->panel_link = base_url('panel');
         // Load MongoDB library instead of native db driver if required
-        $this->config->item('use_mongodb', 'ion_auth') ?
-                        $this->load->library('mongo_db') :
-                        $this->load->database();
-
+        $this->config->item('use_mongodb', 'ion_auth') ? $this->load->library('mongo_db') : $this->load->database();
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
     }
 
@@ -54,37 +51,26 @@ class Auth extends CI_Controller {
             //check to see if the user is logging in
             //check for "remember me"
             $remember = (bool) $this->input->post('remember');
-
-            if (isset($_POST['action']) && $_POST['action'] == 'admin') {
-                if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
-                    $this->session->set_flashdata('message', $this->ion_auth->messages());
-
-                    $referal = $this->session->userdata('refered_from');
-                    if (!isset($referal) || trim($referal) === "") {
-                        $referal = base_url('tasks/listTask');
-                    }
-                    redirect($referal, 'refresh');
-                } else {
-                    $this->session->set_flashdata('message', $this->ion_auth->errors());
-                    redirect(base_url('auths/authenticate'), 'refresh');
-                }
-            }
-
+            
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
-            	//echo "login success!";
-                //if the login is successful
                 //redirect them back to the home page
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
 
-                $referal = $this->session->userdata('refered_from');
-                if (!isset($referal) || trim($referal) === "") {
-                    $referal = base_url('panel/dashboard');
+                $groupShop = array('admin_shop', 'members_shopA', 'members_shopB');
+                if ($this->ion_auth->in_group($groupShop)) {
+                    $referal = base_url('tasks/listTask');
+                    redirect($referal, 'refresh');
+                } else {
+                    $referal = $this->session->userdata('refered_from');
+                    if (!isset($referal) || trim($referal) === "") {
+                        $referal = base_url('panel/dashboard');
+                    }
                 }
+
                 redirect($referal, 'refresh');
             } else {
                 //if the login was un-successful
                 //redirect them back to the login page
-                //echo "login fail!";
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
                 redirect(base_url('panel/login'), 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
             }
@@ -102,22 +88,48 @@ class Auth extends CI_Controller {
                 'id' => 'password',
                 'type' => 'password',
             );
+            $this->data['remember'] = array('name' => 'remember',
+                'id' => 'remember',
+                'type' => 'checkbox',
+            );
 
-//			$this->load->view('auth/login', $this->data);
             $this->load->view('panel/index', $this->data);
         }
     }
 
     //log the user out
     function logout() {
-        $this->data['title'] = "Logout";
+        $this->ion_auth_model->trigger_events('logout');
+        $identity = $this->config->item('identity', 'ion_auth');
+        
+        if (substr(CI_VERSION, 0, 1) == '2') {
+            $this->session->unset_userdata(array($identity => '', 'id' => '', 'user_id' => ''));
+        } else {
+            $this->session->unset_userdata(array($identity, 'id', 'user_id'));
+        }
 
-        //log the user out
-        $logout = $this->ion_auth->logout();
+        // delete the remember me cookies if they exist
+        if (get_cookie($this->config->item('identity_cookie_name', 'ion_auth'))) {
+            delete_cookie($this->config->item('identity_cookie_name', 'ion_auth'));
+        }
+        if (get_cookie($this->config->item('remember_cookie_name', 'ion_auth'))) {
+            delete_cookie($this->config->item('remember_cookie_name', 'ion_auth'));
+        }
 
+        // Destroy the session
+        $this->session->sess_destroy();
+        //Recreate the session
+        if (substr(CI_VERSION, 0, 1) == '2') {
+            $this->session->sess_create();
+        } else {
+            session_start();
+            $this->session->sess_regenerate(TRUE);
+        }
+        
         //redirect them to the login page
         $this->session->set_flashdata('message', $this->ion_auth->messages());
-        redirect(base_url('panel'), 'refresh');
+            
+        redirect(base_url('panel/login'), 'refresh');
     }
 
     //change password

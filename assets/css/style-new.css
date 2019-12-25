@@ -52,7 +52,7 @@ p.no-item {
     height: 40px;
 }
 .headter-top #page-navigative-menu{
-    height: 40px; background: none; background-color: #263e81;
+    height: 40px; background: none; background-color: #000080;
 }
 #page-navigative-menu ul {
     margin: 0;
@@ -159,7 +159,7 @@ p.no-item {
 .home-service div#service-bxslider .slide a.image img {width: 150px;}
 
 .home-service div#service-bxslider .slide a.name {font-size: 15px; display: block; color: #000000; font-weight: 500; padding-right: 5px;}
-.home-service div#service-bxslider .slide a.name:hover{color: #263e81;}
+.home-service div#service-bxslider .slide a.name:hover{color: #000080;}
 
 .main-service-bxslider {width: 980px; height: 95px; float: left; overflow: hidden; padding: 10px 0;}
 .main-service-bxslider .bx-wrapper, .main-service-bxslider .bx-wrapper .bx-window{
@@ -480,7 +480,7 @@ a.link-block-you-see:hover{
     border-bottom: none;
 }
 .footer-right-01 p:first-child {
-    color: #263e81; font-size: 16px; 
+    color: #000080; font-size: 16px; 
 }
 .footer-right-01 p:last-child {
     font-size: 13px;
@@ -611,7 +611,7 @@ a.link-block-you-see:hover{
     font-size: 14px; display: inline-block; margin-right: 5px; padding: 5px;
 }
 .nav a:hover, .nav span {
-    color: #ffffff; background: #263e81; border-radius: 5px;
+    color: #ffffff; background: #000080; border-radius: 5px;
 }
 
 .main-product .sp_sub_category_big .boxsp {
@@ -789,7 +789,7 @@ span.hotline-tu-van {
     float: right; width: 443px;
 }
 .box-service .right-box-service a {
-    margin-bottom: 5px; font-size: 16px; color: #263e81; font-weight: 600;
+    margin-bottom: 5px; font-size: 16px; color: #000080; font-weight: 600;
 }
 .box-service .right-box-service a:hover {
     color: #00619f;
@@ -822,7 +822,7 @@ span.hotline-tu-van {
     width: 220px; height: 160px;
 }
 .titlecongnghe a {
-    width: 443px; color: #263e81; margin: 0;
+    width: 443px; color: #000080; margin: 0;
 }
 .ttincongghe .sreenttin {
     margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #cccccc;
@@ -920,7 +920,7 @@ span.hotline-tu-van {
  * Lien He
  **************************************/
 .gui input {
-    width: 70px; height: 30px; background: #263e81; border: none; cursor: pointer; float: left; margin-right: 10px;
+    width: 70px; height: 30px; background: #000080; border: none; cursor: pointer; float: left; margin-right: 10px;
     text-transform: uppercase; color: #ffffff; font-weight: 600;
 }
 .contact-tbl-row {
@@ -961,11 +961,11 @@ textarea#message {
     border: 1px solid #cccccc; margin: 0 2px; text-align: center; padding: 3px 7px; display: inline-block;
 }
 .phantrang span.active {
-    background-color: #263e81; color: #ffffff; font-weight: 600; text-decoration: underline;
+    background-color: #000080; color: #ffffff; font-weight: 600; text-decoration: underline;
 }
 /*
 .phantrang .back a, .phantrang .back span{
-    background-color: #263e81; border-radius: 50%; color: #ffffff; padding: 0 3px; margin: 0 3px; display: inline-block; float: none;
+    background-color: #000080; border-radius: 50%; color: #ffffff; padding: 0 3px; margin: 0 3px; display: inline-block; float: none;
     background-color: #999999; margin-left: 5px; color: #FFFFFF; float: left; padding: 2px 6px; font-size: 12px;
 }
 .phantrang .back span.active {
@@ -1045,7 +1045,7 @@ position: relative;}
 .grid .col-01>a img {height: 105px;}
 .grid .col-01 .name-and-price {text-align: center; padding: 15px 8px 0px;}
 .grid .col-01 .name-and-price p{margin: 0;}
-.grid .col-01 .name-and-price a{font-size: 15px; color: #263e81;}
+.grid .col-01 .name-and-price a{font-size: 15px; color: #000080;}
 .grid .col-01 .name-and-price p.note{font-size: 12px; font-style: italic; color: #A3A3A3; padding: 3px 0px; min-height: 30px;}
 .grid .col-01 .name-and-price p.price{font-size: 13px; color: #A3A3A3; padding: 0px 0px;}
 .grid .col-01 .name-and-price p.price span{font-size: 16px; color: #FF0000; padding: 3px 0px; font-weight: 600;}
@@ -1075,7 +1075,7 @@ height: 70px;}
     width: 100%;
 }
 .navbar {
-    background-color: #263e81;
+    background-color: #000080;
 }
 .navbar .navbar-nav > li > a {
     color: #ffffff; text-transform: uppercase;
@@ -1106,6 +1106,12 @@ height: 70px;}
 }
 .navbar-brand img {
     vertical-align: middle;
+}
+
+
+.zalo-chat-widget {
+	left: 0 !important;
+    bottom: 10pt !important;
 }
 
 
@@ -1145,7 +1151,7 @@ height: 70px;}
         height: 30px;
         text-align: center;
         color: #ffffff;
-        background: #263e81;
+        background: #000080;
         text-transform: uppercase;
         padding: 0 20px;
         margin: 8px 0 0 0;
@@ -1217,7 +1223,7 @@ height: 70px;}
         width: 100%;
     }
     .navbar {
-        background-color: #263e81;
+        background-color: #000080;
         z-index: 100;
         padding: .3rem 1rem;
     }
@@ -1738,7 +1744,7 @@ height: 70px;}
         margin-right: 5px;
     }
     .service-view-map {
-        font-size: 12px; font-style: italic; color: #263e81;
+        font-size: 12px; font-style: italic; color: #000080;
     }
 
     .servicesDetail .main-service-detail .server-information .server-information-left img {
@@ -1783,7 +1789,7 @@ height: 70px;}
         padding: 0 15px;
     }
     .cactinkhac2 h3.h3-news-related {
-        border-left: 3px solid #263e81; font-weight: 600;
+        border-left: 3px solid #000080; font-weight: 600;
     }
     .cactinkhac2-large .main-news-related .sreentieude .sreentinkhacchitiet a {
         font-size: 15px;
@@ -1892,10 +1898,10 @@ height: 70px;}
         border: 1px solid #cccccc;
     }
     form.timeWarranty button{
-        height: 32px; width: 100px; border: none; cursor: pointer; text-transform: uppercase; font-size: 15px; background-color: #263e81; color: #ffffff; display: table; margin: auto;
+        height: 32px; width: 100px; border: none; cursor: pointer; text-transform: uppercase; font-size: 15px; background-color: #000080; color: #ffffff; display: table; margin: auto;
     }
     .timeWarrantyBody>p.message {
-        color: #263e81; font-weight: 600;
+        color: #000080; font-weight: 600;
     }
 
     /*=========================
@@ -2100,7 +2106,7 @@ height: 70px;}
         margin-left: 10px;
     }
     .navbar {
-        padding: 0px; height: 40px; background-color: #263e81;
+        padding: 0px; height: 40px; background-color: #000080;
     }
     .nav-link {
         padding: 0.7rem 1.2rem;
@@ -2481,7 +2487,7 @@ height: 70px;}
         color: #000000;font-size:16px ;padding: 0 3px;
     }
     .service-view-map {
-        font-size: 12px; font-style: italic; color: #263e81;
+        font-size: 12px; font-style: italic; color: #000080;
     }
 
     .servicesDetail .allboxsp1 {
@@ -2697,13 +2703,13 @@ height: 70px;}
         height: 30px; line-height: 30px; width: 300px; padding-left: 10px; margin: 0 auto; font-size: 14px; margin-right: 10px; float: left;
     }
     form.timeWarranty button{
-        height: 32px; width: 100px; float: right; border: none; cursor: pointer; text-transform: uppercase;     font-size: 15px; background-color: #263e81; color: #ffffff;
+        height: 32px; width: 100px; float: right; border: none; cursor: pointer; text-transform: uppercase;     font-size: 15px; background-color: #000080; color: #ffffff;
     }
     .timeWarrantyBody>p.msg {
         font-size: 14px;
     }
     .timeWarrantyBody>p.message {
-        color: #263e81; font-weight: 600;
+        color: #000080; font-weight: 600;
     }
     .table {
         width: 100%;

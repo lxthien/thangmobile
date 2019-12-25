@@ -140,18 +140,373 @@
                         "sSearch": "<span>Tìm kiếm:</span>"
                     },
                     draggable: false,
+                    <?php if ($this->ion_auth->in_group('admin_shop')) { ?>
                     dom: 'Blfrtip',
                     buttons: [
                         'excelHtml5'
                     ],
+                    <?php } ?>
                     "lengthMenu": [[10, 20, 30, 40, 50, 100, 150, 200, -1], [10, 20, 30, 40, 50, 100, 150, 200, "All"]],
-                    "order": []
+                    "order": [],
+                    "columns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        { "data": "customer1" },
+                        { "data": "customer2" },
+                        { "data": "customer12" },
+                        { "data": "customer9" },
+                        { "data": "customer10" },
+                        { "data": "customer11" }
+                    ]
                 });
 
                 $('.customer_back').change( function() {
                     table.draw();
                 } );
-            } );
+
+                $('#dataTableCustomer tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = table.row( tr );
+                
+                    if ( row.child.isShown() ) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        row.child( formatCustomer(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                } );
+
+                function formatCustomer ( d ) {
+                    return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
+                        '<tr>'+
+                            '<td>Máy sửa mới nhất:</td>'+
+                            '<td>'+d.customer3+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Imei:</td>'+
+                            '<td>'+d.customer4+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Thời gian nhận:</td>'+
+                            '<td>'+d.customer5+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Giá:</td>'+
+                            '<td>'+d.customer6+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Thời gian bảo hành:</td>'+
+                            '<td>'+d.customer7+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Lưu ý nội bộ:</td>'+
+                            '<td>'+d.customer8+'</td>'+
+                        '</tr>'+
+                    '</table>';
+                }
+
+
+
+                var tableTask = $('#dataTableTask1').DataTable({
+                    "lengthMenu": [[50, -1], [50, "All"]],
+                    "order": [],
+                    "oLanguage": {
+                        "sSearch": "<span>Search:</span>"
+                    },
+                    draggable: false,
+                    "columns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        { "data": "taks1" },
+                        { "data": "taks2" },
+                        { "data": "taks3" },
+                        { "data": "taks4" },
+                        { "data": "taks5" },
+                        { "data": "taks6" },
+                        { "data": "taks7" },
+                        { "data": "taks8" },
+                        { "data": "taks9" },
+                        { "data": "taks10" },
+                        { "data": "taks11" },
+                        { "data": "taks12" },
+                        { "data": "taks13" },
+                        { "data": "taks14" },
+                        { "data": "taks15" },
+                        { "data": "taks16" }
+                    ],
+                    "columnDefs": [
+                        {
+                            "targets": [ 15 ],
+                            "visible": false
+                        },
+                        {
+                            "targets": [ 16 ],
+                            "visible": false
+                        }
+                    ],
+                    "ordering": false
+                });
+
+                $('#dataTableTask1 tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = tableTask.row( tr );
+                
+                    if ( row.child.isShown() ) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        row.child( format(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                } );
+
+                function format ( d ) {
+                    return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
+                        '<tr>'+
+                            '<td>Người nhận máy:</td>'+
+                            '<td>'+d.taks15+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Lưu ý nội bộ:</td>'+
+                            '<td>'+d.taks16+'</td>'+
+                        '</tr>'
+                    '</table>';
+                }
+
+                var tableTask2 = $('#dataTableTask2').DataTable({
+                    "lengthMenu": [[50, -1], [50, "All"]],
+                    "order": [],
+                    "oLanguage": {
+                        "sSearch": "<span>Search:</span>"
+                    },
+                    draggable: false,
+                    "columns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        { "data": "taks1" },
+                        { "data": "taks2" },
+                        { "data": "taks3" },
+                        { "data": "taks4" },
+                        { "data": "taks5" },
+                        { "data": "taks6" },
+                        { "data": "taks7" },
+                        { "data": "taks8" },
+                        { "data": "taks9" },
+                        { "data": "taks10" },
+                        { "data": "taks11" },
+                        { "data": "taks12" },
+                        { "data": "taks13" },
+                        { "data": "taks14" },
+                        { "data": "taks15" },
+                        { "data": "taks16" }
+                    ],
+                    "columnDefs": [
+                        {
+                            "targets": [ 15 ],
+                            "visible": false
+                        },
+                        {
+                            "targets": [ 16 ],
+                            "visible": false
+                        }
+                    ],
+                    "ordering": false
+                });
+
+                $('#dataTableTask2 tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = tableTask2.row( tr );
+                
+                    if ( row.child.isShown() ) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        row.child( format(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                } );
+
+
+                var tableTask3 = $('#dataTableTask3').DataTable({
+                    "lengthMenu": [[50, -1], [50, "All"]],
+                    "order": [],
+                    "oLanguage": {
+                        "sSearch": "<span>Search:</span>"
+                    },
+                    draggable: false,
+                    "columns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        { "data": "taks1" },
+                        { "data": "taks2" },
+                        { "data": "taks3" },
+                        { "data": "taks4" },
+                        { "data": "taks5" },
+                        { "data": "taks6" },
+                        { "data": "taks7" },
+                        { "data": "taks8" },
+                        { "data": "taks9" },
+                        { "data": "taks10" },
+                        { "data": "taks11" },
+                        { "data": "taks12" },
+                        { "data": "taks13" },
+                        { "data": "taks14" },
+                        { "data": "taks15" }
+                    ],
+                    "columnDefs": [
+                        {
+                            "targets": [ 14 ],
+                            "visible": false
+                        },
+                        {
+                            "targets": [ 15 ],
+                            "visible": false
+                        }
+                    ],
+                    "ordering": false
+                });
+
+                $('#dataTableTask3 tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = tableTask3.row( tr );
+                
+                    if ( row.child.isShown() ) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        row.child( format3(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                } );
+
+                function format3 ( d ) {
+                    return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
+                        '<tr>'+
+                            '<td>Người nhận máy:</td>'+
+                            '<td>'+d.taks14+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Lưu ý nội bộ:</td>'+
+                            '<td>'+d.taks15+'</td>'+
+                        '</tr>'
+                    '</table>';
+                }
+
+                var tableTask4 = $('#dataTableTask4').DataTable({
+                    "lengthMenu": [[50, -1], [50, "All"]],
+                    "order": [],
+                    "oLanguage": {
+                        "sSearch": "<span>Search:</span>"
+                    },
+                    draggable: false,
+                    "columns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        { "data": "taks1" },
+                        { "data": "taks2" },
+                        { "data": "taks3" },
+                        { "data": "taks4" },
+                        { "data": "taks5" },
+                        { "data": "taks6" },
+                        { "data": "taks7" },
+                        { "data": "taks8" },
+                        { "data": "taks9" },
+                        { "data": "taks10" },
+                        { "data": "taks11" },
+                        { "data": "taks12" },
+                        { "data": "taks13" },
+                        { "data": "taks14" }
+                    ],
+                    "columnDefs": [
+                        {
+                            "targets": [ 13 ],
+                            "visible": false
+                        },
+                        {
+                            "targets": [ 14 ],
+                            "visible": false
+                        }
+                    ],
+                    "ordering": false
+                });
+
+                $('#dataTableTask4 tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = tableTask4.row( tr );
+                
+                    if ( row.child.isShown() ) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        row.child( format4(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                } );
+
+                function format4 ( d ) {
+                    return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
+                        '<tr>'+
+                            '<td>Người nhận máy:</td>'+
+                            '<td>'+d.taks13+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Lưu ý nội bộ:</td>'+
+                            '<td>'+d.taks14+'</td>'+
+                        '</tr>'+
+                        '<tr>'
+                    '</table>';
+                }
+
+                $('body').on('click', '.task-history', function(e) {
+                    $('#ajaxModal').remove();
+                    e.preventDefault();
+
+                    var url = $(this).data("url"),
+                        $modal = $('<div id="ajaxModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="false"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"></div></div></div></div>');
+
+                    $('body').append($modal);
+                    $.ajax({
+                        url: url,
+                        dataType: 'html',
+                        success: function(res) {
+                            $('.modal-body').append(res);
+
+                            // show modal
+                            $modal.modal('show');
+
+                        },
+                        error:function(request, status, error) {
+                            console.log("ajax call went wrong:" + request.responseText);
+                        }
+                    });
+                });
+            });
         </script>
         <script src="<?php echo base_url().'assets/admin'; ?>/assets/js/style-switcher.js"></script>
       </body>

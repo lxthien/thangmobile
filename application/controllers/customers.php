@@ -1,15 +1,11 @@
 <?php
-    class Customers extends MY_Controller {
+    class Customers extends Admin_controller {
         public function __construct() {
             parent::__construct();
             $this->load->model('customer_model', 'customer_model');
             $this->load->model('task_model', 'task_model');
             $this->load->helper(array('form', 'form'));
             $this->load->helper('myhelper');
-
-            if (!$this->ion_auth->logged_in()) {
-                redirect(base_url('auths/authenticate'));
-            }
         }
 
         public function index() {
@@ -33,36 +29,40 @@
             foreach($customers as $r) {
                 if (empty($timeBack) || $timeBack < 1) {
                     $data[] = array(
-                            $r->name . '(<a href="' . base_url().'tasks/add/customer/'.$r->id . '" title="Tạo yêu cầu cho khách hàng này"><i class="fa fa-plus" aria-hidden="true"></i> Tasks</a>)',
-                            $r->phone,
-                            lastDoing($r->id),
-                            customerRequestImei($r->id),
-                            customerRequestTimeReceive($r->id),
-                            customerRequestPrice($r->id),
-                            customerRequestTimeWarranty($r->id),
-                            customerRequestNote($r->id),
-                            customerRequest($r->id),
-                            number_format(countPriceCustomerRequest($r->id)),
-                            '<a href="' . base_url().'customers/edit/'.$r->id . '" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>' . '&nbsp;&nbsp;&nbsp;' .
-                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử"><i class="fa fa-history"></i></a>'
+                            "id" => $r->id,
+                            "customer1" => $r->name . '(<a href="' . base_url().'tasks/add/customer/'.$r->id . '" title="Tạo yêu cầu cho khách hàng này"><i class="fa fa-plus" aria-hidden="true"></i> Tasks</a>)',
+                            "customer2" => $r->phone,
+                            "customer3" => lastDoing($r->id),
+                            "customer4" => customerRequestImei($r->id),
+                            "customer5" => customerRequestTimeReceive($r->id),
+                            "customer6" => customerRequestPrice($r->id),
+                            "customer7" => customerRequestTimeWarranty($r->id),
+                            "customer8" => customerRequestNote($r->id),
+                            "customer9" => customerRequest($r->id),
+                            "customer10" => number_format(countPriceCustomerRequest($r->id)),
+                            "customer11" => '<a href="' . base_url().'customers/edit/'.$r->id . '" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>' . '&nbsp;&nbsp;&nbsp;' .
+                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử"><i class="fa fa-history"></i></a>',
+                            "customer12" => $r->shop != 2 ? 'Vũng tàu' : 'Long Sơn'
                     );
                 } else {
                     $takskOfCustomerAfterTime = $this->task_model->getTaskCustomerAfterTime($r->id, $timeBack);
                     if ($takskOfCustomerAfterTime <= 0) {
                         $customerHasTaskAfterTime++;
                         $data[] = array(
-                            $r->name . '(<a href="' . base_url().'tasks/add/customer/'.$r->id . '" title="Tạo yêu cầu cho khách hàng này"><i class="fa fa-plus" aria-hidden="true"></i> Tasks</a>)',
-                            $r->phone,
-                            lastDoing($r->id),
-                            customerRequestImei($r->id),
-                            customerRequestTimeReceive($r->id),
-                            customerRequestPrice($r->id),
-                            customerRequestTimeWarranty($r->id),
-                            customerRequestNote($r->id),
-                            customerRequest($r->id),
-                            number_format(countPriceCustomerRequest($r->id)),
-                            '<a href="' . base_url().'customers/edit/'.$r->id . '" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>' . '&nbsp;&nbsp;&nbsp;' .
-                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử"><i class="fa fa-history"></i></a>'
+                            "id" => $r->id,
+                            "customer1" => $r->name . '(<a href="' . base_url().'tasks/add/customer/'.$r->id . '" title="Tạo yêu cầu cho khách hàng này"><i class="fa fa-plus" aria-hidden="true"></i> Tasks</a>)',
+                            "customer2" => $r->phone,
+                            "customer3" => lastDoing($r->id),
+                            "customer4" => customerRequestImei($r->id),
+                            "customer5" => customerRequestTimeReceive($r->id),
+                            "customer6" => customerRequestPrice($r->id),
+                            "customer7" => customerRequestTimeWarranty($r->id),
+                            "customer8" => customerRequestNote($r->id),
+                            "customer9" => customerRequest($r->id),
+                            "customer10" => number_format(countPriceCustomerRequest($r->id)),
+                            "customer11" => '<a href="' . base_url().'customers/edit/'.$r->id . '" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>' . '&nbsp;&nbsp;&nbsp;' .
+                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử"><i class="fa fa-history"></i></a>',
+                            "customer12" => $r->shop != 2 ? 'Vũng tàu' : 'Long Sơn'
                         );
                     }
                 }
@@ -106,6 +106,13 @@
                     $this->customer_model->update($customer);
                     redirect(base_url().'customers/index');
                 } else {
+                    $groupShop = array('admin_shop', 'members_shopA');
+                    if ($this->ion_auth->in_group($groupShop)) {
+                        $customer['shop'] = 1;
+                    } else {
+                        $customer['shop'] = 2;
+                    }
+
                     $result = $this->customer_model->add($customer);
                     if (is_numeric($result)) {
                         redirect(base_url('tasks/add/customer/'.$result));

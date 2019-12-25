@@ -20,12 +20,12 @@ class Dashboard extends Admin_controller {
     }
 
     function index() {
-    	if(!$this->ion_auth->logged_in()){
-    		redirect('panel/login');    	
-        }else{
-			$this->load->helper('cookie');
-        	$dateOfWeek = date('D', time());
-			//get_cookie('isResetNews'); die;
+        if(!$this->ion_auth->logged_in()){
+            redirect('panel/login');
+        } else {
+            $this->load->helper('cookie');
+            $dateOfWeek = date('D', time());
+            //get_cookie('isResetNews'); die;
             if ($dateOfWeek == "Mon" && !get_cookie('isResetNews')) {
                 // This function to reset news of service object
                 $this->load->model('Services_model', 'services_model');
@@ -50,8 +50,8 @@ class Dashboard extends Admin_controller {
                     $this->db->where('id_news', $guide->id_news);
                     $this->db->update('news', $data);
                 }
-				
-				set_cookie('isResetNews', true,  time() + 86400);
+                
+                set_cookie('isResetNews', true,  time() + 86400);
             }
             $this->load->view('panel/home');
         }        
@@ -89,7 +89,7 @@ class Dashboard extends Admin_controller {
             if (isset($admin_menu->name) && trim($admin_menu->name)) {
                 $menu_item['name'] = trim($admin_menu->name);
             } else {
-//                if ($admin_menu->is)
+                // if ($admin_menu->is)
             }
         }
         return $menu_item;

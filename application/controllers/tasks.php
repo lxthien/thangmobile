@@ -1,24 +1,30 @@
 <?php
-    class Tasks extends MY_Controller {
+    class Tasks extends Admin_controller {
         public function __construct() {
             parent::__construct();
             $this->load->model('task_model', 'task_model');
             $this->load->model('customer_model', 'customer_model');
+            $this->load->model('tasks_histories_model', 'tasks_histories_model');
             $this->load->helper(array('form', 'form'));
             $this->load->helper('myhelper');
-
-            if (!$this->ion_auth->logged_in()) {
-                redirect(base_url('auths/authenticate'));
-            }
         }
 
         public function listTask() {
             date_default_timezone_set("Asia/Ho_Chi_Minh");
-            $data['tasks'] = $this->task_model->readListDoing();
-            $data['tasksFinish'] = $this->task_model->readListFinish();
-            $data['tasksNotifiedCustomer'] = $this->task_model->readListNotifiedCustomer();
-            $data['tasksCustomerReceived'] = $this->task_model->readListCustomerReceived();
+            
+            $shop = 0;
+            if ($this->ion_auth->in_group('members_shopA')) {
+                $shop = 1;
+            } else if ($this->ion_auth->in_group('members_shopB')) {
+                $shop = 2;
+            }
+
+            $data['tasks'] = $this->task_model->readListDoing($shop);
+            $data['tasksFinish'] = $this->task_model->readListFinish($shop);
+            $data['tasksNotifiedCustomer'] = $this->task_model->readListNotifiedCustomer($shop);
+            $data['tasksCustomerReceived'] = $this->task_model->readListCustomerReceived($shop);
             $data['view'] = 'customer/task/index';
+            
             $this->load->view('customer', $data);
         }
 
@@ -75,6 +81,7 @@
             if (isset($_POST['action'])) {
                 if (isset($_POST['id'])) {
                     $id = $this->input->post('id');
+                    $currentTask = $this->task_model->read_by_id($id);
                 } else {
                     $id = "";
                 }
@@ -101,7 +108,6 @@
                 if($this->input->post('warrantyPeriodEnd') != '') {
                     $dateAndTime = $this->input->post('warrantyPeriodEnd').' '.$this->input->post('warrantyPeriodTimeEnd');
                     $warrantyPeriodEnd = new DateTime($dateAndTime);
-                    //echo $warrantyPeriodEnd->format('Y-m-d H:i:s'); die;
                     $task['warrantyPeriodEnd'] = $warrantyPeriodEnd->format('Y-m-d H:i:s');
                 }
 
@@ -111,6 +117,7 @@
                     $task['code'] = $this->createCode($id, $this->input->post('taskType'), 7);
                     $task['id'] = $id;
                     $task['updated'] = date('Y-m-d H:i:s');
+                    $task['updatedBy'] = $this->ion_auth->user()->row()->id;
                     if ($this->input->post('taskStatus') == 1) {
                         $task['timeClosedTask'] = date('Y-m-d H:i:s');
                         
@@ -118,6 +125,67 @@
                         $dateWarrantyPerios->add(new DateInterval('P'.$this->input->post('timeWarranty').'D'));
                         $task['warrantyPeriod'] = $dateWarrantyPerios->format('Y-m-d H:i:s');
                     }
+
+                    $tracks = array();
+                    if ($currentTask->taskType != $task['taskType']) {
+                        $tracks['taskType'] = array('from'=>$currentTask->taskType, 'to'=>$task['taskType']);
+                    }
+                    if ($currentTask->phoneType != $task['phoneType']) {
+                        $tracks['phoneType'] = array('from'=>$currentTask->phoneType, 'to'=>$task['phoneType']);
+                    }
+                    if ($currentTask->phoneImei != $task['phoneImei']) {
+                        $tracks['phoneImei'] = array('from'=>$currentTask->phoneImei, 'to'=>$task['phoneImei']);
+                    }
+                    if ($currentTask->notePrivate != $task['notePrivate']) {
+                        $tracks['notePrivate'] = array('from'=>$currentTask->notePrivate, 'to'=>$task['notePrivate']);
+                    }
+                    if ($currentTask->phonePass != $task['phonePass']) {
+                        $tracks['phonePass'] = array('from'=>$currentTask->phonePass, 'to'=>$task['phonePass']);
+                    }
+                    if ($currentTask->phoneStatus != $task['phoneStatus']) {
+                        $tracks['phoneStatus'] = array('from'=>$currentTask->phoneStatus, 'to'=>$task['phoneStatus']);
+                    }
+                    if ($currentTask->phoneSim != $task['phoneSim']) {
+                        $tracks['phoneSim'] = array('from'=>$currentTask->phoneSim, 'to'=>$task['phoneSim']);
+                    }
+                    if ($currentTask->phonePrice != $task['phonePrice']) {
+                        $tracks['phonePrice'] = array('from'=>$currentTask->phonePrice, 'to'=>$task['phonePrice']);
+                    }
+                    if ($currentTask->useAccessories != $task['useAccessories']) {
+                        $tracks['useAccessories'] = array('from'=>$currentTask->useAccessories, 'to'=>$task['useAccessories']);
+                    }
+                    if ($currentTask->technicalFinish != $task['technicalFinish']) {
+                        $tracks['technicalFinish'] = array('from'=>$currentTask->technicalFinish, 'to'=>$task['technicalFinish']);
+                    }
+                    if ($currentTask->notificationCustomer != $task['notificationCustomer']) {
+                        $tracks['notificationCustomer'] = array('from'=>$currentTask->notificationCustomer, 'to'=>$task['notificationCustomer']);
+                    }
+                    if ($currentTask->quickStatus != $task['quickStatus']) {
+                        $tracks['quickStatus'] = array('from'=>$currentTask->quickStatus, 'to'=>$task['quickStatus']);
+                    }
+                    if ($currentTask->isCustomerVip != $task['isCustomerVip']) {
+                        $tracks['isCustomerVip'] = array('from'=>$currentTask->isCustomerVip, 'to'=>$task['isCustomerVip']);
+                    }
+                    if ($currentTask->taskStatus != $task['taskStatus']) {
+                        $tracks['taskStatus'] = array('from'=>$currentTask->taskStatus, 'to'=>$task['taskStatus']);
+                    }
+                    if ($currentTask->timeWarranty != $task['timeWarranty']) {
+                        $tracks['timeWarranty'] = array('from'=>$currentTask->timeWarranty, 'to'=>$task['timeWarranty']);
+                    }
+                    if ($currentTask->note != $task['note']) {
+                        $tracks['note'] = array('from'=>$currentTask->note, 'to'=>$task['note']);
+                    }
+                    if (sizeof($tracks) > 0) {
+                        $tasks_histories['tracks'] = json_encode($tracks);
+                    }
+                    $tasks_histories['user_id'] = $this->ion_auth->user()->row()->id;
+                    $tasks_histories['task_id'] = $id;
+                    $createDate = new DateTime(date('Y-m-d H:i:s'));
+                    $createDate->setTimezone(new DateTimeZone('UTC'));
+                    $tasks_histories['created'] = $createDate->format('Y-m-d H:i:s');
+                    
+                    $this->tasks_histories_model->add($tasks_histories);
+
                     $this->task_model->update($task);
                     redirect(base_url().'tasks/listTask');
                 } else {
@@ -125,6 +193,13 @@
                     $createDate = new DateTime(date('Y-m-d H:i:s'));
                     $createDate->setTimezone(new DateTimeZone('UTC'));
                     $task['created'] = $createDate->format('Y-m-d H:i:s');
+                    $task['createdBy'] = $this->ion_auth->user()->row()->id;
+                    $task['shop'] = 1;
+                    
+                    $groupShop = array('admin_shop', 'members_shopA');
+                    if (!$this->ion_auth->in_group($groupShop)) {
+                        $task['shop'] = 2;
+                    }
                     
                     $result = $this->task_model->add($task);
                     if (is_numeric($result)) {
@@ -167,6 +242,12 @@
             $id = $this->uri->rsegment(3);
             $this->task_model->delete(array('id' => $id));
             redirect(base_url() . 'tasks/listTask');
+        }
+
+        public function histories($taskID) {
+            $taskID = $this->uri->rsegment(3);
+            $data['tasks'] = $this->tasks_histories_model->read_by_task_id($taskID);
+            $this->load->view('customer/task/histories', $data);
         }
 
     }

@@ -38,8 +38,8 @@
                                 <div class="form-group">
                                     <label class="control-label col-lg-4">Khách hàng</label>
                                     <div class="col-lg-8">
-                                        <select data-placeholder="Nhập tên hoặc điện thoại để tìm kiếm khách hàng" class="chzn-select form-control" name="customer_id">
-                                            <option></option>
+                                        <select class="form-control" name="customer_id">
+                                            <option>Nhập tên hoặc điện thoại để tìm kiếm khách hàng</option>
                                             <?php foreach ($customers as $row): ?>
                                             <option value="<?php echo $row->id ?>" <?php echo $row->id == $task->customer_id ? 'selected="selected"' : ''; ?>><?php echo $row->name.' ('.$row->phone.')' ?></option>
                                             <?php endforeach; ?>
@@ -53,13 +53,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pass1" class="control-label col-lg-4">Imei</label>
+                                    <label for="pass1" class="control-label col-lg-4">Imei/Serial</label>
                                     <div class="col-lg-8">
                                         <input name="phoneImei" class="form-control" type="text" placeholder="Imei" value="<?php echo $task->phoneImei; ?>"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pass1" class="control-label col-lg-4">Ghi chú</label>
+                                    <label for="pass1" class="control-label col-lg-4">Ghi chú <span style="color: red; font-size: 12px;">(Máy rớt, trầy, cấn móp, hư chức năng...)</span></label>
                                     <div class="col-lg-8">
                                         <textarea class="form-control" name="notePrivate"><?php echo $task->notePrivate; ?></textarea>
                                     </div>
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pass1" class="control-label col-lg-4">Sim, Thẻ SD</label>
+                                    <label for="pass1" class="control-label col-lg-4">Phụ kiện <span style="color: red; font-size: 12px;">(Sim, Thẻ SD, Ốp lưng, Sạc, Cáp...)</span></label>
                                     <div class="col-lg-8">
                                         <input name="phoneSim" class="form-control" type="text" placeholder="Sim" value="<?php echo $task->phoneSim; ?>"/>
                                     </div>
@@ -122,6 +122,9 @@
                                         </div>
                                         <div class="checkbox">
                                             <label><input class="uniform" type="radio" name="technicalFinish" value="0" <?php echo $task->technicalFinish == 0 ? 'checked=""' : ''; ?>>&nbsp; Chưa xong</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input class="uniform" type="radio" name="technicalFinish" value="2" <?php echo $task->technicalFinish == 2 ? 'checked=""' : ''; ?>>&nbsp; Không sửa được</label>
                                         </div>
                                     </div>
                                 </div>

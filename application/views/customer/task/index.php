@@ -11,9 +11,10 @@
                         </header>
                         <div id="collapse4" class="body">
                             <?php if(count($tasks) > 0) : ?>
-                            <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                            <table id="dataTableTask1" class="table table-bordered table-condensed">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Mã số</th>
                                     <th>Loại máy</th>
                                     <th>Tình trạng</th>
@@ -28,6 +29,9 @@
                                     <th>TG hẹn khách</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -36,24 +40,27 @@
                                         <?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
                                         <?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
                                         <tr style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>">
-                                        <td><?php echo $row->code; ?></td>
-                                        <td><?php echo $row->phoneType; ?></td>
+                                        <td><?php echo $row->id; ?></td>
+                                        <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
+                                        <td><a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
                                         <td><?php echo $row->phoneStatus; ?></td>
-                                        <td><?php echo getCustomerName($row->customer_id); ?></td>
+                                        <td><a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
                                         <td><?php echo formatTime($row->created, true); ?></td>
                                         <td><?php echo formatTime($row->warrantyPeriodEnd); ?></td>
                                         <td>
-                                            <a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
+                                            <a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
+                                            <a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
                                         </td>
+                                        <td><?php echo $row->createdBy != 0 ? $this->ion_auth->user($row->createdBy)->row()->first_name.' '.$this->ion_auth->user($row->createdBy)->row()->last_name : 'Không xác định'; ?></td>
+                                        <td><?php echo $row->note; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -74,9 +81,10 @@
                         </header>
                         <div id="collapse4" class="body">
                             <?php if(count($tasksFinish) > 0) : ?>
-                            <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                            <table id="dataTableTask2" class="table table-bordered table-condensed">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Mã số</th>
                                     <th>Loại máy</th>
                                     <th>Tình trạng</th>
@@ -91,6 +99,9 @@
                                     <th>TG hẹn khách</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -98,16 +109,21 @@
                                         <?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
                                         <?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
                                         <tr style="<?php echo $cssBg.$cssBgVip; ?>">
-                                        <td><?php echo $row->code; ?></td>
-                                        <td><?php echo $row->phoneType; ?></td>
+                                        <td></td>
+                                        <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
                                         <td><?php echo $row->phoneStatus; ?></td>
-                                        <td><?php echo getCustomerName($row->customer_id); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
-                                        <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
+                                        <?php if ($row->technicalFinish != 2) { ?>
+                                            <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
+                                        <?php } else { ?>
+                                            <td>Không sửa được</td>
+                                        <?php }  ?>
                                         <td><?php echo formatTime($row->created, true); ?></td>
                                         <td><?php echo formatTime($row->warrantyPeriodEnd); ?></td>
                                         <td>
@@ -116,6 +132,8 @@
                                         <td>
                                             <a href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
                                         </td>
+                                        <td><?php echo $row->createdBy != 0 ? $this->ion_auth->user($row->createdBy)->row()->first_name.' '.$this->ion_auth->user($row->createdBy)->row()->last_name : 'Không xác định'; ?></td>
+                                        <td><?php echo $row->note; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -136,9 +154,10 @@
                         </header>
                         <div id="collapse4" class="body">
                             <?php if(count($tasksNotifiedCustomer) > 0) : ?>
-                            <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                            <table id="dataTableTask3" class="table table-bordered table-condensed">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Mã số</th>
                                     <th>Loại máy</th>
                                     <th>Tình trạng</th>
@@ -152,6 +171,9 @@
                                     <th>TG nhận máy</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -159,13 +181,14 @@
                                         <?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
                                         <?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
                                         <tr style="<?php echo $cssBg.$cssBgVip; ?>">
-                                        <td><?php echo $row->code; ?></td>
-                                        <td><?php echo $row->phoneType; ?></td>
+                                        <td></td>
+                                        <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
                                         <td><?php echo $row->phoneStatus; ?></td>
-                                        <td><?php echo getCustomerName($row->customer_id); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
@@ -176,6 +199,8 @@
                                         <td>
                                             <a href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
                                         </td>
+                                        <td><?php echo $row->createdBy != 0 ? $this->ion_auth->user($row->createdBy)->row()->first_name.' '.$this->ion_auth->user($row->createdBy)->row()->last_name : 'Không xác định'; ?></td>
+                                        <td><?php echo $row->note; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -197,9 +222,10 @@
                         <div id="collapse4" class="body">
                             <?php if(count($tasksCustomerReceived) > 0) : ?>
                             <p style="color: red;">Lưu ý: Tin này sẽ không hiển thị sau 48h (2 ngày) kể từ lúc khách hàng nhận máy</p>
-                            <table id="dataTable" class="table table-bordered table-condensed">
+                            <table id="dataTableTask4" class="table table-bordered table-condensed">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Mã số</th>
                                     <th>Loại máy</th>
                                     <th>Tình trạng</th>
@@ -212,7 +238,9 @@
                                     <th>Báo giá</th>
                                     <th>TG Giao Máy</th>
                                     <th>&nbsp;</th>
-                                    <!-- <th>&nbsp;</th> -->
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -220,13 +248,14 @@
                                         <?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
                                         <?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
                                         <tr style="<?php echo $cssBg.$cssBgVip; ?>">
-                                        <td><?php echo $row->code; ?></td>
-                                        <td><?php echo $row->phoneType; ?></td>
+                                        <td></td>
+                                        <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
                                         <td><?php echo $row->phoneStatus; ?></td>
-                                        <td><?php echo getCustomerName($row->customer_id); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
@@ -234,9 +263,8 @@
                                         <td>
                                             <a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
                                         </td>
-                                        <!-- <td>
-                                            <a href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
-                                        </td> -->
+                                        <td><?php echo $row->createdBy != 0 ? $this->ion_auth->user($row->createdBy)->row()->first_name.' '.$this->ion_auth->user($row->createdBy)->row()->last_name : 'Không xác định'; ?></td>
+                                        <td><?php echo $row->note; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -273,5 +301,13 @@
     }
     .box header {
         background-image: none; box-shadow: none; border-bottom: none; background: #263e81; color: #ffffff;
+    }
+
+    table.table tr td .table tr td:nth-child(1) {
+        width: 20%;
+    }
+    table.table tr td a.task-history,
+    table.table tr td a.customer-name {
+        /* text-decoration: underline; */
     }
 </style>

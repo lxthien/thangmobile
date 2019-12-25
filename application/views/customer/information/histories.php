@@ -14,6 +14,7 @@
                                 <thead>
                                 <tr>
                                     <th>Loại máy</th>
+                                    <th>Imei</th>
                                     <th>Tình trạng</th>
                                     <th>Báo giá</th>
                                     <th>Tình trạng</th>
@@ -25,8 +26,13 @@
                                     <?php foreach ($tasks as $row): ?>
                                     <tr>
                                         <td><?php echo $row->phoneType; ?></td>
+                                        <td><?php echo $row->phoneImei; ?></td>
                                         <td><?php echo $row->phoneStatus; ?></td>
-                                        <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
+                                        <?php if ($row->technicalFinish != 2) { ?>
+                                            <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
+                                        <?php } else { ?>
+                                            <td>Không sửa được</td>
+                                        <?php }  ?>
                                         <td><?php echo $row->taskStatus == 1 ? 'Đã xong':'Chưa xong'; ?></td>
                                         <td><?php echo formatTime($row->created); ?></td>
                                         <td><?php echo $row->taskStatus == 1 ? formatTime($row->warrantyPeriod) : 'Chưa có'; ?></td>

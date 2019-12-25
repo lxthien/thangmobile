@@ -37,7 +37,7 @@
                     </a>-->
                 </div>
                 <div class="btn-group">
-                    <a href="http://dienthoaivungtau.com/panel/logout" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                    <a href="<?php echo base_url('panel/logout'); ?>" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
                        class="btn btn-metis-1 btn-sm">
                         <i class="fa fa-power-off"></i>
                     </a>
