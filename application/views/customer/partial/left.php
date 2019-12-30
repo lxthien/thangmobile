@@ -10,7 +10,7 @@
             </a>
     
             <div class="media-body">
-                <h5 class="media-heading">Archie</h5>
+                <h5 class="media-heading">Hi <?php echo $this->ion_auth->user()->row()->first_name.' '.$this->ion_auth->user()->row()->last_name; ?></h5>
                 <ul class="list-unstyled user-info">
                     <li><a href="">Administrator</a></li>
                 </ul>
@@ -21,19 +21,22 @@
     <ul id="menu" class="bg-blue dker">
         <li>
             <a href="<?php echo base_url().'tasks/listTask'; ?>">
-            	<i class="fa fa-table"></i>
-            	<span class="link-title">Yêu cầu</span>
-            	<span class="fa arrow"></span>
+                <i class="fa fa-table"></i>
+                <span class="link-title">Yêu cầu</span>
+                <span class="fa arrow"></span>
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="<?php echo base_url().'tasks/add'; ?>">
-                    <i class="fa fa-angle-right"></i>&nbsp; Thêm mới</a>
+                    <a href="<?php echo base_url().'tasks/add'; ?>"><i class="fa fa-angle-right"></i>&nbsp; Thêm mới</a>
                 </li>
-            	<li>
-                	<a href="<?php echo base_url().'tasks/listTask'; ?>">
-                  	<i class="fa fa-angle-right"></i>&nbsp; Danh sách yêu cầu</a>
-              	</li>
+                <li>
+                    <a href="<?php echo base_url().'tasks/listTask'; ?>"><i class="fa fa-angle-right"></i>&nbsp; Danh sách yêu cầu</a>
+                </li>
+                <?php if ($this->ion_auth->in_group('admin_shop')) { ?>
+                <li>
+                    <a href="<?php echo base_url().'tasks/listToday'; ?>"><i class="fa fa-angle-right"></i>&nbsp; Danh thu theo ngày</a>
+                </li>
+                <?php } ?>
             </ul>
         </li>
         <li>

@@ -2,7 +2,7 @@
     class Task_model extends MY_Model {
         
         var $primary_table = 'tasks';
-        var $fields = array('id', 'code', 'taskName', 'taskType', 'customer_id', 'phoneType', 'phoneImei', 'notePrivate', 'phonePass', 'phonePrice', 'phoneStatus', 'phoneSim', 'warrantyPeriod', 'warrantyPeriodEnd', 'technicalFinish', 'notificationCustomer', 'quickStatus', 'taskStatus', 'note', 'isCustomerVip', 'timeClosedTask', 'timeWarranty', 'useAccessories', 'createdBy', 'updatedBy', 'shop', 'created', 'updated');
+        var $fields = array('id', 'code', 'taskName', 'taskType', 'customer_id', 'phoneType', 'phoneImei', 'notePrivate', 'phonePass', 'phonePrice', 'phoneStatus', 'phoneSim', 'warrantyPeriod', 'warrantyPeriodEnd', 'technicalFinish', 'notificationCustomer', 'timeNotificationCustomer', 'quickStatus', 'taskStatus', 'note', 'isCustomerVip', 'timeClosedTask', 'timeWarranty', 'useAccessories', 'createdBy', 'updatedBy', 'shop', 'created', 'updated');
         var $required_fields = array('taskType', 'customer_id');
 
         var $primary_key = 'id';
@@ -100,6 +100,70 @@
                 $this->db->where_in('shop', array(0, 1, 2));
             }
             $this->db->order_by("timeClosedTask", "desc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListCustomerReceivedWithPrice($shop = null) {
+            $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            $datetime->sub(new DateInterval('P2D'));
+
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d H:i:s'));
+            $this->db->where('phonePrice >=', 300000);
+            if ($shop == 1) {
+                $this->db->where_in('shop', array(0, 1));
+            } else if ($shop == 2) {
+                $this->db->where('shop', 2);
+            } else if ($shop == 0) {
+                $this->db->where_in('shop', array(0, 1, 2));
+            }
+            $this->db->order_by("timeClosedTask", "desc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function getAllTask($timeFrom, $timeTo) {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            //$this->db->where('phonePrice >=', 0);
+            //$this->db->where_in('shop', array(0, 1, 2));
+            $this->db->where('timeClosedTask >', $timeFrom);
+            $this->db->where('timeClosedTask <', $timeTo);
+            
+            $query = $this->db->get();
+            return $query->result();
+        }
+        
+        public function getAllTaskVT($timeFrom, $timeTo) {
+            $this->db->select('COUNT(id) as taskVT, SUM(phonePrice) as totalPriceVT');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            //$this->db->where('phonePrice >=', 0);
+            $this->db->where_in('shop', array(0, 1));
+            $this->db->where('timeClosedTask >', $timeFrom);
+            $this->db->where('timeClosedTask <', $timeTo);
+            
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function getAllTaskLS($timeFrom, $timeTo) {
+            $this->db->select('COUNT(id) as taskLS, SUM(phonePrice) as totalPriceLS');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            //$this->db->where('phonePrice >=', 0);
+            $this->db->where('shop', 2);
+            $this->db->where('timeClosedTask >', $timeFrom);
+            $this->db->where('timeClosedTask <', $timeTo);
+            
             $query = $this->db->get();
             return $query->result();
         }

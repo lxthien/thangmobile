@@ -65,12 +65,14 @@ $route['auths/(:any)']              = 'auths/$1';
 
 //For the member
 $route['customers']                 = 'customers/$1';
+$route['customers/customersPage(:any)']   = 'customers/customersPage/$1';
 $route['customers/(:any)']          = 'customers/$1';
 $route['customers/(:any)/(:any)']   = 'customers/$1/$2';
 
 //For the tasks
 $route['tasks']                     = 'tasks/$1';
 $route['tasks/add/customer/(:any)']	= 'tasks/add/$1';
+$route['tasks/listToday(:any)']		= 'tasks/listToday/$1';
 $route['tasks/(:any)']              = 'tasks/$1';
 $route['tasks/(:any)/(:any)']       = 'tasks/$1/$2';
 
@@ -87,6 +89,7 @@ $route['home'] = 'home/index';
 $route['gioi-thieu.html'] = 'company_introduce/index/gioi-thieu-cong-ty';
 $route['site-map.html'] = 'company_introduce/index/site-map';
 $route['dich-vu-sua-chua-dien-thoai.html'] = 'company_introduce/index/dich-vu-sua-chua';
+$route['ep-kinh-dien-thoai-tai-vung-tau.html'] = 'company_introduce/index/ep-kinh-dien-thoai-tai-vung-tau';
 $route['che-do-bao-hanh.html'] = 'company_introduce/index/che-do-bao-hanh';
 $route['tuyen-dung.html'] = 'company_introduce/index/tuyen-dung';
 $route['chinh-sach-bao-hanh.html'] = 'company_introduce/index/chinh-sach-bao-hanh';

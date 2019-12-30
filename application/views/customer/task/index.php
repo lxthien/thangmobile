@@ -31,7 +31,6 @@
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,25 +38,25 @@
                                         <?php if($row->useAccessories == 1) {$cssBgAccessories = 'background: #5b8e4b; color: #ffffff;';} else {$cssBgAccessories = '';} ?>
                                         <?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
                                         <?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
-                                        <tr style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>">
+                                        <tr style="<?php echo $cssBg.$cssBgVip; ?>">
                                         <td><?php echo $row->id; ?></td>
                                         <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
-                                        <td><a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
                                         <td><?php echo $row->phoneStatus; ?></td>
-                                        <td><a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #263e81;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
                                         <td><?php echo formatTime($row->created, true); ?></td>
                                         <td><?php echo formatTime($row->warrantyPeriodEnd); ?></td>
                                         <td>
-                                            <a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
+                                            <a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
                                         </td>
                                         <td>
-                                            <a style="<?php echo $cssBgAccessories.$cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
+                                            <a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/printTask/'.$row->id; ?>" title="In hóa đơn"><i class="fa fa-print"></i></a>
                                         </td>
                                         <td><?php echo $row->createdBy != 0 ? $this->ion_auth->user($row->createdBy)->row()->first_name.' '.$this->ion_auth->user($row->createdBy)->row()->last_name : 'Không xác định'; ?></td>
                                         <td><?php echo $row->note; ?></td>
@@ -101,7 +100,6 @@
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -116,7 +114,7 @@
                                         <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #263e81;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <?php if ($row->technicalFinish != 2) { ?>
@@ -169,7 +167,7 @@
                                     <th>Sim, Thẻ SD</th>
                                     <th>Báo giá</th>
                                     <th>TG nhận máy</th>
-                                    <th>&nbsp;</th>
+                                    <th>TG báo khách</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
@@ -188,11 +186,12 @@
                                         <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #263e81;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
                                         <td><?php echo formatTime($row->created, true); ?></td>
+                                        <td><?php echo $row->timeNotificationCustomer != "0000-00-00 00:00:00" ? formatTime($row->timeNotificationCustomer, true) : 'Không xác định'; ?></td>
                                         <td>
                                             <a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
                                         </td>
@@ -240,7 +239,6 @@
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -255,7 +253,70 @@
                                         <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #263e81;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
+                                        <td><?php echo $row->phonePass; ?></td>
+                                        <td><?php echo $row->phoneSim; ?></td>
+                                        <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
+                                        <td><?php echo formatTime($row->timeClosedTask); ?></td>
+                                        <td>
+                                            <a href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                        <td><?php echo $row->createdBy != 0 ? $this->ion_auth->user($row->createdBy)->row()->first_name.' '.$this->ion_auth->user($row->createdBy)->row()->last_name : 'Không xác định'; ?></td>
+                                        <td><?php echo $row->note; ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                            <?php else: ?>
+                            <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                            <p class="center">Không có yêu cầu nào đã giao cho khách hàng</p>
+                            </table>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="box">
+                        <header>
+                            <div class="icons"><i class="fa fa-table"></i></div>
+                            <h5>CÁC MÁY ĐÃ GIAO CHO KHÁCH HÀNG (> 300k)</h5>
+                        </header>
+                        <div id="collapse4" class="body">
+                            <?php if(count($tasksCustomerReceivedWithPrice) > 0) : ?>
+                            <!-- <p style="color: red;">Lưu ý: Tin này sẽ không hiển thị sau 48h (2 ngày) kể từ lúc khách hàng nhận máy</p> -->
+                            <table id="dataTableTask5" class="table table-bordered table-condensed">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Mã số</th>
+                                    <th>Loại máy</th>
+                                    <th>Tình trạng</th>
+                                    <th>Tên</th>
+                                    <th>Điện thoại</th>
+                                    <th>Imei</th>
+                                    <th>Note</th>
+                                    <th>Pass</th>
+                                    <th>Sim, Thẻ SD</th>
+                                    <th>Báo giá</th>
+                                    <th>TG Giao Máy</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($tasksCustomerReceivedWithPrice as $row): ?>
+                                        <?php if($row->quickStatus == 1) {$cssBg = 'background: #b51b1b; color: #ffffff;';} else {$cssBg = '';} ?>
+                                        <?php if($row->isCustomerVip == 1) {$cssBgVip = 'background: #5cb85c; color: #ffffff;';} else {$cssBgVip = '';} ?>
+                                        <tr style="<?php echo $cssBg.$cssBgVip; ?>">
+                                        <td></td>
+                                        <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" data-url="<?php echo base_url().'tasks/histories/'.$row->id; ?>" href="javascript:void(0)" class="task-history"><?php echo $row->phoneType; ?></a></td>
+                                        <td><?php echo $row->phoneStatus; ?></td>
+                                        <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
+                                        <td><?php echo getCustomerPhone($row->customer_id); ?></td>
+                                        <td><?php echo $row->phoneImei; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #263e81;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>

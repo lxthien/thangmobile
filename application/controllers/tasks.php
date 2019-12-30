@@ -23,8 +23,32 @@
             $data['tasksFinish'] = $this->task_model->readListFinish($shop);
             $data['tasksNotifiedCustomer'] = $this->task_model->readListNotifiedCustomer($shop);
             $data['tasksCustomerReceived'] = $this->task_model->readListCustomerReceived($shop);
+            $data['tasksCustomerReceivedWithPrice'] = $this->task_model->readListCustomerReceivedWithPrice($shop);
             $data['view'] = 'customer/task/index';
             
+            $this->load->view('customer', $data);
+        }
+
+        function listToday() {
+            if (!$this->ion_auth->in_group('admin_shop')) {
+                echo 'Bạn ko có quyền truy cập vào chức năng này'; die;
+            }
+
+            $timeSearch = $this->input->get("time");
+            if (empty($timeSearch))
+                $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            else
+                $datetime = new DateTime($timeSearch);
+
+            $timeFrom = $datetime->format('Y-m-d 00:00:00');
+            $timeTo = $datetime->format('Y-m-d 23:59:59');
+
+            $data['date'] = $datetime->format('Y-m-d');
+            $data['tasks'] = $this->task_model->getAllTask($timeFrom, $timeTo);
+            $data['tasksVT'] = $this->task_model->getAllTaskVT($timeFrom, $timeTo);
+            $data['tasksLS'] = $this->task_model->getAllTaskLS($timeFrom, $timeTo);
+
+            $data['view'] = 'customer/task/total';
             $this->load->view('customer', $data);
         }
 
@@ -51,6 +75,7 @@
             $task->phoneSim = '';
             $task->technicalFinish = '';
             $task->notificationCustomer = '';
+            $task->timeNotificationCustomer = '';
             $task->quickStatus = '';
             $task->isCustomerVip = '';
             $task->taskStatus = '';
@@ -105,7 +130,7 @@
                 $task['useAccessories'] = $this->input->post('useAccessories');
                 $task['note'] = $this->input->post('note');
 
-                if($this->input->post('warrantyPeriodEnd') != '') {
+                if ($this->input->post('warrantyPeriodEnd') != '') {
                     $dateAndTime = $this->input->post('warrantyPeriodEnd').' '.$this->input->post('warrantyPeriodTimeEnd');
                     $warrantyPeriodEnd = new DateTime($dateAndTime);
                     $task['warrantyPeriodEnd'] = $warrantyPeriodEnd->format('Y-m-d H:i:s');
@@ -124,6 +149,10 @@
                         $dateWarrantyPerios = new DateTime(date('Y-m-d H:i:s', time()));
                         $dateWarrantyPerios->add(new DateInterval('P'.$this->input->post('timeWarranty').'D'));
                         $task['warrantyPeriod'] = $dateWarrantyPerios->format('Y-m-d H:i:s');
+                    }
+
+                    if ($this->input->post('notificationCustomer') == 1 && $currentTask->notificationCustomer == 0) {
+                        $task['timeNotificationCustomer'] = date('Y-m-d H:i:s');
                     }
 
                     $tracks = array();

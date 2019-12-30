@@ -11,6 +11,12 @@
         
         <meta name="description" content="Phần mềm quản lý công việc nội bộ Yes Mobile - Sửa chữa điện thoại từ 2010">
         <meta name="author" content="">
+
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
         
         <meta name="msapplication-TileColor" content="#5bc0de" />
         <meta name="msapplication-TileImage" content="<?php echo base_url().'assets/admin'; ?>/assets/img/metis-tile.png" />
@@ -371,15 +377,16 @@
                         { "data": "taks12" },
                         { "data": "taks13" },
                         { "data": "taks14" },
-                        { "data": "taks15" }
+                        { "data": "taks15" },
+                        { "data": "taks16" }
                     ],
                     "columnDefs": [
                         {
-                            "targets": [ 14 ],
+                            "targets": [ 15 ],
                             "visible": false
                         },
                         {
-                            "targets": [ 15 ],
+                            "targets": [ 16 ],
                             "visible": false
                         }
                     ],
@@ -404,11 +411,11 @@
                     return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
                         '<tr>'+
                             '<td>Người nhận máy:</td>'+
-                            '<td>'+d.taks14+'</td>'+
+                            '<td>'+d.taks15+'</td>'+
                         '</tr>'+
                         '<tr>'+
                             '<td>Lưu ý nội bộ:</td>'+
-                            '<td>'+d.taks15+'</td>'+
+                            '<td>'+d.taks16+'</td>'+
                         '</tr>'
                     '</table>';
                 }
@@ -470,6 +477,76 @@
                 } );
 
                 function format4 ( d ) {
+                    return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
+                        '<tr>'+
+                            '<td>Người nhận máy:</td>'+
+                            '<td>'+d.taks13+'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td>Lưu ý nội bộ:</td>'+
+                            '<td>'+d.taks14+'</td>'+
+                        '</tr>'+
+                        '<tr>'
+                    '</table>';
+                }
+
+                var tableTask5 = $('#dataTableTask5').DataTable({
+                    "lengthMenu": [[50, -1], [50, "All"]],
+                    "order": [],
+                    "oLanguage": {
+                        "sSearch": "<span>Search:</span>"
+                    },
+                    draggable: false,
+                    "columns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        { "data": "taks1" },
+                        { "data": "taks2" },
+                        { "data": "taks3" },
+                        { "data": "taks4" },
+                        { "data": "taks5" },
+                        { "data": "taks6" },
+                        { "data": "taks7" },
+                        { "data": "taks8" },
+                        { "data": "taks9" },
+                        { "data": "taks10" },
+                        { "data": "taks11" },
+                        { "data": "taks12" },
+                        { "data": "taks13" },
+                        { "data": "taks14" }
+                    ],
+                    "columnDefs": [
+                        {
+                            "targets": [ 13 ],
+                            "visible": false
+                        },
+                        {
+                            "targets": [ 14 ],
+                            "visible": false
+                        }
+                    ],
+                    "ordering": false
+                });
+
+                $('#dataTableTask5 tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = tableTask5.row( tr );
+                
+                    if ( row.child.isShown() ) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        row.child( format5(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                } );
+
+                function format5 ( d ) {
                     return '<table cellpadding="15" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped no-footer">'+
                         '<tr>'+
                             '<td>Người nhận máy:</td>'+

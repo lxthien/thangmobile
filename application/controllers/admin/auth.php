@@ -50,7 +50,8 @@ class Auth extends CI_Controller {
         if ($this->form_validation->run() == true) {
             //check to see if the user is logging in
             //check for "remember me"
-            $remember = (bool) $this->input->post('remember');
+            //$remember = (bool) $this->input->post('remember');
+            $remember = false;
             
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 //redirect them back to the home page
@@ -99,36 +100,34 @@ class Auth extends CI_Controller {
 
     //log the user out
     function logout() {
-        $this->ion_auth_model->trigger_events('logout');
-        $identity = $this->config->item('identity', 'ion_auth');
-        
-        if (substr(CI_VERSION, 0, 1) == '2') {
-            $this->session->unset_userdata(array($identity => '', 'id' => '', 'user_id' => ''));
-        } else {
-            $this->session->unset_userdata(array($identity, 'id', 'user_id'));
+        header("cache-Control: no-store, no-cache, must-revalidate");
+        header("cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+        header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+        $this->ion_auth->logout();
+        if ($this->ion_auth->logged_in()) {
+            $this->ion_auth->logout();
         }
 
+        $identity = $this->config->item('identity', 'ion_auth');
+
+        $this->session->unset_userdata([$identity, 'id', 'user_id']);
         // delete the remember me cookies if they exist
-        if (get_cookie($this->config->item('identity_cookie_name', 'ion_auth'))) {
-            delete_cookie($this->config->item('identity_cookie_name', 'ion_auth'));
-        }
-        if (get_cookie($this->config->item('remember_cookie_name', 'ion_auth'))) {
-            delete_cookie($this->config->item('remember_cookie_name', 'ion_auth'));
-        }
+        delete_cookie($this->config->item('remember_cookie_name', 'ion_auth'));
+
+        // Clear all codes
+        $this->ion_auth->clear_forgotten_password_code($identity);
+        //$this->ion_auth_model->clear_remember_code($identity);
 
         // Destroy the session
         $this->session->sess_destroy();
-        //Recreate the session
-        if (substr(CI_VERSION, 0, 1) == '2') {
-            $this->session->sess_create();
-        } else {
-            session_start();
-            $this->session->sess_regenerate(TRUE);
-        }
-        
-        //redirect them to the login page
+
+        session_start();
+        $this->session->sess_destroy();
+        session_start();
+
         $this->session->set_flashdata('message', $this->ion_auth->messages());
-            
         redirect(base_url('panel/login'), 'refresh');
     }
 
