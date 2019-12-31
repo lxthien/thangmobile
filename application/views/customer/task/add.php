@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-lg-4">Khách hàng</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="customer_id">
+                                        <select class="chzn-select form-control" name="customer_id">
                                             <option>Nhập tên hoặc điện thoại để tìm kiếm khách hàng</option>
                                             <?php foreach ($customers as $row): ?>
                                             <option value="<?php echo $row->id ?>" <?php echo $row->id == $task->customer_id ? 'selected="selected"' : ''; ?>><?php echo $row->name.' ('.$row->phone.')' ?></option>
@@ -139,7 +139,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group hidden">
                                     <label class="control-label col-lg-4">Khách hàng cần gấp</label>
                                     <div class="col-lg-8">
                                         <div class="checkbox">

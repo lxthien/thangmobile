@@ -10,8 +10,21 @@
                             <h5>Doanh thu theo ngày</h5>
                         </header>
                         <div id="collapse4" class="body">
-                            <?php if ($tasksVT) : ?>
-                                <table id="dataTable" class="table table-bordered table-condensed table-striped dataTable no-footer">
+                            <?php if(count($tasks) > 0) : ?>
+                                <table class="table table-bordered table-condensed table-hover table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td><label class="control-label col-lg-4">Chọn ngày:</label></td>
+                                            <td>
+                                                <div class="col-lg-3 input-group input-append date" id="dpTotal" data-date="<?php echo $timeSearch != '' ? $timeSearch :  date('Y-m-d', time()) ?>" data-date-format="yyyy-mm-dd">
+                                                    <input class="form-control" type="text" value="<?php echo $timeSearch != '' ? $timeSearch :  date('Y-m-d', time()) ?>" name="time">
+                                                    <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered table-condensed table-striped no-footer">
                                     <thead>
                                         <tr>
                                             <th>Ngày</th>
@@ -50,6 +63,19 @@
                                     </tbody>
                                 </table>
                             <?php else: ?>
+                                <table class="table table-bordered table-condensed table-hover table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td><label class="control-label col-lg-4">Chọn ngày:</label></td>
+                                            <td>
+                                                <div class="col-lg-3 input-group input-append date" id="dpTotal" data-date="<?php echo $timeSearch != '' ? $timeSearch :  date('Y-m-d', time()) ?>" data-date-format="yyyy-mm-dd">
+                                                    <input class="form-control" type="text" value="<?php echo $timeSearch != '' ? $timeSearch :  date('Y-m-d', time()) ?>" name="time">
+                                                    <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
                                     <p class="center">Không có doanh thu trong hôm nay</p>
                                 </table>

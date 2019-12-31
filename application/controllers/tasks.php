@@ -47,6 +47,7 @@
             $data['tasks'] = $this->task_model->getAllTask($timeFrom, $timeTo);
             $data['tasksVT'] = $this->task_model->getAllTaskVT($timeFrom, $timeTo);
             $data['tasksLS'] = $this->task_model->getAllTaskLS($timeFrom, $timeTo);
+            $data['timeSearch'] = $timeSearch;
 
             $data['view'] = 'customer/task/total';
             $this->load->view('customer', $data);
@@ -61,8 +62,14 @@
             $task->taskType = '';
             $task->customer_id = '';
             
-            if (trim($customer_id) !== "")
+            if (trim($customer_id) !== "") {
                 $task->customer_id = $customer_id;
+                $taskRequest = customerRequest($customer_id);
+
+                if ($taskRequest >= 2) {
+                    $task->isCustomerVip = 1;
+                }
+            }
             
             $task->phoneType = '';
             $task->phoneImei = '';
@@ -77,7 +84,6 @@
             $task->notificationCustomer = '';
             $task->timeNotificationCustomer = '';
             $task->quickStatus = '';
-            $task->isCustomerVip = '';
             $task->taskStatus = '';
             $task->timeClosedTask = '';
             $task->timeWarranty = '';

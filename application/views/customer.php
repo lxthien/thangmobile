@@ -97,7 +97,7 @@
         <script src="<?php echo base_url().'assets/admin'; ?>/assets/lib/screenfull/screenfull.js"></script>
         <script src="<?php echo base_url().'assets/admin'; ?>/assets/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
         <script src="<?php echo base_url().'assets/admin'; ?>/assets/lib/jquery-validation/jquery.validate.js"></script>
-        <!-- <script src="<?php echo base_url().'assets/admin'; ?>/assets/lib/chosen/chosen.jquery.min.js"></script> -->
+        <script src="<?php echo base_url().'assets/admin'; ?>/assets/lib/chosen/chosen.jquery.min.js"></script>
 
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
@@ -121,6 +121,25 @@
             });
 
             $(document).ready(function() {
+                $(".chzn-select").chosen();
+
+                $('#dpTotal').datepicker({
+                    endDate: new Date()
+                }).on('changeDate', function (ev) {
+                    var startDate = new Date(ev.date);
+                    var curr_day = startDate.getDate();
+                    var curr_month = startDate.getMonth() + 1;
+                    var curr_year = startDate.getFullYear();
+                    var time_report = curr_year + '-' + curr_month + '-' + curr_day;
+
+                    window.location.replace("<?php echo base_url()."tasks/listToday"; ?>" + "?time=" + time_report);
+                });
+
+                /* $('select.chzn-select').change( function() {
+                    console.log($(this).val());
+                    var customerID = $(this).val();
+                }); */
+
                 var table = $('#dataTableCustomer').DataTable({
                     "processing": true,
                     "serverSide": true,
