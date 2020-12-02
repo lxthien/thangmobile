@@ -1,6 +1,6 @@
 <div class="allboxsp1 warranty row">
 	<div class="col-md-12">
-		<h1 class="h1-title">Kiểm tra bảo hành</h1>
+		<h1 class="h1-title">Kiểm tra bảo hành sửa chữa điện thoại</h1>
 		<div class="line-title">
 			<div class="left-30">&nbsp;</div>
 			<div class="left-70">&nbsp;</div>
@@ -20,9 +20,9 @@
 		</div>
 		<div class="time-warranty-note">
 		Quý khách hàng vui lòng nhập số điện thoại để kiểm tra bảo hành: </br>
-		- Đối với các máy sửa chữa phần cứng, Yes Mobile áp dụng chế độ bảo hành từ 1 - 12 tháng. </br>
-		- Quý khách hàng tham thảo thêm thông tin chính sách bảo hành của Chúng tôi.</br>
-		- Mọi thắc mắc hoặc cần tư vấn, Quý khách hàng vui lòng liên hệ: 0901 260 260 
+		- Đối với các máy sửa chữa phần cứng, Yes Mobile áp dụng chế độ bảo hành từ 3 - 12 tháng. </br>
+		- Quý khách hàng tham thảo thêm thông tin <a class="service-view-map" style="font-size:14px" target="_blank" href="<?php echo base_url('che-do-bao-hanh.html'); ?>">chính sách bảo hành</a> của Chúng tôi.</br>
+		- Mọi thắc mắc hoặc cần tư vấn, Quý khách hàng vui lòng liên hệ ngay: 0847 72 72 72 
 		</div>
 	</div>
 

@@ -12,7 +12,7 @@ $link = base_url('panel');
 
     <!-- start each element : gioi thieu -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_news/edit/' . COMPANY_INSTRODUCE_NEWS_ID; ?>'>Giới thiệu</a>
         </td>
@@ -21,8 +21,8 @@ $link = base_url('panel');
     <!--end gioi thieu-->        
     
     <!-- start each element : site map -->
-    <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+    <!--tr>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_news/edit/' . SITE_MAP; ?>'>Site map</a>
         </td>
@@ -31,7 +31,7 @@ $link = base_url('panel');
     <!--end site map-->
 
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_category/index/'; ?>'>Quản lí danh mục</a>
         </td>
@@ -40,17 +40,17 @@ $link = base_url('panel');
     
     <!-- start each element : dich vu sua chua -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
-            <a href='<?php echo $link . '/admin_news/edit/' . SERVICES; ?>'>Dịch vụ sửa chữa</a>
+            <a href='<?php echo $link . '/admin_news/edit/' . SERVICES; ?>'>Trang sửa chữa</a>
         </td>
     </tr>
     <tr><td><img src='<?php echo RES_PATH; ?>images/panel/admin-blue_13.gif' width='194' height='1'></td></tr>
 
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
-            <a href='<?php echo $link . '/admin_services/'; ?>'>Danh sách dịch vụ sửa chữa</a>
+            <a href='<?php echo $link . '/admin_services/'; ?>'>Danh sách dịch vụ </a>
         </td>
     </tr>
     <tr><td><img src='<?php echo RES_PATH; ?>images/panel/admin-blue_13.gif' width='194' height='1'></td></tr>
@@ -58,7 +58,7 @@ $link = base_url('panel');
 	
 	<!-- start each element : dich vu sua chua -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_news/edit/' . EPKINH; ?>'>Ép kính điện thoại</a>
         </td>
@@ -67,7 +67,7 @@ $link = base_url('panel');
 
     <!-- start each element : che do bao hanh -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_news/edit/' . WARRANTY; ?>'>Chế độ bảo hành</a>
         </td>
@@ -78,7 +78,7 @@ $link = base_url('panel');
     <!--end che do bao hanh-->
     <!-- start each element : che do bao hanh -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_news/edit/' . RECRUIT; ?>'>Tuyển dụng</a>
         </td>
@@ -102,9 +102,9 @@ $link = base_url('panel');
 	
     <!-- start each element : che do bao hanh -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
-            <a href='<?php echo $link . '/admin_news/edit/' . DELEVERYPOLICY; ?>'>Chính sách vận chuyển</a>
+            <a href='<?php echo $link . '/admin_news/edit/' . DELEVERYPOLICY; ?>'>Khách hàng ở xa</a>
         </td>
     </tr>
     <tr>
@@ -113,7 +113,7 @@ $link = base_url('panel');
     <!--end che do bao hanh-->
     
     <tr>
-        <td height='20' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH; ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link . '/admin_news' ?>'>Tin tức</a>
         </td>
@@ -178,7 +178,7 @@ $link = base_url('panel');
 
     <!-- start element: User -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo base_url('panel/config'); ?>'>Configuration</a>
         </td>
@@ -198,7 +198,7 @@ $link = base_url('panel');
 
     <!-- start element: Advertise -->
     <tr>
-        <td height='20' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+        <td height='25' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
             <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
             <a href='<?php echo $link.'/admin_banner'; ?>'>Banner</a>
         </td>
@@ -221,9 +221,9 @@ $link = base_url('panel');
     <!-- start element: mobile phone -->
     <?php if ($this->ion_auth->is_admin()): ?>
         <tr>
-            <td height='20' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+            <td height='25' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
                 <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
-                <a href='<?php echo $link . '/admin_phone'; ?>'>Product</a>
+                <a href='<?php echo $link . '/admin_phone'; ?>'>Phụ kiện</a>
             </td>
         </tr>
         <tr><td><img src='<?php echo RES_PATH ?>images/panel/admin-blue_13.gif' width='194' height='1'></td></tr>
@@ -232,9 +232,9 @@ $link = base_url('panel');
     
     <?php if ($this->ion_auth->is_admin()): ?>
         <tr>
-            <td height='20' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
+            <td height='25' background='<?php echo RES_PATH ?>images/panel/admin-blue_15.gif' style='padding-left:12px'>
                 <img src='<?php echo RES_PATH ?>images/panel/detail_07.gif' width='8' height='7' align="absmiddle">&nbsp;&nbsp;
-                <a href='<?php echo $link . '/admin_category_phone'; ?>'>Product Category</a>
+                <a href='<?php echo $link . '/admin_category_phone'; ?>'>Danh mục phụ kiện</a>
             </td>
         </tr>
         <tr><td><img src='<?php echo RES_PATH ?>images/panel/admin-blue_13.gif' width='194' height='1'></td></tr>

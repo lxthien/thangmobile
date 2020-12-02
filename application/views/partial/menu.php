@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand d-block d-sm-none" href="<?php echo base_url(); ?>">
-                <img src="<?php echo base_url().'assets/images/logo-trang.png'; ?>" height="25" class="d-inline-block" alt="YesMobile">
+                <img src="<?php echo base_url().'assets/images/logo-mobile.png'; ?>" height="25" class="d-inline-block" alt="Yes Mobile">
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

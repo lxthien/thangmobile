@@ -96,17 +96,6 @@
                             <?php } ?>
                             <?php if (array_key_exists('quickStatus', $tracks)) { ?>
                             <tr>
-                                <th>Khách hàng cần gấp</th>
-                                <th><?php echo $tracks->quickStatus->from == 1 ? 'Có' : 'Không'; ?></th>
-                                <th><?php echo $tracks->quickStatus->to == 0 ? 'Không' : 'Có'; ?></th>
-                            </tr>
-                            <?php } ?>
-                            <?php if (array_key_exists('isCustomerVip', $tracks)) { ?>
-                            <tr>
-                                <th>Khách hàng quen</th>
-                                <th><?php echo $tracks->isCustomerVip->from == 1 ? 'Có' : 'Không'; ?></th>
-                                <th><?php echo $tracks->isCustomerVip->to == 0 ? 'Không' : 'Có'; ?></th>
-                            </tr>
                             <?php } ?>
                             <?php if (array_key_exists('taskStatus', $tracks)) { ?>
                             <tr>

@@ -10,7 +10,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Phần mềm quản lý công việc nội bộ | Yes Mobile</title>
 
-    <meta name="description" content="Hệ thống quản lý công việc nội bộ của Yes Mobile | 438 Trương Công Định, Phường 8, TP.Vũng Tàu.">
+    <meta name="description" content="Hệ thống quản lý công việc nội bộ của Yes Mobile | Hệ thống sửa chữa điện thoại từ 2010.">
     <meta name="author" content="Yes Mobile">
 
     <meta name="msapplication-TileColor" content="#5bc0de" />

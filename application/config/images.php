@@ -27,7 +27,10 @@ $config["image_sizes"]["news_390_258"] = array(390,258);
 $config["image_sizes"]["news_250_180"] = array(250,180);
 $config["image_sizes"]["news_220_160"] = array(220,160);
 $config["image_sizes"]["news_200_120"] = array(200,120);
+$config["image_sizes"]["news_200_132"] = array(200,132);
+$config["image_sizes"]["news_345_227"] = array(345,227);
 $config["image_sizes"]["news_150_90"] = array(150,90);
+$config["image_sizes"]["news_150_120"] = array(150,120);
 
 $config["image_sizes"]["news_100_75"] = array(100,75);
 

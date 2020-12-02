@@ -59,7 +59,7 @@ class Auth extends CI_Controller {
 
                 $groupShop = array('admin_shop', 'members_shopA', 'members_shopB');
                 if ($this->ion_auth->in_group($groupShop)) {
-                    $referal = base_url('tasks/listTask');
+                    $referal = base_url('tasks/index');
                     redirect($referal, 'refresh');
                 } else {
                     $referal = $this->session->userdata('refered_from');

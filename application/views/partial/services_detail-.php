@@ -35,7 +35,7 @@
                 </p>
 				<p class="address">
                     - Đường 28/04, Thôn 6, Xã Long Sơn, TP.Vũng Tàu (Cách chợ Long Sơn 300m) </p>
-				<p class="address">Tham khảo <a class="service-map" style="font-size:16px" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Bản đồ đường đi</a>	
+				<p class="address">Tham khảo <a class="service-map" style="font-size:16px" target="_blank" href="<?php echo base_url('tin-tuc/tin-tuc-yes-mobile/142-ban-do-duong-di-den-cac-cua-hang.html'); ?>">Bản đồ đường đi</a>
                 </p>
                 <div class="main-news-social">
                     <div class="social">

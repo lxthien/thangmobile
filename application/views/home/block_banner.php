@@ -21,24 +21,24 @@
             <div class="row">
                 <div class="col-md-6 col-6 ml">
                     <a href="https://yesmobile.vn/#">
-                        <img src="<?php echo image('assets/images/Ban-hang-tra-gop5047.jpg', 'banner_168_87'); ?>">
+                        <img src="<?php echo image('assets/images/sua-chua.jpg', 'banner_168_87'); ?>">
                     </a>
                 </div>
                 <div class="col-md-6 col-6 mr">
                     <a href="https://yesmobile.vn/#">
-                        <img src="<?php echo image('assets/images/Samsung-Galaxy-Tab-4-389-x146.jpg', 'banner_168_87'); ?>">
+                        <img src="<?php echo image('assets/images/ep-kinh.jpg', 'banner_168_87'); ?>">
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-6 ml">
                     <a href="https://yesmobile.vn/tuyen-dung.html">
-                        <img src="<?php echo image('assets/images/Tuyen-Dung-T9.jpg', 'banner_168_87'); ?>">
+                        <img src="<?php echo image('assets/images/phu-kien.png', 'banner_168_87'); ?>">
                     </a>
                 </div>
                 <div class="col-md-6 col-6 mr">
                     <a href="#">
-                        <img src="<?php echo image('assets/images/Ban-hang-tra-gop_02.jpg', 'banner_168_87'); ?>">
+                        <img src="<?php echo image('assets/images/tuyen-dung.jpg', 'banner_168_87'); ?>">
                     </a>
                 </div>
             </div>

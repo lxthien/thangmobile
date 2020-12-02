@@ -12,7 +12,7 @@ class News extends MY_Controller {
     var $content_word_nr = 100;
     var $total_posts;
     var $site_meta_data = array();
-	var $menu_active = 'news';
+    var $menu_active = 'news';
     
     public function __construct() {
         parent::__construct();
@@ -31,73 +31,77 @@ class News extends MY_Controller {
      * Load tat ca tin cho trang tin tuc.
      */
     public function view_post_on_page($page_link_rewrite, $page_nr) {
-        $offset = 0;
-        if($page_nr > 1) {
+		$offset = 0;
+        if ($page_nr > 1) {
             $offset = ($page_nr - 1)*LIMIT_SHOW_ALL_NEWS;
         }
 
-    	$data = $this->load->get_var('data');
-    	$page = $this->_load_page($page_link_rewrite);
-    	
-    	if (!$page) {
+        $data = $this->load->get_var('data');
+        $page = $this->_load_page($page_link_rewrite);
+        
+        if (!$page) {
             $page = $this->services_model->read_by_link_rewrite($page_link_rewrite);
             if (!is_object($page)) {
                 redirect(base_url().$this->uri->segment(1).'/'.$this->uri->segment(2), 'location', 301);
             }
-    	}
+        }
 
         $this->_get_meta_data($page);
 
         $page_category = $this->_load_page_by_category($page_link_rewrite);
-        if($page_category)
+        if ($page_category)
             $this->_get_meta_data($page_category);
 
-    	$data['contact'] = $this->Mcontact->listcontact(); 
-    	$data['categories'] = $this->_load_categories($page);
-    	$data['show_all_news'] = 'true';
-    	$data['two_tincongnghe'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(2, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
-    	$data['two_kinhnghiemsudung'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(3, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+        if ($page_nr > 1) {
+            $this->site_meta_data['page'] = $page_nr;
+        }
 
-    	$data['partners'] = $this->_get_partners();
-    	$data['site_meta_data'] = $this->site_meta_data;
-    	$data['banners'] = $this->banner_model->get_active_list();
-    	$data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
-    	$data['latest_downloads'] = $this->get_latest_download();
-    	$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+        $data['contact'] = $this->Mcontact->listcontact(); 
+        $data['categories'] = $this->_load_categories($page);
+        $data['show_all_news'] = 'true';
+        $data['two_tincongnghe'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(2, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+        $data['two_kinhnghiemsudung'] = $this->truncate_title_content_posts($this->news_model->get_news_list_by_category_id(3, NULL, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
 
-		if($page_link_rewrite == 'tin-tuc') {
-			$this->menu_active = 'news';
-			$category_ids = array(2, 3, 21);
-			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
-			$total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
-			
-			// init paging
-			$this->init_paging('tin-tuc', $total_record_in_post, $segmentDf = false);
-		} else {
-			$this->menu_active = 'guides';
-			$data['show_cam_nang'] = true;
-			$category_ids = array(66, 67, 68);
-			$data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
-			$total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
-			
-			// init paging
-			$this->init_paging('cam-nang', $total_record_in_post, $segmentDf = false);
-		}
+        $data['partners'] = $this->_get_partners();
+        $data['site_meta_data'] = $this->site_meta_data;
+        $data['banners'] = $this->banner_model->get_active_list();
+        $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
+        $data['latest_downloads'] = $this->get_latest_download();
+        $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+
+        if ($page_link_rewrite == 'tin-tuc') {
+            $this->menu_active = 'news';
+            $category_ids = array(2, 3, 21);
+            $data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+            $total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
+            
+            // init paging
+            $this->init_paging('tin-tuc', $total_record_in_post, $segmentDf = false);
+        } else {
+            $this->menu_active = 'guides';
+            $data['show_cam_nang'] = true;
+            $category_ids = array(66, 67, 68);
+            $data['news'] = $this->truncate_title_content_posts($this->news_model->read_list_by_list_categries($category_ids, $offset, LIMIT_SHOW_ALL_NEWS), MAX_DES_TITLE, MAX_DES_CONTENT);
+            $total_record_in_post = $this->news_model->count_postnr_by_list_categries($category_ids);
+
+            // init paging
+            $this->init_paging('cam-nang', $total_record_in_post, $segmentDf = false);
+        }
 
         $data['category'] = $page_link_rewrite;
 
-    	$this->load->view('universalView', $data);
+        $this->load->view('universalView', $data);
     }
 
     public function get_latest_download() {
-    	$latest_downloads = $this->download_model->_get_latest_download();
-    	foreach ($latest_downloads as $download) {
-    		$eachCategory = $this->download_category_model->read_by_id($download->category_id);
-    		$download->link_rewrite = 'tai-ve/'.$eachCategory->link_rewrite.'/'.$download->id.'-'.$download->link_rewrite.URL_TRAIL;
+        $latest_downloads = $this->download_model->_get_latest_download();
+        foreach ($latest_downloads as $download) {
+            $eachCategory = $this->download_category_model->read_by_id($download->category_id);
+            $download->link_rewrite = 'tai-ve/'.$eachCategory->link_rewrite.'/'.$download->id.'-'.$download->link_rewrite.URL_TRAIL;
     
-    	}
-    	 
-    	return $latest_downloads;
+        }
+         
+        return $latest_downloads;
     }
 
     /*
@@ -109,7 +113,7 @@ class News extends MY_Controller {
         $page_category = $this->_load_page_by_category($category_link_rewrite);
         $selected_category = $this->_load_selected_category($page, $category_link_rewrite);
         if (!$page) {
-        	show_404();
+            show_404();
         }
         $this->_get_meta_data($page_category);
         $data['categories'] = $this->_load_categories($page);
@@ -122,8 +126,8 @@ class News extends MY_Controller {
         $total_record_in_post = $this->news_model->count_postnr_by_category_id($selected_category->id_news_category);
         
         foreach ($category_posts as &$post) {
-        	$post->link_rewrite = $selected_category->link_rewrite . '/' . $post->id_news . '-' . $post->link_rewrite . URL_TRAIL;
-        	$post = $this->truncate_title_content_post($post, MAX_DES_TITLE, MAX_DES_CONTENT);
+            $post->link_rewrite = $selected_category->link_rewrite . '/' . $post->id_news . '-' . $post->link_rewrite . URL_TRAIL;
+            $post = $this->truncate_title_content_post($post, MAX_DES_TITLE, MAX_DES_CONTENT);
         }
         
         $data['all_news'] = $category_posts;
@@ -132,19 +136,19 @@ class News extends MY_Controller {
         
         $this->init_paging($selected_category->link_rewrite, $total_record_in_post);
         
-		if($page_link_rewrite == 'tin-tuc') {
-			$this->menu_active = 'news';
-		} else {
-			$this->menu_active = 'guides';
-		}
+        if($page_link_rewrite == 'tin-tuc') {
+            $this->menu_active = 'news';
+        } else {
+            $this->menu_active = 'guides';
+        }
         
         $data['partners'] = $this->_get_partners();
-    	$data['site_meta_data'] = $this->site_meta_data;
-    	$data['banners'] = $this->banner_model->get_active_list();
-    	$data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
-    	$data['latest_downloads'] = $this->get_latest_download();
-    	$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
-    	$this->load->view('universalView', $data);
+        $data['site_meta_data'] = $this->site_meta_data;
+        $data['banners'] = $this->banner_model->get_active_list();
+        $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
+        $data['latest_downloads'] = $this->get_latest_download();
+        $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+        $this->load->view('universalView', $data);
     }
 
     function index($page_link_rewrite, $category_link = NULL, $thread_id = NULL, $page_nr = 0) {
@@ -182,8 +186,8 @@ class News extends MY_Controller {
         $data['banners'] = $this->banner_model->get_active_list();
         $data['home_advertises'] = $this->advertise_model->read_list_by_position(1);
         $data['latest_downloads'] = $this->get_latest_download();
-		$data['contact'] = $this->Mcontact->listcontact(); 
-		$data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
+        $data['contact'] = $this->Mcontact->listcontact(); 
+        $data['download_menu'] = $this->download_category_model->read_by_parent_id(1);
         $this->load->view('universalView', $data);
     }
 
@@ -272,10 +276,10 @@ class News extends MY_Controller {
      * load child category of news_category 
      * @params: $category_link_rewrite
      */
-	private function _load_page_by_category($category_link_rewrite) {
-		$page = $this->category_model->read_by_link_rewrite($category_link_rewrite);
-		return $page;
-	}
+    private function _load_page_by_category($category_link_rewrite) {
+        $page = $this->category_model->read_by_link_rewrite($category_link_rewrite);
+        return $page;
+    }
 
     private function _load_posts_by_category_id($category_id) {
         
@@ -475,9 +479,9 @@ class News extends MY_Controller {
     }
 
     public function servicesCat($url, $page_nr){
-		$this->menu_active = 'services';
+        $this->menu_active = 'services';
         $offset = 0;
-        if($page_nr > 1) {
+        if ($page_nr > 1) {
             $offset = ($page_nr - 1)*LIMIT_SHOW_ALL_NEWS;
         }
 
@@ -518,9 +522,13 @@ class News extends MY_Controller {
         $this->init_paging('dich-vu/'.$url, $total_record_in_post);
 
         $this->_get_meta_data($catServices, true);
+        if ($page_nr > 1) {
+            $this->site_meta_data['page'] = $page_nr;
+        }
+
         $data['site_meta_data'] = $this->site_meta_data;
 
-		$data['levelServices'] = 1;
+        $data['levelServices'] = 1;
         $data['level'] = $level;
         $data['catServices'] = $catServices;
         $data['categoryServices'] = $categoryServices;
@@ -536,7 +544,7 @@ class News extends MY_Controller {
     }
     
     public function servicesDetail($id, $url){
-		$this->menu_active = 'services';
+        $this->menu_active = 'services';
         $this->load->model('Services_model', 'services_model');
 
         $url = $this->uri->segment(2);
@@ -562,13 +570,13 @@ class News extends MY_Controller {
             $newsRelated = $this->truncate_title_content_post($newsRelated, MAX_DES_TITLE, MAX_DES_CONTENT);
         }
 
-		$catServices = $this->news_category_model->read_by_id($page->id_news_category);
-		$catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
-		
-		$data['levelServices'] = 2;
-		$data['catServices'] = $catServices;
-		$data['catParentServices'] = $catParentServices;
-		$data['categoryServicesParent'] = $catParentServices->link_rewrite;
+        $catServices = $this->news_category_model->read_by_id($page->id_news_category);
+        $catParentServices = $this->news_category_model->read_by_id($catServices->id_parent);
+        
+        $data['levelServices'] = 2;
+        $data['catServices'] = $catServices;
+        $data['catParentServices'] = $catParentServices;
+        $data['categoryServicesParent'] = $catParentServices->link_rewrite;
         $data['contact'] = $this->Mcontact->listcontact();
         $data['services'] = $page;
         $data['newsRelateds'] = $same_posts_array;

@@ -30,7 +30,7 @@
                     <a href="<?php echo base_url().'tasks/add'; ?>"><i class="fa fa-angle-right"></i>&nbsp; Thêm mới</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url().'tasks/listTask'; ?>"><i class="fa fa-angle-right"></i>&nbsp; Danh sách yêu cầu</a>
+                    <a href="<?php echo base_url().'tasks/listTask'; ?>"><i class="fa fa-angle-right"></i>&nbsp; Máy đang sửa chữa</a>
                 </li>
                 <?php if ($this->ion_auth->in_group('admin_shop')) { ?>
                 <li>

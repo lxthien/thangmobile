@@ -9,7 +9,7 @@
         echo '<div id = "infoMessage">' . $message . '</div>';
         ?>
         <form action="<?php echo base_url($this->uri->segment(1) . '/login') ?>" method="post" enctype="multipart/form-data" name="formDK" onsubmit="return checkLoginIndex();">
-            <table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+            <table width="100%" border="0" cellpadding="0" cellspacing="15" align="center">
                 <tr valign="middle">
                     <td width="40%" align="right">Username</td>
 

@@ -1,5 +1,5 @@
 <div class="allboxsp2">
-	<h1 class="h1-title">DỊCH VỤ SỬA CHỮA ĐIỆN THOẠI</h1>
+	<h1 class="h1-title" >DỊCH VỤ SỬA CHỮA ĐIỆN THOẠI</h1>
 	<div class="line-title">
 		<div class="left-30">&nbsp;</div>
 		<div class="left-70">&nbsp;</div>

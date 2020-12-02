@@ -32,7 +32,7 @@ $(document).ready(function() {
                     number: true,
                     minlength: 10,
                     remote:{
-                        url:'http://localhost/dienthoaivungtau/customers/phoneCheckSignup',
+                        url:'https://yesmobile.vn/customers/phoneCheckSignup',
                         type:'post',
                         data:{
                             phone :function(){

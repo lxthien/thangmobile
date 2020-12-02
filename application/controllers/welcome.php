@@ -21,9 +21,9 @@ class Welcome extends MY_Controller {
 		$data['servicesHomepages'] = $this->services_model->read_list_by_list_categries_homepage(array(6,8,9,11,12,24,25,26,27,28,29,30,32,33,34,35,70,71), 0, 3);
         $data['phoneNumber'] = $this->uri->segment(2);
 
-        $this->site_meta_data['meta_title'] = "Kiểm tra thời hạn bảo hành điện thoại tại Yes Mobile";
+        $this->site_meta_data['meta_title'] = "Kiểm tra thời hạn bảo hành sửa chữa điện thoại tại Yes Mobile";
         $this->site_meta_data['meta_description'] = "Yes Mobile luôn bảo hành chu đáo điện thoại Quý khách hàng đã mua và sửa chữa tại cửa hàng Chúng tôi. Quý khách vui lòng truy cập trang này để kiểm tra bảo hành.";
-        $this->site_meta_data['meta_keywords'] = "Yes Mobile Vũng Tàu, sửa điện thoại vũng tàu, bảo hành điện thoại vũng tàu";
+        $this->site_meta_data['meta_keywords'] = "Yes Mobile, Yes Mobile Vũng Tàu, sửa điện thoại vũng tàu, bảo hành điện thoại vũng tàu";
         $data['site_meta_data'] = $this->site_meta_data;
 
         $this->load->view('welcome', $data);      
@@ -37,10 +37,10 @@ class Welcome extends MY_Controller {
             if ($format)
                 echo 'Số điện thoại này chưa có thông tin bảo hành tại Yes Mobile';
             else 
-                echo '<p class="msg message">Số điện thoại này chưa có thông tin bảo hành tại Yes Mobile. Quý khách hàng vui lòng kiểm tra lại số điện thoại hoặc liên hệ ngay với Chúng tôi: 0901 260 260. Cám ơn Quý khách hàng!</p><div style="width: 100%; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
-                    <p>438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
-                    <p>ĐT: 0646.557.999 - Hotline: 0901 260 260</p>
-                    <p>Email: yesmobile.vn@gmail.com</p>
+                echo '<p class="msg message">Số điện thoại này chưa có thông tin bảo hành tại Yes Mobile. Quý khách hàng vui lòng kiểm tra lại số điện thoại hoặc liên hệ ngay với Chúng tôi: 0847 72 72 72. Cám ơn Quý khách hàng!</p><div style="width: 100%; margin-top: 20px; float: left; font-size: 15px;"><p><strong>Yes Mobile | Sửa chữa điện thoại từ 2010</strong></p>
+                    <p>Cửa hàng 1: 438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
+					<p>Cửa hàng 2: Đường 28/4, Thôn 6, Xã Long Sơn, TP. Vũng Tàu</p>
+                    <p>Hotline: 0847 72 72 72 - Email: yesmobile.vn@gmail.com</p>
                     <p>Website: <a href="http://yesmobile.vn/">www.yesmobile.vn</a> - <a href="http://dienthoaivungtau.com/">www.dienthoaivungtau.com</a></p></div>';
         } else {
         	$tasks = $this->task_model->customerRequest($customers[0]->id);
@@ -48,10 +48,10 @@ class Welcome extends MY_Controller {
                 if ($format)
                     echo 'Số điện thoại này chưa có thông tin bảo hành tại Yes Mobile';
                 else 
-                    echo '<p class="msg message">Cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile. Số điện thoại này chưa có thông tin bảo hành tại cửa hàng Chúng tôi. Mọi thắc mắc vui lòng liên hệ: 0901 260 260</p><div style="width: 100%; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
-                    <p>438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
-                    <p>ĐT: 0646.557.999 - Hotline: 0901 260 260</p>
-                    <p>Email: yesmobile.vn@gmail.com</p>
+                    echo '<p class="msg message">Cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile. Số điện thoại này chưa có thông tin bảo hành tại cửa hàng Chúng tôi. Mọi thắc mắc vui lòng liên hệ: 0847 72 72 72</p><div style="width: 100%; margin-top: 20px; float: left; font-size: 15px;"><p><strong>Yes Mobile | Sửa chữa điện thoại từ 2010</strong></p>
+                    <p>Cửa hàng 1: 438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
+					<p>Cửa hàng 2: Đường 28/4, Thôn 6, Xã Long Sơn, TP. Vũng Tàu</p>
+                    <p>Hotline: 0847 72 72 72 - Email: yesmobile.vn@gmail.com</p>
                     <p>Website: <a href="http://yesmobile.vn/">www.yesmobile.vn</a> - <a href="http://dienthoaivungtau.com/">www.dienthoaivungtau.com</a></p></div>';
         	} else {
                 if ($format)
@@ -62,7 +62,7 @@ class Welcome extends MY_Controller {
                         $status = $value->taskStatus == 1 ? formatDate($value->warrantyPeriod) : 'Chưa có';
                         $information .= '<div class="row">';
                         $information .= '<div class="cell">';
-                        $information .= '<p><b>Loại máy:</b> '.$value->phoneType.'</p>';
+                        $information .= '<p><b>Tên máy:</b> '.$value->phoneType.'</p>';
                         $information .= '<p><b>Imei:</b> '.$value->phoneImei.'</p>';
                         $information .= '<p><b>Tình trạng:</b> '.$value->phoneStatus.'</p>';
                         $information .= '</div>';
@@ -74,11 +74,11 @@ class Welcome extends MY_Controller {
                         $information .= '</div>';
                     }
                     $information.='</div>';
-                    $information.='<div style="width: 100%; margin-top: 20px; float: left; font-size: 14px;"><p><strong>Yes Mobile | Sửa chữa, mua bán smartphone từ 2010</strong></p>
-                        <p>438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
-                        <p>ĐT: 0646.557.999 - Hotline: 0901 260 260</p>
-                        <p>Email: yesmobile.vn@gmail.com</p>
-                        <p>Website: <a href="http://yesmobile.vn/">www.yesmobile.vn</a> - <a href="http://dienthoaivungtau.com/">www.dienthoaivungtau.com</a></p></div>';
+                    $information.='<div style="width: 100%; margin-top: 20px; float: left; font-size: 15px;"><p><strong>Yes Mobile | Sửa chữa điện thoại từ 2010</strong></p>
+                        <p>Cửa hàng 1: 438 Trương Công Định, Phường 8, TP. Vũng Tàu</p>
+					    <p>Cửa hàng 2: Đường 28/4, Thôn 6, Xã Long Sơn, TP. Vũng Tàu</p>
+                        <p>Hotline: 0847 72 72 72 - Email: yesmobile.vn@gmail.com</p>
+                        <p>Website: <a href="https://yesmobile.vn/">www.yesmobile.vn</a> - <a href="http://dienthoaivungtau.com/">www.dienthoaivungtau.com</a></p></div>';
                     echo $information;
                 }
         	}

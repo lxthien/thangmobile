@@ -6,7 +6,8 @@
                   <div class="col-lg-12">
                     <div class="box">
                         <header>
-                            <div class="icons"><i class="fa fa-table"></i></div>
+                            <meta http-equiv="refresh" content="600">
+							<div class="icons"><i class="fa fa-table"></i></div>
                             <h5>MÁY ĐANG SỬA CHỬA</h5>
                         </header>
                         <div id="collapse4" class="body">
@@ -46,12 +47,12 @@
                                         <td><a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'customers/histories/'.$row->customer_id; ?>" target="_blank" class="customer-name"><?php echo getCustomerName($row->customer_id); ?></a></td>
                                         <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                         <td><?php echo $row->phoneImei; ?></td>
-                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #263e81;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
+                                        <td><?php echo $row->notePrivate; ?><?php echo $row->useAccessories == 1 ? '<br><br><b style="display: block; color: #000080;"><u>Đặt linh kiện</u></b>' : ''; ?></td>
                                         <td><?php echo $row->phonePass; ?></td>
                                         <td><?php echo $row->phoneSim; ?></td>
                                         <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>
                                         <td><?php echo formatTime($row->created, true); ?></td>
-                                        <td><?php echo formatTime($row->warrantyPeriodEnd); ?></td>
+                                        <td><b><?php echo formatTime($row->warrantyPeriodEnd); ?></b></td>
                                         <td>
                                             <a style="<?php echo $cssBg.$cssBgVip; ?>" href="<?php echo base_url().'tasks/edit/'.$row->id; ?>" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>
                                         </td>
@@ -367,8 +368,29 @@
     table.table tr td .table tr td:nth-child(1) {
         width: 20%;
     }
+
     table.table tr td a.task-history,
     table.table tr td a.customer-name {
         /* text-decoration: underline; */
+    }
+
+    #dataTableTask1_wrapper .toolbar,
+    #dataTableTask1_wrapper .dataTables_length,
+    #dataTableTask1_wrapper .dataTables_filter {
+        width: 33.33%;
+        display: inline-block;
+    }
+
+    #dataTableTask1_wrapper .toolbar .task-add {
+        padding: 10px 20px;
+        background: #337ab7;
+        color: #fff;
+        margin-right: 15px;
+    }
+
+    #dataTableTask1_wrapper .toolbar .customer-add {
+        padding: 10px 20px;
+        background: #337ab7;
+        color: #fff;
     }
 </style>

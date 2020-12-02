@@ -1,5 +1,5 @@
 <div class="sreennew home-technology col-md-12">
-    <h1 class="h1-title">CÓ THỂ BẠN QUAN TÂM</h1>
+    <h1 class="h1-title">CẨM NANG ĐIỆN THOẠI</h1>
     <div class="line-title">
         <div class="left-30">&nbsp;</div>
         <div class="left-70">&nbsp;</div>
@@ -27,9 +27,6 @@
                     </div>
                     <div class="noidung">
                         <p align="justify"><?php echo $eachNews['content'];?></p>
-                    </div>
-                    <div class="sreenchitiet">
-                        <p class="chitiet"><a href="<?php echo $eachNews['link_rewrite']; ?>">Chi tiết</a></p>
                     </div>
                 </div>
                 <div class="line2"></div>

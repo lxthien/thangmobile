@@ -239,11 +239,12 @@
 
 
                 var tableTask = $('#dataTableTask1').DataTable({
-                    "lengthMenu": [[50, -1], [50, "All"]],
+                    "lengthMenu": [[100, -1], [100, "All"]],
                     "order": [],
                     "oLanguage": {
                         "sSearch": "<span>Search:</span>"
                     },
+                    "dom": '<"toolbar">frtip',
                     draggable: false,
                     "columns": [
                         {
@@ -281,6 +282,8 @@
                     ],
                     "ordering": false
                 });
+
+                $("div.toolbar").html('<a class="task-add" href="<?php echo base_url('tasks/add'); ?>">Nhập máy sửa chữa mới</a><a class="customer-add" href="<?php echo base_url('customers/add'); ?>">Thêm khách hàng mới</a>');
 
                 $('#dataTableTask1 tbody').on('click', 'td.details-control', function () {
                     var tr = $(this).closest('tr');

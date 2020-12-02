@@ -10,7 +10,7 @@
                                 clear: both;
                             }
                             .cls2 {
-                                width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 0px solid #cccccc; margin-top: 20px; font-family: "Arial";
+                                width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 13px; border: 0px solid #cccccc; margin-top: 20px; font-family: "Roboto";
                             }
                             .cls2 .header {
                                 padding: 10px 0;
@@ -22,7 +22,7 @@
                                 width: 100%; margin-top: 20px;
                             }
                             .cls2 .header .logo p {
-                                margin-bottom: 10px; font-size: 10px;
+                                margin-bottom: 15px; font-size: 12px;
                             }
                             .cls2 .address {
                                 width: 62%; float: right;
@@ -43,7 +43,7 @@
                                 width: 50%; float: right;
                             }
                             .pers .right p {
-                                font-size: 13px; margin: 0;
+                                font-size: 12px; margin: 0;
                             }
                             .cls2 .footer {
                                 height: 80px; width: 100%; text-align: right; padding-top: 0px;
@@ -79,7 +79,7 @@
                                 width: 100%; display: inline-flex;
                             }
                             section.table .row-table .col-table {
-                                width: 50%; float: left; font-size: 13px; line-height: 20px;
+                                width: 50%; float: left; font-size: 12px; line-height: 20px;
                             }
                         </style>
                         <div id="printTask">
@@ -90,7 +90,7 @@
                                             clear: both;
                                         }
                                         .cls2 {
-                                            width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 0px solid #cccccc; margin-top: 10px; font-family: "Arial";
+                                            width: 600px; padding: 10px 5px; margin: 0 auto; font-size: 14px; border: 0px solid #cccccc; margin-top: 20px; font-family: "Roboto";
                                         }
                                         .cls2 .header {
                                             padding: 10px 0;
@@ -99,10 +99,10 @@
                                             width: 35%; text-align: center; float: left; border-right: 1px solid #000000; padding-right: 1%; margin-right: 1%;
                                         }
                                         .cls2 .header .logo img{
-                                            width: 100%; margin-top: 20px;
+                                            width: 100%; margin-top: 10px;
                                         }
                                         .cls2 .header .logo p {
-                                            margin-bottom: 10px; font-size: 11px;
+                                            margin-bottom: 15px; font-size: 14px;
                                         }
                                         .cls2 .address {
                                             width: 62%; float: right;
@@ -159,23 +159,23 @@
                                             width: 100%; height: 20px;
                                         }
                                         section.table .row-table .col-table {
-                                            width: 50%; float: left; font-size: 13px; line-height: 20px;
+                                            width: 50%; float: left; font-size: 12px; line-height: 20px;
                                         }
                                     }
                                 </style>
                                 <div class="wrapper">
                                     <div class="header">
                                         <div class="logo">
-                                            <img src="http://yesmobile.vn/assets/admin/assets/img/logo2.png">
-                                            <p>sửa chữa, mua bán smartphone từ 2010</p>
+                                            <img src="http://yesmobile.vn/assets/images/logo-print.png">
+                                            <p>sửa chữa điện thoại từ 2010</p>
                                         </div>
                                         <div class="address">
-                                            <p class="company"><strong>HỆ THỐNG SỬA CHỮA ĐIỆN THOẠI YES MOBILE</strong></p>
-                                            <p>CH 1: 438 Trương Công Định, Phường 8, TP.Vũng Tàu</p>
-                                            <p>CH 2: Đường 28/4, Thôn 6, Xã Long Sơn, TP.Vũng Tàu</p>
-                                            <p>Tel: (0254) 6 557 999 – Email: yesmobile.vn@gmail.com</p>
-                                            <p>Web: www.yesmobile.vn - www.dienthoaivungtau.com</p>
-                                            <p><strong>Kiểm tra tình trạng máy sửa chữa: 0847 72 72 72</strong></p>
+                                            <p class="company"><strong>YES MOBILE | SỬA CHỮA ĐIỆN THOẠI TỪ 2010 </strong></p>
+                                            <p><strong>CH 1</strong>: 438 Trương Công Định, Phường 8, TP.Vũng Tàu</p>
+                                            <p><strong>CH 2</strong>: Đường 28/4, Thôn 6, Xã Long Sơn, TP.Vũng Tàu</p>
+                                            <p><strong>Tel</strong>: (0254) 6 557 999 – <strong>Email</strong>: yesmobile.vn@gmail.com</p>
+                                            <p><strong>Web</strong>: www.yesmobile.vn – <strong>FB</strong>: www.fb.com/yesmobile.vn</p>
+											<p><strong>Kiểm tra tình trạng máy sửa chữa: 0847 72 72 72</strong></p>
                                         </div>
                                     </div>
                                     <div class="cl"></div>
@@ -201,16 +201,16 @@
                                                 <div class="col-table"><?php echo $task->phoneImei; ?></div>
                                               </div>
                                               <div class="row-table">
-                                                <div class="col-table">Sim, Thẻ SD</div>
-                                                <div class="col-table"><?php echo $task->phoneSim; ?></div>
-                                              </div>
-                                              <div class="row-table">
                                                 <div class="col-table">Mật khẩu</div>
                                                 <div class="col-table"><?php echo $task->phonePass; ?></div>
                                               </div>
-                                              <div class="row-table">
-                                                <div class="col-table">Tình trạng máy</div>
+											   <div class="row-table">
+                                                <div class="col-table">Tình trạng lỗi</div>
                                                 <div class="col-table"><strong><?php echo $task->phoneStatus; ?></strong></div>
+                                              </div>
+											 <div class="row-table">
+                                                <div class="col-table">Phụ kiện</div>
+                                                <div class="col-table"><?php echo $task->phoneSim; ?></div>
                                               </div>
                                               <div class="row-table">
                                                 <div class="col-table">Lưu ý</div>
@@ -230,27 +230,26 @@
                                               </div>
                                               <div class="row-table">
                                                 <div class="col-table">Dự kiến sửa xong</div>
-                                                <div class="col-table"><?php echo formatTime($task->warrantyPeriodEnd); ?></div>
+                                                <div class="col-table"><strong><?php echo formatTime($task->warrantyPeriodEnd); ?></strong></div>
                                               </div>
                                         </section>
                                         </div>
                                         <div class="right">
                                             <p><b>Lưu ý:</b></p>
                                             <p>- Quý Khách Hàng sử dụng phiếu này để nhận lại máy sửa chữa. Nếu bị mất phiếu, vui lòng gọi ngay: <strong>0847 72 72 72</strong>.</p>
-                                            <p>- Biên nhận này có giá trị trong thời gian 30 ngày.</p>
+                                            <p>- Trường hợp máy treo logo, lên logo tắt, khi trả lại máy, có thể không trả lại được tình trạng ban đầu.</p>
+											<p>- Biên nhận này có giá trị nhận lại máy trong thời gian <strong>30 ngày</strong>.</p>
                                             <p><b>Các trường hợp từ chối bảo hành:</b></p>
                                             <p>- Các chức năng Yes Mobile không sửa chữa.</p>
-                                            <p>- Phiếu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn. Phiếu bảo hành không có dấu bảo hành.</p>
-                                            <p>- Máy đã từng qua sửa chữa, tự cài đặt phần mềm (hoặc bên thứ 3) trong thời gian bảo hành.</p>
-                                            <p>- Máy bị thấm chất lỏng (do bị ẩm, đi mưa hoặc rớt nước…).</p>
-                                            <p>- Máy bị biến dạng, cong vênh (rớt, va đập, can thiệp ngoài…).</p>
+                                            <p>- Phiếu bảo hành không có dấu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn.</p>
+                                            <p>- Trong thời gian bảo hành: Máy đã từng qua sửa chữa, bị ẩm nước, biến dạng, cong vênh (rớt, va đập...).</p>
                                             <div class="footer">
                                                 <p>Đại diện cửa hàng</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="cl"></div>
-                                <strong>Trân trọng cám ơn Quý khách đã tin tưởng và sử dụng dịch vụ của Yes Mobile!</strong>
+                                <strong>Trân trọng cám ơn Quý khách hàng đã tin tưởng và sử dụng dịch vụ của Yes Mobile!</strong>
                                 </div>
                                 <div class="wrapper-print">
                                     <input id="btnSubmit" type="submit" value="Print" onclick="divPrint();" />

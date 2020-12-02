@@ -48,12 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-/*
 $db['default']['hostname'] = "localhost";
-$db['default']['username'] = "admin_user";
-$db['default']['password'] = "yYGfJuZ3RQkyx5sV";
-$db['default']['database'] = "admin_dienthoaivungtau";
-$db['default']['dbdriver'] = "mysql";
+$db['default']['username'] = "root";
+$db['default']['password'] = "";
+$db['default']['database'] = "dienthoaivungtau";
+$db['default']['dbdriver'] = "mysqli";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = FALSE;
@@ -65,12 +64,12 @@ $db['default']['swap_pre'] = "";
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 $db['default']['counter_tablename'] = "visit_counter";
-*/
 
+/*/
 $db['default']['hostname'] = "localhost";
 $db['default']['username'] = "root";
 $db['default']['password'] = "";
-$db['default']['database'] = "yesmobile";
+$db['default']['database'] = "thangmobile";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;

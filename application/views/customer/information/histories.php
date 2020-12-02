@@ -16,7 +16,7 @@
                                     <th>Loại máy</th>
                                     <th>Imei</th>
                                     <th>Tình trạng</th>
-                                    <th>Báo giá</th>
+                                    <th>Chi phí</th>
                                     <th>Tình trạng</th>
                                     <th>Thời gian nhận máy</th>
                                     <th>Thời gian bảo hành</th>

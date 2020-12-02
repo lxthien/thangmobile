@@ -30,6 +30,7 @@
                                             <th>Ngày</th>
                                             <th>Mã số</th>
                                             <th>Loại máy</th>
+                                            <th>Tình trạng</th>
                                             <th>Tên</th>
                                             <th>Điện thoại</th>
                                             <th>Báo giá</th>
@@ -42,6 +43,7 @@
                                             <td><?php echo $date; ?></td>
                                             <td><?php echo '...'.substr($row->code, strlen($row->code) - 5); ?></td>
                                             <td><?php echo $row->phoneType; ?></td>
+                                            <td><?php echo $row->phoneStatus; ?></td>
                                             <td><?php echo getCustomerName($row->customer_id); ?></td>
                                             <td><?php echo getCustomerPhone($row->customer_id); ?></td>
                                             <td><?php echo is_numeric($row->phonePrice) ? number_format($row->phonePrice) : ($row->phonePrice == '' ? "Kiểm tra, báo giá trước khi sửa chữa" : $row->phonePrice); ?></td>

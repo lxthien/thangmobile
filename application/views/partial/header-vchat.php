@@ -4,37 +4,25 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <?php
-
+//echo $title.$site_name.$meta_title.$meta_key_words.$meta_description;
 if (!isset($site_name)) {
     $site_name = 'Yes Mobile';
-}
-
-if (isset($page)) {
-    $site_name = $site_name . ' - P' . $page;
 }
 
 if (!isset($title)) {
     $title = $this->sconfig->get_value('SEO_TITLE'); // 'Trang chủ';
 }
-
-if (isset($approx_price)){
+if(isset($approx_price)){
     $title = $approx_price;
 }
-
 if (isset($meta_title) && $meta_title !== "") {
     $title = $meta_title;
 }
-
 if (!isset($meta_keywords)) {
     $meta_keywords = $this->sconfig->get_value('SEO_KEYWORDS');;
 }
-
 if (!isset($meta_description)) {
     $meta_description = $this->sconfig->get_value('SEO_DESCRIPTION');;
-} else {
-    if (isset($page)) {
-        $meta_description = $meta_description . ' - P' . $page;
-    }
 }
 ?>
 <html>
@@ -52,9 +40,9 @@ if (!isset($meta_description)) {
         <meta name="ROBOTS" content="INDEX, FOLLOW">
         <meta name="REVISIT-AFTER" content="1 DAYS">
         <meta name="RATING" content="GENERAL">
-		<meta name="Theme-Color" content="#000080" />
-		
-				<!-- Bootstrap CSS -->
+		<meta name="theme-color" content="#00080">
+
+        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
         <!-- Font Awesome -->
@@ -63,9 +51,9 @@ if (!isset($meta_description)) {
         <!-- Custom CSS -->
         <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/style.css?v=<?php echo time(); ?>" rel="stylesheet" />
         <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/style-new.css?v=<?php echo time(); ?>" rel="stylesheet" />
-        <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/jquery.powertip.css" rel="stylesheet" />
-		<!-- <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery-1.7.1.min.js?v=<?php echo time(); ?>"></script> -->
-        <script type="text/javascript" src="<?php echo base_url().'assets/'; ?>js/jquery-1.9.1.min.js?v=<?php echo time(); ?>"></script>
+        <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/jquery.powertip.css" rel="stylesheet" />  
+        <!-- <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery-1.7.1.min.js?v=<?php echo time(); ?>"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery.totemticker.min.js"></script>         
         <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery.powertip-1.1.0.min.js"></script>         
         
@@ -88,15 +76,16 @@ if (!isset($meta_description)) {
 
             gtag('config', 'UA-75747509-2');
         </script>
-        
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://apis.google.com/js/platform.js" async defer>
           {lang: 'vi'}
         </script>
 
         <!-- Import font Roboto -->
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,300italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,500italic,700,300' rel='stylesheet' type='text/css'>
 
+        <!-- Script chat -->
+        <script lang="javascript">var _vc_data = {id : 1315780, secret : '53547d8e58ce4bc94c55011e3ce19e5c'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js?id=1315780';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
     </head>
     <body class="green-color">
         <!-- begin wrap -->
@@ -113,8 +102,8 @@ if (!isset($meta_description)) {
                         <div class="top-header-right">
                             <ul class="menu-top">
                                 <li><a href="<?php echo base_url('gioi-thieu.html'); ?>" title="Giới thiệu">Giới thiệu</a></li>
-                                <li><a href="<?php echo base_url('che-do-bao-hanh.html'); ?>" title="Chế độ bảo hành">Bảo hành</a></li>
-                                <li><a href="<?php echo base_url('tuyen-dung.html'); ?>" title="Tuyển dụng">Tuyển dụng</a></li>
+                                <li><a href="<?php echo base_url('che-do-bao-hanh.html'); ?>" title="Tuyển dụng">Bảo hành</a></li>
+                                <li><a href="<?php echo base_url('tuyen-dung.html'); ?>" title="Liên hệ">Tuyển dụng</a></li>
                             </ul>
                         </div>
                     </div>
@@ -123,7 +112,7 @@ if (!isset($meta_description)) {
                     <div class="col-md-12 ">
                         <div class="logo d-none d-sm-block">
                             <a href="<?php echo base_url(); ?>">
-                                <img src="<?php echo base_url().'assets/images/logo.png'; ?>" alt="Yes Mobile, Yes Mobile Vũng Tàu"/>
+                                <img src="<?php echo base_url().'assets/images/logo.png'; ?>" alt="Yes Mobile"/>
                             </a>
                         </div>
                     </div>

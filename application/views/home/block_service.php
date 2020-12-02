@@ -9,7 +9,7 @@
 				<?php foreach ( $servicesHomepages as $_watch ): ?>
 				<div class="slide">
 					<a class="image" href="<?php echo base_url($_watch->id_news.'-'.$_watch->link_rewrite.URL_TRAIL); ?>">
-						<img src="<?php echo image($_watch->news_icon, 'news_150_80'); ?>" alt="<?php echo $_watch->title; ?>">
+						<img src="<?php echo image($_watch->news_icon, 'news_121_80'); ?>" alt="<?php echo $_watch->title; ?>">
 					</a>
 					<a class="name" href="<?php echo base_url($_watch->id_news.'-'.$_watch->link_rewrite.URL_TRAIL); ?>">
 						<p><?php echo $_watch->title; ?></p>

@@ -112,7 +112,8 @@
             $this->db->from($this->primary_table);
             $this->db->where('taskType', 1);
             $this->db->where('taskStatus', 1);
-            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d H:i:s'));
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d 0:0:0'));
+            $this->db->where('timeClosedTask <=', $datetime->format('Y-m-d 23:59:59'));
             $this->db->where('phonePrice >=', 300000);
             if ($shop == 1) {
                 $this->db->where_in('shop', array(0, 1));
@@ -225,6 +226,13 @@
             $this->db->where('created >=', $datetime->format('Y-m-d H:i:s'));
             $query = $this->db->get();
             
+            return $query->num_rows();
+        }
+
+        public function countTask() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $query = $this->db->get();
             return $query->num_rows();
         }
     }

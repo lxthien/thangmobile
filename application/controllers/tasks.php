@@ -9,6 +9,13 @@
             $this->load->helper('myhelper');
         }
 
+        public function index() {
+            $data['countTasks'] = $this->task_model->countTask();
+            $data['countCustomer'] = $this->customer_model->get_all_customers();
+            
+            $this->load->view('customer/dashboard', $data);
+        }
+
         public function listTask() {
             date_default_timezone_set("Asia/Ho_Chi_Minh");
             

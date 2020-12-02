@@ -15,12 +15,18 @@
 				<div class="noidunggioithieu">
 					<div class="contact-tbl">
 						<div class="contact-tbl-row">
-							<span class="label" style="font-weight: bold;">Địa chỉ:</span>
+							<span class="label" style="font-weight: bold;">Cửa hàng 1:</span>
 							<?php echo $this->sconfig->get_value('address');?>
 						</div>
 						<div class="contact-tbl-row">
 							<span class="label">Cách ngã 3 Nguyễn Tri Phương - Trương Công Định 20m, đi về hướng Nguyễn An Ninh</span>
-						</div>
+						</div></br>
+						<div class="contact-tbl-row">
+							<span class="label" style="font-weight: bold;">Cửa hàng 2: </span>Đường 28/4, Thôn 6, Xã Long Sơn, TP.Vũng Tàu, Bà Rịa Vũng Tàu
+													</div>
+						<div class="contact-tbl-row">
+							<span class="label">Cách chợ Long Sơn 300m, đi về hướng đường Hoàng Sa (Ra QL51)</span>
+						</div></br>
 						<div class="contact-tbl-row">
 							<span class="label" style="font-weight: bold;"> Điện thoại:</span>
 							<?php echo $this->sconfig->get_value('TEL');?>

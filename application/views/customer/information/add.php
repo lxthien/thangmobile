@@ -34,7 +34,7 @@
                                 <div class="form-group">
                                     <label for="pass1" class="control-label col-lg-4">Điện thoại</label>
                                     <div class="col-lg-8">
-                                        <input name="phone" class="form-control" type="text" id="pass1" placeholder="Điện thoại" value="<?php echo $customer->phone; ?>" <?php echo $customer->id != null ? "readonly" : ""; ?> />
+                                        <input name="phone" class="form-control" type="text" id="pass1" placeholder="Điện thoại" value="<?php echo $customer->phone; ?>" />
                                     </div>
                                 </div>
                                 <div class="form-group">
