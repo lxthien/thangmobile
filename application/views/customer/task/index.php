@@ -7,7 +7,7 @@
                     <div class="box">
                         <header>
                             <meta http-equiv="refresh" content="600">
-							<div class="icons"><i class="fa fa-table"></i></div>
+                            <div class="icons"><i class="fa fa-table"></i></div>
                             <h5>MÁY ĐANG SỬA CHỬA</h5>
                         </header>
                         <div id="collapse4" class="body">
@@ -67,7 +67,7 @@
                             </table>
                             <?php else: ?>
                             <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                            <p class="center">Không có yêu cầu nào đang sửa chữa</p>
+                                <p class="center">Không có yêu cầu nào đang sửa chữa</p>
                             </table>
                             <?php endif; ?>
                         </div>
@@ -139,7 +139,7 @@
                             </table>
                             <?php else: ?>
                             <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                            <p class="center">Không có yêu cầu nào đã sửa xong</p>
+                                <p class="center">Không có yêu cầu nào đã sửa xong</p>
                             </table>
                             <?php endif; ?>
                         </div>
@@ -207,7 +207,7 @@
                             </table>
                             <?php else: ?>
                             <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                            <p class="center">Không có yêu cầu nào đã báo khách hàng</p>
+                                <p class="center">Không có yêu cầu nào đã báo khách hàng</p>
                             </table>
                             <?php endif; ?>
                         </div>
@@ -270,7 +270,7 @@
                             </table>
                             <?php else: ?>
                             <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                            <p class="center">Không có yêu cầu nào đã giao cho khách hàng</p>
+                                <p class="center">Không có yêu cầu nào đã giao cho khách hàng</p>
                             </table>
                             <?php endif; ?>
                         </div>
@@ -333,7 +333,7 @@
                             </table>
                             <?php else: ?>
                             <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                            <p class="center">Không có yêu cầu nào đã giao cho khách hàng</p>
+                                <p class="center">Không có yêu cầu nào đã giao cho khách hàng</p>
                             </table>
                             <?php endif; ?>
                         </div>

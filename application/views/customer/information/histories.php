@@ -7,7 +7,7 @@
                     <div class="box">
                         <header>
                             <div class="icons"><i class="fa fa-table"></i></div>
-                            <h5>Lịch sử giao dịch</h5>
+                            <h5>Lịch sử giao dịch - Tổng giao dịch <span style="color: red; font-weight: bold;"><?php echo $totalPrice > 0 ? number_format($totalPrice) : 0; ?></span></h5>
                         </header>
                         <div id="collapse4" class="body">
                             <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -18,6 +18,7 @@
                                     <th>Tình trạng</th>
                                     <th>Chi phí</th>
                                     <th>Tình trạng</th>
+                                    <th>Mật khẩu</th>
                                     <th>Thời gian nhận máy</th>
                                     <th>Thời gian bảo hành</th>
                                 </tr>
@@ -34,8 +35,9 @@
                                             <td>Không sửa được</td>
                                         <?php }  ?>
                                         <td><?php echo $row->taskStatus == 1 ? 'Đã xong':'Chưa xong'; ?></td>
-                                        <td><?php echo formatTime($row->created); ?></td>
-                                        <td><?php echo $row->taskStatus == 1 ? formatTime($row->warrantyPeriod) : 'Chưa có'; ?></td>
+                                        <td><?php echo $row->phonePass; ?></td>
+                                        <td><?php echo formatDate($row->created); ?></td>
+                                        <td><?php echo $row->taskStatus == 1 ? formatDate($row->warrantyPeriod) : 'Chưa có'; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>

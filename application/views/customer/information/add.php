@@ -28,13 +28,13 @@
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-lg-4">Tên</label>
                                     <div class="col-lg-8">
-                                        <input name="name" type="text" id="text1" placeholder="Tên" class="form-control" value="<?php echo $customer->name; ?>">
+                                        <input name="name" type="text" id="text1" placeholder="Tên" class="form-control" value="<?php echo $customer->name; ?>" <?php echo $shop == 0 ? "" : "readonly"; ?>>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="pass1" class="control-label col-lg-4">Điện thoại</label>
                                     <div class="col-lg-8">
-                                        <input name="phone" class="form-control" type="text" id="pass1" placeholder="Điện thoại" value="<?php echo $customer->phone; ?>" />
+                                        <input name="phone" class="form-control" type="text" id="pass1" placeholder="Điện thoại" value="<?php echo $customer->phone; ?>" <?php echo $shop == 0 ? "" : "readonly"; ?> />
                                     </div>
                                 </div>
                                 <div class="form-group">

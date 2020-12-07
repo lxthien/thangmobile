@@ -1,5 +1,5 @@
 <?php
-    class Customers extends Admin_controller {
+    class Customers extends Admin_Controller {
         public function __construct() {
             parent::__construct();
             $this->load->model('customer_model', 'customer_model');
@@ -41,7 +41,7 @@
                             "customer9" => customerRequest($r->id),
                             "customer10" => number_format(countPriceCustomerRequest($r->id)),
                             "customer11" => '<a href="' . base_url().'customers/edit/'.$r->id . '" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>' . '&nbsp;&nbsp;&nbsp;' .
-                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử"><i class="fa fa-history"></i></a>',
+                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử" target="_blank"><i class="fa fa-history"></i></a>',
                             "customer12" => $r->shop != 2 ? 'Vũng tàu' : 'Long Sơn'
                     );
                 } else {
@@ -61,7 +61,7 @@
                             "customer9" => customerRequest($r->id),
                             "customer10" => number_format(countPriceCustomerRequest($r->id)),
                             "customer11" => '<a href="' . base_url().'customers/edit/'.$r->id . '" title="Chỉnh sửa"><i class="fa fa-edit"></i></a>' . '&nbsp;&nbsp;&nbsp;' .
-                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử"><i class="fa fa-history"></i></a>',
+                            '<a href="' . base_url().'customers/histories/'.$r->id. '" title="Lịch sử" target="_blank"><i class="fa fa-history"></i></a>',
                             "customer12" => $r->shop != 2 ? 'Vũng tàu' : 'Long Sơn'
                         );
                     }
@@ -128,10 +128,19 @@
         public function edit() {
             $id = $this->uri->rsegment(3);
             $customer = $this->customer_model->read_by_id($id);
+
+            $shop = 0;
+            if ($this->ion_auth->in_group('members_shopA')) {
+                $shop = 1;
+            } else if ($this->ion_auth->in_group('members_shopB')) {
+                $shop = 2;
+            }
+
             if (!isset($customer) || !$customer) {
                 show_error("Connot find item id " . $id . ' in system');
             } else {
                 $data['customer'] = $customer;
+                $data['shop'] = $shop;
                 $data['view'] = 'customer/information/add';
                 $this->load->view('customer', $data);
             }
@@ -146,6 +155,7 @@
         public function histories() {
             $customerID = $this->uri->rsegment(3);
             $data['tasks'] = $this->task_model->customerRequest($customerID);
+            $data['totalPrice'] = $this->task_model->countPriceCustomerRequest($customerID);
             $data['view'] = 'customer/information/histories';
             $this->load->view('customer', $data);
         }

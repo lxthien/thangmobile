@@ -52,9 +52,22 @@ if (!isset($meta_description)) {
         <meta name="ROBOTS" content="INDEX, FOLLOW">
         <meta name="REVISIT-AFTER" content="1 DAYS">
         <meta name="RATING" content="GENERAL">
-		<meta name="Theme-Color" content="#000080" />
-		
-				<!-- Bootstrap CSS -->
+        <meta name="Theme-Color" content="#000080" />
+
+        <?php
+            if ($image_width) { 
+        ?>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="<?php echo $title; ?> | <?php echo $site_name; ?>" />
+        <meta property="og:description" content="<?php echo $meta_description; ?>" />
+        <meta property="og:image" content="<?php echo $image_url; ?>" />
+        <meta property="og:image:width" content="<?php echo $image_width; ?>" />
+        <meta property="og:image:height" content="<?php echo $image_height; ?>" />
+        <?php
+            }
+        ?>
+        
+        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
         <!-- Font Awesome -->
@@ -64,7 +77,7 @@ if (!isset($meta_description)) {
         <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/style.css?v=<?php echo time(); ?>" rel="stylesheet" />
         <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/style-new.css?v=<?php echo time(); ?>" rel="stylesheet" />
         <link type="text/css" href="<?php echo base_url().'assets/'; ?>css/jquery.powertip.css" rel="stylesheet" />
-		<!-- <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery-1.7.1.min.js?v=<?php echo time(); ?>"></script> -->
+        <!-- <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery-1.7.1.min.js?v=<?php echo time(); ?>"></script> -->
         <script type="text/javascript" src="<?php echo base_url().'assets/'; ?>js/jquery-1.9.1.min.js?v=<?php echo time(); ?>"></script>
         <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery.totemticker.min.js"></script>         
         <script language="JavaScript" src="<?php echo base_url().'assets/'; ?>js/jquery.powertip-1.1.0.min.js"></script>         

@@ -166,7 +166,7 @@
                                 <div class="wrapper">
                                     <div class="header">
                                         <div class="logo">
-                                            <img src="http://yesmobile.vn/assets/images/logo-print.png">
+                                            <img src="https://yesmobile.vn/assets/images/logo-print.png">
                                             <p>sửa chữa điện thoại từ 2010</p>
                                         </div>
                                         <div class="address">
@@ -175,7 +175,7 @@
                                             <p><strong>CH 2</strong>: Đường 28/4, Thôn 6, Xã Long Sơn, TP.Vũng Tàu</p>
                                             <p><strong>Tel</strong>: (0254) 6 557 999 – <strong>Email</strong>: yesmobile.vn@gmail.com</p>
                                             <p><strong>Web</strong>: www.yesmobile.vn – <strong>FB</strong>: www.fb.com/yesmobile.vn</p>
-											<p><strong>Kiểm tra tình trạng máy sửa chữa: 0847 72 72 72</strong></p>
+                                            <p><strong>Kiểm tra tình trạng máy sửa chữa: 0847 72 72 72</strong></p>
                                         </div>
                                     </div>
                                     <div class="cl"></div>
@@ -204,11 +204,11 @@
                                                 <div class="col-table">Mật khẩu</div>
                                                 <div class="col-table"><?php echo $task->phonePass; ?></div>
                                               </div>
-											   <div class="row-table">
+                                               <div class="row-table">
                                                 <div class="col-table">Tình trạng lỗi</div>
                                                 <div class="col-table"><strong><?php echo $task->phoneStatus; ?></strong></div>
                                               </div>
-											 <div class="row-table">
+                                             <div class="row-table">
                                                 <div class="col-table">Phụ kiện</div>
                                                 <div class="col-table"><?php echo $task->phoneSim; ?></div>
                                               </div>
@@ -238,7 +238,7 @@
                                             <p><b>Lưu ý:</b></p>
                                             <p>- Quý Khách Hàng sử dụng phiếu này để nhận lại máy sửa chữa. Nếu bị mất phiếu, vui lòng gọi ngay: <strong>0847 72 72 72</strong>.</p>
                                             <p>- Trường hợp máy treo logo, lên logo tắt, khi trả lại máy, có thể không trả lại được tình trạng ban đầu.</p>
-											<p>- Biên nhận này có giá trị nhận lại máy trong thời gian <strong>30 ngày</strong>.</p>
+                                            <p>- Biên nhận này có giá trị nhận lại máy trong thời gian <strong>30 ngày</strong>.</p>
                                             <p><b>Các trường hợp từ chối bảo hành:</b></p>
                                             <p>- Các chức năng Yes Mobile không sửa chữa.</p>
                                             <p>- Phiếu bảo hành không có dấu bảo hành, tem bảo hành bị tẩy xóa, chỉnh sửa, không còn nguyên vẹn.</p>
@@ -258,7 +258,7 @@
                                       function divPrint() {
                                         var newWindow = window.open('','printwindow');
                                         newWindow.document.write('<html><head><title>In hóa đơn!</title>');
-                                        newWindow.document.write('<link rel="stylesheet" type="text/css" href="http://dienthoaivungtau.com/assets/admin/assets/font/stylesheet.css" media="print">');
+                                        newWindow.document.write('<link rel="stylesheet" type="text/css" href="https://yesmobile.vn/assets/admin/assets/font/stylesheet.css" media="print">');
                                         newWindow.document.write('</head><body>');
                                         newWindow.document.write(document.getElementById("printTask").innerHTML);
                                         newWindow.document.write('</body></html>');

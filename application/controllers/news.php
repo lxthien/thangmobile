@@ -456,6 +456,14 @@ class News extends MY_Controller {
             $this->site_meta_data['meta_title'] = $post->meta_title;
             $this->site_meta_data['meta_description'] = $post->meta_description;
             $this->site_meta_data['meta_keywords'] = $post->meta_keywords;
+            
+            list($width, $height) = @getimagesize(substr($post->news_icon, 1));
+            
+            if ($width) {
+                $this->site_meta_data['image_url'] = base_url($post->news_icon);
+                $this->site_meta_data['image_width'] = !empty($width) ? $width : 500;
+                $this->site_meta_data['image_height'] = !empty($height) ? $height : 500;
+            }
         } else {
             if (isset($post->title)) {
                 $this->site_meta_data['title'] = $post->title;

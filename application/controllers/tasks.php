@@ -1,5 +1,5 @@
 <?php
-    class Tasks extends Admin_controller {
+    class Tasks extends Admin_Controller {
         public function __construct() {
             parent::__construct();
             $this->load->model('task_model', 'task_model');
@@ -26,14 +26,30 @@
                 $shop = 2;
             }
 
-            $data['tasks'] = $this->task_model->readListDoing($shop);
-            $data['tasksFinish'] = $this->task_model->readListFinish($shop);
-            $data['tasksNotifiedCustomer'] = $this->task_model->readListNotifiedCustomer($shop);
-            $data['tasksCustomerReceived'] = $this->task_model->readListCustomerReceived($shop);
-            $data['tasksCustomerReceivedWithPrice'] = $this->task_model->readListCustomerReceivedWithPrice($shop);
-            $data['view'] = 'customer/task/index';
-            
-            $this->load->view('customer', $data);
+            if ($shop != 0) {
+                $data['tasks'] = $this->task_model->readListDoing($shop);
+                $data['tasksFinish'] = $this->task_model->readListFinish($shop);
+                $data['tasksNotifiedCustomer'] = $this->task_model->readListNotifiedCustomer($shop);
+                $data['tasksCustomerReceived'] = $this->task_model->readListCustomerReceived($shop);
+                $data['tasksCustomerReceivedWithPrice'] = $this->task_model->readListCustomerReceivedWithPrice($shop);
+                $data['view'] = 'customer/task/index';
+                
+                $this->load->view('customer', $data);
+            } else {
+                $data['tasksVT'] = $this->task_model->readListVTDoing();
+                $data['tasksLS'] = $this->task_model->readListLSDoing();
+                $data['tasksFinishVT'] = $this->task_model->readListVTFinish();
+                $data['tasksFinishLS'] = $this->task_model->readListLSFinish();
+                $data['tasksNotifiedCustomerVT'] = $this->task_model->readListVTNotifiedCustomer();
+                $data['tasksNotifiedCustomerLS'] = $this->task_model->readListLSNotifiedCustomer();
+                $data['tasksCustomerReceivedVT'] = $this->task_model->readListVTCustomerReceived();
+                $data['tasksCustomerReceivedLS'] = $this->task_model->readListLSCustomerReceived();
+                $data['tasksCustomerReceivedWithPriceVT'] = $this->task_model->readListVTCustomerReceivedWithPrice();
+                $data['tasksCustomerReceivedWithPriceLS'] = $this->task_model->readListLSCustomerReceivedWithPrice();
+
+                $data['view'] = 'customer/task/indexAdmin';
+                $this->load->view('customer', $data);
+            }
         }
 
         function listToday() {

@@ -46,6 +46,34 @@
             return $query->result();
         }
 
+        public function readListVTDoing() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 0);
+            $this->db->where('technicalFinish', 0);
+            $this->db->where('notificationCustomer', 0);
+            $this->db->where_in('shop', array(0, 1));
+            $this->db->order_by("warrantyPeriodEnd", "asc");
+            
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListLSDoing() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 0);
+            $this->db->where('technicalFinish', 0);
+            $this->db->where('notificationCustomer', 0);
+            $this->db->where_in('shop', array(2));
+            $this->db->order_by("warrantyPeriodEnd", "asc");
+            
+            $query = $this->db->get();
+            return $query->result();
+        }
+
         public function readListFinish($shop = null) {
             $this->db->select('*');
             $this->db->from($this->primary_table);
@@ -65,6 +93,32 @@
             return $query->result();
         }
 
+        public function readListVTFinish() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 0);
+            $this->db->where_in('technicalFinish', array(1, 2));
+            $this->db->where('notificationCustomer', 0);
+            $this->db->where_in('shop', array(0, 1));
+            $this->db->order_by("created", "asc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListLSFinish() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 0);
+            $this->db->where_in('technicalFinish', array(1, 2));
+            $this->db->where('notificationCustomer', 0);
+            $this->db->where_in('shop', array(2));
+            $this->db->order_by("created", "asc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
         public function readListNotifiedCustomer($shop = null) {
             $this->db->select('*');
             $this->db->from($this->primary_table);
@@ -78,6 +132,30 @@
             } else if ($shop == 0) {
                 $this->db->where_in('shop', array(0, 1, 2));
             }
+            $this->db->order_by("created", "asc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListVTNotifiedCustomer() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 0);
+            $this->db->where('notificationCustomer', 1);
+            $this->db->where_in('shop', array(0, 1));
+            $this->db->order_by("created", "asc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListLSNotifiedCustomer() {
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 0);
+            $this->db->where('notificationCustomer', 1);
+            $this->db->where_in('shop', array(2));
             $this->db->order_by("created", "asc");
             $query = $this->db->get();
             return $query->result();
@@ -104,6 +182,36 @@
             return $query->result();
         }
 
+        public function readListVTCustomerReceived() {
+            $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            $datetime->sub(new DateInterval('P2D'));
+
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d H:i:s'));
+            $this->db->where_in('shop', array(0, 1));
+            $this->db->order_by("timeClosedTask", "desc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListLSCustomerReceived() {
+            $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            $datetime->sub(new DateInterval('P2D'));
+
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d H:i:s'));
+            $this->db->where_in('shop', array(2));
+            $this->db->order_by("timeClosedTask", "desc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
         public function readListCustomerReceivedWithPrice($shop = null) {
             $datetime = new DateTime(date('Y-m-d H:i:s', time()));
             $datetime->sub(new DateInterval('P2D'));
@@ -122,6 +230,40 @@
             } else if ($shop == 0) {
                 $this->db->where_in('shop', array(0, 1, 2));
             }
+            $this->db->order_by("timeClosedTask", "desc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListVTCustomerReceivedWithPrice() {
+            $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            $datetime->sub(new DateInterval('P2D'));
+
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d 0:0:0'));
+            $this->db->where('timeClosedTask <=', $datetime->format('Y-m-d 23:59:59'));
+            $this->db->where('phonePrice >=', 300000);
+            $this->db->where_in('shop', array(0, 1));
+            $this->db->order_by("timeClosedTask", "desc");
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function readListLSCustomerReceivedWithPrice() {
+            $datetime = new DateTime(date('Y-m-d H:i:s', time()));
+            $datetime->sub(new DateInterval('P2D'));
+
+            $this->db->select('*');
+            $this->db->from($this->primary_table);
+            $this->db->where('taskType', 1);
+            $this->db->where('taskStatus', 1);
+            $this->db->where('timeClosedTask >=', $datetime->format('Y-m-d 0:0:0'));
+            $this->db->where('timeClosedTask <=', $datetime->format('Y-m-d 23:59:59'));
+            $this->db->where('phonePrice >=', 300000);
+            $this->db->where_in('shop', array(2));
             $this->db->order_by("timeClosedTask", "desc");
             $query = $this->db->get();
             return $query->result();
